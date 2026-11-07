@@ -1,8 +1,7 @@
 ---
 layout: post
 example: false
-title: "Radar do dia · Análise Sonnar"
-subtitle: "Bálsamo reparador Cicaplast Baume B5+ 40 ml"
+title: "Bálsamo reparador Cicaplast Baume B5+ 40 ml"
 date: 2026-11-07 02:01:00 -0300
 summary: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: nota 4,9/5 em 122.968 opiniões, elogios, pontos de atenção e histórico de preço."
 description: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: opiniões de compradores, histórico de preço e posição entre cremes reparadores comparáveis."
