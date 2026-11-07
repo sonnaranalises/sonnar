@@ -31,6 +31,20 @@ Exigir WCAG AA: texto Carbon Black sobre Paprika; texto Carbon Black sobre fundo
 
 Manter fontes locais e licenças OFL. Não usar Orbitron como substituta.
 
+## Logotipo
+
+A marca aprovada é o S de ondas de sonar, com o ponto em Spicy Paprika `#eb5e28` e o campo em Carbon Black `#252422`. As ondas são Floral White; a onda interna é um cinza mais baixo. O arquivo completo traz o ícone e a palavra **sonnar** em minúsculas, na mesma cor clara.
+
+Arquivos no repositório, em `assets/brand/`:
+
+- `sonnar-icone-perfil-1024.png` — só o ícone, 1024 px.
+- `sonnar-logo-completa-1024.png` — ícone e a palavra sonnar, 1024 px.
+- Favicons gerados a partir do ícone: `favicon.ico`, 32 px, 180 px (apple-touch), 192 px e 512 px.
+
+No cabeçalho do site, o ícone fica ao lado do nome Sonnar Análises, entre 28 e 36 px. O cabeçalho é escuro (Charcoal Brown), então o ícone entra com o próprio fundo Carbon Black, em cantos levemente arredondados. Em fundo claro, o ícone precisa de um tile ou círculo Carbon Black para o S claro não sumir.
+
+A imagem padrão de Open Graph e Twitter, quando o post não tem imagem própria, é a logo completa centralizada em campo Carbon Black (`assets/og.png`). Não redesenhar as ondas nem trocar a cor do ponto.
+
 ## Site e bloco de produtos
 
 Logo abaixo da transparência, o bloco **Produtos no radar do dia** tem cinco linhas compactas: nome com categoria, preço, botão pequeno **Ver no Mercado Livre** e legenda **Link de afiliado**. Não criar cartões grandes, descrições, fotos ou parágrafos separados nesse bloco. A meta é cerca de um terço da altura anterior em tela equivalente. Em celular, permitir duas linhas por item sem rolagem horizontal nem texto minúsculo.
