@@ -1,36 +1,39 @@
 ---
 layout: post
 example: false
-title: "Radar do dia: Cicaplast Baume B5+ 40 ml"
+title: "Radar do dia · Análise Sonnar"
+subtitle: "Bálsamo reparador Cicaplast Baume B5+ 40 ml"
 date: 2026-11-07 02:01:00 -0300
-summary: "Hidratação e conforto nos elogios; lacre, embalagem e textura entre as críticas."
-description: "Cicaplast Baume B5+ 40 ml: opiniões de compradores, histórico de preço e posição entre cremes reparadores comparáveis."
+summary: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: nota 4,9/5 em 122.968 opiniões, elogios, pontos de atenção e histórico de preço."
+description: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: opiniões de compradores, histórico de preço e posição entre cremes reparadores comparáveis."
 products_note: "Preços das ofertas principais: Mercado Livre, 07/11/2026, 01:20–01:21 (Brasília)."
 products:
-  - name: "La Roche-Posay Cicaplast Baume B5+ 40 ml"
-    price: "**R$ 64,37 no Pix** ou R$ 71,52 em outros meios."
+  - name: "Bálsamo reparador Cicaplast Baume B5+ La Roche-Posay 40 ml"
+    price: "**R$ 64,37** no Pix ou **R$ 71,52** em outros meios."
     url: "https://meli.la/2xNE62Z"
-  - name: "ISDIN Fusion Water Magic Color FPS 50 Clara"
+  - name: "Protetor solar facial com cor ISDIN Fusion Water Magic Color FPS 50 Clara 50 ml"
     price: "**R$ 82,19**"
     url: "https://meli.la/2Audubm"
-  - name: "Principia CH-01"
+  - name: "Creme hidratante facial Principia CH-01 50 g"
     price: "**R$ 39,00**"
     url: "https://meli.la/2pQgvfy"
-  - name: "NIVEA Óleo de Banho 2 × 200 ml"
+  - name: "Sabonete líquido óleo de banho NIVEA 2 × 200 ml"
     price: "**R$ 49,90**"
     url: "https://meli.la/1YH7nqe"
-  - name: "Medicube Zero Pore Pad 2.0"
+  - name: "Almofadas tônicas faciais Medicube Zero Pore Pad 2.0 · 70 unidades"
     price: "**R$ 171,10**"
     url: "https://meli.la/32Ns6GC"
 ---
 
-# Cicaplast Baume B5+ 40 ml
+## Nota e opiniões
 
-**Sonnar Análises — Detectando boas escolhas**
+O anúncio reúne <span class="num">122.968</span> opiniões, com nota <span class="num">4,9/5</span>. Hidratação, maciez e conforto são destaques nos elogios.
+
+<sub>* Fonte: Mercado Livre, 07/11/2026, 01:20–01:21 (Brasília).</sub>
 
 ## O que é
 
-É um creme para hidratar, acalmar e ajudar a reparar a barreira da pele, segundo o fabricante.
+É um bálsamo multirreparador para rosto, corpo e lábios, indicado para hidratar, acalmar e ajudar a reparar a barreira da pele, segundo o fabricante.
 
 - **Conteúdo:** 40 ml.
 - **Áreas de uso:** rosto, corpo e lábios, em pele íntegra. Evitar o contorno dos olhos.
@@ -38,12 +41,6 @@ products:
 - **Perfume:** sem perfume, segundo o fabricante.
 
 <sub>* Fonte: página oficial Cicaplast Baume B5+, La Roche-Posay, 07/11/2026, 01:32 (Brasília).</sub>
-
-## Nota e opiniões
-
-O anúncio reúne **122.968 opiniões**, com **nota 4,9/5**.
-
-<sub>* Fonte: Mercado Livre, 07/11/2026, 01:20–01:21 (Brasília).</sub>
 
 ## O que as opiniões positivas destacam
 
@@ -57,7 +54,7 @@ As opiniões positivas destacam hidratação, maciez e conforto. Também mencion
 
 ## O que as críticas apontam
 
-As críticas começam pelos relatos de falta de lacre ou selo e pelas dúvidas dos compradores sobre a condição de recebimento. Depois aparecem embalagem aberta, amassada, danificada ou com vazamento; sensação oleosa ou insatisfação com a consistência; pouco ou nenhum resultado percebido; relatos de irritação, alergia ou acne; e insatisfação com preço, tamanho ou quantidade recebida.
+Nas críticas, aparecem sensação oleosa, insatisfação com a consistência ou com o resultado percebido e relatos de irritação, alergia ou acne. Também há queixas sobre lacre, embalagem danificada ou vazamento, além de preço e tamanho.
 
 > A caixa veio totalmente amassada e o produto sem lacre e vazando.
 
@@ -65,25 +62,25 @@ As críticas começam pelos relatos de falta de lacre ou selo e pelas dúvidas d
 
 > Tive alergia e achei muito oleoso.
 
-As menções ao lacre são relatos dos compradores sobre o recebimento. Confira o lacre e a integridade da embalagem ao receber. Se encontrar algum problema, registre e procure o atendimento da plataforma.
+Sobre o recebimento, confira o lacre e a integridade da embalagem. As queixas citadas acima são relatos dos compradores.
 
 <sub>* Fonte: opiniões de compradores no Mercado Livre, 07/11/2026, aproximadamente 01:53 (Brasília). Trechos literais, sem identificação dos autores.</sub>
 
 ## Histórico de preço
 
-No histórico consultado, os preços encontrados foram **R$ 60,79 como menor valor**, **R$ 69,10 de média** e **R$ 72,60 como maior valor**. No anúncio consultado, o preço é **R$ 64,37 no Pix**.
+No histórico consultado, os preços encontrados foram <span class="num">R$ 60,79</span> como menor valor, <span class="num">R$ 69,10</span> de média e <span class="num">R$ 72,60</span> como maior valor. No anúncio consultado, o preço é <span class="num">R$ 64,37</span> no Pix.
 
 <sub>* Histórico: RedeAchados, período de 23/09 a 06/11/2026; consulta em 07/11/2026, aproximadamente 01:30. O histórico pode incluir outros anúncios do mesmo produto. Anúncio: Mercado Livre, 07/11/2026, 01:20–01:21 (Brasília).</sub>
 
 ## Como fica entre produtos comparáveis
 
-No recorte de cremes reparadores com volume informado em mililitros, o Cicaplast tem **40 ml**, o mesmo tamanho médio das outras opções comparadas.
+No recorte de cremes reparadores com volume informado em mililitros, o Cicaplast tem 40 ml, o mesmo tamanho médio das outras opções comparadas.
 
-O preço no Pix, de **R$ 64,37**, fica entre os valores de **R$ 59,16 e R$ 80,26** encontrados nesse recorte. A média das outras opções é **R$ 69,71**.
+O preço no Pix, de <span class="num">R$ 64,37</span>, fica entre os valores de <span class="num">R$ 59,16</span> e <span class="num">R$ 80,26</span> encontrados nesse recorte. A média das outras opções é <span class="num">R$ 69,71</span>.
 
-Por quantidade, são **R$ 16,09 a cada 10 ml** no Pix. Nas outras opções, o custo vai de **R$ 14,79 a R$ 20,07 por 10 ml**, com média de **R$ 17,43**. Em outros meios de pagamento, o Cicaplast fica em **R$ 17,88 por 10 ml**.
+Por quantidade, são <span class="num">R$ 16,09</span> a cada 10 ml no Pix. Nas outras opções, o custo vai de <span class="num">R$ 14,79</span> a <span class="num">R$ 20,07</span> por 10 ml, com média de <span class="num">R$ 17,43</span>. Em outros meios de pagamento, o Cicaplast fica em <span class="num">R$ 17,88</span> por 10 ml.
 
-A **nota 4,9** é igual à das opções desse recorte.
+A nota <span class="num">4,9</span> é igual à das opções desse recorte.
 
 <sub>* Fonte: Mercado Livre, 07/11/2026. Cicaplast: 01:20–01:21; demais produtos: aproximadamente 01:57 (Brasília).</sub>
 
@@ -91,7 +88,7 @@ A **nota 4,9** é igual à das opções desse recorte.
 
 ## Em resumo
 
-As opiniões positivas destacam hidratação e conforto. As críticas citam textura, resultados percebidos e relatos de reações. Sobre o recebimento, vale conferir o lacre e a embalagem.
+Com nota <span class="num">4,9/5</span> em <span class="num">122.968</span> opiniões, o anúncio tem uma avaliação geral muito positiva. Hidratação, maciez e conforto se destacam nos elogios. Os pontos de atenção ficam na adaptação à textura, nos relatos de reações e nas condições de recebimento.
 
 O preço atual fica dentro da faixa encontrada no histórico e entre os valores dos produtos comparáveis.
 

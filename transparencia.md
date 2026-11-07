@@ -2,26 +2,21 @@
 layout: page
 title: Transparência
 permalink: /transparencia/
-description: Como a Sonnar Análises ganha dinheiro com links de afiliado do Mercado Livre, sem mudar a análise.
+description: Os links de produtos da Sonnar Análises são de afiliado do Mercado Livre, sem custo adicional na compra.
 ---
 
-## Como ganhamos dinheiro
+## Como os links ajudam a manter a Sonnar Análises
 
-Alguns links deste site levam ao Mercado Livre com um código de afiliado. Se uma compra é concluída a partir desse link, a Sonnar Análises pode receber uma comissão. Para quem compra, o preço é o mesmo da página sem o código.
+Os links de produtos nos nossos relatórios são de afiliado do Mercado Livre. Se você acessar um deles e fizer uma compra que se enquadre nas regras do programa, podemos receber uma comissão, sem custo adicional na sua compra.
 
-Isso é publicidade identificada. Cada análise abre com este aviso: "Transparência: os links desta página são de afiliado. Se eles forem úteis pra você, a comissão ajuda a Sonnar a continuar no ar, sem custo adicional na sua compra e sem influenciar o que escrevemos."
+Você encontra esse aviso no começo de cada relatório. Ao lado de cada acesso ao anúncio, a indicação “Link de afiliado” também fica visível.
 
-## O que a comissão não faz
+## De onde vêm as informações
 
-Não escolhe o produto do dia, não muda o elogio, a reclamação nem a conclusão. Os quatro complementos não ganham texto de venda: a lista fica em nome, preço e link, também identificados.
+Consultamos o anúncio, as informações do fabricante, opiniões de compradores e fontes de histórico de preço. As notas ao longo do relatório mostram a origem e o momento da consulta. Preço, vendedor e disponibilidade podem mudar depois disso.
 
-Um produto pode ser criticado na mesma página do link. A comissão não compra uma conclusão favorável.
+As citações de compradores são trechos reais, sem identificação de quem escreveu. As informações do fabricante são apresentadas como tal. Não simulamos testes ou experiência de uso.
 
-## Como o link aparece
+## O que acontece ao abrir um anúncio
 
-O link do produto é um botão com o texto "Ver no Mercado Livre". Embaixo dele, em tipo menor, está "Link de afiliado". Não usamos encurtador: o endereço é o do destino, completo. O link abre em outra aba e leva `rel="sponsored nofollow noopener"`: `sponsored` marca a relação comercial, `nofollow` não trata o link como endosso editorial e `noopener` evita que a página de destino controle a janela de origem.
-
-<aside class="callout">
-  <p class="callout-title">O que isto não é</p>
-  <p>Não é conselho de compra. A página descreve o produto e a oferta. Quem lê decide se o preço e o item fazem sentido para o próprio uso.</p>
-</aside>
+O link leva para fora deste site. A venda, o pagamento, a entrega e o atendimento da compra ficam com a plataforma e com o vendedor, conforme as condições apresentadas no anúncio. A Sonnar Análises não é uma loja nem representante oficial do Mercado Livre.

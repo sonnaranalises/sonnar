@@ -1,21 +1,14 @@
 ---
 layout: default
 title: Radar do dia
-description: Análises de produto em português claro. O Radar do dia descreve um item e lista quatro complementos. Quem lê é quem decide.
+description: Um produto em foco e outros quatro para conhecer. O Radar do dia reúne o que o produto oferece, as opiniões de quem comprou e o preço nas fontes consultadas.
 ---
 <div class="home">
   <header class="home-header">
-    <p class="kicker">Radar do dia</p>
-    <h1>Detectando boas escolhas</h1>
-    <p class="lede">A Sonnar Análises publica uma leitura por dia, em português claro, de um produto à venda. A página reúne a ficha, o que as avaliações elogiam e reclamam, e uma leitura do preço separada da qualidade. Quatro outros itens aparecem só com nome, preço e link. Quem decide é quem lê.</p>
-    <aside class="callout">
-      <p class="callout-title">Propósito</p>
-      <p>Fornecer informação organizada para uma escolha mais consciente. A Sonnar Análises não decide pelo leitor.</p>
-    </aside>
-    <p class="home-links">
-      <a href="{{ '/sobre/' | relative_url }}">Como analisamos</a>
-      <a href="{{ '/transparencia/' | relative_url }}">Como ganhamos dinheiro</a>
-    </p>
+    <h1>Radar do dia</h1>
+    <p class="lede">Um produto em foco e outros quatro para você conhecer. No Radar do dia, a Sonnar Análises reúne o que o produto oferece, o que aparece nas opiniões de quem comprou e como o preço se comportou nas fontes consultadas.</p>
+    <p>Os links dos cinco produtos ficam no começo de cada relatório. Logo depois vem a análise do destaque, com os elogios, os pontos de atenção e os dados que ajudam a colocar a oferta em contexto.</p>
+    <p>Quer acompanhar? Os relatórios publicados estão aqui, do mais recente para o mais antigo.</p>
   </header>
 
   <section class="latest" aria-labelledby="ultimas">
@@ -31,6 +24,7 @@ description: Análises de produto em português claro. O Radar do dia descreve u
           {% if post.example %}<span class="badge">Exemplo</span>{% endif %}
         </p>
         <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+        {% if post.subtitle %}<p class="entry-sub">{{ post.subtitle | escape }}</p>{% endif %}
         <p class="entry-summary">{{ post.summary | default: post.description | escape }}</p>
       </article>
       {% endfor %}

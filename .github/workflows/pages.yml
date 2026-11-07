@@ -3,6 +3,7 @@ name: Publicar o site
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -35,11 +36,13 @@ jobs:
         run: python3 script/verificar.py "$GITHUB_WORKSPACE/_site"
 
       - name: Enviar o artefato
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
