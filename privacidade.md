@@ -1,38 +1,22 @@
 ---
 layout: page
-title: Política de privacidade
+title: Privacidade
 permalink: /privacidade/
-description: A Sonnar Análises não tem cadastro, não usa analytics e não grava cookies. Nota simples, alinhada à LGPD.
+description: A visita aos relatórios da Sonnar Análises não pede cadastro. As fontes ficam no próprio site e os links de produtos saem para o Mercado Livre.
 ---
 
-Nota de 7 de novembro de 2026. O site é estático.
+## Sua visita ao site
 
-## Quem publica
+Você pode ler os relatórios sem criar uma conta na Sonnar Análises. O site é publicado no GitHub Pages. Na versão atual, não há formulário de cadastro nem scripts externos de medição ou publicidade no HTML das páginas; as fontes são carregadas do próprio site.
 
-O responsável pelo site é o projeto Sonnar Análises. Não há cadastro nem área logada.
+A hospedagem pode tratar informações técnicas de acesso, como o endereço IP, para entregar e proteger as páginas. Esse tratamento segue a [Declaração de Privacidade do GitHub](https://docs.github.com/pt/site-policy/privacy-policies/github-general-privacy-statement). Por isso, não afirmamos que visitar um site significa não haver nenhum registro técnico.
 
-## O que não coletamos
+## Links de produtos
 
-Não há conta, formulário, comentário, newsletter nem ferramenta de analytics. Não mantemos banco de nomes, e-mails ou histórico de leitura. Não vendemos dados de leitores: não há essa base.
+Nossos links de afiliado levam ao Mercado Livre. Ao abri-los, você passa a navegar em outro serviço, que tem suas próprias regras de privacidade e pode usar cookies ou outros mecanismos para registrar a visita e atribuir compras ao programa de afiliados. Consulte a [Declaração de Privacidade do Mercado Livre](https://www.mercadolivre.com.br/privacidade).
 
-## Cookies
+A Sonnar Análises não recebe os dados do seu cartão nem processa o pagamento da compra feita na plataforma.
 
-A Sonnar Análises não cria cookies. Não usamos cookies de publicidade nem de medição de audiência.
+## Se o site mudar
 
-## Terceiros
-
-As páginas são servidas pelo GitHub Pages. A plataforma pode guardar registros técnicos de acesso, como endereço IP e tipo de navegador, segundo a política dela. Esses registros não são um painel nosso.
-
-As famílias tipográficas (Michroma, Space Grotesk, Inter e IBM Plex Mono) estão hospedadas neste próprio site. Abrir uma página não dispara pedido a uma rede de anúncios nem ao serviço Google Fonts.
-
-Se você segue um link de afiliado, sai da Sonnar Análises. A partir daí vale a política do site de destino — no fluxo real, o Mercado Livre. Não inserimos pixel nosso nesses links.
-
-## Seus direitos
-
-A LGPD assegura, entre outros, o direito de saber se tratamos dados pessoais e de pedir acesso ou correção. Como não mantemos cadastro de leitores, não há perfil para entregar.
-
-Dúvidas sobre esta nota podem ser enviadas pelo <a class="external" href="https://github.com/sonnaranalises/sonnar" target="_blank" rel="noopener">repositório do projeto<span class="sr-only"> (abre em uma nova aba)</span></a>.
-
-## Atualizações
-
-Se esta nota mudar, a data no início muda junto.
+Se adicionarmos cadastro, formulários ou ferramentas de medição, esta página será atualizada para explicar o que muda e quais informações passam a ser tratadas.

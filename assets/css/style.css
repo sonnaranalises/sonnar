@@ -1,11 +1,8 @@
-/* Sonnar Análises
-   Paleta do brand book v1.2 (tema da página):
-   Electric Teal #00AEBB, Warm Ivory #EBE4D3, Ink Black #031211.
-   O teal puro fica abaixo do contraste mínimo em texto pequeno sobre
-   papel claro (cerca de 2,7:1). Texto corrido usa --teal-text, o mesmo
-   matiz escurecido. O teal da marca permanece no logotipo, nas réguas
-   e sobre o ink, onde passa de 7:1.
-   Famílias do catálogo Google Fonts, arquivos locais sob OFL. */
+/* Sonnar Análises — paleta v2.
+   Floral White #fffcf2, Silver #ccc5b9, Charcoal Brown #403d39,
+   Carbon Black #252422, Spicy Paprika #eb5e28.
+   Paprika sobre o fundo claro só em número grande e negrito (3,3:1).
+   Botão: Carbon Black sobre Paprika (4,5:1). Fontes locais, licença OFL. */
 
 @font-face {
   font-family: "IBM Plex Mono";
@@ -71,12 +68,16 @@
 }
 
 :root {
-  --teal: #00aebb;
-  --teal-text: #005861;
-  --ivory: #ebe4d3;
-  --ink: #031211;
-  --paper: #fffdf9;
-  --line: rgba(3, 18, 17, 0.14);
+  --paper: #fffcf2;
+  --silver: #ccc5b9;
+  --charcoal: #403d39;
+  --carbon: #252422;
+  --paprika: #eb5e28;
+  --ink: #252422;
+  --ivory: #fffcf2;
+  --teal: #eb5e28;
+  --teal-text: #403d39;
+  --line: #ccc5b9;
   --font-logo: "Michroma", sans-serif;
   --font-display: "Space Grotesk", "Segoe UI", sans-serif;
   --font-body: "Inter", "Segoe UI", sans-serif;
@@ -231,7 +232,9 @@ a:hover {
 }
 
 .site-header {
-  border-bottom: 1px solid var(--line);
+  background: var(--charcoal);
+  color: var(--paper);
+  border-bottom: 1px solid var(--charcoal);
 }
 
 .header-inner {
@@ -271,7 +274,7 @@ a:hover {
   font-size: 0.92rem;
   letter-spacing: 0.14em;
   line-height: 1;
-  color: var(--teal);
+  color: var(--paper);
 }
 
 .logo-analises {
@@ -280,7 +283,7 @@ a:hover {
   font-size: 0.98rem;
   letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--ink);
+  color: var(--paper);
 }
 
 .nav-list,
@@ -301,18 +304,18 @@ a:hover {
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--paper);
 }
 
 .nav-list a:hover,
 .nav-list a:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.2em;
-  color: var(--teal-text);
+  color: var(--paper);
 }
 
 .nav-list a[aria-current="page"] {
-  color: var(--teal-text);
+  color: var(--paper);
   box-shadow: inset 0 -2px 0 var(--teal);
 }
 
@@ -338,8 +341,9 @@ a:hover {
 }
 
 .callout {
-  background: var(--ivory);
-  border-left: 4px solid var(--teal);
+  background: var(--silver);
+  border-left: 4px solid var(--paprika);
+  color: var(--carbon);
   padding: 0.95rem 1.05rem;
   margin: 0 0 1.25rem;
 }
@@ -394,6 +398,12 @@ a:hover {
 .entry-title a:hover,
 .entry-title a:visited {
   color: var(--ink);
+}
+
+.entry-sub {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0 0 0.3rem;
 }
 
 .entry-summary {
@@ -468,12 +478,12 @@ a:hover {
 }
 
 .radar-products {
-  margin: 0 0 1.6rem;
+  margin: 0 0 0.85rem;
 }
 
 .radar-products h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+  margin: 0 0 0.15rem;
 }
 
 .radar-list {
@@ -483,7 +493,11 @@ a:hover {
 }
 
 .radar-list li {
-  padding: 0.75rem 0 0.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.7rem;
+  padding: 0.2rem 0;
   border-top: 1px solid var(--line);
 }
 
@@ -492,20 +506,57 @@ a:hover {
 }
 
 .radar-line {
-  margin: 0;
+  display: contents;
+  font-size: 0.92rem;
+  line-height: 1.25;
 }
 
-.radar-line p {
+.radar-name {
+  flex: 1 1 14rem;
+  min-width: 0;
+}
+
+.radar-line p,
+.radar-price {
   display: inline;
   margin: 0;
 }
 
+.radar-price {
+  color: var(--carbon);
+}
+
+.radar-price strong {
+  color: var(--paprika);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.175rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .radar-list .affiliate-line {
-  margin: 0.4rem 0 0.55rem;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0 0 auto;
+  gap: 0.35rem;
+}
+
+.radar-list .affiliate-link {
+  min-height: 26px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.72rem;
+}
+
+.radar-list .affiliate-caption {
+  font-size: 0.68rem;
+  line-height: 1.15;
+  color: var(--charcoal);
 }
 
 .radar-products .footnote {
-  margin-top: 0.75rem;
+  margin-top: 0.35rem;
+  color: var(--charcoal);
 }
 
 code {
@@ -534,8 +585,9 @@ code {
 }
 
 .disclosure {
-  background: var(--ivory);
-  border-left: 4px solid var(--teal);
+  background: var(--silver);
+  border-left: 4px solid var(--paprika);
+  color: var(--carbon);
   padding: 0.85rem 1rem;
   margin: 0 0 1.5rem;
   font-size: 0.95rem;
@@ -547,7 +599,24 @@ code {
 }
 
 .post-header {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.35rem;
+}
+
+.post-subtitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 0.35rem;
+}
+
+.num {
+  color: var(--paprika);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.175rem;
+  line-height: 1;
 }
 
 .post-kicker {
@@ -805,9 +874,9 @@ code {
 }
 
 .site-footer {
-  background: var(--ink);
-  color: var(--ivory);
-  border-top: 4px solid var(--teal);
+  background: var(--charcoal);
+  color: var(--paper);
+  border-top: 4px solid var(--paprika);
   padding: 2.4rem 0 2rem;
 }
 
@@ -818,7 +887,7 @@ code {
 }
 
 .site-footer a:hover {
-  color: var(--teal);
+  color: var(--paper);
 }
 
 .footer-nav a {
@@ -851,6 +920,14 @@ code {
 }
 
 @media (max-width: 36rem) {
+  .radar-name {
+    flex-basis: 100%;
+  }
+
+  .radar-list .affiliate-line {
+    margin-left: 0;
+  }
+
   .spec-table,
   .spec-table tbody,
   .spec-table tr,

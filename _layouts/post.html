@@ -18,7 +18,7 @@ layout: default
     <ol class="radar-list">
       {% for item in radar %}
       <li>
-        <p class="radar-line"><strong>{{ item.name | escape }}</strong>{% if item.price %} — {{ item.price | markdownify | replace: "<p>", "" | replace: "</p>", "" | replace: "<p>", "" }}{% endif %}</p>
+        <p class="radar-line"><span class="radar-name">{{ item.name | escape }}</span>{% if item.price %}<span class="radar-price">— {{ item.price | markdownify | replace: "<p>", "" | replace: "</p>", "" }}</span>{% endif %}</p>
         {% include affiliate.html url=item.url %}
       </li>
       {% endfor %}
@@ -30,13 +30,15 @@ layout: default
   {% endif %}
 
   <header class="post-header">
-    <p class="post-kicker">
-      <span class="kicker">Radar do dia</span>
-      {% include date-pt.html date=page.date %}
-    </p>
     {% unless content contains "<h1" %}
     <h1>{{ page.title | escape }}</h1>
     {% endunless %}
+    {% if page.subtitle %}
+    <p class="post-subtitle">{{ page.subtitle | escape }}</p>
+    {% endif %}
+    <p class="post-kicker">
+      {% include date-pt.html date=page.date %}
+    </p>
     {% if page.marketplace %}
     <p class="marketplace">{{ page.marketplace | escape }}</p>
     {% endif %}
