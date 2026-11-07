@@ -15,4 +15,4 @@ Não é uma lista de “compre agora”. É um relatório para você conhecer me
 
 Hoje, os links de produtos levam ao Mercado Livre e são de afiliado. Os detalhes estão na nossa página de [Transparência]({{ '/transparencia/' | relative_url }}).
 
-**Sonnar Análises — Detectando boas escolhas**
+**Sonnar Análises — Te ajudando a detectar boas escolhas**
