@@ -1,12 +1,12 @@
 # Sonnar Análises — guia vivo da marca · v2
 
-Atualizado em 07/11/2026 (Brasília). Este guia substitui o PDF de rascunho e as orientações visuais anteriores. Nome: **Sonnar Análises**, sempre com dois Ns e acento. Slogan: **Detectando boas escolhas**.
+Atualizado em 07/11/2026 (Brasília). Este guia substitui o PDF de rascunho e as orientações visuais anteriores. Nome: **Sonnar Análises**, sempre com dois Ns e acento. Slogan: **Te ajudando a detectar boas escolhas**.
 
 ## Identidade e propósito
 
 Organizamos informações reais sobre produtos, opiniões de compradores e histórico de preço. Não simulamos experiência pessoal, não recomendamos a compra e não criamos urgência. A primeira versão usa links de afiliado do Mercado Livre. Produto e preço são analisados separadamente; uma crítica nunca vira ataque à marca.
 
-No site e no texto institucional, usar o nome completo. No topo das artes, usar apenas **SONNAR**. O título do relatório apresenta o quadro: **Radar do dia · Análise Sonnar**. O subtítulo identifica o produto e sua categoria. O slogan fica no rodapé da página: **Sonnar Análises — Detectando boas escolhas**; não ocupa a área de título do relatório.
+No site e no texto institucional, usar o nome completo. No topo das artes, usar apenas **SONNAR**. O título do relatório apresenta o quadro: **Radar do dia · Análise Sonnar**. O subtítulo identifica o produto e sua categoria. O slogan fica no rodapé da página: **Sonnar Análises — Te ajudando a detectar boas escolhas**; não ocupa a área de título do relatório.
 
 ## Paleta e contraste
 

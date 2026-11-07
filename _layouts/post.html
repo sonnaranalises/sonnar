@@ -18,7 +18,11 @@ layout: default
     <ol class="radar-list">
       {% for item in radar %}
       <li>
-        <p class="radar-line"><span class="radar-name">{{ item.name | escape }}</span>{% if item.price %}<span class="radar-price">— {{ item.price | markdownify | replace: "<p>", "" | replace: "</p>", "" }}</span>{% endif %}</p>
+        <span class="radar-name">{{ item.name | escape }}</span>
+        <span class="radar-price">
+          {% if item.price %}<span class="radar-price-main">{{ item.price | escape }}{% if item.price_context %} <span class="radar-price-ctx">{{ item.price_context | escape }}</span>{% endif %}</span>{% endif %}
+          {% if item.price_alt %}<span class="radar-price-alt">{{ item.price_alt | escape }}</span>{% endif %}
+        </span>
         {% include affiliate.html url=item.url %}
       </li>
       {% endfor %}

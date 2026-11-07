@@ -1,6 +1,6 @@
 # Sonnar Análises
 
-Site do Radar do dia. Slogan: **Detectando boas escolhas**.
+Site do Radar do dia. Slogan: **Te ajudando a detectar boas escolhas**.
 
 Análises de produto em português, com links de afiliado do Mercado Livre identificados. Não é anúncio com pressa: o texto pode criticar o produto, não ataca marca, e quem decide é quem lê.
 
