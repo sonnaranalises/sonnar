@@ -6,7 +6,7 @@ Análises de produto em português, com links de afiliado do Mercado Livre ident
 
 Endereço previsto: <https://sonnaranalises.github.io/sonnar/>
 
-As cores seguem o brand book v1.2: Electric Teal `#00AEBB`, Warm Ivory `#EBE4D3`, Ink Black `#031211`. O sinal do favicon usa essa paleta. O brand book diz que a arte do logotipo não está no documento; quando a arte oficial existir, troque `assets/favicon.svg`, `assets/favicon-32.png`, `assets/apple-touch-icon.png` e `assets/og.png`.
+O guia de marca vivo é o [docs/BRAND.md](docs/BRAND.md). Ele substitui o brand book em PDF (rascunho de 6 de novembro de 2026). Nome, slogan, cores, tipografia, artes e regras de redação estão lá. Onde o PDF divergir, vale o `BRAND.md`.
 
 ## Nova análise
 
@@ -14,13 +14,14 @@ Cada Radar do dia é um arquivo em `_posts`.
 
 1. Copie `modelos/radar-do-dia.md` para `_posts/AAAA-MM-DD-nome-curto.md`.
 2. Preencha o cabeçalho. O texto depois do segundo `---` é a apresentação do produto.
-3. Use quatro complementos, só com nome, preço e link. Sem análise neles.
-4. Links de afiliado: endereço `https` completo do Mercado Livre, sem encurtador. O modelo da página coloca `#publi · Link de afiliado` no topo e ao lado de cada link.
-5. Deixe `example: true` enquanto for teste. Passe para `example: false` só quando preço, nota e comentários forem reais. Com `example: true` a página avisa que os dados são fictícios e não entra no sitemap.
+3. Preencha `products`: a lista **Produtos no radar do dia**, no topo, só com nome, preço e link. Sem análise neles.
+4. Cada link vira o botão "Ver no Mercado Livre", com a legenda "Link de afiliado" embaixo. O topo da página traz a caixa de transparência. O endereço pode ser o link de afiliado do Mercado Livre, inclusive `https://meli.la/...`.
+5. Data, hora e fonte da consulta vão nos campos `rating_source`, `rating_checked`, `price_checked` e, no histórico, `price_history.source`, `source_url` e `checked_on`. Eles aparecem em nota sob a seção e no rodapé Fontes. Não escreva isso no parágrafo.
+6. Deixe `example: true` enquanto for teste. Passe para `example: false` só quando preço, nota e comentários forem reais. Com `example: true` a página avisa que os dados são fictícios e não entra no sitemap.
 
 Regras do texto: linguagem direta; qualidade e preço em separado; conclusão sem recomendação de compra; dado não confirmado não entra; crítica ao produto, não à marca.
 
-O arquivo `_posts/2026-11-07-exemplo-bateria-portatil.md` é um exemplo de formato. Pode apagar quando a primeira análise real entrar.
+O primeiro post publicado é `_posts/2026-11-07-cicaplast-baume-b5.md`.
 
 ## Ver no computador
 

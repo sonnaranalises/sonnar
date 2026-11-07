@@ -15,7 +15,7 @@ Um projeto editorial independente. Não há cadastro de leitores e o texto não 
 
 ## Como analisamos
 
-Cada publicação tem um produto em destaque e quatro complementos.
+Cada publicação traz os produtos no radar do dia e desenvolve a leitura de um deles.
 
 No destaque, a leitura segue os mesmos blocos:
 
@@ -29,7 +29,7 @@ No destaque, a leitura segue os mesmos blocos:
 8. Uma comparação curta com itens parecidos de outras marcas.
 9. Uma conclusão neutra, sem recomendação de compra.
 
-Os quatro complementos entram só com nome, preço e link. Sem texto de análise.
+Os produtos no radar do dia entram no topo, só com nome, preço e link. Sem texto de análise.
 
 Produto bom e boa oferta não são a mesma coisa. Um item pode ser bem feito e estar caro. Outro pode ter um desconto grande e continuar sendo uma compra fraca. As duas leituras aparecem separadas.
 
