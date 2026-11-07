@@ -8,9 +8,11 @@ description: Página de exemplo do Radar do dia. Preços, notas, comentários e 
 marketplace: Destino ilustrativo
 price_caption: Preço ilustrativo
 price: "R$ XX,XX"
-affiliate_label: Página ilustrativa do anúncio
 affiliate_url: https://example.com/sonnar-placeholder/bateria-portatil
-rating_count: Nenhuma avaliação real. Numa análise de verdade, o número é o que estiver na fonte, com a data da consulta.
+rating_count: "Nenhuma avaliação real."
+rating_source: "Nenhuma fonte consultada neste exemplo."
+rating_checked: "7 de novembro de 2026"
+price_checked: "7 de novembro de 2026"
 specs:
   - name: Capacidade declarada
     value: "00.000 mAh (placeholder)"
@@ -29,9 +31,10 @@ complaints: |
 price_reading: |
   Não há preço real para julgar. Numa análise de verdade, este parágrafo diz se o valor do dia parece alto, coerente ou baixo diante do histórico e de produtos parecidos. Qualidade e preço ficam em frases separadas. Isso não vira conselho de compra.
 price_history:
-  source: "Não consultada. Exemplo de fonte que seria citada: FarejaPreço"
+  source: "FarejaPreço (exemplo do tipo de fonte; não consultada)."
+  checked_on: "7 de novembro de 2026"
   text: |
-    Nenhuma série foi consultada. Numa análise real, este parágrafo contaria se o preço do dia está perto do menor valor recente ou se o recuo é pequeno, e citaria a fonte com o endereço da consulta. FarejaPreço é um exemplo do tipo de fonte, não um dado usado aqui.
+    Nenhuma série foi consultada. Numa análise real, este parágrafo contaria se o preço do dia está perto do menor valor recente ou se o recuo é pequeno.
 comparisons:
   - name: Bateria parecida, marca ilustrativa Alfa
     note: |
@@ -44,19 +47,15 @@ conclusion: |
 complements:
   - name: Cabo de exemplo (placeholder)
     price: "R$ XX,XX (placeholder)"
-    label: Link ilustrativo
     url: https://example.com/sonnar-placeholder/cabo
   - name: Tomada de exemplo (placeholder)
     price: "R$ XX,XX (placeholder)"
-    label: Link ilustrativo
     url: https://example.com/sonnar-placeholder/tomada
   - name: Fone de exemplo (placeholder)
     price: "R$ XX,XX (placeholder)"
-    label: Link ilustrativo
     url: https://example.com/sonnar-placeholder/fone
   - name: Suporte de exemplo (placeholder)
     price: "R$ XX,XX (placeholder)"
-    label: Link ilustrativo
     url: https://example.com/sonnar-placeholder/suporte
 ---
 

@@ -15,8 +15,9 @@ Cada Radar do dia é um arquivo em `_posts`.
 1. Copie `modelos/radar-do-dia.md` para `_posts/AAAA-MM-DD-nome-curto.md`.
 2. Preencha o cabeçalho. O texto depois do segundo `---` é a apresentação do produto.
 3. Use quatro complementos, só com nome, preço e link. Sem análise neles.
-4. Links de afiliado: endereço `https` completo do Mercado Livre, sem encurtador. O modelo da página coloca `#publi · Link de afiliado` no topo e ao lado de cada link.
-5. Deixe `example: true` enquanto for teste. Passe para `example: false` só quando preço, nota e comentários forem reais. Com `example: true` a página avisa que os dados são fictícios e não entra no sitemap.
+4. Links de afiliado: endereço `https` completo do Mercado Livre, sem encurtador. O botão é sempre "Ver no Mercado Livre", com a legenda "Link de afiliado" embaixo. O topo da página traz o aviso de transparência.
+5. Data, hora e fonte da consulta vão nos campos `rating_source`, `rating_checked`, `price_checked` e, no histórico, `price_history.source`, `source_url` e `checked_on`. Eles aparecem em nota sob a seção e no rodapé Fontes. Não escreva isso no parágrafo.
+6. Deixe `example: true` enquanto for teste. Passe para `example: false` só quando preço, nota e comentários forem reais. Com `example: true` a página avisa que os dados são fictícios e não entra no sitemap.
 
 Regras do texto: linguagem direta; qualidade e preço em separado; conclusão sem recomendação de compra; dado não confirmado não entra; crítica ao produto, não à marca.
 

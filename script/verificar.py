@@ -7,7 +7,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
-PUBLI = "#publi · Link de afiliado"
+DISCLOSURE = (
+    "Transparência: os links desta página são de afiliado. "
+    "Se eles forem úteis pra você, a comissão ajuda a Sonnar a continuar no ar, "
+    "sem custo adicional na sua compra e sem influenciar o que escrevemos."
+)
 SHORTENERS = (
     "bit.ly",
     "tinyurl.com",
@@ -52,7 +56,7 @@ class Parser(HTMLParser):
         elif tag == "h1":
             self.h1 += 1
         classes = ad.get("class", "").split()
-        if tag == "p" and "affiliate-line" in classes:
+        if tag == "div" and "affiliate-line" in classes:
             self._capture = True
             self._buf = []
 
@@ -61,7 +65,7 @@ class Parser(HTMLParser):
             self._buf.append(data)
 
     def handle_endtag(self, tag):
-        if self._capture and tag == "p":
+        if self._capture and tag == "div":
             self.affiliate_blocks.append("".join(self._buf))
             self._capture = False
 
@@ -125,12 +129,16 @@ def main(root: Path) -> int:
             errors.append(
                 f"{rel}: {len(affiliate_links)} links de afiliado e {len(parser.affiliate_blocks)} blocos"
             )
+        if "#publi" in low:
+            errors.append(f"{rel}: ainda usa #publi")
         for block in parser.affiliate_blocks:
-            if PUBLI not in block:
-                errors.append(f"{rel}: link de afiliado sem '{PUBLI}'")
+            if "Ver no Mercado Livre" not in block:
+                errors.append(f"{rel}: botão sem 'Ver no Mercado Livre'")
+            if "Link de afiliado" not in block:
+                errors.append(f"{rel}: botão sem a legenda 'Link de afiliado'")
         if "/radar/" in "/" + rel or rel.startswith("radar/"):
-            if PUBLI not in text:
-                errors.append(f"{rel}: post sem disclosure")
+            if DISCLOSURE not in text:
+                errors.append(f"{rel}: post sem o aviso de transparência")
             if 'class="disclosure"' not in text:
                 errors.append(f"{rel}: post sem aside de disclosure")
         if "example-banner" in text:
