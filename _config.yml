@@ -24,6 +24,7 @@ excerpt_separator: "<!-- more -->"
 
 exclude:
   - README.md
+  - docs
   - modelos
   - script
   - vendor

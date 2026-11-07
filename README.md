@@ -6,7 +6,7 @@ Análises de produto em português, com links de afiliado do Mercado Livre ident
 
 Endereço previsto: <https://sonnaranalises.github.io/sonnar/>
 
-As cores seguem o brand book v1.2: Electric Teal `#00AEBB`, Warm Ivory `#EBE4D3`, Ink Black `#031211`. O sinal do favicon usa essa paleta. O brand book diz que a arte do logotipo não está no documento; quando a arte oficial existir, troque `assets/favicon.svg`, `assets/favicon-32.png`, `assets/apple-touch-icon.png` e `assets/og.png`.
+O guia de marca vivo é o [docs/BRAND.md](docs/BRAND.md). Ele substitui o brand book em PDF (rascunho de 6 de novembro de 2026). Nome, slogan, cores, tipografia, artes e regras de redação estão lá. Onde o PDF divergir, vale o `BRAND.md`.
 
 ## Nova análise
 
