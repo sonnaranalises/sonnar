@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+"""Confere o HTML gerado do site da Sonnar Análises."""
+
+import re
+import sys
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import urlparse
+
+PUBLI = "#publi · Link de afiliado"
+SHORTENERS = (
+    "bit.ly",
+    "tinyurl.com",
+    "t.co",
+    "goo.gl",
+    "amzn.to",
+    "cutt.ly",
+    "is.gd",
+    "ow.ly",
+    "meli.la",
+    "meli.li",
+    "abre.ai",
+    "shope.ee",
+)
+PHRASES = (
+    "compre já",
+    "compre ja",
+    "imperdível",
+    "imperdivel",
+    "última chance",
+    "ultima chance",
+    "sonnar analysis",
+)
+
+
+class Parser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links = []
+        self.imgs = []
+        self.h1 = 0
+        self.affiliate_blocks = []
+        self._capture = False
+        self._buf = []
+
+    def handle_starttag(self, tag, attrs):
+        ad = {k: (v or "") for k, v in attrs}
+        if tag == "a":
+            self.links.append(ad)
+        elif tag == "img":
+            self.imgs.append(ad)
+        elif tag == "h1":
+            self.h1 += 1
+        classes = ad.get("class", "").split()
+        if tag == "p" and "affiliate-line" in classes:
+            self._capture = True
+            self._buf = []
+
+    def handle_data(self, data):
+        if self._capture:
+            self._buf.append(data)
+
+    def handle_endtag(self, tag):
+        if self._capture and tag == "p":
+            self.affiliate_blocks.append("".join(self._buf))
+            self._capture = False
+
+
+def main(root: Path) -> int:
+    files = sorted(root.rglob("*.html"))
+    if not files:
+        print("nenhum HTML em", root)
+        return 1
+    errors = []
+    for path in files:
+        text = path.read_text(encoding="utf-8")
+        rel = path.relative_to(root).as_posix()
+        low = text.lower()
+        if 'lang="pt-BR"' not in text and 'lang="pt-br"' not in text:
+            errors.append(f"{rel}: falta lang pt-BR")
+        for phrase in PHRASES:
+            if phrase in low:
+                errors.append(f"{rel}: contém '{phrase}'")
+        if text.count("<h1") != 1:
+            errors.append(f"{rel}: esperado 1 h1, há {text.count('<h1')}")
+        if 'rel="canonical"' not in text and "rel='canonical'" not in text:
+            errors.append(f"{rel}: falta canonical")
+        if 'property="og:title"' not in text:
+            errors.append(f"{rel}: falta og:title")
+        if "/sonnar/assets/css/style.css" not in text:
+            errors.append(f"{rel}: CSS sem base /sonnar/")
+        parser = Parser()
+        parser.feed(text)
+        affiliate_links = []
+        for link in parser.links:
+            href = link.get("href", "")
+            rel_attr = link.get("rel", "")
+            tokens = set(rel_attr.split())
+            target = link.get("target", "")
+            classes = link.get("class", "").split()
+            if href.lower().startswith("javascript:"):
+                errors.append(f"{rel}: javascript: em {href}")
+            if href.startswith("http://"):
+                errors.append(f"{rel}: http sem s em {href}")
+            host = urlparse(href).hostname or ""
+            if any(host == s or host.endswith("." + s) for s in SHORTENERS):
+                errors.append(f"{rel}: encurtador {href}")
+            if target == "_blank" and "noopener" not in tokens:
+                errors.append(f"{rel}: target=_blank sem noopener em {href}")
+            if "affiliate-link" in classes:
+                affiliate_links.append(link)
+                needed = {"sponsored", "nofollow", "noopener"}
+                if tokens != needed:
+                    errors.append(f"{rel}: rel de afiliado {rel_attr!r} em {href}")
+                if target != "_blank":
+                    errors.append(f"{rel}: afiliado sem target=_blank em {href}")
+                if not href.startswith("https://"):
+                    errors.append(f"{rel}: afiliado sem https em {href}")
+            elif "sponsored" in tokens:
+                errors.append(f"{rel}: sponsored fora de link de afiliado em {href}")
+        for img in parser.imgs:
+            if "alt" not in img:
+                errors.append(f"{rel}: img sem alt")
+        if len(parser.affiliate_blocks) != len(affiliate_links):
+            errors.append(
+                f"{rel}: {len(affiliate_links)} links de afiliado e {len(parser.affiliate_blocks)} blocos"
+            )
+        for block in parser.affiliate_blocks:
+            if PUBLI not in block:
+                errors.append(f"{rel}: link de afiliado sem '{PUBLI}'")
+        if "/radar/" in "/" + rel or rel.startswith("radar/"):
+            if PUBLI not in text:
+                errors.append(f"{rel}: post sem disclosure")
+            if 'class="disclosure"' not in text:
+                errors.append(f"{rel}: post sem aside de disclosure")
+        if "example-banner" in text:
+            if "noindex" not in text:
+                errors.append(f"{rel}: exemplo indexável")
+            if "fictíc" not in low and "fictic" not in low:
+                errors.append(f"{rel}: exemplo sem dizer que os dados são fictícios")
+            if "R$ XX,XX" not in text:
+                errors.append(f"{rel}: exemplo sem preço placeholder")
+            if re.search(r"R\$\s*\d", text):
+                errors.append(f"{rel}: exemplo com preço numérico")
+    if errors:
+        print("\n".join(errors))
+        return 1
+    print(f"ok: {len(files)} páginas")
+    return 0
+
+
+if __name__ == "__main__":
+    site = Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
+    sys.exit(main(site))

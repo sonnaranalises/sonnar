@@ -1,0 +1,42 @@
+---
+layout: default
+title: Radar do dia
+description: Análises de produto em português claro. O Radar do dia descreve um item e lista quatro complementos. Quem lê é quem decide.
+---
+<div class="home">
+  <header class="home-header">
+    <p class="kicker">Radar do dia</p>
+    <h1>Detectando boas escolhas</h1>
+    <p class="lede">A Sonnar Análises publica uma leitura por dia, em português claro, de um produto à venda. A página reúne a ficha, o que as avaliações elogiam e reclamam, e uma leitura do preço separada da qualidade. Quatro outros itens aparecem só com nome, preço e link. Quem decide é quem lê.</p>
+    <aside class="callout">
+      <p class="callout-title">Propósito</p>
+      <p>Fornecer informação organizada para uma escolha mais consciente. A Sonnar Análises não decide pelo leitor.</p>
+    </aside>
+    <p class="home-links">
+      <a href="{{ '/sobre/' | relative_url }}">Como analisamos</a>
+      <a href="{{ '/transparencia/' | relative_url }}">Como ganhamos dinheiro</a>
+    </p>
+  </header>
+
+  <section class="latest" aria-labelledby="ultimas">
+    <h2 id="ultimas">Últimas análises</h2>
+    {% if site.posts.size == 0 %}
+    <p>Ainda não há análise publicada.</p>
+    {% else %}
+      {% assign examples = site.posts | where: "example", true %}
+      {% for post in site.posts %}
+      <article class="entry">
+        <p class="entry-meta">
+          {% include date-pt.html date=post.date %}
+          {% if post.example %}<span class="badge">Exemplo</span>{% endif %}
+        </p>
+        <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+        <p class="entry-summary">{{ post.summary | default: post.description | escape }}</p>
+      </article>
+      {% endfor %}
+      {% if examples.size > 0 %}
+      <p class="archive-note">O selo Exemplo marca uma página de formato, com dados fictícios.</p>
+      {% endif %}
+    {% endif %}
+  </section>
+</div>

@@ -1,0 +1,173 @@
+---
+layout: default
+---
+<article class="post">
+  {% if page.example %}
+  <aside class="example-banner" role="note">
+    <p class="kicker">Exemplo · placeholder</p>
+    <p>Dados fictícios. Esta página não descreve um produto real e não serve como referência de preço, nota ou avaliação.</p>
+  </aside>
+  {% endif %}
+
+  {% include disclosure.html %}
+
+  <header class="post-header">
+    <p class="post-kicker">
+      <span class="kicker">Radar do dia</span>
+      {% include date-pt.html date=page.date %}
+    </p>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.marketplace %}
+    <p class="marketplace">{{ page.marketplace | escape }}</p>
+    {% endif %}
+    {% if page.price %}
+    <p class="price">
+      <span class="price-label">{{ page.price_caption | default: "Preço" | escape }}</span>
+      <span class="price-value">{{ page.price | escape }}</span>
+    </p>
+    {% endif %}
+    {% include affiliate.html url=page.affiliate_url label=page.affiliate_label %}
+    {% if page.image and page.image_alt %}
+    <figure class="product-figure">
+      <img src="{% if page.image contains '://' %}{{ page.image | escape }}{% else %}{{ page.image | relative_url }}{% endif %}" alt="{{ page.image_alt | escape }}">
+    </figure>
+    {% endif %}
+  </header>
+
+  {% if content != "" %}
+  <div class="intro prose">
+    {{ content }}
+  </div>
+  {% endif %}
+
+  <div class="analysis">
+    <section>
+      <h2>Especificações</h2>
+      {% if page.specs %}
+      <table class="spec-table">
+        <caption class="sr-only">Ficha técnica</caption>
+        <tbody>
+          {% for row in page.specs %}
+          <tr>
+            <th scope="row">{{ row.name | escape }}</th>
+            <td>{{ row.value | escape }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Ficha não informada.</p>
+      {% endif %}
+    </section>
+
+    <section>
+      <h2>Avaliações</h2>
+      <div class="rating">
+        {% if page.rating_score == nil or page.rating_score == "" %}
+        <p class="rating-score"><span class="sr-only">Nota </span>— <span class="rating-scale">de 5</span></p>
+        <p class="stars" aria-hidden="true">☆☆☆☆☆</p>
+        {% else %}
+        {% assign score = page.rating_score | plus: 0 %}
+        {% capture score_text %}{{ score }}{% endcapture %}
+        <p class="rating-score"><span class="sr-only">Nota </span>{{ score_text | strip | replace: ".", "," }} <span class="rating-scale">de 5</span></p>
+        <p class="stars" aria-hidden="true">{% for i in (1..5) %}{% if i <= score %}★{% else %}☆{% endif %}{% endfor %}</p>
+        {% endif %}
+        {% if page.rating_count %}
+        <p class="reviews">{{ page.rating_count | escape }}</p>
+        {% else %}
+        <p class="reviews">Quantidade de avaliações não informada.</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <section>
+      <h2>Principal elogio</h2>
+      {% if page.praise %}
+      {{ page.praise | markdownify }}
+      {% else %}
+      <p>Elogio principal não informado.</p>
+      {% endif %}
+    </section>
+
+    <section>
+      <h2>Principal reclamação</h2>
+      {% if page.complaints %}
+      {{ page.complaints | markdownify }}
+      {% else %}
+      <p>Reclamação principal não informada.</p>
+      {% endif %}
+    </section>
+
+    <section>
+      <h2>O preço de agora</h2>
+      {% if page.price_reading %}
+      {{ page.price_reading | markdownify }}
+      {% else %}
+      <p>Leitura de preço não informada. Qualidade e preço são dimensões separadas, e este bloco não é conselho de compra.</p>
+      {% endif %}
+    </section>
+
+    {% if page.price_history.text %}
+    <section>
+      <h2>Histórico de preço</h2>
+      {{ page.price_history.text | markdownify }}
+      <p class="source">Fonte: {% if page.price_history.source_url %}
+        {% assign history_prefix = page.price_history.source_url | slice: 0, 8 %}
+        {% if history_prefix == "https://" %}
+        <a class="source-link" href="{{ page.price_history.source_url | escape }}" target="_blank" rel="noopener">{{ page.price_history.source | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>
+        {% else %}
+        {{ page.price_history.source | escape }}
+        {% endif %}
+      {% else %}
+        {{ page.price_history.source | default: "não citada" | escape }}
+      {% endif %}</p>
+    </section>
+    {% endif %}
+
+    <section>
+      <h2>Parecidos de outras marcas</h2>
+      {% if page.comparisons %}
+      <ul class="compare">
+        {% for item in page.comparisons %}
+        <li>
+          <h3>{{ item.name | escape }}</h3>
+          {{ item.note | markdownify }}
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>Comparação não informada.</p>
+      {% endif %}
+    </section>
+
+    <section class="conclusion">
+      <h2>Conclusão</h2>
+      <div class="callout">
+        {% if page.conclusion %}
+        {{ page.conclusion | markdownify }}
+        {% else %}
+        <p>A conclusão ainda não foi escrita. Ela deve ser neutra, sem recomendação de compra.</p>
+        {% endif %}
+        <p class="decision">A Sonnar Análises não recomenda comprar nem deixar de comprar. A decisão é de quem lê.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Complementos do dia</h2>
+      <p>Estes itens não têm análise. A lista traz nome, preço e link, apenas.</p>
+      {% if page.complements %}
+      <ol class="complements">
+        {% for item in page.complements %}
+        <li>
+          <p class="complement-name">{{ item.name | escape }}</p>
+          <p class="complement-price">{{ item.price | escape }}</p>
+          {% include affiliate.html url=item.url label=item.label %}
+        </li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      <p>Nenhum complemento informado.</p>
+      {% endif %}
+    </section>
+  </div>
+</article>

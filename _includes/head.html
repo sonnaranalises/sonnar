@@ -1,0 +1,94 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#00AEBB">
+{%- if page.description -%}
+  {%- assign desc = page.description -%}
+{%- elsif page.summary -%}
+  {%- assign desc = page.summary -%}
+{%- elsif page.excerpt -%}
+  {%- assign desc = page.excerpt | strip_html | strip_newlines -%}
+{%- else -%}
+  {%- assign desc = site.description -%}
+{%- endif -%}
+{%- assign desc = desc | strip_newlines | strip | truncate: 200 -%}
+{%- if page.url == "/" -%}
+  {%- assign doc_title = "Sonnar Análises — Detectando boas escolhas" -%}
+{%- else -%}
+  {%- assign doc_title = page.title | append: " · Sonnar Análises" -%}
+{%- endif -%}
+<title>{{ doc_title | escape }}</title>
+<meta name="description" content="{{ desc | escape }}">
+<meta name="author" content="Sonnar Análises">
+{%- if page.example or page.robots == "noindex" -%}
+<meta name="robots" content="noindex, follow">
+{%- else -%}
+<meta name="robots" content="index, follow">
+{%- endif -%}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="alternate" hreflang="pt-BR" href="{{ page.url | absolute_url }}">
+<link rel="alternate" type="application/atom+xml" title="Sonnar Análises" href="{{ '/feed.xml' | absolute_url }}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Sonnar Análises">
+<meta property="og:title" content="{{ doc_title | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+{%- if page.date -%}
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{%- else -%}
+<meta property="og:type" content="website">
+{%- endif -%}
+<meta property="og:image" content="{{ '/assets/og.png' | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sonnar Análises. Detectando boas escolhas.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ doc_title | escape }}">
+<meta name="twitter:description" content="{{ desc | escape }}">
+<meta name="twitter:image" content="{{ '/assets/og.png' | absolute_url }}">
+<link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="icon" href="{{ '/assets/favicon-32.png' | relative_url }}" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+<link rel="preload" href="{{ '/assets/fonts/inter-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/space-grotesk-700.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/michroma-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{%- if page.url == "/" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Sonnar Análises",
+  "url": {{ "/" | absolute_url | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "inLanguage": "pt-BR"
+}
+</script>
+{%- elsif page.date -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ desc | jsonify }},
+  "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+  "inLanguage": "pt-BR",
+  "image": {{ "/assets/og.png" | absolute_url | jsonify }},
+  "author": {
+    "@type": "Organization",
+    "name": "Sonnar Análises",
+    "url": {{ "/" | absolute_url | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sonnar Análises",
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ "/assets/apple-touch-icon.png" | absolute_url | jsonify }}
+    }
+  },
+  "mainEntityOfPage": {{ page.url | absolute_url | jsonify }}
+}
+</script>
+{%- endif -%}
