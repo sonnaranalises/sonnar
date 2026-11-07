@@ -1,0 +1,14 @@
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    {% include logo.html %}
+    <nav class="site-nav" aria-label="Seções">
+      <ul class="nav-list">
+        <li><a href="{{ '/' | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>Radar</a></li>
+        <li><a href="{{ '/sobre/' | relative_url }}" {% if page.url == "/sobre/" %}aria-current="page"{% endif %}>Sobre</a></li>
+        <li><a href="{{ '/transparencia/' | relative_url }}" {% if page.url == "/transparencia/" %}aria-current="page"{% endif %}>Transparência</a></li>
+        <li><a href="{{ '/privacidade/' | relative_url }}" {% if page.url == "/privacidade/" %}aria-current="page"{% endif %}>Privacidade</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

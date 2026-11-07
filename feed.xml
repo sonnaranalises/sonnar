@@ -1,0 +1,26 @@
+---
+layout: null
+sitemap: false
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="pt-BR">
+  <title>Sonnar Análises</title>
+  <subtitle>Detectando boas escolhas</subtitle>
+  <link href="{{ '/' | absolute_url }}"/>
+  <link rel="self" href="{{ '/feed.xml' | absolute_url }}"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ '/' | absolute_url }}</id>
+  <author>
+    <name>Sonnar Análises</name>
+  </author>
+  {% for post in site.posts limit: 20 %}
+  <entry>
+    <title>{{ post.title | xml_escape }}</title>
+    <link href="{{ post.url | absolute_url }}"/>
+    <id>{{ post.url | absolute_url }}</id>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <summary>{{ post.summary | default: post.description | xml_escape }}</summary>
+  </entry>
+  {% endfor %}
+</feed>

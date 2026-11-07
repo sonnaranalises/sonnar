@@ -1,0 +1,38 @@
+# Sonnar Análises — site estático (Jekyll).
+# O site é servido em https://sonnaranalises.github.io/sonnar/
+# Se a raiz mudar, ajuste `baseurl` (vazio "" quando o site estiver na raiz do domínio).
+
+title: Sonnar Análises
+slogan: Detectando boas escolhas
+description: >-
+  Análises de produto em português claro. O Radar do dia descreve um item
+  e lista quatro complementos. Quem lê é quem decide.
+url: https://sonnaranalises.github.io
+baseurl: /sonnar
+lang: pt-BR
+timezone: America/Sao_Paulo
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+permalink: /radar/:year/:month/:day/:title/
+future: false
+excerpt_separator: "<!-- more -->"
+
+exclude:
+  - README.md
+  - modelos
+  - script
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

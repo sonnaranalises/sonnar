@@ -1,0 +1,13 @@
+{%- assign url = include.url | default: "" -%}
+{%- assign label = include.label | default: "Página do anúncio" -%}
+{%- assign prefix = url | slice: 0, 8 -%}
+{%- if prefix == "https://" -%}
+  {%- assign parts = url | split: "/" -%}
+  <p class="affiliate-line">
+    <a class="affiliate-link" href="{{ url | escape }}" target="_blank" rel="sponsored nofollow noopener">{{ label | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>
+    <span class="publi">#publi · Link de afiliado</span>
+    <span class="host">Destino: {{ parts[2] | escape }}</span>
+  </p>
+{%- else -%}
+  <p class="missing-link">Link de afiliado indisponível. Use um endereço https completo, sem encurtador.</p>
+{%- endif -%}

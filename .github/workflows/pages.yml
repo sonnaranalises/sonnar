@@ -1,0 +1,51 @@
+name: Publicar o site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Gerar o site
+        run: |
+          gem install jekyll:4.3.4 webrick:1.8.2 kramdown-parser-gfm:1.1.0 --no-document
+          jekyll build --destination "$GITHUB_WORKSPACE/_site"
+
+      - name: Conferir o HTML gerado
+        run: python3 script/verificar.py "$GITHUB_WORKSPACE/_site"
+
+      - name: Enviar o artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
