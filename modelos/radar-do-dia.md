@@ -50,19 +50,24 @@ comparisons:
       Segunda comparação curta.
 conclusion: |
   Fecho neutro. Sem recomendação de compra. Qualidade e preço continuam separados.
-complements:
-  - name: "Complemento 1"
-    price: "R$ 0,00"
+# Lista do topo, logo após a caixa de transparência: Produtos no radar do dia.
+products:
+  - name: "Produto 1"
+    price: "**R$ 0,00**"
     url: "https://www.mercadolivre.com.br/..."
-  - name: "Complemento 2"
-    price: "R$ 0,00"
+  - name: "Produto 2"
+    price: "**R$ 0,00**"
     url: "https://www.mercadolivre.com.br/..."
-  - name: "Complemento 3"
-    price: "R$ 0,00"
+  - name: "Produto 3"
+    price: "**R$ 0,00**"
     url: "https://www.mercadolivre.com.br/..."
-  - name: "Complemento 4"
-    price: "R$ 0,00"
+  - name: "Produto 4"
+    price: "**R$ 0,00**"
     url: "https://www.mercadolivre.com.br/..."
+  - name: "Produto 5"
+    price: "**R$ 0,00**"
+    url: "https://www.mercadolivre.com.br/..."
+products_note: "Preços das ofertas principais: Mercado Livre, data e hora (Brasília)."
 ---
 
 Apresentação do produto em Markdown. Diga o que ele é e para que serve, sem copiar o anúncio.

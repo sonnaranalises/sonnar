@@ -21,8 +21,6 @@ SHORTENERS = (
     "cutt.ly",
     "is.gd",
     "ow.ly",
-    "meli.la",
-    "meli.li",
     "abre.ai",
     "shope.ee",
 )
