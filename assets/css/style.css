@@ -484,15 +484,10 @@ code {
 .disclosure {
   background: var(--ivory);
   border-left: 4px solid var(--teal);
-  padding: 0.9rem 1rem;
+  padding: 0.85rem 1rem;
   margin: 0 0 1.5rem;
-}
-
-.disclosure-kicker {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 0.86rem;
-  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .disclosure p:last-child {
@@ -517,8 +512,6 @@ code {
 
 .post-kicker time,
 .marketplace,
-.host,
-.source,
 .reviews,
 .complement-price,
 .price-label,
@@ -559,31 +552,43 @@ code {
 }
 
 .affiliate-line {
-  margin: 0.35rem 0 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.28rem;
+  margin: 0.85rem 0 0.35rem;
 }
 
 .affiliate-link {
-  font-weight: 600;
-}
-
-.publi {
-  display: inline-block;
-  margin: 0.15rem 0 0.15rem 0.45rem;
-  padding: 0.12rem 0.4rem;
-  background: var(--ivory);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.45rem 0.95rem;
+  background: var(--teal);
   color: var(--ink);
-  border-left: 3px solid var(--teal);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  line-height: 1.4;
-  vertical-align: middle;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-.host {
+.affiliate-link:visited {
+  color: var(--ink);
+}
+
+.affiliate-link:hover,
+.affiliate-link:focus-visible {
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.affiliate-caption {
   display: block;
-  margin-top: 0.25rem;
-  font-size: 0.75rem;
-  color: var(--teal-text);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--ink);
 }
 
 .missing-link {
@@ -667,9 +672,48 @@ code {
   margin-top: 1.1rem;
 }
 
-.source {
-  font-size: 0.85rem;
-  margin: 0.75rem 0 0;
+.footnote {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 0.7rem 0 0;
+}
+
+.footnote-ref {
+  font-size: 0.75em;
+  line-height: 0;
+  margin-left: 0.1rem;
+}
+
+.footnote-ref a {
+  text-decoration: none;
+}
+
+.post-sources {
+  margin-top: 2.4rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+}
+
+.post-sources h2 {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.55rem;
+}
+
+.post-sources ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.post-sources li {
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.post-sources li + li {
+  margin-top: 0.3rem;
 }
 
 .decision {

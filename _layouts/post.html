@@ -26,7 +26,7 @@ layout: default
       <span class="price-value">{{ page.price | escape }}</span>
     </p>
     {% endif %}
-    {% include affiliate.html url=page.affiliate_url label=page.affiliate_label %}
+    {% include affiliate.html url=page.affiliate_url %}
     {% if page.image and page.image_alt %}
     <figure class="product-figure">
       <img src="{% if page.image contains '://' %}{{ page.image | escape }}{% else %}{{ page.image | relative_url }}{% endif %}" alt="{{ page.image_alt | escape }}">
@@ -73,9 +73,12 @@ layout: default
         <p class="stars" aria-hidden="true">{% for i in (1..5) %}{% if i <= score %}★{% else %}☆{% endif %}{% endfor %}</p>
         {% endif %}
         {% if page.rating_count %}
-        <p class="reviews">{{ page.rating_count | escape }}</p>
+        <p class="reviews">{{ page.rating_count | escape }}{% if page.rating_source or page.rating_checked %}<sup class="footnote-ref"><a href="#nota-avaliacoes">*</a><span class="sr-only"> Nota de fonte</span></sup>{% endif %}</p>
         {% else %}
-        <p class="reviews">Quantidade de avaliações não informada.</p>
+        <p class="reviews">Quantidade de avaliações não informada.{% if page.rating_source or page.rating_checked %}<sup class="footnote-ref"><a href="#nota-avaliacoes">*</a><span class="sr-only"> Nota de fonte</span></sup>{% endif %}</p>
+        {% endif %}
+        {% if page.rating_source or page.rating_checked %}
+        <p class="footnote" id="nota-avaliacoes"><span aria-hidden="true">* </span>{% if page.rating_source %}{{ page.rating_source | escape }}{% endif %}{% if page.rating_checked %}{{ " " }}Consulta: {{ page.rating_checked | escape }}.{% endif %}</p>
         {% endif %}
       </div>
     </section>
@@ -105,22 +108,27 @@ layout: default
       {% else %}
       <p>Leitura de preço não informada. Qualidade e preço são dimensões separadas, e este bloco não é conselho de compra.</p>
       {% endif %}
+      {% if page.price_checked %}
+      <p class="footnote" id="nota-preco"><span aria-hidden="true">* </span>Consulta do preço: {{ page.price_checked | escape }}.</p>
+      {% endif %}
     </section>
 
     {% if page.price_history.text %}
     <section>
       <h2>Histórico de preço</h2>
       {{ page.price_history.text | markdownify }}
-      <p class="source">Fonte: {% if page.price_history.source_url %}
+      {% if page.price_history.source or page.price_history.checked_on %}
+      <p class="footnote" id="nota-historico"><span aria-hidden="true">* </span>Fonte: {% if page.price_history.source_url %}
         {% assign history_prefix = page.price_history.source_url | slice: 0, 8 %}
         {% if history_prefix == "https://" %}
-        <a class="source-link" href="{{ page.price_history.source_url | escape }}" target="_blank" rel="noopener">{{ page.price_history.source | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>
+        <a class="source-link" href="{{ page.price_history.source_url | escape }}" target="_blank" rel="noopener">{{ page.price_history.source | default: "fonte" | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>
         {% else %}
         {{ page.price_history.source | escape }}
         {% endif %}
       {% else %}
         {{ page.price_history.source | default: "não citada" | escape }}
-      {% endif %}</p>
+      {% endif %}{% if page.price_history.checked_on %}{{ " " }}Consulta: {{ page.price_history.checked_on | escape }}.{% endif %}</p>
+      {% endif %}
     </section>
     {% endif %}
 
@@ -161,7 +169,7 @@ layout: default
         <li>
           <p class="complement-name">{{ item.name | escape }}</p>
           <p class="complement-price">{{ item.price | escape }}</p>
-          {% include affiliate.html url=item.url label=item.label %}
+          {% include affiliate.html url=item.url %}
         </li>
         {% endfor %}
       </ol>
@@ -170,4 +178,24 @@ layout: default
       {% endif %}
     </section>
   </div>
+
+  {% if page.rating_source or page.rating_checked or page.price_checked or page.price_history.source or page.price_history.checked_on or page.sources %}
+  <footer class="post-sources">
+    <h2>Fontes</h2>
+    <ul>
+      {% if page.rating_source or page.rating_checked %}
+      <li>Avaliações.{% if page.rating_source %} {{ page.rating_source | escape }}{% endif %}{% if page.rating_checked %}{{ " " }}Consulta: {{ page.rating_checked | escape }}.{% endif %}</li>
+      {% endif %}
+      {% if page.price_checked %}
+      <li>Preço. Consulta: {{ page.price_checked | escape }}.</li>
+      {% endif %}
+      {% if page.price_history.source or page.price_history.checked_on %}
+      <li>Histórico de preço.{% if page.price_history.source %} {{ page.price_history.source | escape }}{% endif %}{% if page.price_history.checked_on %}{{ " " }}Consulta: {{ page.price_history.checked_on | escape }}.{% endif %}</li>
+      {% endif %}
+      {% for item in page.sources %}
+      <li>{{ item.label | escape }}. {{ item.detail | escape }}</li>
+      {% endfor %}
+    </ul>
+  </footer>
+  {% endif %}
 </article>
