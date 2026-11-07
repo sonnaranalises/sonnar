@@ -256,10 +256,11 @@ a:hover {
 }
 
 .logo-mark {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   flex: none;
   display: block;
+  border-radius: 8px;
 }
 
 .logo-words {
