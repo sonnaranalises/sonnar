@@ -735,13 +735,17 @@ code {
 }
 
 .product-figure {
-  margin: 1rem 0 0;
+  margin: 1rem auto 0;
+  width: 100%;
+  max-width: 34rem;
+  background: var(--paper);
 }
 
 .product-figure img {
   display: block;
   width: 100%;
-  background: var(--ivory);
+  height: auto;
+  background: var(--paper);
 }
 
 .analysis section {
