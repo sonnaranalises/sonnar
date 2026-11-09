@@ -376,22 +376,11 @@ body:has(.post) .wrap {
   border-top: 1px solid var(--line);
 }
 
-.entry-link {
+.entry-desc-photo {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.85rem 1.1rem;
-  align-items: center;
-  color: inherit;
-  text-decoration: none;
-}
-
-.entry-link-photo {
-  grid-template-columns: minmax(0, 1fr) 8.25rem;
-}
-
-.entry-link:visited,
-.entry-link:hover {
-  color: inherit;
+  grid-template-columns: 8.25rem minmax(0, 1fr);
+  gap: 0.2rem 1.1rem;
+  align-items: start;
 }
 
 .entry-photo {
@@ -401,6 +390,7 @@ body:has(.post) .wrap {
   background: #fff;
   border: 1px solid var(--silver);
   overflow: hidden;
+  text-decoration: none;
 }
 
 .entry-photo img {
@@ -424,12 +414,20 @@ body:has(.post) .wrap {
 .entry-title {
   font-size: 1.45rem;
   font-weight: 700;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.45rem;
+}
+
+.entry-title a {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-color: var(--teal);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.14em;
+}
+
+.entry-title a:hover,
+.entry-title a:visited {
+  color: var(--ink);
 }
 
 .entry-sub {
@@ -563,13 +561,13 @@ body:has(.post) .wrap {
 }
 
 .radar-list li.radar-row-photo {
-  grid-template-columns: 2.5rem minmax(0, 1fr) max-content max-content;
-  column-gap: 0.65rem;
+  grid-template-columns: 5rem minmax(0, 1fr) max-content max-content;
+  column-gap: 0.75rem;
 }
 
 .radar-thumb {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 5rem;
+  height: 5rem;
   object-fit: contain;
   background: #fff;
   border: 1px solid var(--line);
@@ -695,6 +693,8 @@ code {
 .analysis,
 .post-sources,
 .reader-feedback,
+.post-lead-label,
+.post-lead-specs,
 .post-lead:not(.post-lead-has-photo) {
   max-width: 42rem;
 }
@@ -713,15 +713,25 @@ code {
 
 .post-lead-has-photo {
   display: grid;
-  grid-template-columns: minmax(0, 42rem) auto;
+  grid-template-columns: auto minmax(0, 42rem);
   column-gap: 1.5rem;
   row-gap: 0.75rem;
   align-items: start;
   justify-content: start;
 }
 
-.post-lead-copy > :first-child {
+.post-lead-copy > :first-child,
+.post-lead-specs > :first-child,
+.post-lead-label > :first-child {
   margin-top: 0;
+}
+
+.post-lead-label {
+  margin: 0 0 0.55rem;
+}
+
+.post-lead-specs {
+  margin: 0.85rem 0 0.35rem;
 }
 
 .post-subtitle {
@@ -1220,25 +1230,20 @@ html[data-feedback-sent] .reader-feedback-thanks {
 
 @media (max-width: 52rem) {
   .post-lead-has-photo {
-    grid-template-columns: minmax(0, 42rem);
+    grid-template-columns: minmax(0, 22rem);
     max-width: 42rem;
-  }
-
-  .post-lead-has-photo .product-figure {
-    order: -1;
   }
 }
 
 @media (max-width: 40rem) {
-  .entry-link-photo {
-    grid-template-columns: minmax(0, 1fr);
-    align-items: start;
+  .entry-desc-photo {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 0.2rem 0.85rem;
   }
 
   .entry-photo {
-    order: -1;
-    width: min(100%, 16rem);
-    height: 11rem;
+    width: 6.5rem;
+    height: 6.5rem;
   }
 }
 
@@ -1250,7 +1255,7 @@ html[data-feedback-sent] .reader-feedback-thanks {
   }
 
   .radar-list li.radar-row-photo {
-    grid-template-columns: 2.5rem minmax(0, 1fr) max-content;
+    grid-template-columns: 5rem minmax(0, 1fr) max-content;
   }
 
   .radar-name {
