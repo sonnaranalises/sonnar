@@ -17,7 +17,10 @@ layout: default
     <h2 id="radar-do-dia">Produtos no radar do dia</h2>
     <ol class="radar-list">
       {% for item in radar %}
-      <li>
+      <li{% if item.image %} class="radar-row-photo"{% endif %}>
+        {% if item.image %}
+        <img class="radar-thumb" src="{% if item.image contains '://' %}{{ item.image | escape }}{% else %}{{ item.image | relative_url }}{% endif %}" alt="{{ item.image_alt | default: item.name | escape }}">
+        {% endif %}
         <span class="radar-name">{{ item.name | escape }}</span>
         <span class="radar-price">
           {% if item.price %}<span class="radar-price-main">{{ item.price | escape }}{% if item.price_context %} <span class="radar-price-ctx">{{ item.price_context | escape }}</span>{% endif %}</span>{% endif %}
@@ -56,16 +59,47 @@ layout: default
     {% unless radar %}
     {% include affiliate.html url=page.affiliate_url %}
     {% endunless %}
+  </header>
+
+  {% assign body_parts = content | split: "<h2" %}
+  {% assign lead_html = body_parts | first %}
+  {% assign lead_text = lead_html | strip_html | strip %}
+  {% assign rest_html = "" %}
+  {% if lead_text == "" %}
+    {% assign lead_html = "" %}
+    {% for part in body_parts offset:1 %}
+      {% assign head_html = "<h2" | append: part | split: "</h2>" | first | append: "</h2>" %}
+      {% assign head_text = head_html | strip_html | strip %}
+      {% if lead_html == "" and head_text == "O que é" %}
+        {% assign lead_html = "<h2" | append: part %}
+      {% else %}
+        {% assign rest_html = rest_html | append: "<h2" | append: part %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% for part in body_parts offset:1 %}
+      {% assign rest_html = rest_html | append: "<h2" | append: part %}
+    {% endfor %}
+  {% endif %}
+
+  {% if lead_text != "" or lead_html != "" or page.image %}
+  <div class="post-lead{% if page.image and page.image_alt %} post-lead-has-photo{% endif %}">
+    {% if lead_html != "" %}
+    <div class="post-lead-copy prose">
+      {{ lead_html }}
+    </div>
+    {% endif %}
     {% if page.image and page.image_alt %}
     <figure class="product-figure">
       <img src="{% if page.image contains '://' %}{{ page.image | escape }}{% else %}{{ page.image | relative_url }}{% endif %}" alt="{{ page.image_alt | escape }}">
     </figure>
     {% endif %}
-  </header>
+  </div>
+  {% endif %}
 
-  {% if content != "" %}
+  {% if rest_html != "" %}
   <div class="intro prose">
-    {{ content }}
+    {{ rest_html }}
   </div>
   {% endif %}
 

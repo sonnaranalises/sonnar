@@ -6,6 +6,8 @@ subtitle: "Dez potes de vidro com tampa de quatro travas, para guardar, congelar
 date: 2026-11-07 14:29:00 -0300
 summary: "Kit de potes herméticos de vidro Starhouse: nota 4,9 em 92.450 opiniões, pontos de atenção nas tampas e no aquecimento e preço por pote abaixo dos kits equivalentes."
 description: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml: nota, opiniões, condições de uso e preço por pote frente a kits equivalentes."
+image: "/assets/img/radar/2026-11-07-potes-hermeticos-starhouse.jpg"
+image_alt: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml"
 products:
   - name: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml"
     price: "R$ 92,08"
