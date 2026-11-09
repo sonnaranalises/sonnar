@@ -37,3 +37,8 @@ defaults:
       type: posts
     values:
       layout: post
+
+# Chave anon (publishable) do projeto. RLS da tabela feedbacks é só INSERT.
+feedback:
+  supabase_url: "https://qnkkzcdwfwfoyociflym.supabase.co"
+  anon_key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFua2t6Y2R3Zndmb3lvY2lmbHltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQxNzk3MTksImV4cCI6MjEwOTc1NTcxOX0.FGNEO1Lh9WjE2DQ2x5CbfqXww6biVJ7rHi4b_uKBoNg"

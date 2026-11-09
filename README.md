@@ -54,4 +54,4 @@ Não escolha ao mesmo tempo **Deploy from a branch**: a publicação deste repos
 
 Quando o deploy termina, o site fica em <https://sonnaranalises.github.io/sonnar/>.
 
-Não há JavaScript, analytics nem cookies do projeto. As fontes (Michroma no logotipo, Space Grotesk nos títulos, Inter no texto, IBM Plex Mono nos dados) estão em `assets/fonts/`, sob a licença OFL, em `assets/fonts/licenses/`.
+O fim de cada relatório tem um formulário de feedback. O script fica em `assets/js/feedback.js` e o envio vai para a tabela `feedbacks` da Supabase. O papel `anon` precisa de `INSERT` nessa tabela, sem `SELECT`; o pedido usa `Prefer: return=minimal`. Não há analytics nem cookies do projeto. As fontes (Michroma no logotipo, Space Grotesk nos títulos, Inter no texto, IBM Plex Mono nos dados) estão em `assets/fonts/`, sob a licença OFL, em `assets/fonts/licenses/`.

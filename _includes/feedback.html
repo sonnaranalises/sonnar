@@ -1,0 +1,37 @@
+<script>
+(function () {
+  try {
+    var key = "sonnar-feedback:" + {{ page.url | absolute_url | jsonify }};
+    if (window.localStorage.getItem(key) === "1") {
+      document.documentElement.setAttribute("data-feedback-sent", "");
+    }
+  } catch (err) {}
+})();
+</script>
+<section class="reader-feedback" aria-labelledby="feedback-heading" data-reader-feedback data-post-url="{{ page.url | absolute_url | escape }}" data-post-title="{{ page.title | escape }}" data-supabase-url="{{ site.feedback.supabase_url | escape }}" data-anon-key="{{ site.feedback.anon_key | escape }}">
+  <h2 id="feedback-heading">O que achou deste relatório?</h2>
+  <form class="reader-feedback-form" method="post" action="{{ page.url | relative_url }}" autocomplete="off">
+    <fieldset>
+      <legend class="sr-only">Nota de 1 a 5 estrelas</legend>
+      <div class="star-rating">
+        <input type="radio" name="rating" id="feedback-star-1" value="1" required aria-label="1 estrela">
+        <label for="feedback-star-1" aria-label="1 estrela"><span class="star-glyph" aria-hidden="true">★</span></label>
+        <input type="radio" name="rating" id="feedback-star-2" value="2" aria-label="2 estrelas">
+        <label for="feedback-star-2" aria-label="2 estrelas"><span class="star-glyph" aria-hidden="true">★</span></label>
+        <input type="radio" name="rating" id="feedback-star-3" value="3" aria-label="3 estrelas">
+        <label for="feedback-star-3" aria-label="3 estrelas"><span class="star-glyph" aria-hidden="true">★</span></label>
+        <input type="radio" name="rating" id="feedback-star-4" value="4" aria-label="4 estrelas">
+        <label for="feedback-star-4" aria-label="4 estrelas"><span class="star-glyph" aria-hidden="true">★</span></label>
+        <input type="radio" name="rating" id="feedback-star-5" value="5" aria-label="5 estrelas">
+        <label for="feedback-star-5" aria-label="5 estrelas"><span class="star-glyph" aria-hidden="true">★</span></label>
+      </div>
+    </fieldset>
+    <label class="reader-feedback-label" for="feedback-comment">Deixe seu comentário (opcional)</label>
+    <textarea id="feedback-comment" name="comment" maxlength="2000" rows="4" aria-describedby="feedback-note"></textarea>
+    <button type="submit" class="reader-feedback-submit">Enviar</button>
+    <p class="reader-feedback-error" role="alert" hidden>Não foi possível enviar agora. Tente novamente mais tarde.</p>
+    <p class="reader-feedback-note" id="feedback-note">Seu feedback é anônimo e serve só para melhorarmos os relatórios. Não inclua dados pessoais.</p>
+  </form>
+  <p class="reader-feedback-thanks" tabindex="-1" role="status">Obrigado pelo feedback!</p>
+</section>
+<script src="{{ '/assets/js/feedback.js' | relative_url }}"></script>

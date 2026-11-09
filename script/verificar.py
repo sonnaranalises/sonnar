@@ -139,6 +139,18 @@ def main(root: Path) -> int:
                 errors.append(f"{rel}: post sem o aviso de transparência")
             if 'class="disclosure"' not in text:
                 errors.append(f"{rel}: post sem aside de disclosure")
+            if 'class="reader-feedback"' not in text:
+                errors.append(f"{rel}: post sem o bloco de feedback")
+            if "O que achou deste relatório?" not in text:
+                errors.append(f"{rel}: post sem o título do feedback")
+            if "Deixe seu comentário (opcional)" not in text:
+                errors.append(f"{rel}: post sem o campo de comentário")
+            if "Obrigado pelo feedback!" not in text:
+                errors.append(f"{rel}: post sem a mensagem de agradecimento")
+            if "/assets/js/feedback.js" not in text:
+                errors.append(f"{rel}: post sem o script de feedback")
+        elif "O que achou deste relatório?" in text:
+            errors.append(f"{rel}: feedback fora de um relatório")
         if "example-banner" in text:
             if "noindex" not in text:
                 errors.append(f"{rel}: exemplo indexável")
