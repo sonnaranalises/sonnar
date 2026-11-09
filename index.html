@@ -19,13 +19,22 @@ description: Um produto em foco e outros quatro para conhecer. O Radar do dia re
       {% assign examples = site.posts | where: "example", true %}
       {% for post in site.posts %}
       <article class="entry">
-        <p class="entry-meta">
-          {% include date-pt.html date=post.date %}
-          {% if post.example %}<span class="badge">Exemplo</span>{% endif %}
-        </p>
-        <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
-        {% if post.subtitle %}<p class="entry-sub">{{ post.subtitle | escape }}</p>{% endif %}
-        <p class="entry-summary">{{ post.summary | default: post.description | escape }}</p>
+        <a class="entry-link{% if post.image %} entry-link-photo{% endif %}" href="{{ post.url | relative_url }}">
+          <div class="entry-copy">
+            <p class="entry-meta">
+              {% include date-pt.html date=post.date %}
+              {% if post.example %}<span class="badge">Exemplo</span>{% endif %}
+            </p>
+            <h3 class="entry-title">{{ post.title | escape }}</h3>
+            {% if post.subtitle %}<p class="entry-sub">{{ post.subtitle | escape }}</p>{% endif %}
+            <p class="entry-summary">{{ post.summary | default: post.description | escape }}</p>
+          </div>
+          {% if post.image %}
+          <span class="entry-photo">
+            <img src="{% if post.image contains '://' %}{{ post.image | escape }}{% else %}{{ post.image | relative_url }}{% endif %}" alt="">
+          </span>
+          {% endif %}
+        </a>
       </article>
       {% endfor %}
       {% if examples.size > 0 %}

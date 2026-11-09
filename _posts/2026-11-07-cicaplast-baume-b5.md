@@ -5,6 +5,8 @@ title: "Bálsamo reparador Cicaplast Baume B5+ 40 ml"
 date: 2026-11-07 02:01:00 -0300
 summary: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: nota 4,9/5 em 122.968 opiniões, elogios, pontos de atenção e histórico de preço."
 description: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: opiniões de compradores, histórico de preço e posição entre cremes reparadores comparáveis."
+image: "/assets/img/radar/2026-11-07-cicaplast-baume-b5.jpg"
+image_alt: "Bálsamo reparador Cicaplast Baume B5+ 40 ml"
 products:
   - name: "Bálsamo reparador Cicaplast Baume B5+ La Roche-Posay 40 ml"
     price: "R$ 64,37"

@@ -192,6 +192,10 @@ a:hover {
   margin-inline: auto;
 }
 
+body:has(.post) .wrap {
+  width: min(100% - 2.5rem, 64rem);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -372,6 +376,41 @@ a:hover {
   border-top: 1px solid var(--line);
 }
 
+.entry-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.85rem 1.1rem;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.entry-link-photo {
+  grid-template-columns: minmax(0, 1fr) 8.25rem;
+}
+
+.entry-link:visited,
+.entry-link:hover {
+  color: inherit;
+}
+
+.entry-photo {
+  display: block;
+  width: 8.25rem;
+  height: 8.25rem;
+  background: #fff;
+  border: 1px solid var(--silver);
+  overflow: hidden;
+}
+
+.entry-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
 .entry-meta {
   display: flex;
   flex-wrap: wrap;
@@ -386,19 +425,11 @@ a:hover {
   font-size: 1.45rem;
   font-weight: 700;
   margin: 0 0 0.35rem;
-}
-
-.entry-title a {
   color: var(--ink);
   text-decoration: underline;
   text-decoration-color: var(--teal);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.14em;
-}
-
-.entry-title a:hover,
-.entry-title a:visited {
-  color: var(--ink);
 }
 
 .entry-sub {
@@ -461,14 +492,43 @@ a:hover {
   text-decoration-thickness: 1px;
 }
 
-.prose blockquote {
-  margin: 0.75rem 0 1rem;
-  padding: 0.1rem 0 0.1rem 0.9rem;
-  border-left: 3px solid var(--teal);
+.post blockquote {
+  position: relative;
+  margin: 0.85rem 0 1.05rem;
+  padding: 0.55rem 5.6rem 0.7rem 2.15rem;
+  max-width: 36rem;
+  background: #fff;
+  border: 1px solid var(--silver);
+  border-radius: 2px 12px 12px 12px;
 }
 
-.prose blockquote p {
-  margin: 0.4rem 0;
+.post blockquote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0.65rem;
+  top: 0.28rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.65rem;
+  line-height: 1;
+  color: var(--paprika);
+}
+
+.post blockquote::after {
+  content: "Comentário";
+  position: absolute;
+  top: 0.62rem;
+  right: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+.post blockquote p {
+  margin: 0;
 }
 
 .prose sub {
@@ -500,6 +560,19 @@ a:hover {
   align-items: center;
   padding: 0.28rem 0;
   border-top: 1px solid var(--line);
+}
+
+.radar-list li.radar-row-photo {
+  grid-template-columns: 2.5rem minmax(0, 1fr) max-content max-content;
+  column-gap: 0.65rem;
+}
+
+.radar-thumb {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--line);
 }
 
 .radar-list li:last-child {
@@ -615,8 +688,40 @@ code {
   margin: 0;
 }
 
+.post-header,
+.disclosure,
+.example-banner,
+.intro,
+.analysis,
+.post-sources,
+.reader-feedback,
+.post-lead:not(.post-lead-has-photo) {
+  max-width: 42rem;
+}
+
+.radar-products {
+  max-width: 52rem;
+}
+
 .post-header {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.15rem;
+}
+
+.post-lead {
+  margin: 0 0 0.35rem;
+}
+
+.post-lead-has-photo {
+  display: grid;
+  grid-template-columns: minmax(0, 42rem) auto;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+  align-items: start;
+  justify-content: start;
+}
+
+.post-lead-copy > :first-child {
+  margin-top: 0;
 }
 
 .post-subtitle {
@@ -735,17 +840,23 @@ code {
 }
 
 .product-figure {
-  margin: 1rem auto 0;
-  width: 100%;
-  max-width: 34rem;
-  background: var(--paper);
+  margin: 0;
+  width: fit-content;
+  max-width: min(100%, 22rem);
+  background: #fff;
+  border: 1px solid var(--silver);
+  padding: 0.45rem;
+  line-height: 0;
 }
 
 .product-figure img {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
-  background: var(--paper);
+  max-width: min(100%, 21rem);
+  max-height: 26.25rem;
+  object-fit: contain;
+  background: #fff;
 }
 
 .analysis section {
@@ -1107,6 +1218,30 @@ html[data-feedback-sent] .reader-feedback-thanks {
   margin: 0;
 }
 
+@media (max-width: 52rem) {
+  .post-lead-has-photo {
+    grid-template-columns: minmax(0, 42rem);
+    max-width: 42rem;
+  }
+
+  .post-lead-has-photo .product-figure {
+    order: -1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .entry-link-photo {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .entry-photo {
+    order: -1;
+    width: min(100%, 16rem);
+    height: 11rem;
+  }
+}
+
 @media (max-width: 36rem) {
   .radar-list li {
     grid-template-columns: minmax(0, 1fr) max-content;
@@ -1114,8 +1249,21 @@ html[data-feedback-sent] .reader-feedback-thanks {
     padding: 0.32rem 0;
   }
 
+  .radar-list li.radar-row-photo {
+    grid-template-columns: 2.5rem minmax(0, 1fr) max-content;
+  }
+
   .radar-name {
     grid-column: 1 / -1;
+  }
+
+  .radar-list li.radar-row-photo .radar-name {
+    grid-column: 2 / -1;
+  }
+
+  .radar-list li.radar-row-photo .radar-thumb {
+    grid-row: 1 / span 2;
+    align-self: center;
   }
 
   .radar-price {
