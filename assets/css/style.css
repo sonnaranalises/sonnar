@@ -377,14 +377,21 @@ body:has(.post) .wrap {
 }
 
 .entry-desc-photo {
-  display: grid;
-  grid-template-columns: 8.25rem minmax(0, 1fr);
-  gap: 0.2rem 1.1rem;
-  align-items: start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 0.85rem 1.1rem;
+}
+
+.entry-desc-text {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .entry-photo {
   display: block;
+  flex: 0 0 8.25rem;
   width: 8.25rem;
   height: 8.25rem;
   background: #fff;
@@ -397,6 +404,8 @@ body:has(.post) .wrap {
   display: block;
   width: 100%;
   height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   background: #fff;
 }
@@ -712,12 +721,22 @@ code {
 }
 
 .post-lead-has-photo {
-  display: grid;
-  grid-template-columns: auto minmax(0, 42rem);
-  column-gap: 1.5rem;
-  row-gap: 0.75rem;
-  align-items: start;
-  justify-content: start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.15rem;
+  max-width: 42rem;
+}
+
+.post-lead-has-photo .product-figure {
+  flex: 0 0 auto;
+}
+
+.post-lead-has-photo .post-lead-copy {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .post-lead-copy > :first-child,
@@ -852,10 +871,10 @@ code {
 .product-figure {
   margin: 0;
   width: fit-content;
-  max-width: min(100%, 22rem);
+  max-width: 14rem;
   background: #fff;
   border: 1px solid var(--silver);
-  padding: 0.45rem;
+  padding: 0.3rem;
   line-height: 0;
 }
 
@@ -863,8 +882,8 @@ code {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(100%, 21rem);
-  max-height: 26.25rem;
+  max-width: 13rem;
+  max-height: 13rem;
   object-fit: contain;
   background: #fff;
 }
@@ -1228,22 +1247,21 @@ html[data-feedback-sent] .reader-feedback-thanks {
   margin: 0;
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 32rem) {
   .post-lead-has-photo {
-    grid-template-columns: minmax(0, 22rem);
-    max-width: 42rem;
+    flex-wrap: wrap;
+  }
+
+  .post-lead-has-photo .post-lead-copy {
+    flex-basis: 100%;
   }
 }
 
-@media (max-width: 40rem) {
-  .entry-desc-photo {
-    grid-template-columns: 6.5rem minmax(0, 1fr);
-    gap: 0.2rem 0.85rem;
-  }
-
+@media (max-width: 23rem) {
   .entry-photo {
-    width: 6.5rem;
-    height: 6.5rem;
+    flex-basis: 5.75rem;
+    width: 5.75rem;
+    height: 5.75rem;
   }
 }
 
