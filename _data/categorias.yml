@@ -1,0 +1,39 @@
+- slug: eletroportateis
+  nome: Eletroportáteis
+  descricao: Aparelhos elétricos de cozinha e casa, como air fryer, liquidificador, cafeteira e churrasqueira elétrica.
+- slug: cozinha
+  nome: Cozinha e utensílios
+  descricao: Potes, facas, panelas, tábuas e o que ajuda no preparo e na organização da comida.
+- slug: casa
+  nome: Casa e organização
+  descricao: Organizadores, cabides e itens de limpeza para o dia a dia da casa.
+- slug: beleza
+  nome: Beleza e cuidados
+  descricao: Hidratantes, skincare, cabelo e cuidados pessoais.
+- slug: saude
+  nome: Saúde e bem-estar
+  descricao: Termômetros, balanças, massageadores e itens de bem-estar.
+- slug: pet
+  nome: Pet
+  descricao: Higiene, camas, fontes e outros itens para cães e gatos.
+- slug: informatica
+  nome: Informática e home office
+  descricao: Suportes, mouses, webcams e o que ajuda a trabalhar em casa.
+- slug: games
+  nome: Games
+  descricao: Headsets, controles, teclados e acessórios para jogar.
+- slug: celulares
+  nome: Celulares e acessórios
+  descricao: Fones, carregadores, capinhas e acessórios de celular.
+- slug: audio-tv
+  nome: Áudio, TV e vídeo
+  descricao: Caixas de som, soundbars, TV box e acessórios de vídeo.
+- slug: ferramentas
+  nome: Ferramentas e jardim
+  descricao: Furadeiras, mangueiras e ferramentas para casa e jardim.
+- slug: lazer
+  nome: Esporte, lazer e viagem
+  descricao: Caixas térmicas, camping, garrafas e itens para sair de casa.
+- slug: moda
+  nome: Moda e acessórios
+  descricao: Roupas, calçados e acessórios de vestir.

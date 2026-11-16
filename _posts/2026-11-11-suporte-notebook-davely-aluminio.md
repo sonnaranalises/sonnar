@@ -8,6 +8,15 @@ summary: "Suporte de notebook de alumínio dobrável Davely, 14 a 20 polegadas: 
 description: "Suporte de notebook de alumínio dobrável Davely, 14 a 20 polegadas: ficha técnica, avaliações, pontos de atenção e preço frente a suportes dobráveis equivalentes."
 image: "/assets/img/radar/2026-11-11-suporte-notebook-davely-aluminio.jpg"
 image_alt: "Suporte de notebook de alumínio dobrável Davely, 14 a 20 polegadas"
+categoria: informatica
+tipo: "Suporte de notebook"
+tema: "Home office"
+elogios:
+  - "Me surpreendi com a qualidade e estabilidade que o produto tem."
+  - "Vem com uma bolsinha para guardar, achei maravilha."
+criticas:
+  - "Achei frágil, embora seja metálico."
+  - "não há trava pro apoio e ele escapa com facilidade, o que pode danificar o notebook."
 products:
   - name: "Suporte de notebook de alumínio dobrável Davely, 14 a 20 polegadas"
     price: "R$ 21,99"
@@ -60,17 +69,11 @@ Em **33.156 opiniões**, o suporte sustenta média de **4,8 de 5**, com as notas
 
 Nos elogios, aparecem firmeza, estabilidade, o acabamento em alumínio, a regulagem de inclinação e a bolsinha para transporte. O resumo das opiniões do Mercado Livre também destaca a facilidade de montar e levar, além da melhora na postura.
 
-> Me surpreendi com a qualidade e estabilidade que o produto tem.
-
-> Vem com uma bolsinha para guardar, achei maravilha.
-
 As críticas são uma parcela pequena desse total, mas giram em torno de um ponto central para um suporte: a firmeza. Os relatos mais comuns falam de hastes e alças de regulagem frágeis, que quebram ou entortam, e de notebook que escorrega ou fica instável no apoio. Também aparecem borracha antiderrapante descolando e unidades que chegaram tortas ou quebradas. Isso importa porque o suporte segura um aparelho caro: se ele cede, o risco é para o notebook.
 
-> Achei frágil, embora seja metálico.
-
-> não há trava pro apoio e ele escapa com facilidade, o que pode danificar o notebook.
-
 A firmeza aparece dos dois lados. Muitos elogiam a estabilidade, mas até entre as notas altas aparecem ressalvas: um comprador conta que a parte que regula a altura é de plástico e indica o suporte para notebooks leves, e outro diz que ele desmonta quando o notebook é puxado com frequência. São relatos, não o que acontece com toda unidade, mas ajudam a entender para qual uso ele foi pensado.
+
+<!-- tabela-comentarios -->
 
 ## Preço
 

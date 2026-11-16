@@ -1,52 +1,44 @@
 ---
 layout: default
 title: Radar do dia
-description: Um produto em foco e outros quatro para conhecer. O Radar do dia reúne o que o produto oferece, as opiniões de quem comprou e o preço nas fontes consultadas.
+description: Todo dia, um produto em destaque analisado a partir do que os compradores contam e do preço que ele tem de verdade. Dados organizados para você escolher com mais clareza.
 ---
-<div class="home">
-  <header class="home-header">
-    <h1>Radar do dia</h1>
-    <p class="lede">Um produto em foco e outros quatro para você conhecer. No Radar do dia, a Sonnar Análises reúne o que o produto oferece, o que aparece nas opiniões de quem comprou e como o preço se comportou nas fontes consultadas.</p>
-    <p>Os links dos cinco produtos ficam no começo de cada relatório. Logo depois vem a análise do destaque, com os elogios, os pontos de atenção e os dados que ajudam a colocar a oferta em contexto.</p>
-    <p>Quer acompanhar? Os relatórios publicados estão aqui, do mais recente para o mais antigo.</p>
-  </header>
+<div class="grade grade-home">
+  <div class="col-centro">
+    <header class="home-header">
+      <p class="kicker">Sonnar Análises</p>
+      <h1>Te ajudando a detectar boas escolhas</h1>
+      <p class="lede">Comprar online virou um mar de anúncios, notas e promessas. A Sonnar mergulha nesse mar por você: todo dia, um produto em destaque é analisado a partir do que os compradores contam e do preço que ele tem de verdade, perto de produtos equivalentes.</p>
+      <p>Sem empurrar compra e sem pressa. São dados organizados, com elogios e críticas no peso certo, para você escolher com mais clareza.</p>
+    </header>
 
-  <section class="latest" aria-labelledby="ultimas">
-    <h2 id="ultimas">Últimas análises</h2>
-    {% if site.posts.size == 0 %}
-    <p>Ainda não há análise publicada.</p>
-    {% else %}
-      {% assign examples = site.posts | where: "example", true %}
-      {% for post in site.posts %}
-      {% assign blurb = post.summary | default: post.description %}
-      {% assign title_colon = post.title | append: ": " %}
-      {% assign colon_len = title_colon | size %}
-      {% assign blurb_head = blurb | slice: 0, colon_len %}
-      {% if blurb_head == title_colon %}
-        {% assign blurb = blurb | slice: colon_len, 4000 %}
-      {% endif %}
-      <article class="entry">
-        <p class="entry-meta">
-          {% include date-pt.html date=post.date %}
-          {% if post.example %}<span class="badge">Exemplo</span>{% endif %}
-        </p>
-        <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
-        <div class="entry-desc{% if post.image %} entry-desc-photo{% endif %}">
-          {% if post.image %}
-          <a class="entry-photo" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }}">
-            <img src="{% if post.image contains '://' %}{{ post.image | escape }}{% else %}{{ post.image | relative_url }}{% endif %}" alt="">
-          </a>
-          {% endif %}
-          <div class="entry-desc-text">
-            {% if post.subtitle %}<p class="entry-sub">{{ post.subtitle | escape }}</p>{% endif %}
-            <p class="entry-summary">{{ blurb | escape }}</p>
-          </div>
+    {% assign hoje = nil %}
+    {% for post in site.posts %}
+      {% unless post.example %}
+        {% assign hoje = post %}
+        {% break %}
+      {% endunless %}
+    {% endfor %}
+    {% if hoje %}
+    <article class="radar-hoje">
+      <p class="kicker">Radar de hoje</p>
+      <p class="radar-hoje-data">{% include date-pt.html date=hoje.date %}</p>
+      <div class="radar-hoje-corpo">
+        {% if hoje.image and hoje.image_alt %}
+        <figure class="product-figure{% if hoje.image_formato == 'horizontal' %} horizontal{% endif %}">
+          <img src="{% if hoje.image contains '://' %}{{ hoje.image | escape }}{% else %}{{ hoje.image | relative_url }}{% endif %}" alt="{{ hoje.image_alt | escape }}">
+        </figure>
+        {% endif %}
+        <div class="radar-hoje-texto">
+          <h2 class="radar-hoje-titulo"><a href="{{ hoje.url | relative_url }}">{{ hoje.title | escape }}</a></h2>
+          {% if hoje.subtitle %}<p class="radar-hoje-sub">{{ hoje.subtitle | escape }}</p>{% endif %}
+          <a class="botao" href="{{ hoje.url | relative_url }}">Ler o relatório →</a>
         </div>
-      </article>
-      {% endfor %}
-      {% if examples.size > 0 %}
-      <p class="archive-note">O selo Exemplo marca uma página de formato, com dados fictícios.</p>
-      {% endif %}
+      </div>
+    </article>
     {% endif %}
-  </section>
+
+    {% include categorias-menu.html %}
+  </div>
+  {% include ultimas.html pular_destaque=true %}
 </div>

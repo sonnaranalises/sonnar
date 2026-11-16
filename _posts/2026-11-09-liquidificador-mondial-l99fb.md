@@ -8,6 +8,15 @@ summary: "Liquidificador Mondial Turbo Power L-99 FB 550 W: nota 4,8 em 359.233 
 description: "Liquidificador Mondial Turbo Power L-99 FB 550 W: ficha técnica, avaliações, pontos de atenção e preço frente a liquidificadores equivalentes."
 image: "/assets/img/radar/2026-11-09-liquidificador-mondial-l99fb.jpg"
 image_alt: "Liquidificador Mondial Turbo Power L-99 FB 550 W"
+categoria: eletroportateis
+tipo: "Liquidificador"
+tema: "Eletroportáteis do dia a dia"
+elogios:
+  - "É muito bom, potente, bate muito bem de sucos até bolos."
+  - "Tritura coisa pra caramba de uma vez, incluindo beterraba e cenoura."
+criticas:
+  - "O liquidificador desde o primeiro uso fica com cheiro de queimado"
+  - "às hélices são de plástico e quebram muito rápido"
 products:
   - name: "Liquidificador Mondial Turbo Power L-99 FB 550 W"
     price: "R$ 94,02"
@@ -62,17 +71,11 @@ A nota é **4,8 de 5 em 359.233 avaliações**, e esse é o dado mais forte. Um 
 
 Nos elogios, aparecem força para triturar, praticidade, limpeza fácil e o visual. O resumo automático do Mercado Livre também destaca desempenho, resistência e funcionamento silencioso.
 
-> É muito bom, potente, bate muito bem de sucos até bolos.
-
-> Tritura coisa pra caramba de uma vez, incluindo beterraba e cenoura.
-
 As críticas vêm de uma parcela pequena diante desse volume, mas se repetem num ponto que importa num aparelho com motor: cheiro de queimado, fumaça ou queima, em alguns casos já no primeiro uso. Também aparecem copo que vaza, hélices de plástico que quebram e problemas para resolver voltagem e garantia. Mesmo entre os elogios, há quem mencione gotas na borda do motor e a falta de uma trava para o copo.
 
-> O liquidificador desde o primeiro uso fica com cheiro de queimado
-
-> às hélices são de plástico e quebram muito rápido
-
 O cheiro de queimado aparece dos dois lados: alguns compradores dizem que ele diminui depois dos primeiros usos, outros dizem que não sentiram. São relatos, não uma regra para todas as unidades, mas vale ter esse ponto em mente.
+
+<!-- tabela-comentarios -->
 
 ## Preço
 

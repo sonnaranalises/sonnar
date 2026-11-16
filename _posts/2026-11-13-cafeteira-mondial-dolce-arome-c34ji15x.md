@@ -8,6 +8,15 @@ summary: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras: nota 
 description: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras: ficha técnica, avaliações, pontos de atenção e preço frente a cafeteiras de filtro equivalentes."
 image: "/assets/img/radar/2026-11-13-cafeteira-mondial-dolce-arome-c34ji15x.jpg"
 image_alt: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras"
+categoria: eletroportateis
+tipo: "Cafeteira"
+tema: "Café em casa"
+elogios:
+  - "Muito boa cafeteira, o café fica bem quentinho e passa o café bem rápido."
+  - "Menção positiva a jarra de inox resistente diferente das de vidro frágeis que sempre quebram e precisam ser substituídas."
+criticas:
+  - "Na especificações do produto diz 1,25 litros e mal cabe 500ml."
+  - "está difícil acertar o centro de encaixe para que o café passe pelo coador"
 products:
   - name: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras"
     price: "R$ 149,05"
@@ -62,17 +71,11 @@ A cafeteira elétrica Dolce Arome C-34JI-15X, da Mondial, é uma cafeteira de fi
 
 Os elogios se concentram na jarra de inox, resistente e fácil de lavar, no café que continua quente, no preparo rápido e no visual compacto. O resumo das opiniões do Mercado Livre acrescenta que a cafeteira é fácil de limpar e silenciosa.
 
-> Muito boa cafeteira, o café fica bem quentinho e passa o café bem rápido.
-
-> Menção positiva a jarra de inox resistente diferente das de vidro frágeis que sempre quebram e precisam ser substituídas.
-
 As notas baixas são uma parte pequena do total e giram em torno de três temas. O mais citado é o tamanho: há quem esperasse mais de uma cafeteira de "15 xícaras" e diga que a jarra comporta bem menos. Depois vêm relatos de café que não desce, vaza ou derrama, quase sempre ligados ao encaixe do porta-filtro com a jarra. Por fim, há casos de aparelho que parou de funcionar ou queimou depois de alguns dias ou meses. O tamanho importa para quem faz café para muita gente de uma vez; o encaixe, porque um filtro desalinhado suja a bancada e desperdiça o café.
 
-> Na especificações do produto diz 1,25 litros e mal cabe 500ml.
-
-> está difícil acertar o centro de encaixe para que o café passe pelo coador
-
 A jarra aparece dos dois lados: o inox é um dos pontos mais elogiados, mas é também em volta dela que surgem as queixas de capacidade e de encaixe. Um comprador satisfeito ainda sente falta do desligamento automático depois de passar o café. São relatos, não o que acontece com toda unidade, mas mostram onde prestar atenção.
+
+<!-- tabela-comentarios -->
 
 ## Preço
 

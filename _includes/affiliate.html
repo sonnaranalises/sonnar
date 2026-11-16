@@ -2,7 +2,8 @@
 {%- assign prefix = url | slice: 0, 8 -%}
 {%- if prefix == "https://" -%}
   <div class="affiliate-line">
-    <a class="affiliate-link" href="{{ url | escape }}" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span class="sr-only"> (abre em uma nova aba)</span></a>
+    <a class="affiliate-link" href="{{ url | escape }}" target="_blank" rel="sponsored nofollow noopener"
+       data-posicao="{{ include.posicao }}" data-produto="{{ include.produto | escape }}" data-local="{{ include.local | default: 'lista' }}">Ver no Mercado Livre<span class="sr-only"> (abre em uma nova aba)</span></a>
     <span class="affiliate-caption">Link de afiliado</span>
   </div>
 {%- else -%}

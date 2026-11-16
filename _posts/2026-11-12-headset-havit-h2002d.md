@@ -8,6 +8,15 @@ summary: "Headset gamer Havit H2002d com fio e microfone: nota 4,9 em 28.420 opi
 description: "Headset gamer Havit H2002d com fio e microfone: ficha técnica, avaliações, pontos de atenção e preço frente a headsets gamer com fio equivalentes."
 image: "/assets/img/radar/2026-11-12-headset-havit-h2002d.jpg"
 image_alt: "Headset gamer Havit H2002d com fio e microfone"
+categoria: games
+tipo: "Headset"
+tema: "Games"
+elogios:
+  - "Excelente custo benefício!. Estou usando no ps5 conectado no controle!."
+  - "As espumas das conchas e do arco são bem confortáveis, permitindo um uso prolongado sem incômodo."
+criticas:
+  - "Ele descasca toda a almofada com menos de 3 meses de uso."
+  - "O fone é ótimo mas em 2 meses o microfone está com mal contato"
 products:
   - name: "Headset gamer Havit H2002d com fio e microfone"
     price: "R$ 164,00"
@@ -61,17 +70,11 @@ O Havit soma **4,9 de 5** ao longo de **28.420 opiniões**. Uma média quase no 
 
 Quem elogia fala do som para jogos, com passos e tiros fáceis de localizar, do microfone que funciona bem e sai do lugar quando não é preciso, do cabo trançado, do acabamento e do custo-benefício. Há também quem destaque o conforto das espumas em sessões longas. O resumo das opiniões do Mercado Livre segue na mesma linha: som, isolamento, materiais, conforto e durabilidade.
 
-> Excelente custo benefício!. Estou usando no ps5 conectado no controle!.
-
-> As espumas das conchas e do arco são bem confortáveis, permitindo um uso prolongado sem incômodo.
-
 As notas baixas são uma fatia pequena do total, e nelas o tema que mais pesa é a durabilidade: relatos de headset que parou de funcionar, perdeu o som de um lado ou ficou com o microfone falhando depois de algumas semanas ou poucos meses de uso. Aparecem ainda volume baixo, arco que aperta a cabeça com o tempo e almofada que descasca. Esses pontos importam porque um headset de jogo costuma ser usado todos os dias, por horas; uma falha no microfone ou num dos lados atrapalha justamente a comunicação e a noção de direção que motivam a compra.
 
-> Ele descasca toda a almofada com menos de 3 meses de uso.
-
-> O fone é ótimo mas em 2 meses o microfone está com mal contato
-
 Dois pontos dividem opiniões. O grave agrada a uns e falta para outros, e um comprador explica que o som privilegia médios e agudos, bom para ouvir passos, menos para quem gosta de música com grave forte. Já o arco firme é ajuste seguro para uns e aperto para outros. São relatos, não regra para todas as unidades.
+
+<!-- tabela-comentarios -->
 
 ## Preço
 

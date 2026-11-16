@@ -1,0 +1,33 @@
+<aside class="col-esq" aria-labelledby="ultimas-titulo">
+  <div class="ultimas">
+    <h2 id="ultimas-titulo">Últimas análises</h2>
+    <ol class="ultimas-lista">
+      {% assign mostrados = 0 %}
+      {% assign pulados = 0 %}
+      {% assign pular = 0 %}
+      {% if include.pular_destaque %}{% assign pular = 1 %}{% endif %}
+      {% for post in site.posts %}
+        {% if post.example %}{% continue %}{% endif %}
+        {% if post.url == page.url %}{% continue %}{% endif %}
+        {% if pulados < pular %}
+          {% assign pulados = pulados | plus: 1 %}
+          {% continue %}
+        {% endif %}
+        {% if mostrados >= 3 %}{% break %}{% endif %}
+        <li class="ultimas-item">
+          {% if post.image %}
+          <a href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+            <img class="ultimas-thumb" src="{% if post.image contains '://' %}{{ post.image | escape }}{% else %}{{ post.image | relative_url }}{% endif %}" alt="">
+          </a>
+          {% endif %}
+          <div>
+            <p class="ultimas-data">{% include date-pt.html date=post.date %}</p>
+            <p class="ultimas-nome"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></p>
+          </div>
+        </li>
+        {% assign mostrados = mostrados | plus: 1 %}
+      {% endfor %}
+    </ol>
+    <p class="ultimas-mais"><a href="#categorias">Ver por categoria ↓</a></p>
+  </div>
+</aside>

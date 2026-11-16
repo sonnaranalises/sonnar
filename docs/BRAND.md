@@ -1,88 +1,90 @@
-# Sonnar Análises — guia vivo da marca · v2
+# Sonnar Análises · guia vivo da marca, v3
 
-Atualizado em 07/11/2026 (Brasília). Este guia substitui o PDF de rascunho e as orientações visuais anteriores. Nome: **Sonnar Análises**, sempre com dois Ns e acento. Slogan: **Te ajudando a detectar boas escolhas**.
+Atualizado em 16/11/2026 (horário de Brasília). É o resumo do **brand book v2.0** (PDF oficial) e substitui o `docs/BRAND.md` v2. Se houver conflito, vale o PDF.
 
-## Identidade e propósito
+- **Nome e slogan:** Sonnar Análises, sempre com dois Ns. O slogan "Te ajudando a detectar boas escolhas" fica no rodapé.
+- **Regra nº 1: SINCERIDADE.** O relatório analisa, pelo consumidor, os dados de um produto. É baseado em dados concretos e sinceros, não em opinião. Ele dá direção, mas nunca diz "compre", "não perca" ou "escolhemos".
 
-Organizamos informações reais sobre produtos, opiniões de compradores e histórico de preço. Não simulamos experiência pessoal, não recomendamos a compra e não criamos urgência. A primeira versão usa links de afiliado do Mercado Livre. Produto e preço são analisados separadamente; uma crítica nunca vira ataque à marca.
-
-No site e no texto institucional, usar o nome completo. No topo das artes, usar apenas **SONNAR**. O título do relatório apresenta o quadro: **Radar do dia · Análise Sonnar**. O subtítulo identifica o produto e sua categoria. O slogan fica no rodapé da página: **Sonnar Análises — Te ajudando a detectar boas escolhas**; não ocupa a área de título do relatório.
-
-## Paleta e contraste
+## Paleta: só 4 cores
 
 | Cor | Hex | Papel |
 |---|---|---|
-| Floral White | #fffcf2 | Fundo principal do site e texto claro nas artes escuras |
-| Silver | #ccc5b9 | Bordas, divisórias, fundo da caixa de transparência; legendas sobre fundo escuro |
-| Charcoal Brown | #403d39 | Texto secundário sobre fundo claro; fundo do cabeçalho/rodapé com texto Floral White |
-| Carbon Black | #252422 | Texto principal; fundo das artes; texto dos botões Paprika |
-| Spicy Paprika | #eb5e28 | Sinal do logo, botões, faixas de destaque e números em contexto acessível |
+| Carbon Black | #1A1B1F | Texto no tema claro; fundo no tema escuro; cabeçalho e rodapé |
+| Cerulean | #367588 | Títulos, destaques, sublinhados, faixas, botões; links e números no tema claro |
+| White | #FBFDFF | Fundo no tema claro e nas artes; texto no tema escuro; cartão das fotos |
+| Pacific Blue | #5BA3B8 | Texto pequeno, links e números sobre fundo escuro. Não usar em texto sobre fundo claro (2,8:1) |
 
-Não sobra teal, marfim ou preto da paleta antiga em CSS, SVG, favicons, imagens de compartilhamento e peças novas. Cores originais das embalagens nas fotos não são recoloridas.
+**Neutros:** só como transparências dessas cores.
 
-Exigir WCAG AA: texto Carbon Black sobre Paprika; texto Carbon Black sobre fundo Silver na transparência. Sobre Floral White, Paprika não serve para texto pequeno: usar faixa Paprika com texto Carbon Black, sublinhado ou outro destaque que preserve o contraste. Números grandes/bold só podem ser Paprika quando atingirem contraste de 3:1. Legendas Silver são para fundo escuro; em fundo claro, usar Charcoal Brown.
+- Texto secundário: Carbon a 72% (#595A5E).
+- Fios: Carbon a 12% (#E0E2E4).
+- Caixas: Cerulean a 8% (#EBF2F5).
+- No tema escuro: White a 70% e White a 14%, e Pacific a 8%.
 
 ## Tipografia
 
-- Michroma: logotipo e títulos de marca.
-- Space Grotesk: títulos editoriais e nomes de produto.
-- Inter: texto e interface.
-- IBM Plex Mono: preços, notas, contagens e volumes.
+- **Michroma:** só no logo e na palavra SONNAR.
+- **Space Grotesk:** títulos.
+- **Inter:** texto.
+- **IBM Plex Mono:** números.
 
-Manter fontes locais e licenças OFL. Não usar Orbitron como substituta.
+## Logo
 
-## Logotipo
+- Campo em #1A1B1F, ondas em #FBFDFF, onda interna em White a 70% e ponto em #5BA3B8.
+- Arquivos em `assets/brand/`.
 
-A marca aprovada é o S de ondas de sonar, com o ponto em Spicy Paprika `#eb5e28` e o campo em Carbon Black `#252422`. As ondas são Floral White; a onda interna é um cinza mais baixo. O arquivo completo traz o ícone e a palavra **sonnar** em minúsculas, na mesma cor clara.
+## Fotos
 
-Arquivos no repositório, em `assets/brand/`:
+- Foto real do anúncio, com o fundo original, sobre um cartão #FBFDFF com cantos de 12 px.
+- Moldura de 16 × 16rem, ou de 20 × 15rem para foto horizontal.
+- Nunca alterar o produto.
 
-- `sonnar-icone-perfil-1024.png` — só o ícone, 1024 px.
-- `sonnar-logo-completa-1024.png` — ícone e a palavra sonnar, 1024 px.
-- Favicons gerados a partir do ícone: `favicon.ico`, 32 px, 180 px (apple-touch), 192 px e 512 px.
+## Relatório
 
-No cabeçalho do site, o ícone fica ao lado do nome Sonnar Análises, entre 28 e 36 px. O cabeçalho é escuro (Charcoal Brown), então o ícone entra com o próprio fundo Carbon Black, em cantos levemente arredondados. Em fundo claro, o ícone precisa de um tile ou círculo Carbon Black para o S claro não sumir.
+São 11 seções, nesta ordem:
 
-A imagem padrão de Open Graph e Twitter, quando o post não tem imagem própria, é a logo completa centralizada em campo Carbon Black (`assets/og.png`). Não redesenhar as ondas nem trocar a cor do ponto.
+1. Aviso de transparência.
+2. Produtos no radar, com miniatura.
+3. Título e subtítulo.
+4. Foto.
+5. Apresentação.
+6. Especificações.
+7. Notas e avaliações.
+8. Tabela 3 + 3 de comentários.
+9. Preço, com régua e 5 posições.
+10. Conclusão.
+11. Fontes e observações, com a linha de IA.
 
-## Site e bloco de produtos
+O padrão completo está em `regras-relatorio-v2.md`.
 
-Logo abaixo da transparência, o bloco **Produtos no radar do dia** tem cinco linhas compactas: nome com categoria, preço, botão pequeno **Ver no Mercado Livre** e legenda **Link de afiliado**. Não criar cartões grandes, descrições, fotos ou parágrafos separados nesse bloco. A meta é cerca de um terço da altura anterior em tela equivalente. Em celular, permitir duas linhas por item sem rolagem horizontal nem texto minúsculo.
+## Categorias
 
-O começo da análise dá destaque conjunto a **4,9/5** e **122.968 opiniões**. Usar cor também para preço e características-chave, sem depender apenas de negrito nem apenas de cor para transmitir significado.
-
-## Regras editoriais
-
-1. Não publicar números da amostra de comentários. A contagem total de opiniões do anúncio pode e deve aparecer.
-2. Não julgar desconto ou preço de referência. Mostrar menor, média e maior do histórico e o preço do anúncio sem juízo sobre o desconto.
-3. Fontes, datas e horários ficam em notas curtas com asterisco e tipo menor. Horários em Brasília.
-4. Comparar por posicionamento, sem nomear concorrentes. Usar equivalentes reais e omitir comparações sem dados.
-5. Fechar com convite gentil para avaliar as informações. Nunca escrever “a decisão é sua”.
-6. Usar linguagem simples, frases curtas, sem “ND”, jargão desnecessário ou nomes de arquivos internos.
-7. Transparência fica no topo do relatório: “Transparência: os links desta página são de afiliado. Se eles forem úteis pra você, a comissão ajuda a Sonnar a continuar no ar, sem custo adicional na sua compra e sem influenciar o que escrevemos.” Cada botão de afiliado recebe a legenda “Link de afiliado”. Nunca usar “#publi · Link de afiliado”.
-8. Suspeitas de compradores são relatos, não fatos. Não insinuar falsificação a partir de queixas sobre lacre.
-9. Não acrescentar sermões ou ressalvas genéricas como “nota alta não garante…” ou “são percepções… não comprovam tratamento…”.
-10. Opiniões positivas e críticas são resumidas em parágrafos, seguidos de 1–3 citações literais, reais e anônimas por seção. Nunca inventar depoimentos.
-11. Usar “Produtos no radar do dia”, não “Complementares”.
-12. O acesso aos cinco produtos fica logo após a transparência. A legenda do Instagram aponta para o relatório no link da bio.
-13. O título é o quadro da Sonnar Análises; o subtítulo é o produto com categoria correta, confirmada na fonte, não um nome comercial incompreensível.
-14. Dar peso proporcional à avaliação geral. Nota e quantidade total aparecem cedo e com destaque; críticas seguem honestas sem dominar a síntese.
-15. Aplicar a nova paleta a site, logo e redes. Destacar preço, nota e contagem com cor acessível.
-16. Instruções internas não viram fechamento público. Remover “A comissão de afiliado não define a pauta nem o texto. Quem decide é quem lê.”; encerrar a página com a marca e o slogan no rodapé.
-17. Páginas Radar, Sobre, Transparência e Privacidade usam linguagem humana. Não alegar ausência de cookies ou rastreamento além do que foi tecnicamente verificado. O radar só roda por comando. Enquanto houver revisão manual, publicar após essa revisão, sem pedir autorizações repetidas para as etapas já liberadas. Máximo de dois ciclos de correção.
+Os slugs ficam em `_data/categorias.yml`. A categoria é diferente do tema do dia. Em 16/11/2026, com o OK do Vinícius, entrou também a categoria provisória `moda` (Moda e acessórios): roupas, calçados e acessórios de vestir. Ela fica sem relatório até o primeiro post dessa categoria.
 
 ## Artes
 
-Instagram: cinco imagens 1080 × 1350, uma por produto, destaque primeiro. X: uma imagem 1600 × 900 do destaque. Todas levam SONNAR no topo, categoria, nome e preço. O destaque leva também nota e quantidade total de opiniões. Fotos reais do produto podem ser utilizadas sem alterar a embalagem; não inventar mockups ou simular uso. Se não houver foto de origem confirmada, usar composição tipográfica limpa.
-
-Não incluir “Análises” no topo, data/hora de preço, “Link de afiliado”, “Mercado Livre”, “Loja oficial” ou marcas do marketplace. Não usar preço riscado, de/por, percentual de desconto, urgência ou recomendação de compra. Revisar cada PNG visualmente antes da entrega.
+- Fundo claro.
+- O tema do dia exato, em Cerulean.
+- Preço em Cerulean.
+- O carimbo "Preço em DD/MM, HHhMM".
+- Sem riscado, sem % e sem urgência.
+- Formatos:
+  - Instagram: 5 imagens de 1080 × 1350.
+  - X: 4 imagens.
+  - Mais a arte de 1600 × 900.
 
 ## Redes
 
-X: nome com categoria; depois “Leia o nosso relatório para ver o que aparece nos elogios, nas críticas e no histórico de preço: [URL]”; 2–4 hashtags relevantes. Até 280 caracteres ponderados, links com 23. Publicar com a imagem, não apenas o link.
+O post é uma carta de apresentação, com 2 ou 3 hashtags mais #Sonnar.
 
-Instagram: destaque curto do produto e convite ao relatório no link da bio. Carrossel de cinco peças; 5–10 hashtags relevantes. Sem lista de preços, texto de transparência ou menção à loja do Mercado Livre. Hashtags ajudam a categorizar o conteúdo; não prometer alcance.
+**[Pendente]** O aviso de publicidade nos posts, conforme o CONAR e os termos do afiliado do ML.
 
-## Papéis e validação
+## Site
 
-A coordenação recebe o comando, distribui pesquisa, seleção, análise, redação, arte, revisão e publicação. Arte e pesquisa podem correr em paralelo; a redação usa a pesquisa; a revisão verifica dados, fontes, texto e arquivos finais. A publicação não altera o material validado. As responsabilidades dos nove papéis existentes são preservadas; as regras v2 acima prevalecem em qualquer conflito com documentos anteriores.
+- Modo noturno.
+- Coluna de 45rem.
+- Lateral esquerda com as 3 últimas análises.
+- Lateral direita com os 5 produtos (versão 1).
+- Menu de categorias.
+- Sobre com a Transparência incluída.
+- Medição sem cookies.

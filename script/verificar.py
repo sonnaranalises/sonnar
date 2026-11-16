@@ -68,6 +68,91 @@ class Parser(HTMLParser):
             self._capture = False
 
 
+OK_HEX = {"1a1b1f", "367588", "fbfdff", "5ba3b8"}
+OK_RGB = {(26, 27, 31), (54, 117, 136), (251, 253, 255), (91, 163, 184)}
+POSICOES_REGUA = {
+    "abaixo da faixa",
+    "no começo da faixa",
+    "no meio da faixa",
+    "no fim da faixa",
+    "acima da faixa",
+}
+
+
+def front_matter(text: str) -> str:
+    if not text.startswith("---"):
+        return ""
+    end = text.find("\n---", 3)
+    if end < 0:
+        return ""
+    return text[3:end]
+
+
+def checagens_v2(root: Path, errors: list) -> None:
+    exts = {".css", ".html", ".svg", ".webmanifest"}
+    for path in sorted(root.rglob("*")):
+        if not path.is_file() or path.suffix.lower() not in exts:
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        rel = path.relative_to(root).as_posix()
+        for match in re.finditer(r"#([0-9a-fA-F]{3,8})\b", text):
+            if match.group(1).lower() not in OK_HEX:
+                errors.append(f"{rel}: cor {match.group(0)}")
+        for match in re.finditer(
+            r"rgba?\(\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)",
+            text,
+            re.I,
+        ):
+            trio = tuple(int(float(match.group(i))) for i in (1, 2, 3))
+            if trio not in OK_RGB:
+                errors.append(f"{rel}: rgb {match.group(0)}")
+        if "A decisão é de quem lê" in text:
+            errors.append(f"{rel}: contém a frase morta")
+        if rel in {"index.html", "sobre/index.html"} and "no Mercado Livre" in text:
+            errors.append(f"{rel}: contém 'no Mercado Livre'")
+        if 'class="comentarios"' in text:
+            colunas = re.findall(
+                r'<div class="comentarios-col[^"]*">(.*?)</div>',
+                text,
+                re.S,
+            )
+            if len(colunas) < 2:
+                errors.append(f"{rel}: tabela de comentários sem as duas colunas")
+            for coluna in colunas:
+                n = coluna.count("<blockquote")
+                if n > 3:
+                    errors.append(f"{rel}: coluna de comentários com {n} citações")
+
+    trans = root / "transparencia" / "index.html"
+    if not trans.exists():
+        errors.append("transparencia/: página ausente")
+    else:
+        html = trans.read_text(encoding="utf-8")
+        if not re.search(r'http-equiv="refresh"[^>]*url=[^"]*/sobre/', html):
+            errors.append("transparencia/: sem meta refresh para /sobre/")
+
+    repo = Path(__file__).resolve().parent.parent
+    dados = (repo / "_data" / "categorias.yml").read_text(encoding="utf-8")
+    slugs = set(re.findall(r"(?m)^- slug:\s*(\S+)\s*$", dados))
+    posts = sorted((repo / "_posts").glob("*.md"))
+    if not posts:
+        errors.append("_posts: nenhum relatório")
+    for post in posts:
+        fm = front_matter(post.read_text(encoding="utf-8"))
+        cat = re.search(r"(?m)^categoria:\s*[\"']?([A-Za-z0-9_-]+)", fm)
+        tipo = re.search(r"(?m)^tipo:\s*[\"']?(.*?)[\"']?\s*$", fm)
+        rel = post.relative_to(repo).as_posix()
+        if not cat or cat.group(1) not in slugs:
+            errors.append(f"{rel}: categoria ausente ou fora da lista")
+        elif not tipo or not tipo.group(1).strip():
+            errors.append(f"{rel}: tipo vazio")
+        if re.search(r"(?m)^regua_preco:\s*$", fm):
+            pos = re.search(r"(?m)^[ \t]+posicao:\s*[\"']?(.*?)[\"']?\s*$", fm)
+            valor = pos.group(1).strip() if pos else ""
+            if valor not in POSICOES_REGUA:
+                errors.append(f"{rel}: posição da régua inválida ({valor!r})")
+
+
 def main(root: Path) -> int:
     files = sorted(root.rglob("*.html"))
     if not files:
@@ -160,6 +245,7 @@ def main(root: Path) -> int:
                 errors.append(f"{rel}: exemplo sem preço placeholder")
             if re.search(r"R\$\s*\d", text):
                 errors.append(f"{rel}: exemplo com preço numérico")
+    checagens_v2(root, errors)
     if errors:
         print("\n".join(errors))
         return 1

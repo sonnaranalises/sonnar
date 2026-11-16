@@ -1,283 +1,313 @@
 ---
 layout: default
 ---
-<article class="post">
-  {% if page.example %}
-  <aside class="example-banner" role="note">
-    <p class="kicker">Exemplo · placeholder</p>
-    <p>Dados fictícios. Esta página não descreve um produto real e não serve como referência de preço, nota ou avaliação.</p>
-  </aside>
-  {% endif %}
-
-  {% include disclosure.html %}
+<div class="grade grade-relatorio">
+  <div class="col-aviso">{% include disclosure.html %}</div>
 
   {% assign radar = page.products | default: page.complements %}
   {% if radar %}
-  <section class="radar-products" aria-labelledby="radar-do-dia">
-    <h2 id="radar-do-dia">Produtos no radar do dia</h2>
-    <ol class="radar-list">
-      {% for item in radar %}
-      <li{% if item.image %} class="radar-row-photo"{% endif %}>
-        {% if item.image %}
-        <img class="radar-thumb" src="{% if item.image contains '://' %}{{ item.image | escape }}{% else %}{{ item.image | relative_url }}{% endif %}" alt="{{ item.image_alt | default: item.name | escape }}">
-        {% endif %}
-        <span class="radar-name">{{ item.name | escape }}</span>
-        <span class="radar-price">
-          {% if item.price %}<span class="radar-price-main">{{ item.price | escape }}{% if item.price_context %} <span class="radar-price-ctx">{{ item.price_context | escape }}</span>{% endif %}</span>{% endif %}
-          {% if item.price_alt %}<span class="radar-price-alt">{{ item.price_alt | escape }}</span>{% endif %}
-        </span>
-        {% include affiliate.html url=item.url %}
-      </li>
-      {% endfor %}
-    </ol>
-    {% if page.products_note %}
-    <p class="footnote"><span aria-hidden="true">* </span>{{ page.products_note | escape }}</p>
-    {% endif %}
-  </section>
-  {% endif %}
-
-  <header class="post-header">
-    {% unless content contains "<h1" %}
-    <p class="kicker">Radar do dia · Sonnar Análises</p>
-    <h1>{{ page.title | escape }}</h1>
-    {% endunless %}
-    {% if page.subtitle %}
-    <p class="post-subtitle">{{ page.subtitle | escape }}</p>
-    {% endif %}
-    <p class="post-kicker">
-      {% include date-pt.html date=page.date %}
-    </p>
-    {% if page.marketplace %}
-    <p class="marketplace">{{ page.marketplace | escape }}</p>
-    {% endif %}
-    {% if page.price %}
-    <p class="price">
-      <span class="price-label">{{ page.price_caption | default: "Preço" | escape }}</span>
-      <span class="price-value">{{ page.price | escape }}</span>
-    </p>
-    {% endif %}
-    {% unless radar %}
-    {% include affiliate.html url=page.affiliate_url %}
-    {% endunless %}
-  </header>
-
-  {% assign body_parts = content | split: "<h2" %}
-  {% assign lead_html = body_parts | first %}
-  {% assign lead_text = lead_html | strip_html | strip %}
-  {% assign rest_html = "" %}
-  {% if lead_text == "" %}
-    {% assign lead_html = "" %}
-    {% for part in body_parts offset:1 %}
-      {% assign head_html = "<h2" | append: part | split: "</h2>" | first | append: "</h2>" %}
-      {% assign head_text = head_html | strip_html | strip %}
-      {% if lead_html == "" and head_text == "O que é" %}
-        {% assign lead_html = "<h2" | append: part %}
-      {% else %}
-        {% assign rest_html = rest_html | append: "<h2" | append: part %}
-      {% endif %}
-    {% endfor %}
-  {% else %}
-    {% for part in body_parts offset:1 %}
-      {% assign rest_html = rest_html | append: "<h2" | append: part %}
-    {% endfor %}
-  {% endif %}
-
-  {% assign beside_html = lead_html %}
-  {% assign specs_html = "" %}
-  {% assign lead_label = "" %}
-  {% assign lead_len = lead_html | size %}
-  {% assign ul_at = lead_len %}
-  {% assign ol_at = lead_len %}
-  {% if lead_html contains "<ul" %}
-    {% assign ul_at = lead_html | split: "<ul" | first | size %}
-  {% endif %}
-  {% if lead_html contains "<ol" %}
-    {% assign ol_at = lead_html | split: "<ol" | first | size %}
-  {% endif %}
-  {% if ul_at < lead_len or ol_at < lead_len %}
-    {% if ol_at < ul_at %}
-      {% assign list_tag = "<ol" %}
-    {% else %}
-      {% assign list_tag = "<ul" %}
-    {% endif %}
-    {% assign list_parts = lead_html | split: list_tag %}
-    {% assign beside_html = list_parts | first %}
-    {% for part in list_parts offset:1 %}
-      {% assign specs_html = specs_html | append: list_tag | append: part %}
-    {% endfor %}
-  {% endif %}
-  {% if beside_html contains "</h2>" %}
-    {% assign head_parts = beside_html | split: "</h2>" %}
-    {% assign lead_label = head_parts | first | append: "</h2>" %}
-    {% assign beside_html = head_parts | last %}
-  {% endif %}
-  {% assign beside_text = beside_html | strip_html | strip %}
-
-  {% if lead_label != "" %}
-  <div class="post-lead-label prose">
-    {{ lead_label }}
-  </div>
-  {% endif %}
-
-  {% if beside_text != "" or page.image %}
-  <div class="post-lead{% if page.image and page.image_alt %} post-lead-has-photo{% endif %}">
-    {% if page.image and page.image_alt %}
-    <figure class="product-figure">
-      <img src="{% if page.image contains '://' %}{{ page.image | escape }}{% else %}{{ page.image | relative_url }}{% endif %}" alt="{{ page.image_alt | escape }}">
-    </figure>
-    {% endif %}
-    {% if beside_text != "" %}
-    <div class="post-lead-copy prose">
-      {{ beside_html }}
-    </div>
-    {% endif %}
-  </div>
-  {% endif %}
-
-  {% if specs_html != "" %}
-  <div class="post-lead-specs prose">
-    {{ specs_html }}
-  </div>
-  {% endif %}
-
-  {% if rest_html != "" %}
-  <div class="intro prose">
-    {{ rest_html }}
-  </div>
-  {% endif %}
-
-  <div class="analysis">
-    {% if page.specs %}
-    <section>
-      <h2>Especificações</h2>
-      <table class="spec-table">
-        <caption class="sr-only">Ficha técnica</caption>
-        <tbody>
-          {% for row in page.specs %}
-          <tr>
-            <th scope="row">{{ row.name | escape }}</th>
-            <td>{{ row.value | escape }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </section>
-    {% endif %}
-
-    {% if page.rating_score or page.rating_count or page.rating_source or page.rating_checked %}
-    <section>
-      <h2>Avaliações</h2>
-      <div class="rating">
-        {% if page.rating_score == nil or page.rating_score == "" %}
-        <p class="rating-score"><span class="sr-only">Nota </span>— <span class="rating-scale">de 5</span></p>
-        <p class="stars" aria-hidden="true">☆☆☆☆☆</p>
-        {% else %}
-        {% assign score = page.rating_score | plus: 0 %}
-        {% capture score_text %}{{ score }}{% endcapture %}
-        <p class="rating-score"><span class="sr-only">Nota </span>{{ score_text | strip | replace: ".", "," }} <span class="rating-scale">de 5</span></p>
-        <p class="stars" aria-hidden="true">{% for i in (1..5) %}{% if i <= score %}★{% else %}☆{% endif %}{% endfor %}</p>
-        {% endif %}
-        {% if page.rating_count %}
-        <p class="reviews">{{ page.rating_count | escape }}{% if page.rating_source or page.rating_checked %}<sup class="footnote-ref"><a href="#nota-avaliacoes">*</a><span class="sr-only"> Nota de fonte</span></sup>{% endif %}</p>
-        {% else %}
-        <p class="reviews">Quantidade de avaliações não informada.{% if page.rating_source or page.rating_checked %}<sup class="footnote-ref"><a href="#nota-avaliacoes">*</a><span class="sr-only"> Nota de fonte</span></sup>{% endif %}</p>
-        {% endif %}
-        {% if page.rating_source or page.rating_checked %}
-        <p class="footnote" id="nota-avaliacoes"><span aria-hidden="true">* </span>{% if page.rating_source %}{{ page.rating_source | escape }}{% endif %}{% if page.rating_checked %}{{ " " }}Consulta: {{ page.rating_checked | escape }}.{% endif %}</p>
-        {% endif %}
-      </div>
-    </section>
-    {% endif %}
-
-    {% if page.praise %}
-    <section>
-      <h2>Principal elogio</h2>
-      {{ page.praise | markdownify }}
-    </section>
-    {% endif %}
-
-    {% if page.complaints %}
-    <section>
-      <h2>Principal reclamação</h2>
-      {{ page.complaints | markdownify }}
-    </section>
-    {% endif %}
-
-    {% if page.price_reading or page.price_checked %}
-    <section>
-      <h2>O preço de agora</h2>
-      {% if page.price_reading %}
-      {{ page.price_reading | markdownify }}
-      {% endif %}
-      {% if page.price_checked %}
-      <p class="footnote" id="nota-preco"><span aria-hidden="true">* </span>Consulta do preço: {{ page.price_checked | escape }}.</p>
-      {% endif %}
-    </section>
-    {% endif %}
-
-    {% if page.price_history.text %}
-    <section>
-      <h2>Histórico de preço</h2>
-      {{ page.price_history.text | markdownify }}
-      {% if page.price_history.source or page.price_history.checked_on %}
-      <p class="footnote" id="nota-historico"><span aria-hidden="true">* </span>Fonte: {% if page.price_history.source_url %}
-        {% assign history_prefix = page.price_history.source_url | slice: 0, 8 %}
-        {% if history_prefix == "https://" %}
-        <a class="source-link" href="{{ page.price_history.source_url | escape }}" target="_blank" rel="noopener">{{ page.price_history.source | default: "fonte" | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>
-        {% else %}
-        {{ page.price_history.source | escape }}
-        {% endif %}
-      {% else %}
-        {{ page.price_history.source | default: "não citada" | escape }}
-      {% endif %}{% if page.price_history.checked_on %}{{ " " }}Consulta: {{ page.price_history.checked_on | escape }}.{% endif %}</p>
-      {% endif %}
-    </section>
-    {% endif %}
-
-    {% if page.comparisons %}
-    <section>
-      <h2>Parecidos de outras marcas</h2>
-      <ul class="compare">
-        {% for item in page.comparisons %}
-        <li>
-          <h3>{{ item.name | escape }}</h3>
-          {{ item.note | markdownify }}
+  <aside class="col-dir col-direita" aria-label="Produtos no radar do dia">
+    <section class="radar-products" aria-labelledby="radar-do-dia">
+      <h2 id="radar-do-dia">Produtos no radar do dia</h2>
+      <ol class="radar-list">
+        {% for item in radar %}
+        <li{% if item.image %} class="radar-row-photo"{% endif %}>
+          {% if item.image %}
+          <img class="radar-thumb" src="{% if item.image contains '://' %}{{ item.image | escape }}{% else %}{{ item.image | relative_url }}{% endif %}" alt="{{ item.image_alt | default: item.name | escape }}">
+          {% endif %}
+          <span class="radar-name">{{ item.name | escape }}</span>
+          <span class="radar-price">
+            {% if item.price %}<span class="radar-price-main">{{ item.price | escape }}{% if item.price_context %} <span class="radar-price-ctx">{{ item.price_context | escape }}</span>{% endif %}</span>{% endif %}
+            {% if item.price_alt %}<span class="radar-price-alt">{{ item.price_alt | escape }}</span>{% endif %}
+          </span>
+          {% include affiliate.html url=item.url posicao=forloop.index produto=item.name local="lista" %}
         </li>
         {% endfor %}
-      </ul>
+      </ol>
+      {% if page.products_note %}
+      <p class="footnote"><span aria-hidden="true">* </span>{{ page.products_note | escape }}</p>
+      {% endif %}
     </section>
-    {% endif %}
-
-    {% if page.conclusion %}
-    <section class="conclusion">
-      <h2>Conclusão</h2>
-      <div class="callout">
-        {{ page.conclusion | markdownify }}
-        <p class="decision">A Sonnar Análises não recomenda comprar nem deixar de comprar. A decisão é de quem lê.</p>
-      </div>
-    </section>
-    {% endif %}
-  </div>
-
-  {% if page.rating_source or page.rating_checked or page.price_checked or page.price_history.source or page.price_history.checked_on or page.sources %}
-  <footer class="post-sources">
-    <h2>Fontes</h2>
-    <ul>
-      {% if page.rating_source or page.rating_checked %}
-      <li>Avaliações.{% if page.rating_source %} {{ page.rating_source | escape }}{% endif %}{% if page.rating_checked %}{{ " " }}Consulta: {{ page.rating_checked | escape }}.{% endif %}</li>
-      {% endif %}
-      {% if page.price_checked %}
-      <li>Preço. Consulta: {{ page.price_checked | escape }}.</li>
-      {% endif %}
-      {% if page.price_history.source or page.price_history.checked_on %}
-      <li>Histórico de preço.{% if page.price_history.source %} {{ page.price_history.source | escape }}{% endif %}{% if page.price_history.checked_on %}{{ " " }}Consulta: {{ page.price_history.checked_on | escape }}.{% endif %}</li>
-      {% endif %}
-      {% for item in page.sources %}
-      <li>{{ item.label | escape }}. {{ item.detail | escape }}</li>
-      {% endfor %}
-    </ul>
-  </footer>
+  </aside>
   {% endif %}
 
-  {% include feedback.html %}
-</article>
+  <div class="col-centro">
+    <article class="post">
+      {% if page.example %}
+      <aside class="example-banner" role="note">
+        <p class="kicker">Exemplo · placeholder</p>
+        <p>Dados fictícios. Esta página não descreve um produto real e não serve como referência de preço, nota ou avaliação.</p>
+      </aside>
+      {% endif %}
+
+      <header class="post-header">
+        {% unless content contains "<h1" %}
+        <p class="kicker">Radar do dia · Sonnar Análises</p>
+        <h1>{{ page.title | escape }}</h1>
+        {% endunless %}
+        {% if page.subtitle %}
+        <p class="post-subtitle">{{ page.subtitle | escape }}</p>
+        {% endif %}
+        <p class="post-kicker">
+          {% include date-pt.html date=page.date %}
+        </p>
+        {% if page.categoria %}
+        {% assign cat_atual = site.data.categorias | where: "slug", page.categoria | first %}
+        <p class="post-categoria">Categoria: <a href="{{ '/categorias/' | append: page.categoria | append: '/' | relative_url }}">{{ cat_atual.nome | default: page.categoria | escape }}</a></p>
+        {% endif %}
+        {% if page.marketplace %}
+        <p class="marketplace">{{ page.marketplace | escape }}</p>
+        {% endif %}
+        {% if page.price %}
+        <p class="price">
+          <span class="price-label">{{ page.price_caption | default: "Preço" | escape }}</span>
+          <span class="price-value">{{ page.price | escape }}</span>
+        </p>
+        {% endif %}
+        {% unless radar %}
+        {% include affiliate.html url=page.affiliate_url %}
+        {% endunless %}
+      </header>
+
+      {% assign body_parts = content | split: "<h2" %}
+      {% assign lead_html = body_parts | first %}
+      {% assign lead_text = lead_html | strip_html | strip %}
+      {% assign rest_html = "" %}
+      {% if lead_text == "" %}
+        {% assign lead_html = "" %}
+        {% for part in body_parts offset:1 %}
+          {% assign head_html = "<h2" | append: part | split: "</h2>" | first | append: "</h2>" %}
+          {% assign head_text = head_html | strip_html | strip %}
+          {% if lead_html == "" and head_text == "O que é" %}
+            {% assign lead_html = "<h2" | append: part %}
+          {% else %}
+            {% assign rest_html = rest_html | append: "<h2" | append: part %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for part in body_parts offset:1 %}
+          {% assign rest_html = rest_html | append: "<h2" | append: part %}
+        {% endfor %}
+      {% endif %}
+
+      {% capture tabela_comentarios %}{% include comentarios.html %}{% endcapture %}
+      {% assign rest_html = rest_html | replace: "<p><!-- tabela-comentarios --></p>", tabela_comentarios %}
+      {% assign rest_html = rest_html | replace: "<!-- tabela-comentarios -->", tabela_comentarios %}
+      {% capture regua_html %}{% include regua-preco.html %}{% endcapture %}
+      {% assign rest_html = rest_html | replace: "<p><!-- regua-preco --></p>", regua_html %}
+      {% assign rest_html = rest_html | replace: "<!-- regua-preco -->", regua_html %}
+{% assign rest_html = rest_html | replace: '<h2 id="conclusão">Conclusão</h2>', '<section class="conclusion"><h2 id="conclusão">Conclusão</h2>' %}
+{% assign rest_html = rest_html | replace: '<h2 id="conclusao">Conclusão</h2>', '<section class="conclusion"><h2 id="conclusao">Conclusão</h2>' %}
+{% assign rest_html = rest_html | replace: '<h2 id="em-resumo">Em resumo</h2>', '<section class="conclusion"><h2 id="em-resumo">Em resumo</h2>' %}
+      {% if rest_html contains '<section class="conclusion">' %}
+        {% assign rest_html = rest_html | append: "</section>" %}
+      {% endif %}
+
+      {% assign beside_html = lead_html %}
+      {% assign specs_html = "" %}
+      {% assign lead_label = "" %}
+      {% assign lead_len = lead_html | size %}
+      {% assign ul_at = lead_len %}
+      {% assign ol_at = lead_len %}
+      {% if lead_html contains "<ul" %}
+        {% assign ul_at = lead_html | split: "<ul" | first | size %}
+      {% endif %}
+      {% if lead_html contains "<ol" %}
+        {% assign ol_at = lead_html | split: "<ol" | first | size %}
+      {% endif %}
+      {% if ul_at < lead_len or ol_at < lead_len %}
+        {% if ol_at < ul_at %}
+          {% assign list_tag = "<ol" %}
+        {% else %}
+          {% assign list_tag = "<ul" %}
+        {% endif %}
+        {% assign list_parts = lead_html | split: list_tag %}
+        {% assign beside_html = list_parts | first %}
+        {% for part in list_parts offset:1 %}
+          {% assign specs_html = specs_html | append: list_tag | append: part %}
+        {% endfor %}
+      {% endif %}
+      {% if beside_html contains "</h2>" %}
+        {% assign head_parts = beside_html | split: "</h2>" %}
+        {% assign lead_label = head_parts | first | append: "</h2>" %}
+        {% assign beside_html = head_parts | last %}
+      {% endif %}
+      {% assign beside_text = beside_html | strip_html | strip %}
+
+      {% if lead_label != "" %}
+      <div class="post-lead-label prose">
+        {{ lead_label }}
+      </div>
+      {% endif %}
+
+      {% if beside_text != "" or page.image %}
+      <div class="post-lead{% if page.image and page.image_alt %} post-lead-has-photo{% endif %}">
+        {% if page.image and page.image_alt %}
+        <figure class="product-figure{% if page.image_formato == 'horizontal' %} horizontal{% endif %}">
+          <img src="{% if page.image contains '://' %}{{ page.image | escape }}{% else %}{{ page.image | relative_url }}{% endif %}" alt="{{ page.image_alt | escape }}">
+        </figure>
+        {% endif %}
+        {% if beside_text != "" %}
+        <div class="post-lead-copy prose">
+          {{ beside_html }}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if specs_html != "" %}
+      <div class="post-lead-specs prose">
+        {{ specs_html }}
+      </div>
+      {% endif %}
+
+      {% if rest_html != "" %}
+      <div class="intro prose">
+        {{ rest_html }}
+      </div>
+      {% endif %}
+
+      <div class="analysis">
+        {% if page.specs %}
+        <section>
+          <h2>Especificações</h2>
+          <table class="spec-table">
+            <caption class="sr-only">Ficha técnica</caption>
+            <tbody>
+              {% for row in page.specs %}
+              <tr>
+                <th scope="row">{{ row.name | escape }}</th>
+                <td>{{ row.value | escape }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </section>
+        {% endif %}
+
+        {% if page.rating_score or page.rating_count or page.rating_source or page.rating_checked %}
+        <section>
+          <h2>Avaliações</h2>
+          <div class="rating">
+            {% if page.rating_score == nil or page.rating_score == "" %}
+            <p class="rating-score"><span class="sr-only">Nota </span>— <span class="rating-scale">de 5</span></p>
+            <p class="stars" aria-hidden="true">☆☆☆☆☆</p>
+            {% else %}
+            {% assign score = page.rating_score | plus: 0 %}
+            {% capture score_text %}{{ score }}{% endcapture %}
+            <p class="rating-score"><span class="sr-only">Nota </span>{{ score_text | strip | replace: ".", "," }} <span class="rating-scale">de 5</span></p>
+            <p class="stars" aria-hidden="true">{% for i in (1..5) %}{% if i <= score %}★{% else %}☆{% endif %}{% endfor %}</p>
+            {% endif %}
+            {% if page.rating_count %}
+            <p class="reviews">{{ page.rating_count | escape }}{% if page.rating_source or page.rating_checked %}<sup class="footnote-ref"><a href="#nota-avaliacoes">*</a><span class="sr-only"> Nota de fonte</span></sup>{% endif %}</p>
+            {% else %}
+            <p class="reviews">Quantidade de avaliações não informada.{% if page.rating_source or page.rating_checked %}<sup class="footnote-ref"><a href="#nota-avaliacoes">*</a><span class="sr-only"> Nota de fonte</span></sup>{% endif %}</p>
+            {% endif %}
+            {% if page.rating_source or page.rating_checked %}
+            <p class="footnote" id="nota-avaliacoes"><span aria-hidden="true">* </span>{% if page.rating_source %}{{ page.rating_source | escape }}{% endif %}{% if page.rating_checked %}{{ " " }}Consulta: {{ page.rating_checked | escape }}.{% endif %}</p>
+            {% endif %}
+          </div>
+        </section>
+        {% endif %}
+
+        {% if page.praise %}
+        <section>
+          <h2>Principal elogio</h2>
+          {{ page.praise | markdownify }}
+        </section>
+        {% endif %}
+
+        {% if page.complaints %}
+        <section>
+          <h2>Principal reclamação</h2>
+          {{ page.complaints | markdownify }}
+        </section>
+        {% endif %}
+
+        {% if page.price_reading or page.price_checked %}
+        <section>
+          <h2>O preço de agora</h2>
+          {% if page.price_reading %}
+          {{ page.price_reading | markdownify }}
+          {% endif %}
+          {% if page.price_checked %}
+          <p class="footnote" id="nota-preco"><span aria-hidden="true">* </span>Consulta do preço: {{ page.price_checked | escape }}.</p>
+          {% endif %}
+        </section>
+        {% endif %}
+
+        {% if page.price_history.text %}
+        <section>
+          <h2>Histórico de preço</h2>
+          {{ page.price_history.text | markdownify }}
+          {% if page.price_history.source or page.price_history.checked_on %}
+          <p class="footnote" id="nota-historico"><span aria-hidden="true">* </span>Fonte: {% if page.price_history.source_url %}
+            {% assign history_prefix = page.price_history.source_url | slice: 0, 8 %}
+            {% if history_prefix == "https://" %}
+            <a class="source-link" href="{{ page.price_history.source_url | escape }}" target="_blank" rel="noopener">{{ page.price_history.source | default: "fonte" | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>
+            {% else %}
+            {{ page.price_history.source | escape }}
+            {% endif %}
+          {% else %}
+            {{ page.price_history.source | default: "não citada" | escape }}
+          {% endif %}{% if page.price_history.checked_on %}{{ " " }}Consulta: {{ page.price_history.checked_on | escape }}.{% endif %}</p>
+          {% endif %}
+        </section>
+        {% endif %}
+
+        {% if page.comparisons %}
+        <section>
+          <h2>Parecidos de outras marcas</h2>
+          <ul class="compare">
+            {% for item in page.comparisons %}
+            <li>
+              <h3>{{ item.name | escape }}</h3>
+              {{ item.note | markdownify }}
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+
+        {% if page.conclusion %}
+        <section class="conclusion">
+          <h2>Conclusão</h2>
+          <div class="callout">
+            {{ page.conclusion | markdownify }}
+          </div>
+        </section>
+        {% endif %}
+      </div>
+
+      {% if page.fontes %}
+      <footer class="post-sources">
+        <h2>Fontes e observações</h2>
+        <p>Dados do anúncio e das opiniões coletados no Mercado Livre em {{ page.fontes.coleta }} (horário de Brasília). Para o preço, comparamos com {{ page.fontes.equivalentes }}. O texto deste relatório foi produzido com ajuda de inteligência artificial, a partir desses dados.</p>
+      </footer>
+      {% elsif page.rating_source or page.rating_checked or page.price_checked or page.price_history.source or page.price_history.checked_on or page.sources %}
+      <footer class="post-sources">
+        <h2>Fontes</h2>
+        <ul>
+          {% if page.rating_source or page.rating_checked %}
+          <li>Avaliações.{% if page.rating_source %} {{ page.rating_source | escape }}{% endif %}{% if page.rating_checked %}{{ " " }}Consulta: {{ page.rating_checked | escape }}.{% endif %}</li>
+          {% endif %}
+          {% if page.price_checked %}
+          <li>Preço. Consulta: {{ page.price_checked | escape }}.</li>
+          {% endif %}
+          {% if page.price_history.source or page.price_history.checked_on %}
+          <li>Histórico de preço.{% if page.price_history.source %} {{ page.price_history.source | escape }}{% endif %}{% if page.price_history.checked_on %}{{ " " }}Consulta: {{ page.price_history.checked_on | escape }}.{% endif %}</li>
+          {% endif %}
+          {% for item in page.sources %}
+          <li>{{ item.label | escape }}. {{ item.detail | escape }}</li>
+          {% endfor %}
+        </ul>
+      </footer>
+      {% endif %}
+
+      {% include feedback.html %}
+    </article>
+    {% include categorias-menu.html %}
+  </div>
+
+  {% include ultimas.html %}
+</div>

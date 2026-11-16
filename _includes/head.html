@@ -1,7 +1,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
-<meta name="theme-color" content="#403d39">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem("sonnar-tema"); } catch (e) {}
+  if (t !== "claro" && t !== "escuro") {
+    t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro";
+  }
+  document.documentElement.setAttribute("data-tema", t);
+})();
+</script>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1A1B1F">
+{%- if page.redirect_to -%}
+<meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
+{%- endif -%}
 {%- if page.description -%}
   {%- assign desc = page.description -%}
 {%- elsif page.summary -%}
@@ -20,12 +33,26 @@
 <title>{{ doc_title | escape }}</title>
 <meta name="description" content="{{ desc | escape }}">
 <meta name="author" content="Sonnar Análises">
+{%- assign noindex = false -%}
 {%- if page.example or page.robots == "noindex" -%}
+  {%- assign noindex = true -%}
+{%- endif -%}
+{%- if page.layout == "categoria" -%}
+  {%- assign n_cat = site.posts | where: "categoria", page.categoria | size -%}
+  {%- if n_cat == 0 -%}
+    {%- assign noindex = true -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if noindex -%}
 <meta name="robots" content="noindex, follow">
 {%- else -%}
 <meta name="robots" content="index, follow">
 {%- endif -%}
+{%- if page.redirect_to -%}
+<link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+{%- else -%}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
+{%- endif -%}
 <link rel="alternate" hreflang="pt-BR" href="{{ page.url | absolute_url }}">
 <link rel="alternate" type="application/atom+xml" title="Sonnar Análises" href="{{ '/feed.xml' | absolute_url }}">
 <meta property="og:locale" content="pt_BR">
@@ -61,7 +88,8 @@
 <link rel="preload" href="{{ '/assets/fonts/inter-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/space-grotesk-700.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/michroma-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v=20261109c">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v=20261116a">
+<script src="{{ '/assets/js/tema.js' | relative_url }}" defer></script>
 {%- if page.url == "/" -%}
 <script type="application/ld+json">
 {

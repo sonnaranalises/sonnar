@@ -8,6 +8,15 @@ summary: "Fritadeira elétrica Britânia BAF11A 11 L: nota 4,9 em 17.072 avalia�
 description: "Fritadeira elétrica Britânia BAF11A 11 L: capacidade, avaliações, pontos de atenção e preço frente a modelos de mesmo tamanho."
 image: "/assets/img/radar/2026-11-08-airfryer-britania-baf11a.jpg"
 image_alt: "Fritadeira elétrica Air Fryer Oven Britânia BAF11A 11 L"
+categoria: eletroportateis
+tipo: "Air fryer"
+tema: "Cozinha"
+elogios:
+  - "Ótimo produto, já fiz bolo, assei carne, frango muito bom."
+  - "Assa super rápido, uniforme."
+criticas:
+  - "Design: veio muito arranhada."
+  - "Produto com dois meses de uso e já apresenta sinais de oxidação (ferrugem)."
 products:
   - name: "Fritadeira elétrica Air Fryer Oven Britânia BAF11A 11 L"
     price: "R$ 349,00"
@@ -51,17 +60,11 @@ A nota **4,9 de 5** em **17.072 avaliações** é o dado mais forte. Uma avalia�
 
 As opiniões positivas destacam capacidade, rapidez no preparo, facilidade de programação e limpeza. O resumo automático do Mercado Livre também reúne elogios ao design e à eficiência no cozimento.
 
-> Ótimo produto, já fiz bolo, assei carne, frango muito bom.
-
-> Assa super rápido, uniforme.
-
 As críticas são minoritárias, e o tema mais repetido é o recebimento com riscos ou arranhões. Algumas pessoas descrevem aparência de usado; isso é uma impressão relatada, não uma confirmação de uso anterior. No funcionamento, aparecem oxidação, manuseio das bandejas e da gordura, cozimento desigual e falhas com pouco uso. Há ainda relatos isolados de choque ao tocar a bandeja e de problema na tampa no primeiro uso, relevantes por envolverem a segurança.
 
-> Design: veio muito arranhada.
-
-> Produto com dois meses de uso e já apresenta sinais de oxidação (ferrugem).
-
 A praticidade aparece dos dois lados: há elogios à limpeza, mas também críticas ao manejo das bandejas e da gordura. São experiências diferentes, não uma regra para todas as unidades.
+
+<!-- tabela-comentarios -->
 
 ## Preço
 

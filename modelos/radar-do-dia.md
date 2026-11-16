@@ -1,75 +1,85 @@
 ---
 layout: post
 # Deixe true enquanto os dados forem de teste. A página ganha o aviso de
-# placeholder e sai do índice de busca. Troque para false só com dados reais.
+# placeholder e sai do índice. Troque para false só com dados reais.
 example: true
-title: "Nome do produto"
-# Não use data futura: o Jekyll esconde o post até esse horário.
-date: 2026-11-07 00:10:00 -0300
-summary: "Uma frase para a lista da home."
-description: "Descrição para buscadores e redes, até cerca de 160 caracteres."
-marketplace: "Mercado Livre"
-price_caption: "Preço visto no anúncio"
-price: "R$ 0,00"
-# Endereço https completo. Sem encurtador. O botão é sempre "Ver no Mercado Livre".
-affiliate_url: "https://www.mercadolivre.com.br/..."
-# Vazio se não houver nota. Use ponto: 4.2 vira 4,2 na página.
-rating_score:
-rating_count: "0 avaliações"
-# Fonte e data da consulta saem numa nota, não no parágrafo.
-rating_source: "Página do anúncio no Mercado Livre"
-rating_checked: "7 de novembro de 2026, 10:00"
-# Quando o preço foi visto. Também vai para a nota e para o rodapé de fontes.
-price_checked: "7 de novembro de 2026, 10:00"
-# Imagem opcional, dentro do site, com texto alternativo obrigatório.
-# image: /assets/posts/foto.jpg
-# image_alt: "Descrição objetiva da imagem"
-specs:
-  - name: "Capacidade"
-    value: ""
-  - name: "Peso"
-    value: ""
-praise: |
-  O elogio que mais se repete, em linguagem comum, sem identificar quem comentou.
-complaints: |
-  A reclamação que mais se repete, no mesmo peso do elogio. Crítica ao produto, não à marca.
-price_reading: |
-  Se o preço do dia parece alto, coerente ou baixo. Separe isso da qualidade. Sem conselho de compra. Sem data neste parágrafo.
-price_history:
-  source: "FarejaPreço"
-  source_url: "https://..."
-  checked_on: "7 de novembro de 2026, 10:00"
-  text: |
-    O que a série mostra, sem repetir a data. Apague o bloco price_history inteiro se não houver série.
-comparisons:
-  - name: "Produto parecido, outra marca"
-    note: |
-      O que muda em relação ao destaque, sem eleger vencedor.
-  - name: "Outro produto parecido, outra marca"
-    note: |
-      Segunda comparação curta.
-conclusion: |
-  Fecho neutro. Sem recomendação de compra. Qualidade e preço continuam separados.
-# Lista do topo, logo após a caixa de transparência: Produtos no radar do dia.
+title: "Categoria Marca Modelo"
+subtitle: "O que é, em poucas palavras, e para que serve."
+date: 2026-11-16 12:00:00 -0300
+summary: "Uma frase para a lista e para as redes."
+description: "Descrição para buscadores, até cerca de 160 caracteres."
+image: "/assets/img/radar/AAAA-MM-DD-slug.jpg"
+image_alt: "Categoria Marca Modelo"
+# image_formato: horizontal
+# Só quando a foto for horizontal (largura ÷ altura acima de 1,3). Sem o campo, a moldura é quadrada.
+categoria: eletroportateis
+tipo: "Tipo do produto"
+tema: "Tema do dia"
 products:
-  - name: "Produto 1"
-    price: "**R$ 0,00**"
-    url: "https://www.mercadolivre.com.br/..."
-  - name: "Produto 2"
-    price: "**R$ 0,00**"
-    url: "https://www.mercadolivre.com.br/..."
-  - name: "Produto 3"
-    price: "**R$ 0,00**"
-    url: "https://www.mercadolivre.com.br/..."
-  - name: "Produto 4"
-    price: "**R$ 0,00**"
-    url: "https://www.mercadolivre.com.br/..."
-  - name: "Produto 5"
-    price: "**R$ 0,00**"
-    url: "https://www.mercadolivre.com.br/..."
-products_note: "Preços das ofertas principais: Mercado Livre, data e hora (Brasília)."
+  - name: "Produto em destaque, com categoria e marca"
+    price: "R$ 0,00"
+    url: "https://meli.la/XXXXXXXX"
+    source_url: "https://www.mercadolivre.com.br/..."
+    image: "/assets/img/radar/AAAA-MM-DD-slug.jpg"
+    image_alt: "Produto em destaque, com categoria e marca"
+  - name: "Complemento 2"
+    price: "R$ 0,00"
+    url: "https://meli.la/XXXXXXXX"
+    source_url: "https://www.mercadolivre.com.br/..."
+    image: "/assets/img/radar/AAAA-MM-DD-comp-2.jpg"
+    image_alt: "Complemento 2"
+  - name: "Complemento 3"
+    price: "R$ 0,00"
+    url: "https://meli.la/XXXXXXXX"
+    source_url: "https://www.mercadolivre.com.br/..."
+    image: "/assets/img/radar/AAAA-MM-DD-comp-3.jpg"
+    image_alt: "Complemento 3"
+  - name: "Complemento 4"
+    price: "R$ 0,00"
+    url: "https://meli.la/XXXXXXXX"
+    source_url: "https://www.mercadolivre.com.br/..."
+    image: "/assets/img/radar/AAAA-MM-DD-comp-4.jpg"
+    image_alt: "Complemento 4"
+  - name: "Complemento 5"
+    price: "R$ 0,00"
+    url: "https://meli.la/XXXXXXXX"
+    source_url: "https://www.mercadolivre.com.br/..."
+    image: "/assets/img/radar/AAAA-MM-DD-comp-5.jpg"
+    image_alt: "Complemento 5"
+elogios:
+  - "Citação literal de elogio, até cerca de 200 caracteres."
+criticas:
+  - "Citação literal de crítica, até cerca de 200 caracteres."
+regua_preco:
+  produto: 0.00
+  minimo: 0.00
+  maximo: 0.00
+  produto_txt: "R$ 0,00"
+  minimo_txt: "R$ 0,00"
+  maximo_txt: "R$ 0,00"
+  unidade: "por unidade"
+  posicao: "no meio da faixa"
+fontes:
+  coleta: "16/11/2026, até 12h00"
+  equivalentes: "produtos equivalentes da mesma categoria, porte parecido e nota parecida"
 ---
 
-Apresentação do produto em Markdown. Diga o que ele é e para que serve, sem copiar o anúncio.
+Apresentação em um parágrafo: nome com categoria e marca, o que o produto é, o que oferece e para quem faz sentido.
 
-Não use convite de compra, urgência ou ataque a marca. Dado não confirmado não entra. Data, hora e fonte da consulta ficam nos campos de nota, não neste texto.
+- **Rótulo:** valor, com a observação curta quando ela mudar a escolha.
+
+## Notas e avaliações
+
+Nota, volume, o que esses números querem dizer, e os parágrafos de elogio e de crítica. As citações literais não ficam neste texto.
+
+<!-- tabela-comentarios -->
+
+## Preço
+
+Preço atual, critério dos equivalentes, mínimo, máximo e uma das cinco posições.
+
+<!-- regua-preco -->
+
+## Conclusão
+
+Para quem os dados indicam que o produto serve, para quem não, e o ponto específico. O segundo parágrafo é o fecho prático.

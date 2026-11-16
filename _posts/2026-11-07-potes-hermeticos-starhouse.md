@@ -8,6 +8,15 @@ summary: "Kit de potes herméticos de vidro Starhouse: nota 4,9 em 92.450 opini�
 description: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml: nota, opiniões, condições de uso e preço por pote frente a kits equivalentes."
 image: "/assets/img/radar/2026-11-07-potes-hermeticos-starhouse.jpg"
 image_alt: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml"
+categoria: cozinha
+tipo: "Potes"
+tema: "Casa prática e organização"
+elogios:
+  - "Boa qualidade."
+  - "Muito bom."
+criticas:
+  - "As tampas não fecham."
+  - "Trincou em 30s no microondas, não é tão resistente quanto parece."
 products:
   - name: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml"
     price: "R$ 92,08"
@@ -48,17 +57,11 @@ A nota é <span class="num">4,9 de 5 em 92.450 opiniões</span>, e esse é o dad
 
 Nos elogios, aparecem qualidade, utilidade no dia a dia, o visual, o tamanho prático e a vedação com as travas. O resumo do Mercado Livre, feito a partir de 48.371 comentários, destaca ainda o vidro como opção mais higiênica e o bom custo-benefício.
 
-> Boa qualidade.
-
-> Muito bom.
-
 As críticas são poucas em proporção, mas se repetem em dois pontos que importam num pote para alimentos. O primeiro são tampas que não fecham por completo, deixam frestas ou abrem sozinhas. O segundo são relatos de potes que trincaram ou quebraram ao aquecer comida no micro-ondas. Há também uma queixa de cor diferente da escolhida.
 
-> As tampas não fecham.
-
-> Trincou em 30s no microondas, não é tão resistente quanto parece.
-
 A vedação aparece dos dois lados: é elogiada pela maioria e é a crítica mais citada entre as notas baixas. São relatos de compradores, não uma regra para todas as unidades, mas vale ter esses dois pontos em mente.
+
+<!-- tabela-comentarios -->
 
 ## Preço
 
