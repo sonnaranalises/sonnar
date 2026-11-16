@@ -44,6 +44,7 @@ class Parser(HTMLParser):
         self.affiliate_blocks = []
         self._capture = False
         self._buf = []
+        self._in_list = False
 
     def handle_starttag(self, tag, attrs):
         ad = {k: (v or "") for k, v in attrs}
@@ -57,6 +58,7 @@ class Parser(HTMLParser):
         if tag == "div" and "affiliate-line" in classes:
             self._capture = True
             self._buf = []
+            self._in_list = "affiliate-in-list" in classes
 
     def handle_data(self, data):
         if self._capture:
@@ -64,7 +66,9 @@ class Parser(HTMLParser):
 
     def handle_endtag(self, tag):
         if self._capture and tag == "div":
-            self.affiliate_blocks.append("".join(self._buf))
+            self.affiliate_blocks.append(
+                {"text": "".join(self._buf), "in_list": self._in_list}
+            )
             self._capture = False
 
 
@@ -214,16 +218,33 @@ def main(root: Path) -> int:
             )
         if "#publi" in low:
             errors.append(f"{rel}: ainda usa #publi")
+        n_listas = len(re.findall(r'class="radar-list"', text))
+        n_notas = text.count("Links de afiliado")
+        if n_listas != n_notas:
+            errors.append(
+                f"{rel}: {n_listas} listas de produtos e {n_notas} notas 'Links de afiliado'"
+            )
         for block in parser.affiliate_blocks:
-            if "Ver no Mercado Livre" not in block:
+            legenda = block["text"]
+            if "Ver no Mercado Livre" not in legenda:
                 errors.append(f"{rel}: botão sem 'Ver no Mercado Livre'")
-            if "Link de afiliado" not in block:
+            if not block["in_list"] and "Link de afiliado" not in legenda:
                 errors.append(f"{rel}: botão sem a legenda 'Link de afiliado'")
         if "/radar/" in "/" + rel or rel.startswith("radar/"):
             if DISCLOSURE not in text:
                 errors.append(f"{rel}: post sem o aviso de transparência")
             if 'class="disclosure"' not in text:
                 errors.append(f"{rel}: post sem aside de disclosure")
+            else:
+                disc = text.find('class="disclosure"')
+                h1 = text.find("<h1")
+                fontes = re.search(r"<h2[^>]*>\s*Fontes", text)
+                if h1 != -1 and disc < h1:
+                    errors.append(f"{rel}: aviso de transparência antes do título")
+                if fontes is None or disc > fontes.start():
+                    errors.append(
+                        f"{rel}: aviso de transparência deve vir antes de Fontes"
+                    )
             if 'class="reader-feedback"' not in text:
                 errors.append(f"{rel}: post sem o bloco de feedback")
             if "O que achou deste relatório?" not in text:

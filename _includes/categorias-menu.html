@@ -6,7 +6,7 @@
       {% if n > 0 %}
       <a class="categoria-cartao" href="{{ '/categorias/' | append: c.slug | append: '/' | relative_url }}">
         <span class="categoria-nome">{{ c.nome }}</span>
-        <span class="categoria-link">Ver {% if n == 1 %}o relatório{% else %}os {{ n }} relatórios{% endif %} →</span>
+        <span class="categoria-contagem">{% if n == 1 %}1 relatório{% else %}{{ n }} relatórios{% endif %}</span>
       </a>
       {% endif %}
     {% endfor %}
