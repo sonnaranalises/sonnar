@@ -2,8 +2,6 @@
 layout: default
 ---
 <div class="grade grade-relatorio">
-  <div class="col-aviso">{% include disclosure.html %}</div>
-
   {% assign radar = page.products | default: page.complements %}
   {% if radar %}
   <aside class="col-dir col-direita" aria-label="Produtos no radar do dia">
@@ -11,19 +9,22 @@ layout: default
       <h2 id="radar-do-dia">Produtos no radar do dia</h2>
       <ol class="radar-list">
         {% for item in radar %}
-        <li{% if item.image %} class="radar-row-photo"{% endif %}>
+        <li class="radar-card{% if item.image %} radar-row-photo{% endif %}">
           {% if item.image %}
-          <img class="radar-thumb" src="{% if item.image contains '://' %}{{ item.image | escape }}{% else %}{{ item.image | relative_url }}{% endif %}" alt="{{ item.image_alt | default: item.name | escape }}">
+          <div class="radar-thumb">
+            <img src="{% if item.image contains '://' %}{{ item.image | escape }}{% else %}{{ item.image | relative_url }}{% endif %}" alt="{{ item.image_alt | default: item.name | escape }}">
+          </div>
           {% endif %}
-          <span class="radar-name">{{ item.name | escape }}</span>
-          <span class="radar-price">
+          <p class="radar-name">{{ item.name | escape }}</p>
+          <p class="radar-price">
             {% if item.price %}<span class="radar-price-main">{{ item.price | escape }}{% if item.price_context %} <span class="radar-price-ctx">{{ item.price_context | escape }}</span>{% endif %}</span>{% endif %}
             {% if item.price_alt %}<span class="radar-price-alt">{{ item.price_alt | escape }}</span>{% endif %}
-          </span>
-          {% include affiliate.html url=item.url posicao=forloop.index produto=item.name local="lista" %}
+          </p>
+          {% include affiliate.html url=item.url posicao=forloop.index produto=item.name local="lista" lista=true %}
         </li>
         {% endfor %}
       </ol>
+      <p class="affiliate-list-note">Links de afiliado</p>
       {% if page.products_note %}
       <p class="footnote"><span aria-hidden="true">* </span>{{ page.products_note | escape }}</p>
       {% endif %}
@@ -279,6 +280,7 @@ layout: default
         {% endif %}
       </div>
 
+      {% include disclosure.html %}
       {% if page.fontes %}
       <footer class="post-sources">
         <h2>Fontes e observações</h2>

@@ -16,8 +16,8 @@
         {% if mostrados >= 3 %}{% break %}{% endif %}
         <li class="ultimas-item">
           {% if post.image %}
-          <a href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
-            <img class="ultimas-thumb" src="{% if post.image contains '://' %}{{ post.image | escape }}{% else %}{{ post.image | relative_url }}{% endif %}" alt="">
+          <a class="ultimas-thumb" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+            <img src="{% if post.image contains '://' %}{{ post.image | escape }}{% else %}{{ post.image | relative_url }}{% endif %}" alt="">
           </a>
           {% endif %}
           <div>
