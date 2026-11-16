@@ -1,18 +1,20 @@
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 <header class="site-header">
-  <div class="wrap header-inner">
-    {% include logo.html %}
-    <div class="header-tools">
-      <button type="button" class="tema-botao" data-tema-botao aria-pressed="false">
-        <span class="sr-only">Modo noturno</span><span aria-hidden="true" class="tema-icone"><svg class="tema-lua" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5z"/></svg><svg class="tema-sol" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="4" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.2M12 19.3v2.2M4.8 4.8l1.6 1.6M17.6 17.6l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.8 19.2l1.6-1.6M17.6 6.4l1.6-1.6"/></g></svg></span>
+  <div class="grade grade-barra">
+    <div class="col-centro header-inner">
+      {% include logo.html %}
+      <div class="header-tools">
+        <nav class="site-nav" aria-label="Seções">
+          <ul class="nav-list">
+            <li><a href="{{ '/' | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>Radar</a></li>
+            <li><a href="{{ '/sobre/' | relative_url }}" {% if page.url == "/sobre/" %}aria-current="page"{% endif %}>Sobre</a></li>
+            <li><a href="{{ '/privacidade/' | relative_url }}" {% if page.url == "/privacidade/" %}aria-current="page"{% endif %}>Privacidade</a></li>
+          </ul>
+        </nav>
+        <button type="button" class="tema-botao" data-tema-botao aria-pressed="false">
+          <span class="sr-only">Modo noturno</span><span aria-hidden="true" class="tema-icone"><svg class="tema-lua" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5z"/></svg><svg class="tema-sol" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="4" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.2M12 19.3v2.2M4.8 4.8l1.6 1.6M17.6 17.6l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.8 19.2l1.6-1.6M17.6 6.4l1.6-1.6"/></g></svg></span>
         </button>
-      <nav class="site-nav" aria-label="Seções">
-        <ul class="nav-list">
-          <li><a href="{{ '/' | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>Radar</a></li>
-          <li><a href="{{ '/sobre/' | relative_url }}" {% if page.url == "/sobre/" %}aria-current="page"{% endif %}>Sobre</a></li>
-          <li><a href="{{ '/privacidade/' | relative_url }}" {% if page.url == "/privacidade/" %}aria-current="page"{% endif %}>Privacidade</a></li>
-        </ul>
-      </nav>
+      </div>
     </div>
   </div>
 </header>

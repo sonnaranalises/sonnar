@@ -1,14 +1,13 @@
-<nav class="categorias" id="categorias" aria-labelledby="categorias-titulo">
+<nav class="categorias" id="categorias" {% if include.sem_titulo %}aria-label="Categorias"{% else %}aria-labelledby="categorias-titulo"{% endif %}>
+  {% unless include.sem_titulo %}
   <h2 id="categorias-titulo">Categorias</h2>
-  <div class="categorias-grade">
+  {% endunless %}
+  <ul class="categorias-lista">
     {% for c in site.data.categorias %}
       {% assign n = site.posts | where: "categoria", c.slug | size %}
       {% if n > 0 %}
-      <a class="categoria-cartao" href="{{ '/categorias/' | append: c.slug | append: '/' | relative_url }}">
-        <span class="categoria-nome">{{ c.nome }}</span>
-        <span class="categoria-contagem">{% if n == 1 %}1 relatório{% else %}{{ n }} relatórios{% endif %}</span>
-      </a>
+      <li><a href="{{ '/categorias/' | append: c.slug | append: '/' | relative_url }}">{{ c.nome }} <span class="categoria-contagem">({{ n }})</span></a></li>
       {% endif %}
     {% endfor %}
-  </div>
+  </ul>
 </nav>

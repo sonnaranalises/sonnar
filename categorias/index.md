@@ -5,4 +5,4 @@ permalink: /categorias/
 description: As categorias com relatório publicado na Sonnar Análises.
 ---
 
-{% include categorias-menu.html %}
+{% include categorias-menu.html sem_titulo=true %}
