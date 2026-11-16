@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<div class="grade grade-home">
+  <div class="col-centro">
+    <header class="home-header">
+      <h1>{{ page.title | escape }}</h1>
+      {% if page.description %}
+      <p class="lede">{{ page.description | escape }}</p>
+      {% endif %}
+    </header>
+    {% assign lista = site.posts | where: "categoria", page.categoria %}
+    {% assign tem = false %}
+    {% for post in lista %}
+      {% if post.example %}{% continue %}{% endif %}
+      {% assign tem = true %}
+      <article class="entry">
+        <p class="entry-meta">{% include date-pt.html date=post.date %}</p>
+        <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+        <div class="entry-desc{% if post.image %} entry-desc-photo{% endif %}">
+          {% if post.image %}
+          <a class="entry-photo" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }}">
+            <img src="{% if post.image contains '://' %}{{ post.image | escape }}{% else %}{{ post.image | relative_url }}{% endif %}" alt="">
+          </a>
+          {% endif %}
+          {% if post.subtitle %}
+          <div class="entry-desc-text">
+            <p class="entry-sub">{{ post.subtitle | escape }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+    {% unless tem %}
+    <p>Ainda não há relatório nesta categoria.</p>
+    {% endunless %}
+    {% include categorias-menu.html %}
+  </div>
+  {% include ultimas.html %}
+</div>

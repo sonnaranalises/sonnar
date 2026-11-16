@@ -7,6 +7,16 @@ summary: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: nota 4,9/5 em 122.968 op
 description: "Bálsamo reparador Cicaplast Baume B5+ 40 ml: opiniões de compradores, histórico de preço e posição entre cremes reparadores comparáveis."
 image: "/assets/img/radar/2026-11-07-cicaplast-baume-b5.jpg"
 image_alt: "Bálsamo reparador Cicaplast Baume B5+ 40 ml"
+categoria: beleza
+tipo: "Hidratante reparador"
+tema: "Cuidados com a pele"
+elogios:
+  - "a pele absorve rápido não fica oleosa a pele fica super macia."
+  - "Textura: leve e de fácil absorção na pele."
+criticas:
+  - "A caixa veio totalmente amassada e o produto sem lacre e vazando."
+  - "Deixa a pele com aspecto de oleosidade, muito."
+  - "Tive alergia e achei muito oleoso."
 products:
   - name: "Bálsamo reparador Cicaplast Baume B5+ La Roche-Posay 40 ml"
     price: "R$ 64,37"
@@ -55,21 +65,13 @@ O anúncio reúne <span class="num">122.968</span> opiniões, com nota <span cla
 
 As opiniões positivas destacam hidratação, maciez e conforto. Também mencionam sensação calmante e recuperação da pele sensibilizada, seguidas de melhora percebida de vermelhidão e marcas. Textura, facilidade de espalhar e absorção aparecem nos elogios. O uso em lábios, rosto e corpo e o pouco ou nenhum cheiro completam os pontos citados.
 
-> a pele absorve rápido não fica oleosa a pele fica super macia.
-
-> Textura: leve e de fácil absorção na pele.
-
 ## O que as críticas apontam
 
 Nas críticas, aparecem sensação oleosa, insatisfação com a consistência ou com o resultado percebido e relatos de irritação, alergia ou acne. Também há queixas sobre lacre, embalagem danificada ou vazamento, além de preço e tamanho.
 
-> A caixa veio totalmente amassada e o produto sem lacre e vazando.
-
-> Deixa a pele com aspecto de oleosidade, muito.
-
-> Tive alergia e achei muito oleoso.
-
 Sobre o recebimento, confira o lacre e a integridade da embalagem. As queixas citadas acima são relatos dos compradores.
+
+<!-- tabela-comentarios -->
 
 ## Histórico de preço
 

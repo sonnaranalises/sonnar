@@ -8,6 +8,16 @@ summary: "Churrasqueira elétrica de mesa Elgin BBQ Show: nota 4,7 em 24.120 opi
 description: "Churrasqueira elétrica de mesa Elgin BBQ Show: ficha técnica, avaliações, pontos de atenção e preço frente a churrasqueiras elétricas equivalentes."
 image: "/assets/img/radar/2026-11-14-churrasqueira-eletrica-elgin-bbq-show.jpg"
 image_alt: "Churrasqueira elétrica de mesa Elgin BBQ Show"
+image_formato: horizontal
+categoria: eletroportateis
+tipo: "Churrasqueira elétrica"
+tema: "Churrasco"
+elogios:
+  - "Funciona muito bem. Ótimo custo benefício."
+  - "Churrasqueira ótima, assou a carne em minutos."
+criticas:
+  - "Resistência já esfarelou se rompendo, muito fraca."
+  - "A churrasqueira esfarelou partes da resistência e quebrou dando um curto. Isso depois de apenas 6 vezes usada."
 products:
   - name: "Churrasqueira elétrica de mesa Elgin BBQ Show"
     price: "R$ 117,10"
@@ -61,17 +71,11 @@ A BBQ Show tem **4,7 de 5** em **24.120 opiniões**. Numa base desse porte, algu
 
 Entre os compradores satisfeitos, os pontos que voltam são a praticidade, a rapidez para aquecer e assar, a limpeza fácil, o tamanho e o custo-benefício. O resumo das opiniões do Mercado Livre acrescenta que a carne lembra o sabor do churrasco tradicional.
 
-> Funciona muito bem. Ótimo custo benefício.
-
-> Churrasqueira ótima, assou a carne em minutos.
-
 As notas baixas ocupam uma fatia pequena do total, mas a maior parte delas fala da mesma peça: a resistência, a parte que esquenta. Há relatos de resistência que esfarelou, trincou, enferrujou ou quebrou depois de poucos usos ou de poucos meses, e alguns compradores contam que ela deu curto ou pegou fogo. Aparecem também ferrugem e revestimento descascando em outras peças e uma grade descrita como fina. Esses relatos pesam porque a resistência é o coração do aparelho: quando ela falha, a churrasqueira para de funcionar. São experiências de compradores, não algo que acontece com toda unidade.
 
-> Resistência já esfarelou se rompendo, muito fraca.
-
-> A churrasqueira esfarelou partes da resistência e quebrou dando um curto. Isso depois de apenas 6 vezes usada.
-
 A bandeja de água aparece dos dois lados. Até compradores que deram 5 estrelas comentam que ela é rasa ou estreita, que pede reposição de água durante o uso e que às vezes deixa a gordura pingar fora. Nas notas baixas, a queixa é a mesma. Ou seja, não chega a estragar a experiência de quem gostou, mas é um cuidado que acompanha o uso.
+
+<!-- tabela-comentarios -->
 
 ## Preço
 

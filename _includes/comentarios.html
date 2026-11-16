@@ -1,0 +1,15 @@
+{% if page.elogios or page.criticas %}
+<section class="comentarios" aria-labelledby="comentarios-titulo">
+  <h3 id="comentarios-titulo">O que dizem os compradores</h3>
+  <div class="comentarios-grade">
+    <div class="comentarios-col comentarios-elogios">
+      <h4>O que elogiam</h4>
+      {% for q in page.elogios limit: 3 %}<blockquote><p>{{ q | escape }}</p></blockquote>{% endfor %}
+    </div>
+    <div class="comentarios-col comentarios-criticas">
+      <h4>O que criticam</h4>
+      {% for q in page.criticas limit: 3 %}<blockquote><p>{{ q | escape }}</p></blockquote>{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
