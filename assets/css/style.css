@@ -1627,13 +1627,13 @@ time,
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1.5rem;
 }
 
 .ultimas-item {
   display: grid;
-  grid-template-columns: 3.25rem minmax(0, 1fr);
-  gap: 0.65rem;
+  grid-template-columns: 3.9rem minmax(0, 1fr);
+  gap: 0.75rem;
   align-items: center;
   padding: 0;
   border: 0;
@@ -1642,9 +1642,9 @@ time,
 .ultimas-thumb {
   position: relative;
   display: block;
-  width: 3.25rem;
-  height: 3.25rem;
-  padding: 0.3rem;
+  width: 3.9rem;
+  height: 3.9rem;
+  padding: 0.35rem;
   box-sizing: border-box;
   background: var(--cartao-foto);
   border-radius: 8px;
@@ -1653,10 +1653,10 @@ time,
 
 .ultimas-thumb img {
   position: absolute;
-  top: 0.3rem;
-  left: 0.3rem;
-  width: calc(100% - 0.6rem);
-  height: calc(100% - 0.6rem);
+  top: 0.35rem;
+  left: 0.35rem;
+  width: calc(100% - 0.7rem);
+  height: calc(100% - 0.7rem);
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -1667,7 +1667,7 @@ time,
   margin: 0;
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.35;
   letter-spacing: 0;
 }
@@ -1687,6 +1687,11 @@ time,
 
 .ultimas-data {
   margin: 0 0 0.2rem;
+  font-size: 0.87rem;
+}
+
+.ultimas-data time {
+  font-size: 0.87rem;
 }
 
 .ultimas-mais {
@@ -1807,7 +1812,7 @@ time,
   .ultimas-lista {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 1.5rem;
   }
 
   .col-esq .ultimas,
