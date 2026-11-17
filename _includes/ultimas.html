@@ -13,7 +13,7 @@
           {% assign pulados = pulados | plus: 1 %}
           {% continue %}
         {% endif %}
-        {% if mostrados >= 3 %}{% break %}{% endif %}
+        {% if mostrados >= 5 %}{% break %}{% endif %}
         <li class="ultimas-item">
           {% if post.image %}
           <a class="ultimas-thumb" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
