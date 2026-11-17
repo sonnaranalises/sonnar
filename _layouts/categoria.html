@@ -11,10 +11,19 @@ layout: default
     </header>
     {% assign lista = site.posts | where: "categoria", page.categoria %}
     {% assign tem = false %}
+    {% assign tipos_ancora = "|" %}
     {% for post in lista %}
       {% if post.example %}{% continue %}{% endif %}
       {% assign tem = true %}
-      <article class="entry">
+      {% capture slug_tipo %}{% include slug-tipo.html texto=post.tipo %}{% endcapture %}
+      {% assign slug_tipo = slug_tipo | strip %}
+      {% assign marca_tipo = "|" | append: slug_tipo | append: "|" %}
+      {% assign ancora_tipo = "" %}
+      {% unless tipos_ancora contains marca_tipo %}
+        {% assign ancora_tipo = slug_tipo %}
+        {% assign tipos_ancora = tipos_ancora | append: slug_tipo | append: "|" %}
+      {% endunless %}
+      <article class="entry"{% if ancora_tipo != "" %} id="tipo-{{ ancora_tipo }}"{% endif %}>
         <p class="entry-meta">{% include date-pt.html date=post.date %}</p>
         <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
         <div class="entry-desc{% if post.image %} entry-desc-photo{% endif %}">

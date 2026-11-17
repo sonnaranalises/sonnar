@@ -75,6 +75,9 @@
   --font-body: "Inter", "Segoe UI", sans-serif;
   --font-mono: var(--font-body);
   --gutter: 1.5rem;
+  --grade-gap: clamp(1rem, 2vw, 2rem);
+  --header-altura: calc(1.7rem + 45px);
+  --lateral-top: calc(var(--header-altura) + 0.75rem);
   --grid-gap: 1.5rem;
   --col-side: 15rem;
   --site-max: 78rem;
@@ -247,20 +250,39 @@ a:hover {
 }
 
 .header-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
   align-items: center;
+  justify-content: space-between;
   column-gap: 0.75rem;
   padding: 0.85rem 0;
+  min-width: 0;
 }
 
-.header-lado {
-  grid-column: 1;
+.site-header .logo {
+  flex: none;
+  gap: calc(0.77rem * 1.05);
 }
 
-.header-inner > .logo {
-  grid-column: 2;
-  justify-self: center;
+.site-header .logo-mark {
+  width: calc(35px * 1.05);
+  height: calc(35px * 1.05);
+}
+
+.site-header .logo-sonar {
+  font-size: calc(1.012rem * 1.05);
+}
+
+.site-header .logo-analises {
+  font-size: calc(1.078rem * 1.05);
+}
+
+.site-header .nav-list {
+  flex-wrap: nowrap;
+}
+
+.site-header .nav-list a {
+  white-space: nowrap;
 }
 
 .logo {
@@ -1364,6 +1386,10 @@ html[data-feedback-sent] .reader-feedback-thanks {
     letter-spacing: 0.08em;
     font-size: 0.9rem;
   }
+
+  .site-header .logo-sonar {
+    font-size: calc(0.9rem * 1.05);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1385,11 +1411,12 @@ html[data-feedback-sent] .reader-feedback-thanks {
 }
 
 .header-tools {
-  grid-column: 3;
-  justify-self: end;
   display: flex;
+  flex: none;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.35rem 0.75rem;
+  min-width: 0;
 }
 
 .tema-botao {
@@ -1431,7 +1458,7 @@ html[data-feedback-sent] .reader-feedback-thanks {
   max-width: none;
   align-items: start;
   padding-inline: var(--gutter);
-  column-gap: clamp(1rem, 2vw, 2rem);
+  column-gap: var(--grade-gap);
   row-gap: 2rem;
 }
 
@@ -1698,9 +1725,62 @@ time,
   margin: 0.8rem 0 0;
 }
 
+.secao-divisoria {
+  border: 0;
+  border-top: 1px solid var(--linha);
+  height: 0;
+  margin: 2.5rem 0;
+}
+
 .categorias {
   margin-top: 2.5rem;
   max-width: 100%;
+}
+
+.categoria-nome {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 1.35rem 0 0.4rem;
+}
+
+.categoria-bloco:first-of-type .categoria-nome {
+  margin-top: 0.15rem;
+}
+
+.categoria-nome a,
+.categoria-nome a:visited,
+.categoria-tipos a,
+.categoria-tipos a:visited {
+  color: var(--acento-texto);
+  text-decoration: none;
+}
+
+.categoria-nome a:hover,
+.categoria-nome a:focus-visible,
+.categoria-tipos a:hover,
+.categoria-tipos a:focus-visible {
+  color: var(--acento-texto);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 1px;
+}
+
+.categoria-tipos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.categoria-tipos h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .categorias-lista {
@@ -1739,21 +1819,26 @@ time,
   }
 }
 
-@media (max-width: 79.99rem) {
+@media (max-width: 32rem) {
   .header-inner {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    row-gap: 0.15rem;
+    column-gap: 0.35rem;
   }
 
-  .header-lado {
-    display: none;
+  .site-header .nav-list {
+    gap: 0.35rem;
   }
 
-  .header-inner > .logo,
+  .site-header .nav-list a {
+    font-size: 0.64rem;
+  }
+
   .header-tools {
-    grid-column: auto;
-    justify-self: center;
+    gap: 0.15rem;
+  }
+
+  .tema-botao {
+    width: 2.25rem;
+    height: 2.25rem;
   }
 }
 
@@ -1789,18 +1874,30 @@ time,
     grid-template-areas: "esq centro dir";
   }
 
-  .col-esq {
-    justify-self: start;
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+  }
+
+  .col-esq,
+  .col-dir {
+    position: sticky;
+    top: var(--lateral-top);
+    z-index: 1;
     align-self: start;
-    width: 100%;
-    max-width: 260px;
+    justify-self: center;
+    width: min(16.25rem, 100%);
+    max-height: calc(100vh - var(--lateral-top));
+    overflow-y: auto;
+  }
+
+  .col-esq {
+    transform: translateX(calc((var(--grade-gap) - var(--gutter)) / 2));
   }
 
   .col-dir {
-    justify-self: end;
-    align-self: start;
-    width: 100%;
-    max-width: 260px;
+    transform: translateX(calc((var(--gutter) - var(--grade-gap)) / 2));
   }
 
   .col-centro {
@@ -1813,12 +1910,6 @@ time,
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  }
-
-  .col-esq .ultimas,
-  .col-dir .radar-products {
-    position: sticky;
-    top: 1rem;
   }
 }
 
