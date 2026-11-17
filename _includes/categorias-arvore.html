@@ -1,0 +1,42 @@
+<nav class="categorias categorias-arvore" id="categorias" aria-labelledby="categorias-titulo">
+  <h2 id="categorias-titulo">Categorias</h2>
+  {% for c in site.data.categorias %}
+    {% assign posts_cat = site.posts | where: "categoria", c.slug %}
+    {% assign n = 0 %}
+    {% for post in posts_cat %}
+      {% unless post.example %}{% assign n = n | plus: 1 %}{% endunless %}
+    {% endfor %}
+    {% if n > 0 %}
+    <section class="categoria-bloco">
+      <h2 class="categoria-nome"><a href="{{ '/categorias/' | append: c.slug | append: '/' | relative_url }}">{{ c.nome | escape }}</a></h2>
+      <ul class="categoria-tipos">
+        {% assign vistos = "|" %}
+        {% for post in posts_cat %}
+          {% if post.example or post.tipo == nil or post.tipo == "" %}{% continue %}{% endif %}
+          {% assign marca = "|" | append: post.tipo | downcase | append: "|" %}
+          {% if vistos contains marca %}{% continue %}{% endif %}
+          {% assign vistos = vistos | append: post.tipo | downcase | append: "|" %}
+          {% assign iguais = 0 %}
+          {% for outro in posts_cat %}
+            {% if outro.example %}{% continue %}{% endif %}
+            {% assign ta = outro.tipo | downcase %}
+            {% assign tb = post.tipo | downcase %}
+            {% if ta == tb %}{% assign iguais = iguais | plus: 1 %}{% endif %}
+          {% endfor %}
+          {% capture plural %}{% include plural-pt.html texto=post.tipo %}{% endcapture %}
+          <li>
+            <h4>
+              {% if iguais > 1 %}
+              {% capture slug_tipo %}{% include slug-tipo.html texto=post.tipo %}{% endcapture %}
+              <a href="{{ '/categorias/' | append: c.slug | append: '/' | relative_url }}#tipo-{{ slug_tipo | strip }}">{{ plural | strip }}</a>
+              {% else %}
+              <a href="{{ post.url | relative_url }}">{{ plural | strip }}</a>
+              {% endif %}
+            </h4>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  {% endfor %}
+</nav>

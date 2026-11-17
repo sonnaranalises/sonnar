@@ -1,0 +1,79 @@
+{%- assign bruto = include.texto | strip -%}
+{%- assign chave = bruto | downcase -%}
+{%- if chave == "air fryer" -%}
+Fritadeiras elétricas
+{%- else -%}
+{%- assign palavras = bruto | split: " " -%}
+{%- assign resultado = "" -%}
+{%- assign travar = false -%}
+{%- assign bloqueia = "|de|da|do|das|dos|" -%}
+{%- assign vogais = "aeiouáàâãäéêëíïóôõöúü" -%}
+{%- for palavra in palavras -%}
+{%- if palavra == "" -%}{%- continue -%}{%- endif -%}
+{%- assign low = palavra | downcase -%}
+{%- assign marca_prep = "|" | append: low | append: "|" -%}
+{%- if travar -%}
+{%- assign nova = low -%}
+{%- assign travar = false -%}
+{%- elsif bloqueia contains marca_prep -%}
+{%- assign nova = low -%}
+{%- assign travar = true -%}
+{%- else -%}
+{%- assign chars = low | split: "" -%}
+{%- assign n = chars | size -%}
+{%- assign ult = chars | last -%}
+{%- assign pen = "" -%}
+{%- assign sem_ult = "" -%}
+{%- assign sem_dois = "" -%}
+{%- assign i = 0 -%}
+{%- assign pen_i = n | minus: 2 -%}
+{%- assign fim = n | minus: 1 -%}
+{%- assign fim2 = n | minus: 2 -%}
+{%- for ch in chars -%}
+{%- if i == pen_i -%}{%- assign pen = ch -%}{%- endif -%}
+{%- if i < fim -%}{%- assign sem_ult = sem_ult | append: ch -%}{%- endif -%}
+{%- if i < fim2 -%}{%- assign sem_dois = sem_dois | append: ch -%}{%- endif -%}
+{%- assign i = i | plus: 1 -%}
+{%- endfor -%}
+{%- if ult == "s" and vogais contains pen -%}
+{%- assign nova = low -%}
+{%- elsif pen == "ã" and ult == "o" -%}
+{%- assign nova = sem_dois | append: "ões" -%}
+{%- elsif ult == "m" -%}
+{%- assign nova = sem_ult | append: "ns" -%}
+{%- elsif ult == "r" or ult == "z" -%}
+{%- assign nova = low | append: "es" -%}
+{%- elsif ult == "l" and pen == "a" -%}
+{%- assign nova = sem_ult | append: "is" -%}
+{%- elsif ult == "l" and pen == "e" -%}
+{%- assign nova = sem_dois | append: "éis" -%}
+{%- elsif ult == "l" and pen == "o" -%}
+{%- assign nova = sem_dois | append: "óis" -%}
+{%- elsif ult == "l" and pen == "u" -%}
+{%- assign nova = sem_ult | append: "is" -%}
+{%- elsif ult == "l" and pen == "i" -%}
+{%- assign nova = sem_dois | append: "is" -%}
+{%- else -%}
+{%- assign nova = low | append: "s" -%}
+{%- endif -%}
+{%- endif -%}
+{%- assign orig = palavra | split: "" -%}
+{%- assign primeira = orig | first -%}
+{%- assign primeira_up = primeira | upcase -%}
+{%- assign primeira_down = primeira | downcase -%}
+{%- assign resto = "" -%}
+{%- assign j = 0 -%}
+{%- assign nova_chars = nova | split: "" -%}
+{%- for ch in nova_chars -%}
+{%- if j > 0 -%}{%- assign resto = resto | append: ch -%}{%- endif -%}
+{%- assign j = j | plus: 1 -%}
+{%- endfor -%}
+{%- if primeira == primeira_up and primeira != primeira_down -%}
+{%- assign nova = primeira | append: resto -%}
+{%- endif -%}
+{%- if resultado != "" -%}{%- assign resultado = resultado | append: " " -%}{%- endif -%}
+{%- assign resultado = resultado | append: nova -%}
+{%- if bloqueia contains marca_prep -%}{%- assign travar = true -%}{%- else -%}{%- assign travar = false -%}{%- endif -%}
+{%- endfor -%}
+{{- resultado -}}
+{%- endif -%}

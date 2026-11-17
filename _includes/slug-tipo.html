@@ -1,0 +1,6 @@
+{%- assign s = include.texto | downcase | strip -%}
+{%- assign s = s | replace: "á", "a" | replace: "à", "a" | replace: "â", "a" | replace: "ã", "a" -%}
+{%- assign s = s | replace: "é", "e" | replace: "ê", "e" | replace: "í", "i" -%}
+{%- assign s = s | replace: "ó", "o" | replace: "ô", "o" | replace: "õ", "o" | replace: "ú", "u" -%}
+{%- assign s = s | replace: "ç", "c" | replace: " ", "-" -%}
+{{- s -}}
