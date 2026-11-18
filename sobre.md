@@ -2,7 +2,7 @@
 layout: page
 title: Sobre
 permalink: /sobre/
-description: O que é a Sonnar Análises, o que tem em cada Radar do dia, como trabalhamos e como o site se mantém.
+description: O que é a Sonnar Análises, para que serve o Radar do dia, como trabalhamos e como o site se mantém.
 ---
 
 ## O nome
@@ -13,7 +13,7 @@ O sonar é o aparelho que os navios usam para enxergar o que está debaixo d'ág
 
 A Sonnar existe para poupar o seu tempo e deixar a escolha mais clara. Todo dia, o Radar do dia traz um produto em destaque, analisado num relatório curto: o que ele é, o que quem comprou elogia e critica, e como o preço se compara ao de produtos parecidos. Ao lado, mais quatro produtos do mesmo tema, só para você conhecer.
 
-Os relatórios mostram fatos; não mandam comprar nem deixar de comprar. Começam por um resumo para ler em poucos segundos, e quem quiser os detalhes segue lendo. A decisão de compra fica com você.
+Os relatórios mostram fatos; não mandam comprar nem deixar de comprar. Começam por um resumo para ler em poucos segundos, e quem quiser os detalhes segue lendo.
 
 ## Como trabalhamos
 
@@ -25,8 +25,8 @@ Os relatórios mostram fatos; não mandam comprar nem deixar de comprar. Começa
 
 ## Como a Sonnar se mantém {#como-a-sonnar-se-mantem}
 
-Os links dos produtos são links de afiliado. Se você comprar por eles, a Sonnar recebe uma comissão da loja, sem custo a mais para você. A comissão não escolhe os produtos e não muda o que escrevemos, inclusive as críticas.
+Os links dos produtos são de afiliado. Se você comprar por eles, a Sonnar recebe uma comissão da loja, sem custo a mais para você. A comissão não escolhe os produtos e não muda o que escrevemos, inclusive as críticas.
 
-Você encontra o aviso completo **no fim de cada relatório, antes das Fontes**, e a indicação de link de afiliado junto à lista de produtos e ao botão do resumo. O link leva para fora deste site: a venda, o pagamento, a entrega e o atendimento ficam com a loja e com o vendedor. A Sonnar não é loja nem representante de nenhuma delas.
+O aviso completo fica no fim de cada relatório, antes das Fontes, e a indicação de link de afiliado aparece junto à lista de produtos e ao botão do resumo. O link leva para fora deste site: a compra, a entrega e o atendimento ficam com a loja e com o vendedor. A Sonnar não é loja nem representante de nenhuma delas.
 
 **Sonnar Análises — Te ajudando a detectar boas escolhas**

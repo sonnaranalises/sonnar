@@ -11,12 +11,6 @@ image_alt: "Suporte de notebook de alumínio dobrável Davely, 14 a 20 polegadas
 categoria: informatica
 tipo: "Suporte de notebook"
 tema: "Home office"
-elogios:
-  - "Me surpreendi com a qualidade e estabilidade que o produto tem."
-  - "Vem com uma bolsinha para guardar, achei maravilha."
-criticas:
-  - "Achei frágil, embora seja metálico."
-  - "não há trava pro apoio e ele escapa com facilidade, o que pode danificar o notebook."
 products:
   - name: "Suporte de notebook de alumínio dobrável Davely, 14 a 20 polegadas"
     price: "R$ 21,99"
@@ -48,14 +42,35 @@ products:
     source_url: "https://www.mercadolivre.com.br/organizador-de-mesa-metal-aramado-porta-papel-canetas-escritorio-clips-prime/p/MLB34862332"
     image: "/assets/img/radar/2026-11-11-organizador-mesa-aramado-prime_9076.jpg"
     image_alt: "Organizador de mesa aramado de metal Prime"
-sources:
-  - label: "Ficha técnica, preço, avaliações, resumo das opiniões, comentários e foto do suporte; preços dos suportes equivalentes"
-    detail: "Mercado Livre, páginas dos produtos, 11/11/2026, 10h10–10h15 (Brasília). Preço do principal visto às 10h10 e reconferido às 10h15. Comparação de preço restrita a suportes dobráveis de alumínio vendidos por unidade, todos com nota 4,8."
-  - label: "Nomes e preços dos quatro complementos"
-    detail: "Mercado Livre, páginas dos produtos, 11/11/2026, 10h11–10h13 (Brasília)."
+resumo:
+  avaliacoes: "4,8 de 5 em 33.156 opiniões, com as 5 estrelas dominando: base grande, que indica satisfação repetida."
+  ponto_forte: "firmeza e estabilidade, regulagem de inclinação, acabamento em alumínio e bolsinha para transporte."
+  ponto_atencao: "fragilidade das hastes e alças de regulagem, que quebram ou entortam, e notebook que escorrega por falta de trava."
+  preco: "R$ 21,99, abaixo da faixa dos suportes dobráveis de alumínio equivalentes."
+  util_para: "quer erguer a tela do notebook e levar o suporte na bolsa."
+  atencao_de: "mexe no notebook o tempo todo ou usa aparelho pesado."
+elogios:
+  - "Me surpreendi com a qualidade e estabilidade que o produto tem."
+  - "Vem com uma bolsinha para guardar, achei maravilha."
+  - "tem como regular a inclinação que você quer deixar e tem como deixar quase em pé e nem alto parecendo um monitor mesmo. Não desliza, é antiderrapante e ótimo!"
+criticas:
+  - "Achei frágil, embora seja metálico."
+  - "não há trava pro apoio e ele escapa com facilidade, o que pode danificar o notebook."
+  - "as pernas que sustentam o notebook são finas, entortam com facilidade, e direto solta e o notebook cai."
+regua_preco:
+  produto: 21.99
+  minimo: 24.9
+  maximo: 26.99
+  produto_txt: "R$ 21,99"
+  minimo_txt: "R$ 24,90"
+  maximo_txt: "R$ 26,99"
+  unidade: "por unidade"
+  posicao: "abaixo da faixa"
+fontes:
+  coleta: "11/11/2026, até 10h15"
+  equivalentes: "suportes dobráveis de alumínio, vendidos por unidade no Mercado Livre, com nota 4,8, pelo preço da unidade"
 ---
-
-O suporte de notebook de alumínio dobrável, da Davely, é uma base articulada que eleva o notebook e permite ajustar altura e inclinação. Pesa menos de 300 g e fecha numa peça compacta, que vai na bolsinha inclusa. Faz sentido para quem trabalha ou estuda no notebook e quer deixar a tela mais alta, em casa ou fora dela.
+O suporte de notebook de alumínio dobrável da Davely é uma base articulada que eleva o aparelho e permite ajustar altura e inclinação. Pesa 283 g e fecha numa peça compacta, que vai na bolsinha inclusa. Ajuda quem trabalha ou estuda no notebook e quer a tela mais alta, em casa ou fora dela.
 
 - **Material:** alumínio, com apoios antiderrapantes de silicone.
 - **Compatibilidade:** notebooks e tablets de 14 a 20 polegadas.
@@ -65,22 +80,20 @@ O suporte de notebook de alumínio dobrável, da Davely, é uma base articulada 
 
 ## Notas e avaliações
 
-Em **33.156 opiniões**, o suporte sustenta média de **4,8 de 5**, com as notas de 5 estrelas predominando com folga. Uma avaliação assim, mantida por tanta gente, não depende de alguns clientes entusiasmados: ela se repete compra após compra, e é o dado que mais pesa neste relatório. O produto também lidera a categoria Suportes e Mesas, com mais de 100 mil vendidos.
+São **33.156 opiniões**, com nota **4,8 de 5**: as 5 estrelas dominam e as notas baixas são parcela curta. É o 1º em Suportes e Mesas, com mais de 100 mil vendidos.
 
-Nos elogios, aparecem firmeza, estabilidade, o acabamento em alumínio, a regulagem de inclinação e a bolsinha para transporte. O resumo das opiniões do Mercado Livre também destaca a facilidade de montar e levar, além da melhora na postura.
-
-As críticas são uma parcela pequena desse total, mas giram em torno de um ponto central para um suporte: a firmeza. Os relatos mais comuns falam de hastes e alças de regulagem frágeis, que quebram ou entortam, e de notebook que escorrega ou fica instável no apoio. Também aparecem borracha antiderrapante descolando e unidades que chegaram tortas ou quebradas. Isso importa porque o suporte segura um aparelho caro: se ele cede, o risco é para o notebook.
-
-A firmeza aparece dos dois lados. Muitos elogiam a estabilidade, mas até entre as notas altas aparecem ressalvas: um comprador conta que a parte que regula a altura é de plástico e indica o suporte para notebooks leves, e outro diz que ele desmonta quando o notebook é puxado com frequência. São relatos, não o que acontece com toda unidade, mas ajudam a entender para qual uso ele foi pensado.
+Quem elogia fala de firmeza, acabamento em alumínio, regulagem de inclinação e bolsinha de transporte; o resumo das opiniões soma a facilidade de levar. Entre as notas baixas, a queixa principal é a fragilidade: hastes e alças de regulagem que quebram ou entortam, e notebook que escorrega. Há ainda borracha que descola e unidades tortas. A firmeza está nos dois lados: há quem avise que ele desmonta se o notebook é movido o tempo todo e que a regulagem de plástico pede aparelho leve.
 
 <!-- tabela-comentarios -->
 
 ## Preço
 
-O suporte custa **R$ 21,99**. Entre os equivalentes diretos, também dobráveis, de alumínio e vendidos por unidade, os preços vão de **R$ 24,90 a R$ 26,99**, todos com nota 4,8. O Davely fica abaixo dessa faixa e reúne muito mais opiniões que qualquer um deles.
+O suporte custa **R$ 21,99**. Suportes dobráveis de alumínio, vendidos por unidade e com nota 4,8, vão de **R$ 24,90 a R$ 26,99**; o Davely fica **abaixo da faixa**.
+
+<!-- regua-preco -->
 
 ## Conclusão
 
-A nota alta, apoiada num volume que poucos produtos da categoria alcançam, e um preço abaixo dos equivalentes formam um quadro favorável para um item simples de home office. O cuidado está na estrutura: os relatos de hastes frágeis e de notebook escorregando são minoria, mas tocam justamente a função de segurar o aparelho com firmeza.
+Pelos relatos, o suporte atende quem usa o notebook parado sobre a mesa e quer a tela mais alta, ou leva a base na bolsa. Quem mexe no aparelho com frequência, ou usa um notebook pesado, encontra nos comentários o ponto de cuidado: a firmeza das hastes. Abaixo da faixa, a troca visível nos dados é essa fragilidade; os dados do dia não trazem o mesmo ponto dos outros suportes, então não dá para atribuí-la ao preço.
 
-Antes de escolher, vale considerar com calma o peso do seu notebook, quanto você costuma mexer nele durante o dia e se pretende levar o suporte na bolsa.
+Nos relatos, peça quebrada ou torta aparece logo no começo; testar o apoio com o notebook assim que chegar ajuda a perceber isso.

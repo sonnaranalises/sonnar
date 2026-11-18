@@ -15,7 +15,7 @@ image_alt: "Categoria Marca Modelo"
 categoria: eletroportateis
 tipo: "Tipo do produto"
 tema: "Tema do dia"
-# Resumo lido do front matter (não do markdown). Os 4 tópicos ficam entre 50 e 80 palavras.
+# Resumo lido do front matter (não do markdown). Os 4 tópicos, somados, ficam entre 50 e 80 palavras.
 # util_para e atencao_de podem começar com "quem" ou não: o site não repete a palavra.
 resumo:
   avaliacoes: "Nota, volume e o que esses números querem dizer."

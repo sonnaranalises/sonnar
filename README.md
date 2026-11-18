@@ -32,7 +32,7 @@ jekyll build --destination _site
 python3 script/verificar.py _site
 ```
 
-As checagens de Resumo (seis campos, rótulos na ordem, 50 a 80 palavras nos quatro tópicos) e a exigência de `fontes:` em todo relatório ficam atrás de `--v3`, porque os relatórios atuais ainda não têm esses campos. Quando os 10 relatórios novos entrarem, rode `python3 script/verificar.py _site --v3` e acrescente `--v3` ao passo "Conferir o HTML gerado" em `.github/workflows/pages.yml`. A checagem de frases no Resumo e na Conclusão passa a valer sozinha em cada página que já renderiza o Resumo.
+O passo de CI já roda `python3 script/verificar.py _site --v3`. Ele exige, em todo relatório, os seis campos do Resumo, os quatro rótulos na ordem, 50 a 80 palavras somadas nos quatro tópicos, e o bloco `fontes:`. A checagem de frases no Resumo e na Conclusão vale em toda página que renderiza o Resumo.
 
 ## Ver no computador
 

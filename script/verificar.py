@@ -3,7 +3,7 @@
 
 O modo padrão passa com os relatórios atuais. `--v3` exige, em todo
 relatório que não seja exemplo, o bloco `resumo:` (seis campos, rótulos
-na ordem e 50 a 80 palavras nos quatro tópicos) e o bloco `fontes:`.
+na ordem e 50 a 80 palavras somadas nos quatro tópicos) e o bloco `fontes:`.
 Quando os 10 relatórios novos estiverem publicados, rode:
 
     python3 script/verificar.py _site --v3
@@ -382,10 +382,10 @@ def checagens_v3(root: Path, errors: list) -> None:
             for campo in CAMPOS_RESUMO:
                 if not resumo.get(campo, "").strip():
                     errors.append(f"{rel}: resumo sem {campo}")
-            for campo in TOPICOS_RESUMO:
-                n = len(re.findall(r"\S+", resumo.get(campo, "")))
-                if n < 50 or n > 80:
-                    errors.append(f"{rel}: {campo} tem {n} palavras (esperado 50–80)")
+            # Os quatro tópicos, somados, ficam entre 50 e 80 palavras.
+            n = sum(len(re.findall(r"\S+", resumo.get(campo, ""))) for campo in TOPICOS_RESUMO)
+            if n < 50 or n > 80:
+                errors.append(f"{rel}: os 4 tópicos têm {n} palavras (esperado 50–80)")
         fontes = bloco_mapa(fm, "fontes")
         if not fontes or not fontes.get("coleta", "").strip():
             errors.append(f"{rel}: sem fontes")
