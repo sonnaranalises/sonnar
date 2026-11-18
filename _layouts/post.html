@@ -3,6 +3,9 @@ layout: default
 ---
 <div class="grade grade-relatorio">
   {% assign radar = page.products | default: page.complements %}
+  {% assign destaque = page.products | first %}
+  {% assign destaque_url = destaque.url | default: "" | strip %}
+  {% assign destaque_prefixo = destaque_url | slice: 0, 16 %}
   {% if radar %}
   <aside class="col-dir col-direita" aria-label="Produtos no radar do dia">
     <section class="radar-products" aria-labelledby="radar-do-dia">
@@ -44,7 +47,7 @@ layout: default
       <header class="post-header">
         {% unless content contains "<h1" %}
         <p class="kicker">Radar do dia · Sonnar Análises</p>
-        <h1>{{ page.title | escape }}</h1>
+        <h1>{% if destaque_prefixo == "https://meli.la/" %}<a class="titulo-afiliado" href="{{ destaque_url | escape }}" target="_blank" rel="sponsored nofollow noopener" data-posicao="1" data-produto="{{ destaque.name | escape }}" data-local="titulo">{{ page.title | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>{% else %}{{ page.title | escape }}{% endif %}</h1>
         {% endunless %}
         {% if page.subtitle %}
         <p class="post-subtitle">{{ page.subtitle | escape }}</p>
@@ -134,6 +137,8 @@ layout: default
         {% assign beside_html = head_parts | last %}
       {% endif %}
       {% assign beside_text = beside_html | strip_html | strip %}
+
+      {% include resumo.html %}
 
       {% if lead_label != "" %}
       <div class="post-lead-label prose">
@@ -284,7 +289,8 @@ layout: default
       {% if page.fontes %}
       <footer class="post-sources">
         <h2>Fontes e observações</h2>
-        <p>Dados do anúncio e das opiniões coletados no Mercado Livre em {{ page.fontes.coleta }} (horário de Brasília). Para o preço, comparamos com {{ page.fontes.equivalentes }}. O texto deste relatório foi produzido com ajuda de inteligência artificial, a partir desses dados.</p>
+        {% assign fontes_equiv = page.fontes.equivalentes | append: "" | strip %}
+        <p class="fontes-menor">Dados do anúncio e das opiniões coletados no Mercado Livre em {{ page.fontes.coleta }} (horário de Brasília).{% if fontes_equiv != "" %} Para o preço, comparamos com {{ fontes_equiv }}.{% endif %} O texto deste relatório foi produzido com ajuda de inteligência artificial, a partir desses dados.</p>
       </footer>
       {% elsif page.rating_source or page.rating_checked or page.price_checked or page.price_history.source or page.price_history.checked_on or page.sources %}
       <footer class="post-sources">

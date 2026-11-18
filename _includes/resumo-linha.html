@@ -1,0 +1,26 @@
+{%- comment -%}
+  Junta o rótulo ("Útil para quem" / "Pede atenção de quem") ao texto.
+  Se o texto já começa com a palavra "quem", ela não se repete.
+{%- endcomment -%}
+{%- assign texto = include.texto | default: "" | strip -%}
+{%- assign baixo = texto | downcase -%}
+{%- assign ini = baixo | slice: 0, 4 -%}
+{%- assign sep = baixo | slice: 4, 1 -%}
+{%- assign tam = baixo | size -%}
+{%- assign comeca = false -%}
+{%- if ini == "quem" -%}
+  {%- if tam <= 4 or sep == " " or sep == "," or sep == "." or sep == ":" or sep == ";" or sep == "?" or sep == "!" -%}
+    {%- assign comeca = true -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if comeca -%}
+  {%- assign resto = texto | slice: 4, 2000 | strip -%}
+  {%- assign pontuacao = resto | slice: 0, 1 -%}
+  {%- if pontuacao == "," or pontuacao == "." or pontuacao == ":" or pontuacao == ";" -%}
+    {%- assign resto = resto | slice: 1, 2000 | strip -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign resto = texto -%}
+{%- endif -%}
+{%- assign resto = resto | append: "" | strip -%}
+<strong>{{ include.rotulo | escape }}</strong>{%- if resto != "" %} {{ resto | escape }}{%- endif -%}

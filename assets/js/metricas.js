@@ -57,20 +57,28 @@
     io.observe(concl);
   }
 
-  // 3) Clique em link de afiliado (lista do topo, lateral ou fim).
+  // 3) Clique no botão de afiliado ou no link do título.
+  // A tabela cliques só grava local se ele estiver nesta lista.
+  // Hoje o banco aceita lista, lateral, fim, resumo e titulo.
+  // Um data-local desconhecido é registrado como 'lista'.
+  // Se o banco ganhar outro valor, basta incluí-lo aqui.
+  var LOCAIS_OK = ["lista", "lateral", "fim", "resumo", "titulo"];
   document.addEventListener("click", function (ev) {
-    var a = ev.target && ev.target.closest ? ev.target.closest("a.affiliate-link") : null;
+    var a = ev.target && ev.target.closest ? ev.target.closest("a.affiliate-link, a.titulo-afiliado") : null;
     if (!a || !slug) return;
     var href = a.getAttribute("href") || "";
     if (!/^https:\/\/meli\.la\/[A-Za-z0-9]{4,20}$/.test(href)) return;
     var pos = parseInt(a.getAttribute("data-posicao"), 10);
     if (!(pos >= 1 && pos <= 5)) return;
+    var local = a.getAttribute("data-local") || "lista";
+    if (a.closest(".col-direita") && (window.innerWidth || 0) >= 1200) local = "lateral";
+    if (LOCAIS_OK.indexOf(local) < 0) local = "lista";
     send("cliques", {
       post_slug: slug,
       posicao: pos,
       produto: (a.getAttribute("data-produto") || "").slice(0, 200) || null,
       destino: href,
-      local: (a.closest(".col-direita") && (window.innerWidth || 0) >= 1200) ? "lateral" : (a.getAttribute("data-local") || "lista"),
+      local: local,
       pagina: pagina,
       referrer: referrerHost(),
       device: device()

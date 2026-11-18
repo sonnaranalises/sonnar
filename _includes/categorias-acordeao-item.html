@@ -1,0 +1,64 @@
+{%- comment -%}
+  Um nível da árvore. Hoje cada categoria é folha.
+  Se no futuro o item tiver `filhas`, elas entram aninhadas aqui dentro.
+{%- endcomment -%}
+{%- assign c = include.cat -%}
+{%- assign posts_cat = site.posts | where: "categoria", c.slug -%}
+{%- assign n = 0 -%}
+{%- for post in posts_cat -%}
+  {%- unless post.example -%}{%- assign n = n | plus: 1 -%}{%- endunless -%}
+{%- endfor -%}
+{%- assign n_filhas = 0 -%}
+{%- if c.filhas -%}
+  {%- for filha in c.filhas -%}
+    {%- assign posts_f = site.posts | where: "categoria", filha.slug -%}
+    {%- for post in posts_f -%}
+      {%- unless post.example -%}{%- assign n_filhas = n_filhas | plus: 1 -%}{%- endunless -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign total = n | plus: n_filhas -%}
+{%- if total > 0 -%}
+<details class="cat-acordeao">
+  <summary>
+    <span class="cat-acordeao-nome">{{ c.nome | escape }}</span>
+    <span class="cat-acordeao-n">{{ total }}<span class="sr-only"> {% if total == 1 %}relatório{% else %}relatórios{% endif %}</span></span>
+    <svg class="cat-acordeao-seta" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </summary>
+  <div class="cat-acordeao-painel">
+    {%- if c.filhas -%}
+    <div class="cat-acordeao-filhas">
+      {%- for filha in c.filhas -%}
+        {%- include categorias-acordeao-item.html cat=filha -%}
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+    <ul class="cat-tipos">
+      {%- assign vistos = "|" -%}
+      {%- for post in posts_cat -%}
+        {%- if post.example or post.tipo == nil or post.tipo == "" -%}{%- continue -%}{%- endif -%}
+        {%- assign marca = "|" | append: post.tipo | downcase | append: "|" -%}
+        {%- if vistos contains marca -%}{%- continue -%}{%- endif -%}
+        {%- assign vistos = vistos | append: post.tipo | downcase | append: "|" -%}
+        {%- assign iguais = 0 -%}
+        {%- for outro in posts_cat -%}
+          {%- if outro.example -%}{%- continue -%}{%- endif -%}
+          {%- assign ta = outro.tipo | downcase -%}
+          {%- assign tb = post.tipo | downcase -%}
+          {%- if ta == tb -%}{%- assign iguais = iguais | plus: 1 -%}{%- endif -%}
+        {%- endfor -%}
+        {%- capture plural -%}{%- include plural-pt.html texto=post.tipo -%}{%- endcapture -%}
+        <li>
+          {%- if iguais > 1 -%}
+          {%- capture slug_tipo -%}{%- include slug-tipo.html texto=post.tipo -%}{%- endcapture -%}
+          <a href="{{ '/categorias/' | append: c.slug | append: '/' | relative_url }}#tipo-{{ slug_tipo | strip }}">{{ plural | strip }}</a>
+          {%- else -%}
+          <a href="{{ post.url | relative_url }}">{{ plural | strip }}</a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+      <li><a href="{{ '/categorias/' | append: c.slug | append: '/' | relative_url }}">Ver todas</a></li>
+    </ul>
+  </div>
+</details>
+{%- endif -%}

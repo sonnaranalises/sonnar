@@ -6,7 +6,7 @@ permalink: /feed.xml
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="pt-BR">
   <title>Sonnar Análises</title>
-  <subtitle>Detectando boas escolhas</subtitle>
+  <subtitle>{{ site.slogan | xml_escape }}</subtitle>
   <link href="{{ '/' | absolute_url }}"/>
   <link rel="self" href="{{ '/feed.xml' | absolute_url }}"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>

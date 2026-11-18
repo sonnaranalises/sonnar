@@ -13,15 +13,26 @@ O guia de marca vivo é o [docs/BRAND.md](docs/BRAND.md). Ele substitui o brand 
 Cada Radar do dia é um arquivo em `_posts`.
 
 1. Copie `modelos/radar-do-dia.md` para `_posts/AAAA-MM-DD-nome-curto.md`.
-2. Preencha o cabeçalho. O texto depois do segundo `---` é a apresentação do produto.
-3. Preencha `products`: a lista **Produtos no radar do dia**, no topo, só com nome, preço e link. Sem análise neles.
-4. Cada link vira o botão "Ver no Mercado Livre", com a legenda "Link de afiliado" embaixo. O topo da página traz a caixa de transparência. O endereço pode ser o link de afiliado do Mercado Livre, inclusive `https://meli.la/...`.
-5. Data, hora e fonte da consulta vão nos campos `rating_source`, `rating_checked`, `price_checked` e, no histórico, `price_history.source`, `source_url` e `checked_on`. Eles aparecem em nota sob a seção e no rodapé Fontes. Não escreva isso no parágrafo.
+2. Preencha o cabeçalho, inclusive `resumo:` (os quatro tópicos ficam entre 50 e 80 palavras) e `fontes:`. O texto depois do segundo `---` é a apresentação do produto. O Resumo não entra nesse texto: ele sai só do front matter.
+3. Preencha `products`: a lista **Produtos no radar do dia**, na lateral (no topo, no celular), só com nome, preço e link. Sem análise neles. O primeiro item também vira o link do título e o botão do Resumo.
+4. Cada link da lista vira o botão "Ver no Mercado Livre". A lista traz a nota "Links de afiliado". O botão do Resumo traz a legenda "Link de afiliado". O aviso de transparência fica antes das Fontes. O endereço pode ser o link de afiliado do Mercado Livre, inclusive `https://meli.la/...`.
+5. A data da coleta vai em `fontes.coleta` (por exemplo, `16/11/2026, até 12h00`). Os equivalentes do preço vão em `fontes.equivalentes`; se o campo estiver vazio, a frase do preço some. Os campos antigos `rating_source`, `rating_checked`, `price_checked` e `price_history` continuam valendo para relatórios que ainda não usam `fontes:`.
 6. Deixe `example: true` enquanto for teste. Passe para `example: false` só quando preço, nota e comentários forem reais. Com `example: true` a página avisa que os dados são fictícios e não entra no sitemap.
 
 Regras do texto: linguagem direta; qualidade e preço em separado; conclusão sem recomendação de compra; dado não confirmado não entra; crítica ao produto, não à marca.
 
 O primeiro post publicado é `_posts/2026-11-07-cicaplast-baume-b5.md`.
+
+## Conferir
+
+Com Ruby 3.3 e Jekyll 4.3.4:
+
+```bash
+jekyll build --destination _site
+python3 script/verificar.py _site
+```
+
+As checagens de Resumo (seis campos, rótulos na ordem, 50 a 80 palavras nos quatro tópicos) e a exigência de `fontes:` em todo relatório ficam atrás de `--v3`, porque os relatórios atuais ainda não têm esses campos. Quando os 10 relatórios novos entrarem, rode `python3 script/verificar.py _site --v3` e acrescente `--v3` ao passo "Conferir o HTML gerado" em `.github/workflows/pages.yml`. A checagem de frases no Resumo e na Conclusão passa a valer sozinha em cada página que já renderiza o Resumo.
 
 ## Ver no computador
 

@@ -1,15 +1,23 @@
-{% if page.elogios or page.criticas %}
+{% assign n_elogios = 0 %}
+{% if page.elogios %}{% assign n_elogios = page.elogios | size %}{% endif %}
+{% assign n_criticas = 0 %}
+{% if page.criticas %}{% assign n_criticas = page.criticas | size %}{% endif %}
+{% if n_elogios > 0 or n_criticas > 0 %}
 <section class="comentarios" aria-labelledby="comentarios-titulo">
   <h3 id="comentarios-titulo">O que dizem os compradores</h3>
-  <div class="comentarios-grade">
+  <div class="comentarios-grade{% if n_elogios == 0 or n_criticas == 0 %} comentarios-uma{% endif %}">
+    {% if n_elogios > 0 %}
     <div class="comentarios-col comentarios-elogios">
       <h4>O que elogiam</h4>
       {% for q in page.elogios limit: 3 %}<blockquote><p>{{ q | escape }}</p></blockquote>{% endfor %}
     </div>
+    {% endif %}
+    {% if n_criticas > 0 %}
     <div class="comentarios-col comentarios-criticas">
       <h4>O que criticam</h4>
       {% for q in page.criticas limit: 3 %}<blockquote><p>{{ q | escape }}</p></blockquote>{% endfor %}
     </div>
+    {% endif %}
   </div>
 </section>
 {% endif %}

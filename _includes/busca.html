@@ -1,0 +1,8 @@
+<form class="busca" role="search" action="{{ '/' | relative_url }}" data-busca-url="{{ '/busca.json' | relative_url }}" onsubmit="return false;">
+  <label class="busca-rotulo" for="busca-campo">Buscar</label>
+  <input class="busca-campo" id="busca-campo" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Buscar relatórios">
+  <p class="busca-status" aria-live="polite"></p>
+  <ul class="busca-resultados"></ul>
+  <noscript><p class="busca-noscript">A busca precisa de JavaScript.</p></noscript>
+</form>
+<script src="{{ '/assets/js/busca.js' | relative_url }}" defer></script>

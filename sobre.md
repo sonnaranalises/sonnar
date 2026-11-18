@@ -7,40 +7,26 @@ description: O que é a Sonnar Análises, o que tem em cada Radar do dia, como t
 
 ## O nome
 
-O sonar é o aparelho que os navios usam para enxergar o que está debaixo d'água: ele emite um sinal e lê o eco que volta. A Sonnar faz o mesmo com as compras online. O anúncio é a superfície. Por baixo dele ficam milhares de notas, opiniões de quem comprou e preços de produtos parecidos, que quase ninguém tem tempo de ler. A Sonnar lê esse eco e mostra o que encontrou. Daí o nosso lema: te ajudando a detectar boas escolhas.
+O sonar é o aparelho que os navios usam para enxergar o que está debaixo d'água: ele emite um sinal e lê o eco que volta. A Sonnar faz o mesmo com as compras online. O anúncio é a superfície; por baixo ficam milhares de notas, opiniões de quem comprou e preços de produtos parecidos, que quase ninguém tem tempo de ler. A Sonnar lê esse eco e mostra o que encontrou. Daí o nosso lema: te ajudando a detectar boas escolhas.
 
-## O que fazemos
+## Para que serve
 
-Todo dia publicamos o **Radar do dia**. Cada Radar tem um tema, como churrasco ou café em casa, e cinco produtos: um em destaque, que analisamos a fundo, e outros quatro ligados ao tema, para você conhecer.
+A Sonnar existe para poupar o seu tempo e deixar a escolha mais clara. Todo dia, o Radar do dia traz um produto em destaque, analisado num relatório curto: o que ele é, o que quem comprou elogia e critica, e como o preço se compara ao de produtos parecidos. Ao lado, mais quatro produtos do mesmo tema, só para você conhecer.
 
-O relatório do produto em destaque reúne, num só lugar, o que importa antes de comprar:
-
-- **O que é** o produto e para quem ele faz sentido.
-- **As especificações** que pesam na escolha.
-- **A nota e o volume de avaliações**, e o que esses números querem dizer.
-- **O que os compradores elogiam e o que criticam**, com trechos reais das opiniões.
-- **O preço**, comparado com o de produtos equivalentes.
-- **Uma conclusão:** para quem os dados indicam que o produto serve, e para quem não.
-
-Nossos critérios:
-
-- O preço só é comparado com produtos realmente equivalentes: mesma categoria, porte ou capacidade parecida e nota parecida, vistos no mesmo dia.
-- Uma nota alta vinda de muitos compradores pesa mais do que uma nota alta de poucos.
-- As críticas aparecem com o peso que têm nos dados: não escondemos e não exageramos.
-- Quando os dados pesam contra o produto, o relatório diz isso com clareza.
+Os relatórios mostram fatos; não mandam comprar nem deixar de comprar. Começam por um resumo para ler em poucos segundos, e quem quiser os detalhes segue lendo. A decisão de compra fica com você.
 
 ## Como trabalhamos
 
-- Usamos dados públicos: o anúncio, as notas e as opiniões de quem comprou, e os preços de produtos equivalentes.
+- Usamos dados públicos: o anúncio, as notas e as opiniões de quem comprou, e os preços de produtos parecidos no mesmo dia.
 - As citações são trechos reais e anônimos de compradores.
 - Não testamos os produtos e não fingimos que testamos.
-- As análises são feitas com apoio de ferramentas de inteligência artificial, a partir dessas informações públicas.
-- Não recomendamos comprar nem deixar de comprar: mostramos o que os dados dizem.
+- O texto é produzido com ajuda de inteligência artificial, a partir desses dados.
+- Quando os dados mostram um problema, o relatório conta, com o peso que ele tem.
 
 ## Como a Sonnar se mantém {#como-a-sonnar-se-mantem}
 
-Os links dos produtos nos relatórios são links de afiliado. Se você comprar por eles, a Sonnar recebe uma comissão da loja, sem custo a mais para você. A comissão não escolhe os produtos e não muda o que escrevemos, inclusive as críticas.
+Os links dos produtos são links de afiliado. Se você comprar por eles, a Sonnar recebe uma comissão da loja, sem custo a mais para você. A comissão não escolhe os produtos e não muda o que escrevemos, inclusive as críticas.
 
-Você encontra esse aviso no começo de cada relatório, e cada botão de produto traz a legenda "Link de afiliado". O link leva para fora deste site: a venda, o pagamento, a entrega e o atendimento ficam com a loja e com o vendedor. A Sonnar não é loja nem representante de nenhuma delas.
+Você encontra o aviso completo **no fim de cada relatório, antes das Fontes**, e a indicação de link de afiliado junto à lista de produtos e ao botão do resumo. O link leva para fora deste site: a venda, o pagamento, a entrega e o atendimento ficam com a loja e com o vendedor. A Sonnar não é loja nem representante de nenhuma delas.
 
 **Sonnar Análises — Te ajudando a detectar boas escolhas**

@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
-"""Confere o HTML gerado do site da Sonnar Análises."""
+"""Confere o HTML gerado do site da Sonnar Análises.
 
+O modo padrão passa com os relatórios atuais. `--v3` exige, em todo
+relatório que não seja exemplo, o bloco `resumo:` (seis campos, rótulos
+na ordem e 50 a 80 palavras nos quatro tópicos) e o bloco `fontes:`.
+Quando os 10 relatórios novos estiverem publicados, rode:
+
+    python3 script/verificar.py _site --v3
+
+e acrescente `--v3` ao passo "Conferir o HTML gerado" do workflow.
+"""
+
+import json
 import re
 import sys
 from html.parser import HTMLParser
@@ -120,11 +131,15 @@ def checagens_v2(root: Path, errors: list) -> None:
                 text,
                 re.S,
             )
-            if len(colunas) < 2:
-                errors.append(f"{rel}: tabela de comentários sem as duas colunas")
+            if not colunas or len(colunas) > 2:
+                errors.append(
+                    f"{rel}: tabela de comentários com {len(colunas)} colunas"
+                )
             for coluna in colunas:
                 n = coluna.count("<blockquote")
-                if n > 3:
+                if n == 0:
+                    errors.append(f"{rel}: coluna de comentários vazia")
+                elif n > 3:
                     errors.append(f"{rel}: coluna de comentários com {n} citações")
 
     trans = root / "transparencia" / "index.html"
@@ -157,7 +172,328 @@ def checagens_v2(root: Path, errors: list) -> None:
                 errors.append(f"{rel}: posição da régua inválida ({valor!r})")
 
 
-def main(root: Path) -> int:
+FRASES_RESUMO = (
+    "vale a pena",
+    "indicamos",
+    "recomendamos",
+    "os dados favorecem",
+    "os dados pesam contra",
+    "os dados ficam divididos",
+)
+ROTULOS_RESUMO = (
+    "Avaliações:",
+    "Ponto forte:",
+    "Ponto de atenção:",
+    "Preço:",
+)
+CAMPOS_RESUMO = (
+    "avaliacoes",
+    "ponto_forte",
+    "ponto_atencao",
+    "preco",
+    "util_para",
+    "atencao_de",
+)
+TOPICOS_RESUMO = ("avaliacoes", "ponto_forte", "ponto_atencao", "preco")
+SLOGAN = "Te ajudando a detectar boas escolhas"
+
+
+def eh_radar(rel: str) -> bool:
+    return "/radar/" in "/" + rel or rel.startswith("radar/")
+
+
+def texto_puro(html: str) -> str:
+    return re.sub(r"<[^>]+>", " ", html)
+
+
+def frases_vedadas(html: str) -> list[str]:
+    puro = texto_puro(html).lower()
+    achadas = [frase for frase in FRASES_RESUMO if frase in puro]
+    if re.search(r"\bcompre\b", puro):
+        achadas.append("compre")
+    return achadas
+
+
+def bloco_mapa(fm: str, chave: str) -> dict[str, str] | None:
+    linhas = fm.splitlines()
+    inicio = None
+    for i, linha in enumerate(linhas):
+        if re.match(rf"^{re.escape(chave)}:\s*$", linha):
+            inicio = i
+            break
+    if inicio is None:
+        return None
+    campos: dict[str, str] = {}
+    atual = None
+    buf: list[str] = []
+
+    def guarda() -> None:
+        if atual is None:
+            return
+        valor = " ".join(parte for parte in buf if parte != "").strip()
+        if len(valor) >= 2 and valor[0] == valor[-1] and valor[0] in "\"'":
+            valor = valor[1:-1]
+        campos[atual] = valor.strip()
+
+    for linha in linhas[inicio + 1 :]:
+        if re.match(r"^[A-Za-z0-9_]+:\s*", linha):
+            break
+        miolo = re.match(r"^  ([A-Za-z0-9_]+):\s*(.*)$", linha)
+        if miolo:
+            guarda()
+            atual = miolo.group(1)
+            buf = [miolo.group(2)]
+        elif atual is not None and (linha.startswith(" ") or linha.strip() == ""):
+            buf.append(linha.strip())
+        else:
+            break
+    guarda()
+    return campos
+
+
+def titulo_front(fm: str, reserva: str) -> str:
+    miolo = re.search(r'(?m)^title:\s*(.+?)\s*$', fm)
+    if not miolo:
+        return reserva
+    valor = miolo.group(1).strip()
+    if len(valor) >= 2 and valor[0] == valor[-1] and valor[0] in "\"'":
+        valor = valor[1:-1]
+    return valor
+
+
+def html_do_post(root: Path, post: Path) -> Path | None:
+    miolo = re.match(r"(\d{4})-(\d{2})-(\d{2})-(.+)$", post.stem)
+    if not miolo:
+        return None
+    return (
+        root
+        / "radar"
+        / miolo.group(1)
+        / miolo.group(2)
+        / miolo.group(3)
+        / miolo.group(4)
+        / "index.html"
+    )
+
+
+def checagens_18(root: Path, errors: list) -> None:
+    for path in sorted(root.rglob("*.html")):
+        text = path.read_text(encoding="utf-8")
+        rel = path.relative_to(root).as_posix()
+        if not eh_radar(rel):
+            continue
+        h1 = re.search(r"<h1\b[^>]*>(.*?)</h1>", text, re.S | re.I)
+        interno = h1.group(1) if h1 else ""
+        tag = ""
+        for candidato in re.findall(r"<a\b[^>]*>", interno):
+            classes = re.search(r'class="([^"]*)"', candidato)
+            if classes and "titulo-afiliado" in classes.group(1).split():
+                tag = candidato
+                break
+        if not tag:
+            errors.append(f"{rel}: h1 sem a.titulo-afiliado")
+        else:
+            href = re.search(r'href="([^"]*)"', tag)
+            rel_attr = re.search(r'rel="([^"]*)"', tag)
+            target = re.search(r'target="([^"]*)"', tag)
+            if not href or not href.group(1).startswith("https://meli.la/"):
+                errors.append(f"{rel}: h1 sem link https://meli.la/")
+            if not rel_attr or rel_attr.group(1) != "sponsored nofollow noopener":
+                errors.append(f"{rel}: rel do título não é o esperado")
+            if not target or target.group(1) != "_blank":
+                errors.append(f"{rel}: título sem target=_blank")
+        if "produzido com ajuda de inteligência artificial" in text:
+            if not re.search(r'<p class="fontes-menor"', text):
+                errors.append(f"{rel}: Fontes sem a classe de letra menor")
+        if 'class="resumo"' in text:
+            for trecho in re.findall(
+                r'<section class="(?:resumo|conclusion)"[^>]*>.*?</section>',
+                text,
+                re.S,
+            ):
+                for frase in frases_vedadas(trecho):
+                    nome = "Resumo" if 'class="resumo"' in trecho[:80] else "Conclusão"
+                    errors.append(f"{rel}: {nome} contém '{frase}'")
+
+    home = root / "index.html"
+    if home.exists():
+        html = home.read_text(encoding="utf-8")
+        if 'class="busca"' not in html:
+            errors.append("index.html: falta a busca")
+        if "cat-acordeao" not in html:
+            errors.append("index.html: falta o acordeão de categorias")
+        if "Radar de hoje" in html:
+            errors.append("index.html: ainda diz 'Radar de hoje'")
+    else:
+        errors.append("index.html: página ausente")
+
+    feed = root / "feed.xml"
+    if not feed.exists():
+        errors.append("feed.xml: arquivo ausente")
+    else:
+        xml = feed.read_text(encoding="utf-8")
+        if f"<subtitle>{SLOGAN}</subtitle>" not in xml:
+            errors.append("feed.xml: subtitle diferente do slogan")
+
+    bruto = root / "busca.json"
+    if not bruto.exists():
+        errors.append("busca.json: arquivo ausente")
+        return
+    try:
+        dados = json.loads(bruto.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        errors.append(f"busca.json: JSON inválido ({exc})")
+        return
+    if not isinstance(dados, list):
+        errors.append("busca.json: o conteúdo não é uma lista")
+        return
+    repo = Path(__file__).resolve().parent.parent
+    esperados = []
+    for post in sorted((repo / "_posts").glob("*.md")):
+        fm = front_matter(post.read_text(encoding="utf-8"))
+        if re.search(r"(?m)^example:\s*true\b", fm):
+            continue
+        esperados.append(titulo_front(fm, post.stem))
+    titulos = [item.get("title") for item in dados if isinstance(item, dict)]
+    if len(dados) != len(esperados):
+        errors.append(
+            f"busca.json: {len(dados)} itens para {len(esperados)} relatórios"
+        )
+    for titulo in esperados:
+        if titulo not in titulos:
+            errors.append(f"busca.json: falta {titulo}")
+    for item in dados:
+        if not isinstance(item, dict) or not item.get("title") or not item.get("url"):
+            errors.append("busca.json: item sem título ou url")
+
+
+def checagens_v3(root: Path, errors: list) -> None:
+    repo = Path(__file__).resolve().parent.parent
+    for post in sorted((repo / "_posts").glob("*.md")):
+        texto = post.read_text(encoding="utf-8")
+        fm = front_matter(texto)
+        rel = post.relative_to(repo).as_posix()
+        if re.search(r"(?m)^example:\s*true\b", fm):
+            continue
+        resumo = bloco_mapa(fm, "resumo")
+        if resumo is None:
+            errors.append(f"{rel}: sem resumo")
+        else:
+            for campo in CAMPOS_RESUMO:
+                if not resumo.get(campo, "").strip():
+                    errors.append(f"{rel}: resumo sem {campo}")
+            for campo in TOPICOS_RESUMO:
+                n = len(re.findall(r"\S+", resumo.get(campo, "")))
+                if n < 50 or n > 80:
+                    errors.append(f"{rel}: {campo} tem {n} palavras (esperado 50–80)")
+        fontes = bloco_mapa(fm, "fontes")
+        if not fontes or not fontes.get("coleta", "").strip():
+            errors.append(f"{rel}: sem fontes")
+        html_path = html_do_post(root, post)
+        if html_path is None or not html_path.exists():
+            errors.append(f"{rel}: HTML do relatório ausente")
+            continue
+        html = html_path.read_text(encoding="utf-8")
+        secao = re.search(r'<section class="resumo"[^>]*>.*?</section>', html, re.S)
+        if not secao:
+            errors.append(f"{rel}: HTML sem a seção Resumo")
+            continue
+        miolo = secao.group(0)
+        cursor = 0
+        for rotulo in ROTULOS_RESUMO:
+            pos = miolo.find(rotulo, cursor)
+            if pos < 0:
+                errors.append(f"{rel}: rótulo '{rotulo}' ausente ou fora de ordem")
+                cursor = len(miolo)
+            else:
+                cursor = pos + len(rotulo)
+        for linha in ("Útil para quem", "Pede atenção de quem"):
+            if linha not in miolo:
+                errors.append(f"{rel}: falta a linha '{linha}'")
+
+
+def itens_lista(fm: str, chave: str) -> int:
+    linhas = fm.splitlines()
+    dentro = False
+    n = 0
+    for linha in linhas:
+        if re.match(rf"^{re.escape(chave)}:\s*$", linha):
+            dentro = True
+            continue
+        if not dentro:
+            continue
+        if re.match(r"^[^\s]", linha):
+            break
+        if re.match(r"^  -(\s|$)", linha):
+            n += 1
+    return n
+
+
+def limites_regua(fm: str) -> tuple[float, float] | None:
+    bloco = bloco_mapa(fm, "regua_preco")
+    if not bloco:
+        return None
+
+    def numero(chave: str) -> float | None:
+        bruto = bloco.get(chave, "").strip()
+        if not bruto:
+            return None
+        try:
+            return float(bruto.replace(",", "."))
+        except ValueError:
+            return None
+
+    minimo = numero("minimo")
+    maximo = numero("maximo")
+    if minimo is None or maximo is None:
+        return None
+    return minimo, maximo
+
+
+def checagens_limites(root: Path, errors: list) -> None:
+    """Régua só com faixa, tabela sem coluna vazia, Fontes sem equivalentes."""
+    repo = Path(__file__).resolve().parent.parent
+    for post in sorted((repo / "_posts").glob("*.md")):
+        fm = front_matter(post.read_text(encoding="utf-8"))
+        rel = post.relative_to(repo).as_posix()
+        html_path = html_do_post(root, post)
+        if html_path is None or not html_path.exists():
+            continue
+        html = html_path.read_text(encoding="utf-8")
+        n_elogios = itens_lista(fm, "elogios")
+        n_criticas = itens_lista(fm, "criticas")
+        tem_elogios = "comentarios-elogios" in html
+        tem_criticas = "comentarios-criticas" in html
+        if n_elogios == 0 and n_criticas == 0:
+            if 'class="comentarios"' in html:
+                errors.append(f"{rel}: tabela de comentários sem citações")
+        else:
+            if (n_elogios > 0) != tem_elogios:
+                errors.append(f"{rel}: coluna de elogios não acompanha o front matter")
+            if (n_criticas > 0) != tem_criticas:
+                errors.append(f"{rel}: coluna de críticas não acompanha o front matter")
+            if (n_elogios == 0) != (n_criticas == 0) and "comentarios-uma" not in html:
+                errors.append(f"{rel}: coluna única sem ocupar a largura")
+            if n_elogios > 0 and n_criticas > 0 and "comentarios-uma" in html:
+                errors.append(f"{rel}: tabela completa marcada como coluna única")
+        limites = limites_regua(fm)
+        tem_regua = 'class="regua"' in html
+        sem_faixa = limites is None or abs(limites[0] - limites[1]) < 1e-9
+        if sem_faixa and tem_regua:
+            errors.append(f"{rel}: régua desenhada sem faixa de preço")
+        if not sem_faixa and not tem_regua:
+            errors.append(f"{rel}: régua ausente apesar da faixa de preço")
+        fontes = bloco_mapa(fm, "fontes")
+        if fontes is not None:
+            frase = "Para o preço, comparamos com"
+            if fontes.get("equivalentes", "").strip():
+                if frase not in html:
+                    errors.append(f"{rel}: Fontes sem a frase dos equivalentes")
+            elif frase in html:
+                errors.append(f"{rel}: Fontes cita equivalentes vazios")
+
+
+def main(root: Path, v3: bool = False) -> int:
     files = sorted(root.rglob("*.html"))
     if not files:
         print("nenhum HTML em", root)
@@ -207,6 +543,13 @@ def main(root: Path) -> int:
                     errors.append(f"{rel}: afiliado sem target=_blank em {href}")
                 if not href.startswith("https://"):
                     errors.append(f"{rel}: afiliado sem https em {href}")
+            elif "titulo-afiliado" in classes:
+                if rel_attr != "sponsored nofollow noopener":
+                    errors.append(f"{rel}: rel de titulo-afiliado {rel_attr!r} em {href}")
+                if target != "_blank":
+                    errors.append(f"{rel}: titulo-afiliado sem target=_blank em {href}")
+                if not href.startswith("https://meli.la/"):
+                    errors.append(f"{rel}: titulo-afiliado sem https://meli.la/ em {href}")
             elif "sponsored" in tokens:
                 errors.append(f"{rel}: sponsored fora de link de afiliado em {href}")
         for img in parser.imgs:
@@ -267,6 +610,10 @@ def main(root: Path) -> int:
             if re.search(r"R\$\s*\d", text):
                 errors.append(f"{rel}: exemplo com preço numérico")
     checagens_v2(root, errors)
+    checagens_18(root, errors)
+    checagens_limites(root, errors)
+    if v3:
+        checagens_v3(root, errors)
     if errors:
         print("\n".join(errors))
         return 1
@@ -275,5 +622,6 @@ def main(root: Path) -> int:
 
 
 if __name__ == "__main__":
-    site = Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
-    sys.exit(main(site))
+    args = [item for item in sys.argv[1:] if item != "--v3"]
+    site = Path(args[0] if args else "_site")
+    sys.exit(main(site, v3="--v3" in sys.argv[1:]))
