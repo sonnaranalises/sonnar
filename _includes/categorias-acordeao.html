@@ -1,0 +1,6 @@
+<nav class="categorias" id="categorias" aria-labelledby="categorias-titulo">
+  <h2 id="categorias-titulo">Categorias</h2>
+  {% for c in site.data.categorias %}
+    {% include categorias-acordeao-item.html cat=c %}
+  {% endfor %}
+</nav>

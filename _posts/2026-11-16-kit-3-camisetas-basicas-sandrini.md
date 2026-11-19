@@ -42,6 +42,13 @@ products:
     source_url: "https://produto.mercadolivre.com.br/MLB-2798068292-cinto-masculino-social-couro-legitimo-premium-extra-macio-_JM"
     image: "/assets/img/radar/2026-11-16-cinto-masculino-couro-granado.jpg"
     image_alt: "Cinto masculino social de couro Granado"
+resumo:
+  avaliacoes: "4,7 de 5 em 22.484 opiniões, base grande que indica satisfação repetida; 85% dos compradores que avaliam o tamanho o marcam como perfeito."
+  ponto_forte: "caimento reto e tecido macio, citados por quem acertou o tamanho; muitos contam altura e peso."
+  ponto_atencao: "encolhimento na primeira lavagem, a queixa mais repetida, seguido de tamanho menor que o indicado e tecido fino."
+  preco: "R$ 23,33 por camiseta, no fim da faixa dos kits equivalentes de 3 camisetas."
+  util_para: "quer repor camisetas lisas para o dia a dia."
+  atencao_de: "precisa de tecido encorpado ou de tamanho que se mantenha após lavar."
 elogios:
   - "Bom custo benefício. Comprei a g e vestiram bem, tenho 1,86 e peso 81 kg."
   - "Camisas com material muito bons, pano macio, comprei no tamanho g e ainda achei meio curta, tenho 1. 71 de altura e foi o melhor tamanho, se colocasse m, iria fica menor ainda."
@@ -63,8 +70,7 @@ fontes:
   coleta: "16/11/2026, até 01h20"
   equivalentes: "kits de 3 camisetas básicas vendidos no Mercado Livre, com nota de 4,5 a 4,7, pelo preço por camiseta"
 ---
-
-O kit de 3 camisetas básicas masculinas da Sandrini reúne camisetas lisas de manga curta, gola redonda e caimento reto, em preto, branco e mescla. Os tamanhos vão do P ao GG, com tabela de medidas para cada um. Por isso o kit faz sentido para quem quer repor camisetas simples para o dia a dia.
+O kit de 3 camisetas básicas masculinas da Sandrini reúne camisetas lisas de manga curta, gola redonda e caimento reto, em preto, branco e mescla. Os tamanhos vão do P ao GG, com tabela de medidas para cada um. É um kit para quem quer repor camisetas simples para o dia a dia.
 
 - **Quantidade:** 3 camisetas por kit. Na opção Preto/Branco/Mescla, vem uma de cada cor.
 - **Modelo:** manga curta, gola redonda e caimento reto.
@@ -74,13 +80,9 @@ O kit de 3 camisetas básicas masculinas da Sandrini reúne camisetas lisas de m
 
 ## Notas e avaliações
 
-São **22.484 opiniões**, e a nota que sai delas é **4,7 de 5**. Uma base desse tamanho dilui o comprador empolgado e o irritado: sobra a experiência repetida de milhares de pessoas, o dado de maior peso aqui. O kit é o 4º mais vendido em Camisetas e Regatas, com mais de 100 mil vendidos, e 85% dos compradores que avaliaram o tamanho o marcam como perfeito.
+A nota **4,7 de 5** vem de **22.484 opiniões**. O kit é o 4º em Camisetas e Regatas, com mais de 100 mil vendidos, e 85% dos compradores que avaliaram o tamanho o marcam como perfeito.
 
-Quem ficou satisfeito volta ao caimento, ao tecido macio e confortável e ao custo-benefício para o dia a dia. Muitos contam altura, peso e tamanho escolhido, e alguns sugerem pedir um número acima.
-
-Entre as notas baixas, a queixa que mais se repete é a camiseta que encolhe na primeira lavagem. Depois vêm o tamanho menor que o indicado, como G que veste como M, e o tecido fino, áspero ou quase transparente. Há ainda relatos de peças diferentes no mesmo kit e de uma camiseta, em geral a cinza, com 12% de poliéster, embora a ficha informe 100% algodão. Isso conta porque o mínimo que se espera de uma camiseta é manter tamanho e tecido depois de lavar.
-
-O tamanho atravessa os dois grupos: entre os satisfeitos, vira dica de subir um número; entre os insatisfeitos, aparece como forma pequena ou peça encolhida. São relatos, e não valem para toda peça.
+Quem gostou fala do caimento e do tecido macio, e muitos informam altura, peso e tamanho escolhido. Entre as notas baixas, a queixa mais repetida é o encolhimento na primeira lavagem. Vêm depois o tamanho menor que o indicado, o tecido fino ou áspero, peças diferentes no mesmo kit e uma camiseta, em geral a cinza, de composição diversa da ficha. O tamanho aparece dos dois lados: dica de subir um número para uns, forma pequena para outros.
 
 <!-- tabela-comentarios -->
 
@@ -92,6 +94,6 @@ O kit custa **R$ 69,99**, ou **R$ 23,33 por camiseta**. Kits de 3 camisetas bás
 
 ## Conclusão
 
-Os relatos desenham um kit para quem quer camisetas lisas para o dia a dia, valoriza caimento e toque macio e aceita malha simples. Para quem espera tecido encorpado ou precisa que a peça mantenha o tamanho depois de lavar, os dados pesam contra: o encolhimento é a queixa mais repetida, e o preço por camiseta fica perto do topo dos kits equivalentes. O que mais separa satisfeitos e insatisfeitos é o tamanho escolhido.
+Segundo os relatos, o kit atende a quem procura camisetas básicas de caimento reto e toque macio e aceita malha simples. Quem quer um tecido mais encorpado, ou uma peça que não encolha na primeira lavagem, encontra nesses pontos os temas das críticas. No fim da faixa, os dados do dia não mostram oferta maior que a dos equivalentes, que também trazem 3 camisetas básicas; os de nota 4,5 e 4,6 ficam mais abaixo na faixa.
 
-Antes de pedir, meça uma camiseta que já veste bem, de ombro a ombro e no comprimento, e compare com a tabela. Quem fica entre dois tamanhos encontra, nos relatos, motivo para ir no maior.
+Medir uma camiseta que já veste bem e comparar com a tabela ajuda a escolher; quem fica entre dois tamanhos encontra nos relatos motivo para ir no maior.

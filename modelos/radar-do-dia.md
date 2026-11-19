@@ -15,6 +15,15 @@ image_alt: "Categoria Marca Modelo"
 categoria: eletroportateis
 tipo: "Tipo do produto"
 tema: "Tema do dia"
+# Resumo lido do front matter (não do markdown). Os 4 tópicos, somados, ficam entre 50 e 80 palavras.
+# util_para e atencao_de podem começar com "quem" ou não: o site não repete a palavra.
+resumo:
+  avaliacoes: "Nota, volume e o que esses números querem dizer."
+  ponto_forte: "O elogio que mais se repete."
+  ponto_atencao: "A crítica que mais se repete."
+  preco: "Preço de agora e onde ele fica na faixa dos equivalentes."
+  util_para: "quem busca o uso principal do produto."
+  atencao_de: "precisa do ponto que os dados não sustentam."
 products:
   - name: "Produto em destaque, com categoria e marca"
     price: "R$ 0,00"
@@ -50,6 +59,7 @@ elogios:
   - "Citação literal de elogio, até cerca de 200 caracteres."
 criticas:
   - "Citação literal de crítica, até cerca de 200 caracteres."
+# Se minimo e maximo forem iguais, a régua não é desenhada. Sem o bloco, também não.
 regua_preco:
   produto: 0.00
   minimo: 0.00
@@ -61,6 +71,7 @@ regua_preco:
   posicao: "no meio da faixa"
 fontes:
   coleta: "16/11/2026, até 12h00"
+  # Se equivalentes estiver vazio ou ausente, a frase do preço some das Fontes.
   equivalentes: "produtos equivalentes da mesma categoria, porte parecido e nota parecida"
 ---
 

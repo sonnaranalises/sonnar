@@ -11,6 +11,8 @@ Você pode ler os relatórios sem criar uma conta na Sonnar Análises. O site é
 
 A hospedagem pode tratar informações técnicas de acesso, como o endereço IP, para entregar e proteger as páginas. Esse tratamento segue a [Declaração de Privacidade do GitHub](https://docs.github.com/pt/site-policy/privacy-policies/github-general-privacy-statement). Por isso, não afirmamos que visitar um site significa não haver nenhum registro técnico.
 
+A busca roda no navegador, sobre uma lista pública de relatórios. O que é digitado não é enviado nem registrado.
+
 ## Links de produtos
 
 Nossos links de afiliado levam ao Mercado Livre. Ao abri-los, você passa a navegar em outro serviço, que tem suas próprias regras de privacidade e pode usar cookies ou outros mecanismos para registrar a visita e atribuir compras ao programa de afiliados. Consulte a [Declaração de Privacidade do Mercado Livre](https://www.mercadolivre.com.br/privacidade).

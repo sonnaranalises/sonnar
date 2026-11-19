@@ -12,12 +12,6 @@ image_formato: horizontal
 categoria: eletroportateis
 tipo: "Churrasqueira elétrica"
 tema: "Churrasco"
-elogios:
-  - "Funciona muito bem. Ótimo custo benefício."
-  - "Churrasqueira ótima, assou a carne em minutos."
-criticas:
-  - "Resistência já esfarelou se rompendo, muito fraca."
-  - "A churrasqueira esfarelou partes da resistência e quebrou dando um curto. Isso depois de apenas 6 vezes usada."
 products:
   - name: "Churrasqueira elétrica de mesa Elgin BBQ Show"
     price: "R$ 117,10"
@@ -49,16 +43,34 @@ products:
     source_url: "https://www.mercadolivre.com.br/caixa-termica-suv-cooler-com-alca-20-litros-praia-pesca-camping-cor-preto-e-amarelo-termolar/p/MLB39232292"
     image: "/assets/img/radar/2026-11-14-caixa-termica-termolar-suv-20l_d1bd.jpg"
     image_alt: "Caixa térmica Termolar SUV 20 L"
-sources:
-  - label: "Ficha técnica, preço, avaliações, resumo das opiniões, comentários e foto da churrasqueira"
-    detail: "Mercado Livre, página do produto, 14/11/2026, 14h11–14h25, com preço reconferido às 15h20 (Brasília). O total de opiniões inclui avaliações de compradores de outros países."
-  - label: "Preços das churrasqueiras elétricas equivalentes"
-    detail: "Mercado Livre, páginas dos produtos, 14/11/2026, 14h25–14h30 (Brasília). Comparação com churrasqueiras elétricas de mesa de nota 4,7 a 4,8, vendidas por unidade."
-  - label: "Nomes e preços dos quatro complementos"
-    detail: "Mercado Livre, páginas dos produtos, 14/11/2026, 14h22–14h23, reconferidos às 15h20 (Brasília). Os preços deste Radar foram vistos nessa tarde e podem ter mudado desde então."
+resumo:
+  avaliacoes: "4,7 de 5 em 24.120 opiniões, com a barra de 5 estrelas quase cheia: base grande e satisfação repetida."
+  ponto_forte: "aquece e assa rápido, é fácil de limpar e dispensa carvão."
+  ponto_atencao: "resistência que esfarela ou quebra após poucos usos, com relatos de curto e fogo; a bandeja de água rasa aparece dos dois lados."
+  preco: "R$ 117,10, abaixo da faixa das churrasqueiras elétricas de mesa equivalentes."
+  util_para: "quer assar carne em casa, sem carvão, com aquecimento rápido."
+  atencao_de: "espera um aparelho durável para uso frequente."
+elogios:
+  - "Churrasqueira ótima, assou a carne em minutos."
+  - "Excelente produto, assa muito rápido, tamanho excelente, de fácil limpeza"
+criticas:
+  - "Resistência já esfarelou se rompendo, muito fraca."
+  - "A churrasqueira esfarelou partes da resistência e quebrou dando um curto. Isso depois de apenas 6 vezes usada."
+  - "a bandeja de água deveria ser maior pois cai gordura pra fora da bandeja."
+regua_preco:
+  produto: 117.1
+  minimo: 125.26
+  maximo: 237.48
+  produto_txt: "R$ 117,10"
+  minimo_txt: "R$ 125,26"
+  maximo_txt: "R$ 237,48"
+  unidade: "por aparelho"
+  posicao: "abaixo da faixa"
+fontes:
+  coleta: "14/11/2026, até 15h20"
+  equivalentes: "churrasqueiras elétricas de mesa vendidas no Mercado Livre, com nota de 4,7 a 4,8, pelo preço do aparelho"
 ---
-
-A churrasqueira elétrica de mesa BBQ Show, da Elgin, é uma churrasqueira de bancada com grelha cromada, termostato para regular o calor e bandeja embaixo para a água e a gordura. Liga na tomada e dispensa carvão, por isso faz sentido para quem quer assar carne em casa ou no apartamento, sem montar uma churrasqueira tradicional.
+A churrasqueira elétrica de mesa BBQ Show, da Elgin, é um aparelho de bancada com grelha cromada, termostato para regular o calor e bandeja de água sob a grelha. Liga na tomada e dispensa carvão. Foi pensada para quem quer assar carne em casa ou no apartamento, sem montar uma churrasqueira tradicional.
 
 - **Potência:** 1.800 W na versão 127 V e 2.000 W na de 220 V. Não é bivolt.
 - **Controle:** termostato, do desligado ao máximo.
@@ -67,22 +79,20 @@ A churrasqueira elétrica de mesa BBQ Show, da Elgin, é uma churrasqueira de ba
 
 ## Notas e avaliações
 
-A BBQ Show tem **4,7 de 5** em **24.120 opiniões**. Numa base desse porte, alguns casos ruins não derrubam a média, e alguns casos ótimos também não a sustentariam sozinhos: o número mostra o que a grande maioria encontrou ao usar a churrasqueira, e é a referência mais segura deste relatório. A barra de 5 estrelas é, de longe, a mais comprida, e o modelo aparece como o 2º em Churrasqueiras Elétricas, com mais de 50 mil vendidos.
+A nota da BBQ Show é **4,7 de 5**, em **24.120 opiniões**, com a barra de 5 estrelas quase cheia. É a 2ª em Churrasqueiras Elétricas, com mais de 50 mil vendidas.
 
-Entre os compradores satisfeitos, os pontos que voltam são a praticidade, a rapidez para aquecer e assar, a limpeza fácil, o tamanho e o custo-benefício. O resumo das opiniões do Mercado Livre acrescenta que a carne lembra o sabor do churrasco tradicional.
-
-As notas baixas ocupam uma fatia pequena do total, mas a maior parte delas fala da mesma peça: a resistência, a parte que esquenta. Há relatos de resistência que esfarelou, trincou, enferrujou ou quebrou depois de poucos usos ou de poucos meses, e alguns compradores contam que ela deu curto ou pegou fogo. Aparecem também ferrugem e revestimento descascando em outras peças e uma grade descrita como fina. Esses relatos pesam porque a resistência é o coração do aparelho: quando ela falha, a churrasqueira para de funcionar. São experiências de compradores, não algo que acontece com toda unidade.
-
-A bandeja de água aparece dos dois lados. Até compradores que deram 5 estrelas comentam que ela é rasa ou estreita, que pede reposição de água durante o uso e que às vezes deixa a gordura pingar fora. Nas notas baixas, a queixa é a mesma. Ou seja, não chega a estragar a experiência de quem gostou, mas é um cuidado que acompanha o uso.
+Quem gostou fala de praticidade, aquecimento e preparo rápidos, limpeza fácil e tamanho; o resumo das opiniões soma o sabor que lembra o churrasco tradicional. Entre as notas baixas, o tema dominante é a resistência, a peça que esquenta: relatos de que esfarelou, trincou, enferrujou ou quebrou depois de poucos usos ou meses. Alguns relatos citam curto ou fogo ligados a essa quebra. A bandeja de água, rasa ou estreita, aparece dos dois lados. As experiências descritas são individuais.
 
 <!-- tabela-comentarios -->
 
 ## Preço
 
-A churrasqueira custa **R$ 117,10**. Entre churrasqueiras elétricas de mesa com notas de 4,7 a 4,8, os preços vão de **R$ 125,26 a R$ 237,48**, e o modelo de porte parecido, com a mesma potência, fica no topo dessa faixa. A BBQ Show fica abaixo de toda ela, mais barata até que as opções menores e menos potentes do grupo.
+A churrasqueira custa **R$ 117,10**. Churrasqueiras elétricas de mesa com nota de 4,7 a 4,8 vão de **R$ 125,26 a R$ 237,48**; a BBQ Show fica **abaixo da faixa**. As de porte e potência parecidos, de 1,8 a 2 kW, custam R$ 149,90 e R$ 237,48.
+
+<!-- regua-preco -->
 
 ## Conclusão
 
-A BBQ Show combina com quem quer um churrasco simples em casa, sem acender carvão, e valoriza aparelho que esquenta logo e se limpa sem trabalho. Para quem espera um equipamento para anos de uso intenso, os relatos sobre a resistência pedem atenção. O detalhe curioso é que a mesma peça responsável pelo calor rápido, tão elogiado, é a que concentra as queixas, que em vários casos surgem nos primeiros usos.
+Pelos relatos, a BBQ Show atende a quem quer carne na mesa sem churrasqueira de carvão e valoriza a limpeza simples. Para uso frequente, o ponto de cuidado é a peça que esquenta, com relatos de quebra nos primeiros usos e alguns casos de curto e fogo. Abaixo da faixa, é essa durabilidade a troca que aparece nos dados; os dados do dia não trazem o mesmo ponto dos outros modelos, então não dá para atribuí-la ao preço.
 
-Na hora da limpeza, depois que tudo esfriar, vale dar uma olhada na resistência: um dos compradores conta que as rachaduras apareceram enquanto ela ainda funcionava. Durante o preparo, ter água à mão para completar a bandeja também evita gordura pingando fora.
+Com o aparelho frio, vale olhar a resistência ao limpar. E, como não é bivolt, convém conferir a voltagem da tomada.

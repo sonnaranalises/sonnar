@@ -1,0 +1,15 @@
+{%- if page.resumo -%}
+{%- assign destaque = page.products | first -%}
+<section class="resumo" aria-labelledby="resumo-titulo">
+  <h2 id="resumo-titulo">Resumo</h2>
+  <ul>
+    <li><strong>Avaliações:</strong> {{ page.resumo.avaliacoes | escape }}</li>
+    <li><strong>Ponto forte:</strong> {{ page.resumo.ponto_forte | escape }}</li>
+    <li><strong>Ponto de atenção:</strong> {{ page.resumo.ponto_atencao | escape }}</li>
+    <li><strong>Preço:</strong> {{ page.resumo.preco | escape }}</li>
+  </ul>
+  <p>{% include resumo-linha.html rotulo="Útil para quem" texto=page.resumo.util_para %}</p>
+  <p>{% include resumo-linha.html rotulo="Pede atenção de quem" texto=page.resumo.atencao_de %}</p>
+  {% include affiliate.html url=destaque.url posicao=1 produto=destaque.name local="resumo" %}
+</section>
+{%- endif -%}

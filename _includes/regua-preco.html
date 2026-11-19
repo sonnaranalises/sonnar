@@ -1,13 +1,14 @@
 {% if page.regua_preco %}
 {% assign r = page.regua_preco %}
+{% assign minimo = r.minimo | times: 1.0 %}
+{% assign maximo = r.maximo | times: 1.0 %}
+{% if minimo != maximo %}
 {% assign pos_ok = false %}
 {% if r.posicao == "abaixo da faixa" or r.posicao == "no começo da faixa" or r.posicao == "no meio da faixa" or r.posicao == "no fim da faixa" or r.posicao == "acima da faixa" %}
 {% assign pos_ok = true %}
 {% endif %}
 {% if pos_ok %}
 {% assign produto = r.produto | times: 1.0 %}
-{% assign minimo = r.minimo | times: 1.0 %}
-{% assign maximo = r.maximo | times: 1.0 %}
 {% assign lo = produto %}
 {% if minimo < lo %}{% assign lo = minimo %}{% endif %}
 {% assign hi = produto %}
@@ -32,5 +33,6 @@
     <span>Este produto: {{ r.produto_txt | escape }} · {{ r.posicao | escape }}</span>
   </figcaption>
 </figure>
+{% endif %}
 {% endif %}
 {% endif %}

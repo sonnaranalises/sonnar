@@ -1,0 +1,29 @@
+---
+layout: null
+permalink: /busca.json
+sitemap: false
+---
+[
+{%- assign ns = 0 -%}
+{%- for post in site.posts -%}
+  {%- if post.example -%}{% continue %}{% endif -%}
+  {%- assign ns = ns | plus: 1 -%}
+{%- endfor -%}
+{%- assign i = 0 -%}
+{%- for post in site.posts -%}
+  {%- if post.example -%}{% continue %}{% endif -%}
+  {%- assign i = i | plus: 1 -%}
+  {%- assign cat = site.data.categorias | where: "slug", post.categoria | first -%}
+  {
+    "title": {{ post.title | jsonify }},
+    "subtitle": {{ post.subtitle | jsonify }},
+    "tema": {{ post.tema | jsonify }},
+    "tipo": {{ post.tipo | jsonify }},
+    "categoria": {{ cat.nome | jsonify }},
+    "summary": {{ post.summary | jsonify }},
+    "resumo": {{ post.resumo | jsonify }},
+    "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }}
+  }{% unless forloop.last %}{% if i < ns %},{% endif %}{% endunless %}
+{%- endfor -%}
+]

@@ -33,7 +33,7 @@ jobs:
           jekyll build --destination "$GITHUB_WORKSPACE/_site"
 
       - name: Conferir o HTML gerado
-        run: python3 script/verificar.py "$GITHUB_WORKSPACE/_site"
+        run: python3 script/verificar.py "$GITHUB_WORKSPACE/_site" --v3
 
       - name: Enviar o artefato
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
