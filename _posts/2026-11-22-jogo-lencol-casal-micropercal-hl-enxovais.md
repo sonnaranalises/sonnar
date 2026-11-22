@@ -2,7 +2,7 @@
 layout: post
 example: false
 title: "Jogo de lençol casal micropercal 400 fios, 4 peças, HL Enxovais"
-subtitle: "Lençol com elástico, lençol de cima e duas fronhas em poliéster estampado, para colchão casal de até 30 cm."
+subtitle: "Lençol com elástico, lençol de cima e duas fronhas em poliéster estampado, para colchão casal com até 30 cm de altura."
 date: 2026-11-22 14:00:00 -0300
 summary: "Jogo de lençol casal micropercal 400 fios, 4 peças, HL Enxovais: nota 4,8 em 22.080 opiniões, tecido macio nos elogios, acabamento das costuras nas críticas."
 description: "Jogo de lençol casal micropercal 400 fios, 4 peças, HL Enxovais: ficha, avaliações, o que dizem os compradores e preço do jogo frente a jogos equivalentes."
@@ -101,7 +101,7 @@ fontes:
   coleta: "22/11/2026, até 13h37"
   equivalentes: "jogos de lençol casal de 4 peças e 400 fios, de poliéster, vendidos no Mercado Livre, com nota de 4,7 a 4,8, pelo preço do jogo"
 ---
-O jogo de lençol casal micropercal 400 fios da HL Enxovais reúne quatro peças de poliéster estampado: lençol com elástico, lençol de cima e duas fronhas. O elástico veste colchões casal de até 30 cm de altura. Atende quem quer renovar a roupa de cama casal com um conjunto completo e estampado.
+O jogo de lençol casal micropercal 400 fios da HL Enxovais reúne quatro peças de poliéster estampado: lençol com elástico, lençol de cima e duas fronhas. O elástico veste colchões casal com até 30 cm de altura. Atende quem quer renovar a roupa de cama casal com um conjunto completo e estampado.
 
 - **Peças:** lençol com elástico, lençol de cima e 2 fronhas.
 - **Medidas:** 188 × 138 cm (com elástico), 245 × 195 cm (de cima) e fronhas de 70 × 50 cm.
