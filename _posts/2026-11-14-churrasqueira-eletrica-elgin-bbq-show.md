@@ -47,9 +47,8 @@ resumo:
   avaliacoes: "4,7 de 5 em 24.120 opiniões, com a barra de 5 estrelas quase cheia: base grande e satisfação repetida."
   ponto_forte: "aquece e assa rápido, é fácil de limpar e dispensa carvão."
   ponto_atencao: "resistência que esfarela ou quebra após poucos usos, com relatos de curto e fogo; a bandeja de água rasa aparece dos dois lados."
-  preco: "R$ 117,10, abaixo da faixa das churrasqueiras elétricas de mesa equivalentes."
-  util_para: "quer assar carne em casa, sem carvão, com aquecimento rápido."
-  atencao_de: "espera um aparelho durável para uso frequente."
+  preco: "R$ 117,10, cerca de 28% abaixo da média dos quatro equivalentes coletados e o menor preço entre os cinco."
+  para_quem: "Os elogios vêm de quem quer assar carne em casa, sem carvão, com preparo rápido e limpeza simples. Pede atenção de quem pretende usar a churrasqueira com frequência, já que os relatos de quebra da resistência falam em poucos usos."
 elogios:
   - "Churrasqueira ótima, assou a carne em minutos."
   - "Excelente produto, assa muito rápido, tamanho excelente, de fácil limpeza"
@@ -57,15 +56,57 @@ criticas:
   - "Resistência já esfarelou se rompendo, muito fraca."
   - "A churrasqueira esfarelou partes da resistência e quebrou dando um curto. Isso depois de apenas 6 vezes usada."
   - "a bandeja de água deveria ser maior pois cai gordura pra fora da bandeja."
-regua_preco:
-  produto: 117.1
-  minimo: 125.26
-  maximo: 237.48
-  produto_txt: "R$ 117,10"
-  minimo_txt: "R$ 125,26"
-  maximo_txt: "R$ 237,48"
+atributos:
+  - atributo: "Aquecimento"
+    o_que_dizem: "Dizem que esquenta e assa a carne em poucos minutos."
+    frequencia: "muitos citam"
+  - atributo: "Resistência"
+    o_que_dizem: "Relatam resistência que esfarela, trinca, enferruja ou quebra após poucos usos; alguns relatos citam curto e fogo; o tema aparece também em algumas notas 4 e 5."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Bandeja de água"
+    o_que_dizem: "Dizem que a bandeja é rasa ou estreita e deixa gordura pingar fora."
+    frequencia: "alguns citam"
+  - atributo: "Limpeza"
+    o_que_dizem: "Dizem que é fácil de limpar."
+    frequencia: "alguns citam"
+  - atributo: "Ferrugem e acabamento"
+    o_que_dizem: "Relatam peças que enferrujam ou descascam."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Praticidade"
+    o_que_dizem: "Dizem que é fácil de usar no dia a dia."
+    frequencia: "alguns citam"
+atributos_nota: "Os atributos marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção."
+precos:
+  data_coleta: "14/11/2026"
   unidade: "por aparelho"
-  posicao: "abaixo da faixa"
+  itens:
+    - produto: "Churrasqueira elétrica Mondial CH-05 Grand Steak & Grill 1800 W"
+      preco_total: "R$ 237,48"
+      por_unidade: "R$ 237,48"
+      nota: "4,7 (9.351)"
+    - produto: "Churrasqueira elétrica Elgin com grelha 2000 W"
+      preco_total: "R$ 149,90"
+      por_unidade: "R$ 149,90"
+      nota: "4,7 (449)"
+    - produto: "Churrasqueira elétrica Mondial CH-07 Pratic Steak & Grill II 1200 W"
+      preco_total: "R$ 141,00"
+      por_unidade: "R$ 141,00"
+      nota: "4,7 (8.485)"
+      diferenca: "menor, com 1,2 kW"
+    - produto: "Churrasqueira elétrica Britânia BCQ10A 1500 W"
+      preco_total: "R$ 125,26"
+      por_unidade: "R$ 125,26"
+      nota: "4,8 (2.932)"
+      diferenca: "menor, com 1,5 kW"
+    - produto: "Churrasqueira elétrica de mesa Elgin BBQ Show"
+      preco_total: "R$ 117,10"
+      por_unidade: "R$ 117,10"
+      nota: "4,7 (24.120)"
+      analisado: true
+  kpis:
+    preco_unidade: "R$ 117,10"
+    vs_media: {direcao: "abaixo", percentual: 28}
+    posicao: "5º mais caro de 5"
 fontes:
   coleta: "14/11/2026, até 15h20"
   equivalentes: "churrasqueiras elétricas de mesa vendidas no Mercado Livre, com nota de 4,7 a 4,8, pelo preço do aparelho"
@@ -79,20 +120,18 @@ A churrasqueira elétrica de mesa BBQ Show, da Elgin, é um aparelho de bancada 
 
 ## Notas e avaliações
 
-A nota da BBQ Show é **4,7 de 5**, em **24.120 opiniões**, com a barra de 5 estrelas quase cheia. É a 2ª em Churrasqueiras Elétricas, com mais de 50 mil vendidas.
-
-Quem gostou fala de praticidade, aquecimento e preparo rápidos, limpeza fácil e tamanho; o resumo das opiniões soma o sabor que lembra o churrasco tradicional. Entre as notas baixas, o tema dominante é a resistência, a peça que esquenta: relatos de que esfarelou, trincou, enferrujou ou quebrou depois de poucos usos ou meses. Alguns relatos citam curto ou fogo ligados a essa quebra. A bandeja de água, rasa ou estreita, aparece dos dois lados. As experiências descritas são individuais.
+A nota da BBQ Show é **4,7 de 5**, em **24.120 opiniões**, com a barra de 5 estrelas quase cheia. É a 2ª em Churrasqueiras Elétricas, com mais de 50 mil vendidas, e a nota alta vem de uma base grande.
 
 <!-- tabela-comentarios -->
 
+<!-- tabela-atributos -->
+
 ## Preço
 
-A churrasqueira custa **R$ 117,10**. Churrasqueiras elétricas de mesa com nota de 4,7 a 4,8 vão de **R$ 125,26 a R$ 237,48**; a BBQ Show fica **abaixo da faixa**. As de porte e potência parecidos, de 1,8 a 2 kW, custam R$ 149,90 e R$ 237,48.
+A churrasqueira custa **R$ 117,10**. A tabela traz quatro churrasqueiras elétricas de mesa com nota de 4,7 a 4,8; duas delas são menores.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Pelos relatos, a BBQ Show atende a quem quer carne na mesa sem churrasqueira de carvão e valoriza a limpeza simples. Para uso frequente, o ponto de cuidado é a peça que esquenta, com relatos de quebra nos primeiros usos e alguns casos de curto e fogo. Abaixo da faixa, é essa durabilidade a troca que aparece nos dados; os dados do dia não trazem o mesmo ponto dos outros modelos, então não dá para atribuí-la ao preço.
-
-Com o aparelho frio, vale olhar a resistência ao limpar. E, como não é bivolt, convém conferir a voltagem da tomada.
+Os compradores elogiam o aquecimento rápido e a limpeza fácil, e a crítica mais repetida é a resistência que quebra após poucos usos, às vezes com curto e fogo. O preço fica perto de 28% abaixo da média dos equivalentes, e a durabilidade da resistência é a troca que aparece nos relatos. Faz sentido considerar se você prioriza preparo rápido sem carvão e aceita acompanhar o estado da resistência; se durabilidade para uso frequente for essencial, os relatos indicam que esse não é o ponto forte dela.

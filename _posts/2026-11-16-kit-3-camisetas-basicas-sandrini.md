@@ -46,9 +46,8 @@ resumo:
   avaliacoes: "4,7 de 5 em 22.484 opiniões, base grande que indica satisfação repetida; 85% dos compradores que avaliam o tamanho o marcam como perfeito."
   ponto_forte: "caimento reto e tecido macio, citados por quem acertou o tamanho; muitos contam altura e peso."
   ponto_atencao: "encolhimento na primeira lavagem, a queixa mais repetida, seguido de tamanho menor que o indicado e tecido fino."
-  preco: "R$ 23,33 por camiseta, no fim da faixa dos kits equivalentes de 3 camisetas."
-  util_para: "quer repor camisetas lisas para o dia a dia."
-  atencao_de: "precisa de tecido encorpado ou de tamanho que se mantenha após lavar."
+  preco: "R$ 23,33 por camiseta, cerca de 7% acima da média dos cinco kits equivalentes e o 2º maior preço entre os seis."
+  para_quem: "Os elogios vêm de quem quer camisetas lisas para o dia a dia, com caimento reto e toque macio. Quem precisa de malha encorpada ou de peças que mantenham o tamanho depois de lavar aparece mais entre as críticas."
 elogios:
   - "Bom custo benefício. Comprei a g e vestiram bem, tenho 1,86 e peso 81 kg."
   - "Camisas com material muito bons, pano macio, comprei no tamanho g e ainda achei meio curta, tenho 1. 71 de altura e foi o melhor tamanho, se colocasse m, iria fica menor ainda."
@@ -57,15 +56,60 @@ criticas:
   - "Vim mudar minha opinião, tinha dado 5 estrelas mas na primeira lavagem encolheu e olha que nem tem agua quente na máquina e nem secadora."
   - "O tamanho gg é g. Uma das camisas era tamanho m embora ba etiqueta esteja marcado como g. A malha não é 100% algodão."
   - "Tecido: extremamente fino. Design: cores, ok. Malha péssima, quase transparente, produto muito ruim. Não recomendo."
-regua_preco:
-  produto: 23.33
-  minimo: 18.54
-  maximo: 23.67
-  produto_txt: "R$ 23,33"
-  minimo_txt: "R$ 18,54"
-  maximo_txt: "R$ 23,67"
+atributos:
+  - atributo: "Caimento e tamanho"
+    o_que_dizem: "Uns elogiam o caimento e contam altura, peso e tamanho que serviu; outros dizem que a forma é pequena e sugerem pedir um número acima."
+    frequencia: "muitos citam"
+  - atributo: "Tecido"
+    o_que_dizem: "Uns descrevem o tecido como macio e confortável; outros dizem que é fino, áspero ou quase transparente."
+    frequencia: "muitos citam"
+  - atributo: "Lavagem"
+    o_que_dizem: "Relatam que as camisetas encolhem na primeira lavagem."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Composição"
+    o_que_dizem: "Relatam uma peça, em geral a cinza, com composição diferente das outras."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Peças do mesmo kit"
+    o_que_dizem: "Relatam diferenças de tamanho, tom ou gola entre as camisetas do kit."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Cor"
+    o_que_dizem: "Um relato diz que a camiseta perde a cor com poucas lavagens."
+    frequencia: "citado em avaliações negativas"
+atributos_nota: "Os atributos marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção."
+precos:
+  data_coleta: "16/11/2026"
   unidade: "por camiseta"
-  posicao: "no fim da faixa"
+  itens:
+    - produto: "Kit de 3 camisetas básicas Premium Daily"
+      preco_total: "R$ 71,01"
+      por_unidade: "R$ 23,67"
+      nota: "4,7 (1.604)"
+    - produto: "Kit de 3 camisetas básicas masculinas Sandrini"
+      preco_total: "R$ 69,99"
+      por_unidade: "R$ 23,33"
+      nota: "4,7 (22.484)"
+      analisado: true
+    - produto: "Kit de 3 camisetas básicas Paris Milano Premium"
+      preco_total: "R$ 69,43"
+      por_unidade: "R$ 23,14"
+      nota: "4,7 (6.828)"
+    - produto: "Kit de 3 camisetas básicas Origns Slim 30.1"
+      preco_total: "R$ 65,90"
+      por_unidade: "R$ 21,97"
+      nota: "4,6 (2.273)"
+      diferenca: "corte slim"
+    - produto: "Kit de 3 camisetas básicas Origns"
+      preco_total: "R$ 65,90"
+      por_unidade: "R$ 21,97"
+      nota: "4,7 (2.721)"
+    - produto: "Kit de 3 camisetas básicas Ssb"
+      preco_total: "R$ 55,62"
+      por_unidade: "R$ 18,54"
+      nota: "4,5 (252)"
+  kpis:
+    preco_unidade: "R$ 23,33"
+    vs_media: {direcao: "acima", percentual: 7}
+    posicao: "2º mais caro de 6"
 fontes:
   coleta: "16/11/2026, até 01h20"
   equivalentes: "kits de 3 camisetas básicas vendidos no Mercado Livre, com nota de 4,5 a 4,7, pelo preço por camiseta"
@@ -82,18 +126,16 @@ O kit de 3 camisetas básicas masculinas da Sandrini reúne camisetas lisas de m
 
 A nota **4,7 de 5** vem de **22.484 opiniões**. O kit é o 4º em Camisetas e Regatas, com mais de 100 mil vendidos, e 85% dos compradores que avaliaram o tamanho o marcam como perfeito.
 
-Quem gostou fala do caimento e do tecido macio, e muitos informam altura, peso e tamanho escolhido. Entre as notas baixas, a queixa mais repetida é o encolhimento na primeira lavagem. Vêm depois o tamanho menor que o indicado, o tecido fino ou áspero, peças diferentes no mesmo kit e uma camiseta, em geral a cinza, de composição diversa da ficha. O tamanho aparece dos dois lados: dica de subir um número para uns, forma pequena para outros.
-
 <!-- tabela-comentarios -->
+
+<!-- tabela-atributos -->
 
 ## Preço
 
-O kit custa **R$ 69,99**, ou **R$ 23,33 por camiseta**. Kits de 3 camisetas básicas com nota de 4,5 a 4,7 vão de **R$ 18,54 a R$ 23,67 por camiseta**; o da Sandrini fica **no fim da faixa**.
+O kit custa **R$ 69,99**, ou **R$ 23,33 por camiseta**. A tabela traz cinco kits de 3 camisetas básicas com nota de 4,5 a 4,7.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Segundo os relatos, o kit atende a quem procura camisetas básicas de caimento reto e toque macio e aceita malha simples. Quem quer um tecido mais encorpado, ou uma peça que não encolha na primeira lavagem, encontra nesses pontos os temas das críticas. No fim da faixa, os dados do dia não mostram oferta maior que a dos equivalentes, que também trazem 3 camisetas básicas; os de nota 4,5 e 4,6 ficam mais abaixo na faixa.
-
-Medir uma camiseta que já veste bem e comparar com a tabela ajuda a escolher; quem fica entre dois tamanhos encontra nos relatos motivo para ir no maior.
+Os compradores elogiam o caimento e o toque macio, e a crítica mais repetida é o encolhimento na primeira lavagem. Por camiseta, o kit custa perto de 7% acima da média dos equivalentes, sem peça a mais. Faz sentido considerar se você prioriza camisetas lisas de caimento reto e aceita uma malha simples; se a peça manter o tamanho depois de lavar for essencial, os relatos indicam que esse não é o ponto forte dele.

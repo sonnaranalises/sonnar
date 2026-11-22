@@ -396,9 +396,14 @@ def checagens_v3(root: Path, errors: list) -> None:
         if resumo is None:
             errors.append(f"{rel}: sem resumo")
         else:
-            for campo in CAMPOS_RESUMO:
+            for campo in ("avaliacoes", "ponto_forte", "ponto_atencao", "preco"):
                 if not resumo.get(campo, "").strip():
                     errors.append(f"{rel}: resumo sem {campo}")
+            para_quem = resumo.get("para_quem", "").strip()
+            if not para_quem:
+                for campo in ("util_para", "atencao_de"):
+                    if not resumo.get(campo, "").strip():
+                        errors.append(f"{rel}: resumo sem {campo}")
             # Os quatro tópicos, somados, ficam entre 50 e 80 palavras.
             n = sum(len(re.findall(r"\S+", resumo.get(campo, ""))) for campo in TOPICOS_RESUMO)
             if n < 50 or n > 80:
@@ -424,9 +429,14 @@ def checagens_v3(root: Path, errors: list) -> None:
                 cursor = len(miolo)
             else:
                 cursor = pos + len(rotulo)
-        for linha in ("Útil para quem", "Pede atenção de quem"):
-            if linha not in miolo:
-                errors.append(f"{rel}: falta a linha '{linha}'")
+        para_quem = (resumo or {}).get("para_quem", "").strip()
+        if para_quem:
+            if para_quem not in miolo:
+                errors.append(f"{rel}: HTML do Resumo sem para_quem")
+        else:
+            for linha in ("Útil para quem", "Pede atenção de quem"):
+                if linha not in miolo:
+                    errors.append(f"{rel}: falta a linha '{linha}'")
 
 
 def itens_lista(fm: str, chave: str) -> int:

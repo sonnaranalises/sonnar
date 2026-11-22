@@ -46,9 +46,8 @@ resumo:
   avaliacoes: "4,8 de 5 em 33.156 opiniões, com as 5 estrelas dominando: base grande, que indica satisfação repetida."
   ponto_forte: "firmeza e estabilidade, regulagem de inclinação, acabamento em alumínio e bolsinha para transporte."
   ponto_atencao: "fragilidade das hastes e alças de regulagem, que quebram ou entortam, e notebook que escorrega por falta de trava."
-  preco: "R$ 21,99, abaixo da faixa dos suportes dobráveis de alumínio equivalentes."
-  util_para: "quer erguer a tela do notebook e levar o suporte na bolsa."
-  atencao_de: "mexe no notebook o tempo todo ou usa aparelho pesado."
+  preco: "R$ 21,99, cerca de 15% abaixo da média dos cinco equivalentes coletados e o menor preço entre os seis."
+  para_quem: "Os elogios vêm de quem deixa o notebook parado na mesa, com a tela mais alta, e leva o suporte na bolsa. Pede atenção de quem mexe no notebook o tempo todo ou usa um aparelho pesado: até compradores satisfeitos contam que o suporte desmonta se movido e que a regulagem de plástico pede notebook leve."
 elogios:
   - "Me surpreendi com a qualidade e estabilidade que o produto tem."
   - "Vem com uma bolsinha para guardar, achei maravilha."
@@ -57,15 +56,59 @@ criticas:
   - "Achei frágil, embora seja metálico."
   - "não há trava pro apoio e ele escapa com facilidade, o que pode danificar o notebook."
   - "as pernas que sustentam o notebook são finas, entortam com facilidade, e direto solta e o notebook cai."
-regua_preco:
-  produto: 21.99
-  minimo: 24.9
-  maximo: 26.99
-  produto_txt: "R$ 21,99"
-  minimo_txt: "R$ 24,90"
-  maximo_txt: "R$ 26,99"
+atributos:
+  - atributo: "Firmeza das hastes"
+    o_que_dizem: "Uns elogiam a firmeza; nas notas baixas, relatam hastes e alças de regulagem que quebram ou entortam."
+    frequencia: "muitos citam"
+  - atributo: "Estabilidade do notebook"
+    o_que_dizem: "Relatam notebook que escorrega ou escapa por falta de trava, e suporte que desmonta se o aparelho é movido."
+    frequencia: "alguns citam"
+  - atributo: "Regulagem"
+    o_que_dizem: "Dizem que dá para ajustar inclinação e altura, mas a peça de regulagem é de plástico."
+    frequencia: "alguns citam"
+  - atributo: "Material"
+    o_que_dizem: "Uns destacam o alumínio bem acabado; outros dizem que parece frágil ou que nem tudo é de alumínio."
+    frequencia: "alguns citam"
+  - atributo: "Transporte"
+    o_que_dizem: "Citam a bolsinha e a facilidade de levar o suporte."
+    frequencia: "alguns citam"
+  - atributo: "Borracha antiderrapante"
+    o_que_dizem: "Uns dizem que não desliza; outros relatam que a borracha descola."
+    frequencia: "alguns citam"
+precos:
+  data_coleta: "11/11/2026"
   unidade: "por unidade"
-  posicao: "abaixo da faixa"
+  itens:
+    - produto: "Suporte de notebook B-Max BMG-39"
+      preco_total: "R$ 26,99"
+      por_unidade: "R$ 26,99"
+      nota: "4,8 (1.036)"
+      diferenca: "para 11 a 17 polegadas"
+    - produto: "Suporte de notebook de alumínio VTWK"
+      preco_total: "R$ 26,50"
+      por_unidade: "R$ 26,50"
+      nota: "4,8 (1.900)"
+    - produto: "Suporte de notebook Hytalux, 6 posições"
+      preco_total: "R$ 25,90"
+      por_unidade: "R$ 25,90"
+      nota: "4,8 (4.342)"
+    - produto: "Suporte de notebook de alumínio ajustável dobrável"
+      preco_total: "R$ 24,90"
+      por_unidade: "R$ 24,90"
+      nota: "4,8 (2.800)"
+    - produto: "Suporte de notebook articulado dobrável Yellowseller"
+      preco_total: "R$ 24,90"
+      por_unidade: "R$ 24,90"
+      nota: "4,8 (1.461)"
+    - produto: "Suporte de notebook de alumínio dobrável Davely"
+      preco_total: "R$ 21,99"
+      por_unidade: "R$ 21,99"
+      nota: "4,8 (33.156)"
+      analisado: true
+  kpis:
+    preco_unidade: "R$ 21,99"
+    vs_media: {direcao: "abaixo", percentual: 15}
+    posicao: "6º mais caro de 6"
 fontes:
   coleta: "11/11/2026, até 10h15"
   equivalentes: "suportes dobráveis de alumínio, vendidos por unidade no Mercado Livre, com nota 4,8, pelo preço da unidade"
@@ -82,18 +125,16 @@ O suporte de notebook de alumínio dobrável da Davely é uma base articulada qu
 
 São **33.156 opiniões**, com nota **4,8 de 5**: as 5 estrelas dominam e as notas baixas são parcela curta. É o 1º em Suportes e Mesas, com mais de 100 mil vendidos.
 
-Quem elogia fala de firmeza, acabamento em alumínio, regulagem de inclinação e bolsinha de transporte; o resumo das opiniões soma a facilidade de levar. Entre as notas baixas, a queixa principal é a fragilidade: hastes e alças de regulagem que quebram ou entortam, e notebook que escorrega. Há ainda borracha que descola e unidades tortas. A firmeza está nos dois lados: há quem avise que ele desmonta se o notebook é movido o tempo todo e que a regulagem de plástico pede aparelho leve.
-
 <!-- tabela-comentarios -->
+
+<!-- tabela-atributos -->
 
 ## Preço
 
-O suporte custa **R$ 21,99**. Suportes dobráveis de alumínio, vendidos por unidade e com nota 4,8, vão de **R$ 24,90 a R$ 26,99**; o Davely fica **abaixo da faixa**.
+O suporte custa **R$ 21,99**. A tabela compara com cinco suportes dobráveis de alumínio, vendidos por unidade e com nota 4,8.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Pelos relatos, o suporte atende quem usa o notebook parado sobre a mesa e quer a tela mais alta, ou leva a base na bolsa. Quem mexe no aparelho com frequência, ou usa um notebook pesado, encontra nos comentários o ponto de cuidado: a firmeza das hastes. Abaixo da faixa, a troca visível nos dados é essa fragilidade; os dados do dia não trazem o mesmo ponto dos outros suportes, então não dá para atribuí-la ao preço.
-
-Nos relatos, peça quebrada ou torta aparece logo no começo; testar o apoio com o notebook assim que chegar ajuda a perceber isso.
+Os compradores elogiam a firmeza, a regulagem e a bolsinha, e a crítica mais repetida é a fragilidade das hastes, que quebram ou entortam. O preço fica perto de 15% abaixo da média dos equivalentes, e os dados não mostram oferta menor em troca. Faz sentido considerar se você prioriza erguer a tela de um notebook leve e aceita deixá-lo parado sobre o suporte; se firmeza para mexer no aparelho a toda hora for essencial, os relatos indicam que esse não é o ponto forte dele.

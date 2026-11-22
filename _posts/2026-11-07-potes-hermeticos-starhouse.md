@@ -15,6 +15,8 @@ products:
   - name: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml"
     price: "R$ 92,08"
     url: "https://meli.la/2NXKF35"
+    image: "/assets/img/radar/2026-11-07-potes-hermeticos-starhouse.jpg"
+    image_alt: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml"
   - name: "Escova elétrica de limpeza DeckCasa JY-6010"
     price: "R$ 61,98"
     url: "https://meli.la/1X8aSJE"
@@ -31,22 +33,48 @@ resumo:
   avaliacoes: "4,9 de 5 em 92.450 opiniões, com cerca de 92% de 5 estrelas: base grande, que indica satisfação repetida."
   ponto_forte: "design, tamanho prático para o dia a dia, vidro considerado mais higiênico e fechamento com travas, segundo o resumo das opiniões."
   ponto_atencao: "tampa que não fecha por completo, deixa frestas ou abre sozinha, a queixa mais repetida entre as notas baixas."
-  preco: "R$ 9,21 por pote, abaixo da faixa dos kits equivalentes de dez potes de 640 ml."
-  util_para: "quer dez potes de vidro para geladeira, freezer, forno e micro-ondas."
-  atencao_de: "precisa de tampa que feche firme em todas as unidades."
+  preco: "R$ 9,21 por pote, menos que os dois kits equivalentes coletados no dia."
+  para_quem: "Os elogios vêm de quem guarda, congela e esquenta porções em potes de vidro com tampa de travas. Pede atenção de quem precisa de vedação firme em todas as tampas, para guardar ou levar comida sem vazamento."
 criticas:
   - "O pote de vidro é bom, porém às tampas não fecham. Ficam abrindo todo tempo."
   - "Fechamento: nao fecha adequadamente. Deixa frestas e vazamento. Depois que e colocado na geladeira as abas cedem e nao ficam bem enca. Design: otimo."
   - "Produto não tem vedação boa. Nenhum dos potes fecham. As tampas todas, abrem. Não segura a vedação."
-regua_preco:
-  produto: 9.21
-  minimo: 9.69
-  maximo: 9.99
-  produto_txt: "R$ 9,21"
-  minimo_txt: "R$ 9,69"
-  maximo_txt: "R$ 9,99"
+atributos:
+  - atributo: "Vedação da tampa"
+    o_que_dizem: "Nas avaliações negativas, compradores relatam tampas que não fecham por completo, deixam frestas ou abrem sozinhas; o resumo das opiniões, ao contrário, cita travas que vedam bem."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Design"
+    o_que_dizem: "O resumo das opiniões diz que o visual é elogiado."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Tamanho"
+    o_que_dizem: "O resumo das opiniões descreve o tamanho como prático para o dia a dia."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Vidro"
+    o_que_dizem: "O resumo das opiniões diz que o vidro é considerado mais higiênico."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Resistência ao calor"
+    o_que_dizem: "Compradores relatam pote que trinca ou quebra ao esquentar comida no micro-ondas."
+    frequencia: "citado em avaliações negativas"
+atributos_nota: "Parte dos atributos vem do resumo de opiniões do Mercado Livre; os marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção."
+precos:
+  data_coleta: "07/11/2026"
   unidade: "por pote"
-  posicao: "abaixo da faixa"
+  itens:
+    - produto: "Kit de 10 potes herméticos de vidro Vittak 640 ml"
+      preco_total: "R$ 99,90"
+      por_unidade: "R$ 9,99"
+      nota: "4,8 (4.694)"
+    - produto: "Kit de 10 potes herméticos de vidro Vitrex 640 ml"
+      preco_total: "R$ 96,90"
+      por_unidade: "R$ 9,69"
+      nota: "4,9 (67.836)"
+    - produto: "Kit de potes herméticos de vidro Starhouse 10 × 640 ml"
+      preco_total: "R$ 92,08"
+      por_unidade: "R$ 9,21"
+      nota: "4,9 (92.450)"
+      analisado: true
+  kpis:
+    preco_unidade: "R$ 9,21"
 fontes:
   coleta: "07/11/2026, até 17h23"
   equivalentes: "kits de dez potes herméticos de vidro de 640 ml vendidos no Mercado Livre, com nota de 4,8 a 4,9, pelo preço por pote"
@@ -62,20 +90,18 @@ O kit de potes herméticos de vidro Starhouse reúne dez potes retangulares de 6
 
 ## Notas e avaliações
 
-O kit tem **4,9 de 5** em **92.450 opiniões**: cerca de 92% das notas são 5 estrelas e cerca de 2% ficam em 1 ou 2. É o 1º em Potes para Alimentos, com mais de 250 mil vendidos.
-
-Segundo o resumo das opiniões do Mercado Livre, os compradores valorizam o design, o tamanho do dia a dia, o vidro, que consideram mais higiênico, e o fechamento com travas. Entre as notas baixas, a crítica que mais se repete é a tampa: não fecha por completo, deixa frestas ou abre sozinha. A vedação, então, aparece dos dois lados. São relatos de quem comprou, e não valem para todas as unidades.
+O kit tem **4,9 de 5** em **92.450 opiniões**: cerca de 92% das notas são 5 estrelas e cerca de 2% ficam em 1 ou 2. É o 1º em Potes para Alimentos, com mais de 250 mil vendidos, e a nota alta vem de uma base grande.
 
 <!-- tabela-comentarios -->
 
+<!-- tabela-atributos -->
+
 ## Preço
 
-O kit custa **R$ 92,08**, ou **R$ 9,21 por pote**. Kits equivalentes, também com dez potes de vidro de 640 ml e nota de 4,8 a 4,9, vão de **R$ 9,69 a R$ 9,99** por pote; o Starhouse fica **abaixo da faixa**.
+O kit custa **R$ 92,08**, ou **R$ 9,21 por pote**. Os dois kits equivalentes da tabela, também com dez potes de 640 ml, custam mais por pote.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-O kit atende, nos relatos, a quem quer dez potes de vidro de uso variado, da geladeira ao forno. Pede cuidado de quem precisa de vedação firme em todas as tampas, porque é a tampa que separa quem elogia de quem critica. Abaixo da faixa dos equivalentes, os dados do dia não mostram troca ligada ao preço, como menos potes ou capacidade menor: são os mesmos dez de 640 ml.
-
-Encaixar as quatro travas em cada tampa e ver se todas fecham até o fim é a conferência que os relatos sugerem.
+Os compradores elogiam o design, o tamanho e o vidro, e a crítica mais repetida é a tampa que não fecha por completo. Por pote, o Starhouse custa menos que os dois kits equivalentes, com a mesma quantidade e capacidade. Faz sentido considerar se você prioriza potes de vidro para porções e aceita conferir o fechamento de cada tampa; se vedação firme em todas as unidades for essencial, os relatos indicam que esse não é o ponto forte dele.

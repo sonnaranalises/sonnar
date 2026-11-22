@@ -2385,7 +2385,6 @@ h1 .titulo-afiliado:focus-visible {
   .tabela-precos tbody tr {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: end;
     column-gap: 0.6rem;
     row-gap: 0.35rem;
     padding: 0.6rem 0.6rem;
@@ -2437,6 +2436,11 @@ h1 .titulo-afiliado:focus-visible {
   .tabela th,
   .tabela td {
     padding: 0.45rem 0.4rem;
+  }
+
+  .tabela-precos tbody td::before {
+    line-height: 1.25;
+    min-height: 2.5em;
   }
 }
 

@@ -47,19 +47,56 @@ resumo:
   ponto_forte: "absorção e fitas que ficam firmes no chão; o resumo das opiniões cita ainda a ausência de cheiro de urina."
   ponto_atencao: "tapete fino, com absorção fraca para o volume de xixi, a queixa mais repetida; há relatos de cola que fica no piso."
   preco: "R$ 0,96 por tapete; os dois equivalentes coletados custam R$ 0,90 cada."
-  util_para: "quer um ponto fixo de xixi, com fitas que prendem no chão."
-  atencao_de: "tem filhote ou cão que faz muito xixi de uma vez."
+  para_quem: "Os elogios vêm de quem quer um ponto fixo para o xixi, com fitas que prendem no piso. Donos de filhotes ou de cães que urinam muito de uma vez aparecem mais entre as críticas, que falam de tapete fino."
 elogios:
   - "absorve bem o xixi e também as fitas adesivas ficam bem fixadas no chão"
 criticas:
   - "Não gostei muito fino tem q colocar pelo menos 2 p segura um xixi."
   - "meu lulu tem 65 dias faz um xixizinho de nada e vira uma bola o tapete se espalha as patas saem molhadas sujando a casa"
   - "Quando vai trocar o tapete a cola fica toda no chão!"
+atributos:
+  - atributo: "Absorção"
+    o_que_dizem: "O resumo das opiniões e parte dos elogios citam a absorção do xixi entre os pontos positivos."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Espessura e vazamento"
+    o_que_dizem: "Compradores descrevem o tapete como fino, que não segura o volume de xixi e vaza; alguns dizem usar dois de uma vez."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Fitas adesivas"
+    o_que_dizem: "Uns dizem que as fitas prendem bem no chão; outros relatam cola que fica no piso na troca."
+    frequencia: "alguns citam"
+  - atributo: "Cheiro"
+    o_que_dizem: "O resumo das opiniões diz que não deixa cheiro de urina."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Resistência do material"
+    o_que_dizem: "Um relato diz que o tapete rasga ao passar o dedo."
+    frequencia: "citado em avaliações negativas"
+atributos_nota: "Parte dos atributos vem do resumo de opiniões do Mercado Livre; os marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção."
+precos:
+  data_coleta: "10/11/2026"
+  unidade: "por tapete"
+  itens:
+    - produto: "Tapete higiênico Pet For You 60 × 60 cm, 50 unidades"
+      preco_total: "R$ 47,90"
+      por_unidade: "R$ 0,96"
+      nota: "4,7 (10.444)"
+      analisado: true
+    - produto: "Tapete higiênico Biosec, 50 unidades"
+      preco_total: "R$ 44,94"
+      por_unidade: "R$ 0,90"
+      nota: "4,5 (41.080)"
+      diferenca: "60 × 55 cm"
+    - produto: "Tapete higiênico Praid 60 × 60 cm, 40 unidades"
+      preco_total: "R$ 36,00"
+      por_unidade: "R$ 0,90"
+      nota: "4,4 (2.979)"
+      diferenca: "pacote com 40 unidades"
+  kpis:
+    preco_unidade: "R$ 0,96"
 fontes:
   coleta: "10/11/2026, até 16h43"
   equivalentes: "tapetes higiênicos de cerca de 60 × 60 cm vendidos no Mercado Livre, com nota de 4,4 a 4,5, pelo preço por tapete"
 ---
-O tapete higiênico Pet For You, de 60 × 60 cm, é um tapete descartável para cães e gatos, vendido em pacote com 50 unidades. Tem cinco camadas, barreiras laterais contra vazamento e fitas adesivas para prender no piso. Serve a quem quer um ponto fixo de xixi dentro de casa, como na adaptação de filhotes.
+O tapete higiênico Pet For You, de 60 × 60 cm, é um tapete descartável para cães e gatos, vendido em pacote com 50 unidades. Tem cinco camadas, barreiras laterais contra vazamento e fitas adesivas para prender no piso. Serve a quem quer um ponto fixo de xixi dentro de casa.
 
 - **Quantidade:** 50 unidades descartáveis.
 - **Medidas:** 60 × 60 cm, com área de absorção de 50 × 50 cm.
@@ -71,16 +108,16 @@ O tapete higiênico Pet For You, de 60 × 60 cm, é um tapete descartável para 
 
 As **10.444 avaliações** dão ao tapete a nota **4,7 de 5**, e a base é compartilhada com a versão de 90 × 60 cm da mesma linha. É o 2º em Tapete Higiênico, com mais de 50 mil vendidos.
 
-Os elogios falam de absorção, fitas que firmam no chão e material; o resumo das opiniões acrescenta a ausência de cheiro de urina. Entre as notas baixas, o tema dominante é a espessura: tapete fino, absorção curta para o xixi, necessidade de usar dois, patas molhadas e cola que fica no piso. A absorção aparece dos dois lados. Os relatos vêm de compradores específicos e não descrevem todo pacote.
-
 <!-- tabela-comentarios -->
+
+<!-- tabela-atributos -->
 
 ## Preço
 
-O pacote custa **R$ 47,90**, ou **R$ 0,96 por tapete**. Os dois equivalentes coletados, de cerca de 60 × 60 cm e nota de 4,4 a 4,5, custam **R$ 0,90** por tapete cada um; o Pet For You custa R$ 0,06 a mais por tapete.
+O pacote custa **R$ 47,90**, ou **R$ 0,96 por tapete**. Os dois equivalentes da tabela custam R$ 0,90 por tapete cada um.
+
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Pelos relatos, o tapete serve a quem precisa de um ponto fixo para o xixi e valoriza fitas que seguram no piso. Quem tem filhote pequeno ou cão que urina muito encontra nas críticas o ponto de cuidado: a espessura. O preço por tapete é um pouco maior que o dos dois equivalentes coletados; em troca, os dados mostram a nota maior, com quantidade e tamanho parecidos.
-
-Quem tem filhote pode conferir, nos primeiros dias, se um tapete só segura o xixi: os relatos de quem usa dois ao mesmo tempo mostram que isso muda o rendimento do pacote.
+Os compradores elogiam a absorção e as fitas que prendem no chão, e a crítica mais repetida é o tapete fino, que não segura todo o xixi. Cada tapete custa seis centavos a mais que nos dois equivalentes coletados, que têm nota um pouco menor. Faz sentido considerar se você prioriza fitas que fixam no piso e aceita usar dois tapetes quando o volume de xixi é grande; se alta absorção para muito xixi for essencial, os relatos indicam que esse não é o ponto forte dele.

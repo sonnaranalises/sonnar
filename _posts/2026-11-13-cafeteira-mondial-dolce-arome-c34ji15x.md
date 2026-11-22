@@ -5,7 +5,7 @@ title: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras"
 subtitle: "Cafeteira de filtro com jarra de inox e filtro permanente, para passar o café do dia em casa."
 date: 2026-11-13 08:00:00 -0300
 summary: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras: nota 4,8 em 15.772 opiniões, café quente e jarra de inox nos elogios, atenção ao encaixe do filtro e à capacidade."
-description: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras: ficha técnica, avaliações, pontos de atenção e preço frente a cafeteiras de filtro equivalentes."
+description: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras: ficha técnica, avaliações, pontos de atenção e preço, sem equivalentes coletados no dia para comparar."
 image: "/assets/img/radar/2026-11-13-cafeteira-mondial-dolce-arome-c34ji15x.jpg"
 image_alt: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X, 15 xícaras"
 categoria: eletroportateis
@@ -47,8 +47,7 @@ resumo:
   ponto_forte: "café que se mantém quente, preparo rápido e jarra de inox."
   ponto_atencao: "café que não desce, vaza ou derrama, a queixa mais repetida; em seguida, a capacidade menor do que as 15 xícaras do anúncio."
   preco: "R$ 149,05 pela cafeteira, sem equivalentes coletados no dia para comparar."
-  util_para: "passa café em pequenas quantidades e prefere jarra de inox à de vidro."
-  atencao_de: "serve muita gente de uma vez, contando com as 15 xícaras."
+  para_quem: "Os elogios vêm de quem passa café no dia a dia e prefere jarra de inox à de vidro. Quem precisa servir muita gente de uma vez aparece mais entre as críticas, que falam da jarra pequena."
 elogios:
   - "Muito boa cafeteira, o café fica bem quentinho e passa o café bem rápido."
   - "Menção positiva a jarra de inox resistente diferente das de vidro frágeis que sempre quebram e precisam ser substituídas."
@@ -56,6 +55,37 @@ criticas:
   - "O café não desce e quando desce pra cafeteira suja tudo."
   - "Na especificações do produto diz 1,25 litros e mal cabe 500ml."
   - "está difícil acertar o centro de encaixe para que o café passe pelo coador"
+atributos:
+  - atributo: "Jarra de inox"
+    o_que_dizem: "Dizem que a jarra é resistente e fácil de lavar."
+    frequencia: "alguns citam"
+  - atributo: "Café quente e preparo"
+    o_que_dizem: "Relatam que o café fica quente por bastante tempo e passa rápido."
+    frequencia: "alguns citam"
+  - atributo: "Visual e tamanho"
+    o_que_dizem: "O resumo das opiniões diz que é compacta, prática e bonita."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Passagem do café"
+    o_que_dizem: "Relatam café que não desce, vaza ou derrama, ligado ao encaixe do porta-filtro com a jarra."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Capacidade"
+    o_que_dizem: "Dizem que a jarra comporta bem menos do que 15 xícaras."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Funcionamento"
+    o_que_dizem: "Relatam aparelho que parou de funcionar ou veio funcionando mal."
+    frequencia: "citado em avaliações negativas"
+atributos_nota: "Parte dos atributos vem do resumo de opiniões do Mercado Livre; os marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção."
+precos:
+  data_coleta: "12/11/2026"
+  unidade: "por unidade"
+  itens:
+    - produto: "Cafeteira elétrica Mondial Dolce Arome C-34JI-15X"
+      preco_total: "R$ 149,05"
+      por_unidade: "R$ 149,05"
+      nota: "4,8 (15.772)"
+      analisado: true
+  kpis:
+    preco_unidade: "R$ 149,05"
 fontes:
   coleta: "12/11/2026, até 11h05"
 ---
@@ -70,18 +100,18 @@ A cafeteira elétrica Dolce Arome C-34JI-15X, da Mondial, é de filtro, com jarr
 
 ## Notas e avaliações
 
-**15.772 opiniões** sustentam a nota **4,8 de 5** da cafeteira, com a barra de 5 estrelas de longe a maior. É a 3ª em Cafeteiras, com mais de 10 mil vendidos.
-
-Os elogios falam do café que se mantém quente, do preparo rápido e da jarra de inox; o resumo das opiniões soma silêncio. Entre as notas baixas, a queixa que mais se repete é o café que não desce, vaza ou derrama, ligado ao encaixe do porta-filtro com a jarra. Em seguida vem a capacidade: quem esperava mais de "15 xícaras" diz que a jarra comporta bem menos. Há ainda relatos de aparelho que parou de funcionar. Os relatos valem para a unidade de quem os escreveu.
+**15.772 opiniões** sustentam a nota **4,8 de 5** da cafeteira, com a barra de 5 estrelas de longe a maior. É a 3ª em Cafeteiras, com mais de 10 mil vendidos, e a nota alta vem de uma base grande.
 
 <!-- tabela-comentarios -->
 
+<!-- tabela-atributos -->
+
 ## Preço
 
-A cafeteira custa **R$ 149,05**, por uma unidade, com filtro permanente e jarra de inox. Sem equivalentes coletados no dia para comparar.
+A cafeteira custa **R$ 149,05**, com filtro permanente e jarra de inox. Sem equivalentes coletados no dia para comparar.
+
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Pelos relatos, a Dolce Arome cumpre bem a função de manter o café quente e prepará-lo rápido, com jarra de inox, e, pelos relatos de capacidade, serve para porções pequenas. O ponto de cuidado é o encaixe do porta-filtro com a jarra, onde aparecem os relatos de café que não desce ou vaza; em seguida vem a jarra, que comporta bem menos do que o anúncio promete.
-
-Ao receber, vale encaixar o porta-filtro na jarra para ver se fica alinhado, e comparar o tamanho da jarra com o volume de café de uma manhã comum na sua casa.
+Os compradores elogiam o café que fica quente, o preparo rápido e a jarra de inox, e a crítica mais repetida é o café que não desce ou vaza. Não há equivalentes coletados no dia, então o preço não tem comparação nesta análise. Faz sentido considerar se você prioriza jarra de inox e aceita conferir o encaixe do porta-filtro; se uma jarra grande para várias pessoas for essencial, os relatos indicam que esse não é o ponto forte dela.
