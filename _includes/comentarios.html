@@ -9,13 +9,13 @@
     {% if n_elogios > 0 %}
     <div class="comentarios-col comentarios-elogios">
       <h4>O que elogiam</h4>
-      {% for q in page.elogios limit: 3 %}<blockquote><p>{{ q | escape }}</p></blockquote>{% endfor %}
+      {% for q in page.elogios limit: 3 %}<blockquote><p>{% include reais.html texto=q %}</p></blockquote>{% endfor %}
     </div>
     {% endif %}
     {% if n_criticas > 0 %}
     <div class="comentarios-col comentarios-criticas">
       <h4>O que criticam</h4>
-      {% for q in page.criticas limit: 3 %}<blockquote><p>{{ q | escape }}</p></blockquote>{% endfor %}
+      {% for q in page.criticas limit: 3 %}<blockquote><p>{% include reais.html texto=q %}</p></blockquote>{% endfor %}
     </div>
     {% endif %}
   </div>

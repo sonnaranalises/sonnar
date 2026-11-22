@@ -1,0 +1,11 @@
+{%- comment -%}
+  Espaço sem quebra entre "R$" e o número, na hora de renderizar.
+  ja_html: o texto já é HTML; só troca o espaço.
+  Sem ja_html: escapa primeiro e só então insere &nbsp;, para o escape
+  não transformar a entidade em texto visível.
+{%- endcomment -%}
+{%- if include.ja_html -%}
+  {{- include.texto | replace: "R$ ", "R$&nbsp;" -}}
+{%- else -%}
+  {{- include.texto | escape | replace: "R$ ", "R$&nbsp;" -}}
+{%- endif -%}

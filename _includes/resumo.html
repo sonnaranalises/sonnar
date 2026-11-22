@@ -4,13 +4,13 @@
 <section class="resumo" aria-labelledby="resumo-titulo">
   <h2 id="resumo-titulo">Resumo</h2>
   <ul>
-    <li><strong>Avaliações:</strong> {{ page.resumo.avaliacoes | escape }}</li>
-    <li><strong>Ponto forte:</strong> {{ page.resumo.ponto_forte | escape }}</li>
-    <li><strong>Ponto de atenção:</strong> {{ page.resumo.ponto_atencao | escape }}</li>
-    <li><strong>Preço:</strong> {{ page.resumo.preco | escape }}</li>
+    <li><strong>Avaliações:</strong> {% include reais.html texto=page.resumo.avaliacoes %}</li>
+    <li><strong>Ponto forte:</strong> {% include reais.html texto=page.resumo.ponto_forte %}</li>
+    <li><strong>Ponto de atenção:</strong> {% include reais.html texto=page.resumo.ponto_atencao %}</li>
+    <li><strong>Preço:</strong> {% include reais.html texto=page.resumo.preco %}</li>
   </ul>
   {%- if para_quem != "" -%}
-  <p>{{ page.resumo.para_quem | escape }}</p>
+  <p>{% include reais.html texto=page.resumo.para_quem %}</p>
   {%- else -%}
   {%- assign util = page.resumo.util_para | append: "" | strip -%}
   {%- assign atencao = page.resumo.atencao_de | append: "" | strip -%}

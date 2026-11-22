@@ -15,8 +15,8 @@
       <tbody>
         {%- for item in page.atributos -%}
         <tr>
-          <th scope="row">{{ item.atributo | escape }}</th>
-          <td>{{ item.o_que_dizem | escape }}</td>
+          <th scope="row">{% include reais.html texto=item.atributo %}</th>
+          <td>{% include reais.html texto=item.o_que_dizem %}</td>
           <td class="freq">{{ item.frequencia | escape }}</td>
         </tr>
         {%- endfor -%}
@@ -26,7 +26,7 @@
   <p class="tabela-nota">Base: comentários coletados{% if data_base != "" %} em {{ data_base | escape }}{% endif %}. É a percepção dos compradores, não um teste.</p>
   {%- assign nota_atr = page.atributos_nota | append: "" | strip -%}
   {%- if nota_atr != "" -%}
-  <p class="tabela-nota">{{ page.atributos_nota | escape }}</p>
+  <p class="tabela-nota">{% include reais.html texto=page.atributos_nota %}</p>
   {%- endif -%}
 </section>
 {%- endif -%}

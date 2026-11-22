@@ -22,7 +22,7 @@
           {% endif %}
           <div>
             <p class="ultimas-data">{% include date-pt.html date=post.date %}</p>
-            <p class="ultimas-nome"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></p>
+            <p class="ultimas-nome"><a href="{{ post.url | relative_url }}">{% include reais.html texto=post.title %}</a></p>
           </div>
         </li>
         {% assign mostrados = mostrados | plus: 1 %}

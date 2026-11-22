@@ -20,8 +20,8 @@ layout: default
           {% endif %}
           <p class="radar-name">{{ item.name | escape }}</p>
           <p class="radar-price">
-            {% if item.price %}<span class="radar-price-main">{{ item.price | escape }}{% if item.price_context %} <span class="radar-price-ctx">{{ item.price_context | escape }}</span>{% endif %}</span>{% endif %}
-            {% if item.price_alt %}<span class="radar-price-alt">{{ item.price_alt | escape }}</span>{% endif %}
+            {% if item.price %}<span class="radar-price-main">{% include reais.html texto=item.price %}{% if item.price_context %} <span class="radar-price-ctx">{% include reais.html texto=item.price_context %}</span>{% endif %}</span>{% endif %}
+            {% if item.price_alt %}<span class="radar-price-alt">{% include reais.html texto=item.price_alt %}</span>{% endif %}
           </p>
           {% include affiliate.html url=item.url posicao=forloop.index produto=item.name local="lista" lista=true %}
         </li>
@@ -31,7 +31,7 @@ layout: default
       <p class="affiliate-list-note">Links de afiliado</p>
       {% endif %}
       {% if page.products_note %}
-      <p class="footnote"><span aria-hidden="true">* </span>{{ page.products_note | escape }}</p>
+      <p class="footnote"><span aria-hidden="true">* </span>{% include reais.html texto=page.products_note %}</p>
       {% endif %}
     </section>
   </aside>
@@ -49,10 +49,10 @@ layout: default
       <header class="post-header">
         {% unless content contains "<h1" %}
         <p class="kicker">Radar do dia · Sonnar Análises</p>
-        <h1>{% if destaque_prefixo == "https://meli.la/" %}<a class="titulo-afiliado" href="{{ destaque_url | escape }}" target="_blank" rel="sponsored nofollow noopener" data-posicao="1" data-produto="{{ destaque.name | escape }}" data-local="titulo">{{ page.title | escape }}<span class="sr-only"> (abre em uma nova aba)</span></a>{% else %}{{ page.title | escape }}{% endif %}</h1>
+        <h1>{% if destaque_prefixo == "https://meli.la/" %}<a class="titulo-afiliado" href="{{ destaque_url | escape }}" target="_blank" rel="sponsored nofollow noopener" data-posicao="1" data-produto="{{ destaque.name | escape }}" data-local="titulo">{% include reais.html texto=page.title %}<span class="sr-only"> (abre em uma nova aba)</span></a>{% else %}{% include reais.html texto=page.title %}{% endif %}</h1>
         {% endunless %}
         {% if page.subtitle %}
-        <p class="post-subtitle">{{ page.subtitle | escape }}</p>
+        <p class="post-subtitle">{% include reais.html texto=page.subtitle %}</p>
         {% endif %}
         <p class="post-kicker">
           {% include date-pt.html date=page.date %}
@@ -67,7 +67,7 @@ layout: default
         {% if page.price %}
         <p class="price">
           <span class="price-label">{{ page.price_caption | default: "Preço" | escape }}</span>
-          <span class="price-value">{{ page.price | escape }}</span>
+          <span class="price-value">{% include reais.html texto=page.price %}</span>
         </p>
         {% endif %}
         {% unless radar %}
@@ -75,7 +75,8 @@ layout: default
         {% endunless %}
       </header>
 
-      {% assign body_parts = content | split: "<h2" %}
+      {%- capture corpo -%}{%- include reais.html texto=content ja_html=true -%}{%- endcapture -%}
+      {% assign body_parts = corpo | split: "<h2" %}
       {% assign lead_html = body_parts | first %}
       {% assign lead_text = lead_html | strip_html | strip %}
       {% assign rest_html = "" %}
@@ -191,7 +192,7 @@ layout: default
               {% for row in page.specs %}
               <tr>
                 <th scope="row">{{ row.name | escape }}</th>
-                <td>{{ row.value | escape }}</td>
+                <td>{% include reais.html texto=row.value %}</td>
               </tr>
               {% endfor %}
             </tbody>
@@ -227,14 +228,16 @@ layout: default
         {% if page.praise %}
         <section>
           <h2>Principal elogio</h2>
-          {{ page.praise | markdownify }}
+          {%- capture md -%}{{ page.praise | markdownify }}{%- endcapture -%}
+          {% include reais.html texto=md ja_html=true %}
         </section>
         {% endif %}
 
         {% if page.complaints %}
         <section>
           <h2>Principal reclamação</h2>
-          {{ page.complaints | markdownify }}
+          {%- capture md -%}{{ page.complaints | markdownify }}{%- endcapture -%}
+          {% include reais.html texto=md ja_html=true %}
         </section>
         {% endif %}
 
@@ -242,7 +245,8 @@ layout: default
         <section>
           <h2>O preço de agora</h2>
           {% if page.price_reading %}
-          {{ page.price_reading | markdownify }}
+          {%- capture md -%}{{ page.price_reading | markdownify }}{%- endcapture -%}
+          {% include reais.html texto=md ja_html=true %}
           {% endif %}
           {% if page.price_checked %}
           <p class="footnote" id="nota-preco"><span aria-hidden="true">* </span>Consulta do preço: {{ page.price_checked | escape }}.</p>
@@ -253,7 +257,8 @@ layout: default
         {% if page.price_history.text %}
         <section>
           <h2>Histórico de preço</h2>
-          {{ page.price_history.text | markdownify }}
+          {%- capture md -%}{{ page.price_history.text | markdownify }}{%- endcapture -%}
+          {% include reais.html texto=md ja_html=true %}
           {% if page.price_history.source or page.price_history.checked_on %}
           <p class="footnote" id="nota-historico"><span aria-hidden="true">* </span>Fonte: {% if page.price_history.source_url %}
             {% assign history_prefix = page.price_history.source_url | slice: 0, 8 %}
@@ -276,7 +281,8 @@ layout: default
             {% for item in page.comparisons %}
             <li>
               <h3>{{ item.name | escape }}</h3>
-              {{ item.note | markdownify }}
+              {%- capture md -%}{{ item.note | markdownify }}{%- endcapture -%}
+              {% include reais.html texto=md ja_html=true %}
             </li>
             {% endfor %}
           </ul>
@@ -287,7 +293,8 @@ layout: default
         <section class="conclusion">
           <h2>Conclusão</h2>
           <div class="callout">
-            {{ page.conclusion | markdownify }}
+            {%- capture md -%}{{ page.conclusion | markdownify }}{%- endcapture -%}
+            {% include reais.html texto=md ja_html=true %}
           </div>
         </section>
         {% endif %}
@@ -298,7 +305,7 @@ layout: default
       <footer class="post-sources">
         <h2>Fontes e observações</h2>
         {% assign fontes_equiv = page.fontes.equivalentes | append: "" | strip %}
-        <p class="fontes-menor">Dados do anúncio e das opiniões coletados no Mercado Livre em {{ page.fontes.coleta }} (horário de Brasília).{% if fontes_equiv != "" %} Para o preço, comparamos com {{ fontes_equiv }}.{% endif %} O texto deste relatório foi produzido com ajuda de inteligência artificial, a partir desses dados.</p>
+        <p class="fontes-menor">Dados do anúncio e das opiniões coletados no Mercado Livre em {{ page.fontes.coleta }} (horário de Brasília).{% if fontes_equiv != "" %} Para o preço, comparamos com {% include reais.html texto=fontes_equiv ja_html=true %}.{% endif %} O texto deste relatório foi produzido com ajuda de inteligência artificial, a partir desses dados.</p>
       </footer>
       {% elsif page.rating_source or page.rating_checked or page.price_checked or page.price_history.source or page.price_history.checked_on or page.sources %}
       <footer class="post-sources">
@@ -314,7 +321,7 @@ layout: default
           <li>Histórico de preço.{% if page.price_history.source %} {{ page.price_history.source | escape }}{% endif %}{% if page.price_history.checked_on %}{{ " " }}Consulta: {{ page.price_history.checked_on | escape }}.{% endif %}</li>
           {% endif %}
           {% for item in page.sources %}
-          <li>{{ item.label | escape }}. {{ item.detail | escape }}</li>
+          <li>{{ item.label | escape }}. {% include reais.html texto=item.detail %}</li>
           {% endfor %}
         </ul>
       </footer>

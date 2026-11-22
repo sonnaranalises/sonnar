@@ -837,6 +837,28 @@ def checagens_precos(root: Path, errors: list, avisos: list) -> None:
             errors.append(f"{rel}: link dentro da tabela de preços")
 
 
+_SCRIPT = re.compile(r"<script\b[^>]*>.*?</script>", re.I | re.S)
+_STYLE = re.compile(r"<style\b[^>]*>.*?</style>", re.I | re.S)
+_TAG = re.compile(r"<[^>]+>")
+_REAIS_QUEBRA = re.compile(r"R\$ \d")
+
+
+def checagens_reais(rel: str, text: str, errors: list) -> None:
+    """R$ e o número ficam juntos no texto visível.
+
+    Ignora <script>, <style> e atributos: a busca é no que sobra depois
+    de tirar esses blocos e as tags. O espaço procurado é o comum (U+0020),
+    não o sem quebra.
+    """
+    visivel = _TAG.sub(" ", _STYLE.sub(" ", _SCRIPT.sub(" ", text)))
+    achado = _REAIS_QUEBRA.search(visivel)
+    if achado:
+        ini = max(0, achado.start() - 24)
+        fim = min(len(visivel), achado.end() + 12)
+        trecho = " ".join(visivel[ini:fim].split())
+        errors.append(f"{rel}: R$ seguido de espaço normal antes de dígito ({trecho!r})")
+
+
 def main(root: Path, v3: bool = False) -> int:
     files = sorted(root.rglob("*.html"))
     if not files:
@@ -847,6 +869,7 @@ def main(root: Path, v3: bool = False) -> int:
     for path in files:
         text = path.read_text(encoding="utf-8")
         rel = path.relative_to(root).as_posix()
+        checagens_reais(rel, text, errors)
         low = text.lower()
         if 'lang="pt-BR"' not in text and 'lang="pt-br"' not in text:
             errors.append(f"{rel}: falta lang pt-BR")

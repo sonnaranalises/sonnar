@@ -30,8 +30,8 @@ description: Todo dia, um produto em destaque, com o que os compradores contam e
         </figure>
         {% endif %}
         <div class="radar-hoje-texto">
-          <h2 class="radar-hoje-titulo"><a href="{{ hoje.url | relative_url }}">{{ hoje.title | escape }}</a></h2>
-          {% if hoje.subtitle %}<p class="radar-hoje-sub">{{ hoje.subtitle | escape }}</p>{% endif %}
+          <h2 class="radar-hoje-titulo"><a href="{{ hoje.url | relative_url }}">{% include reais.html texto=hoje.title %}</a></h2>
+          {% if hoje.subtitle %}<p class="radar-hoje-sub">{% include reais.html texto=hoje.subtitle %}</p>{% endif %}
           <a class="botao" href="{{ hoje.url | relative_url }}">Ler o relatório →</a>
         </div>
       </div>
