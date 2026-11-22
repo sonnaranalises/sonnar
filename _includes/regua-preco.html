@@ -24,14 +24,14 @@
 {% assign max_pct = maximo | minus: escala_min | times: 100.0 | divided_by: escala %}
 {% assign prod_pct = produto | minus: escala_min | times: 100.0 | divided_by: escala %}
 {% assign faixa_w = max_pct | minus: min_pct %}
-<figure class="regua" role="img" aria-label="Preço: {{ r.produto_txt | escape }}, {{ r.posicao | escape }} ({{ r.minimo_txt | escape }} a {{ r.maximo_txt | escape }} {{ r.unidade | escape }})">
+<figure class="regua" role="img" aria-label="Preço: {% include reais.html texto=r.produto_txt %}, {{ r.posicao | escape }} ({% include reais.html texto=r.minimo_txt %} a {% include reais.html texto=r.maximo_txt %} {{ r.unidade | escape }})">
   <div class="regua-trilho">
     <div class="regua-faixa" style="left: {{ min_pct }}%; width: {{ faixa_w }}%;"></div>
     <div class="regua-ponto" style="left: {{ prod_pct }}%;"></div>
   </div>
   <figcaption>
-    <span>{{ r.minimo_txt | escape }} – {{ r.maximo_txt | escape }} {{ r.unidade | escape }}</span>
-    <span>Este produto: {{ r.produto_txt | escape }} · {{ r.posicao | escape }}</span>
+    <span>{% include reais.html texto=r.minimo_txt %} – {% include reais.html texto=r.maximo_txt %} {{ r.unidade | escape }}</span>
+    <span>Este produto: {% include reais.html texto=r.produto_txt %} · {{ r.posicao | escape }}</span>
   </figcaption>
 </figure>
 {% endif %}

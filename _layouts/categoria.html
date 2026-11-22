@@ -25,7 +25,7 @@ layout: default
       {% endunless %}
       <article class="entry"{% if ancora_tipo != "" %} id="tipo-{{ ancora_tipo }}"{% endif %}>
         <p class="entry-meta">{% include date-pt.html date=post.date %}</p>
-        <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+        <h3 class="entry-title"><a href="{{ post.url | relative_url }}">{% include reais.html texto=post.title %}</a></h3>
         <div class="entry-desc{% if post.image %} entry-desc-photo{% endif %}">
           {% if post.image %}
           <a class="entry-photo" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }}">
@@ -34,7 +34,7 @@ layout: default
           {% endif %}
           {% if post.subtitle %}
           <div class="entry-desc-text">
-            <p class="entry-sub">{{ post.subtitle | escape }}</p>
+            <p class="entry-sub">{% include reais.html texto=post.subtitle %}</p>
           </div>
           {% endif %}
         </div>

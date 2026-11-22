@@ -25,13 +25,14 @@
   {%- assign desc = site.description -%}
 {%- endif -%}
 {%- assign desc = desc | strip_newlines | strip | truncate: 200 -%}
+{%- capture desc_meta -%}{%- include reais.html texto=desc -%}{%- endcapture -%}
 {%- if page.url == "/" -%}
   {%- assign doc_title = "Sonnar Análises — Te ajudando a detectar boas escolhas" -%}
 {%- else -%}
   {%- assign doc_title = page.title | append: " · Sonnar Análises" -%}
 {%- endif -%}
 <title>{{ doc_title | escape }}</title>
-<meta name="description" content="{{ desc | escape }}">
+<meta name="description" content="{{ desc_meta }}">
 <meta name="author" content="Sonnar Análises">
 {%- assign noindex = false -%}
 {%- if page.example or page.robots == "noindex" -%}
@@ -58,7 +59,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Sonnar Análises">
 <meta property="og:title" content="{{ doc_title | escape }}">
-<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:description" content="{{ desc_meta }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 {%- if page.date -%}
 <meta property="og:type" content="article">
@@ -79,7 +80,7 @@
 <meta property="og:image:alt" content="Sonnar Análises. Te ajudando a detectar boas escolhas.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ doc_title | escape }}">
-<meta name="twitter:description" content="{{ desc | escape }}">
+<meta name="twitter:description" content="{{ desc_meta }}">
 <meta name="twitter:image" content="{{ og_image }}">
 <link rel="icon" href="{{ '/assets/brand/favicon.ico' | relative_url }}" sizes="any">
 <link rel="icon" href="{{ '/assets/brand/icon-32.png' | relative_url }}" type="image/png" sizes="32x32">

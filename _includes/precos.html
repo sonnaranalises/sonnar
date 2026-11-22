@@ -9,7 +9,7 @@
 <div class="kpis{% unless tem_comparacao %} kpis-um{% endunless %}" role="group" aria-label="Preço em números">
   <div class="kpi">
     <p class="kpi-rotulo">Preço por unidade</p>
-    <p class="kpi-valor">{{ kpis.preco_unidade | escape }}</p>
+    <p class="kpi-valor">{% include reais.html texto=kpis.preco_unidade %}</p>
     {%- if page.precos.unidade != blank -%}
     <p class="kpi-nota">{{ page.precos.unidade | escape }}</p>
     {%- endif -%}
@@ -56,8 +56,8 @@
             {%- if diferenca != "" -%}<span class="dif">{{ diferenca | escape }}</span>{%- endif -%}
             {%- if item.analisado -%}<span class="tag-analisado">Este relatório</span>{%- endif -%}
           </th>
-          <td class="num" data-rotulo="Preço total">{{ item.preco_total | escape }}</td>
-          <td class="num" data-rotulo="Por unidade">{{ item.por_unidade | escape }}</td>
+          <td class="num" data-rotulo="Preço total">{% include reais.html texto=item.preco_total %}</td>
+          <td class="num" data-rotulo="Por unidade">{% include reais.html texto=item.por_unidade %}</td>
           <td class="num" data-rotulo="Nota">
             {%- assign nota_txt = item.nota | append: "" -%}
             {%- if nota_txt contains "(" -%}

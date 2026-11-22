@@ -4,6 +4,6 @@ layout: default
 <div class="grade grade-barra">
   <article class="col-centro page-body prose">
     <h1>{{ page.title | escape }}</h1>
-    {{ content }}
+    {% include reais.html texto=content ja_html=true %}
   </article>
 </div>

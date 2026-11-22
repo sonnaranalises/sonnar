@@ -23,4 +23,4 @@
   {%- assign resto = texto -%}
 {%- endif -%}
 {%- assign resto = resto | append: "" | strip -%}
-<strong>{{ include.rotulo | escape }}</strong>{%- if resto != "" %} {{ resto | escape }}{%- endif -%}
+<strong>{{ include.rotulo | escape }}</strong>{%- if resto != "" %} {% include reais.html texto=resto %}{%- endif -%}
