@@ -23,9 +23,9 @@ resumo:
   ponto_atencao: "A crítica que mais se repete."
   preco: "Preço de agora e onde ele fica na faixa dos equivalentes."
   para_quem: "Um parágrafo, em duas ou três frases, no lugar de util_para e atencao_de."
-# frequencia: "muitos citam" | "alguns citam" | "caso isolado" | "citado em avaliações negativas" | "segundo o resumo do Mercado Livre"
-# Os dois últimos exigem atributos_nota.
-# atributos_nota: "Frase curta, opcional, abaixo da tabela."
+# atributos (v3.2): de 4 a 6; em o_que_dizem, um retrato único que junta elogios e críticas.
+# frequencia: "muitos citam" | "alguns citam" | "caso isolado"
+# Sem atributos_nota. Se a amostra for filtrada (ex.: notas 1 a 3), a proporção fica dentro do próprio o_que_dizem.
   # Posts v3 sem para_quem ainda usam as duas linhas abaixo.
   # util_para: "quem busca o uso principal do produto."
   # atencao_de: "precisa do ponto que os dados não sustentam."

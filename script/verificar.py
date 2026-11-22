@@ -22,17 +22,11 @@ from urllib.parse import urlparse
 # |diferença| em relação à média dos equivalentes (o analisado fica de fora).
 # Até este limite, a direção é "na media".
 LIMITE_NA_MEDIA = 3
+# v3.2 (22/11/2026): só três frequências; a atributos_nota saiu.
 FREQUENCIAS = {
     "muitos citam",
     "alguns citam",
     "caso isolado",
-    "citado em avaliações negativas",
-    "segundo o resumo do Mercado Livre",
-}
-# Estes dois só valem se o post trouxer atributos_nota.
-FREQUENCIAS_COM_NOTA = {
-    "citado em avaliações negativas",
-    "segundo o resumo do Mercado Livre",
 }
 
 DISCLOSURE = (
@@ -732,17 +726,12 @@ def checagens_precos(root: Path, errors: list, avisos: list) -> None:
             if not 4 <= len(atributos) <= 6:
                 errors.append(f"{rel}: {len(atributos)} atributos (esperado 4–6)")
             nota = campo_simples(fm, "atributos_nota")
-            pede_nota = False
             for item in atributos:
                 freq = item.get("frequencia", "").strip()
                 if freq not in FREQUENCIAS:
                     errors.append(f"{rel}: frequência inválida ({freq!r})")
-                if freq in FREQUENCIAS_COM_NOTA:
-                    pede_nota = True
-            if pede_nota and not nota:
-                errors.append(
-                    f"{rel}: atributos_nota ausente com frequência que exige a nota"
-                )
+            if nota:
+                errors.append(f"{rel}: atributos_nota não é mais usada (v3.2)")
             if "tabela-atributos" not in html:
                 errors.append(f"{rel}: HTML sem a tabela de atributos")
             if nota and nota not in html:
