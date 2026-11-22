@@ -56,9 +56,9 @@
             {%- if diferenca != "" -%}<span class="dif">{{ diferenca | escape }}</span>{%- endif -%}
             {%- if item.analisado -%}<span class="tag-analisado">Este relatório</span>{%- endif -%}
           </th>
-          <td class="num">{{ item.preco_total | escape }}</td>
-          <td class="num">{{ item.por_unidade | escape }}</td>
-          <td class="num">
+          <td class="num" data-rotulo="Preço total">{{ item.preco_total | escape }}</td>
+          <td class="num" data-rotulo="Por unidade">{{ item.por_unidade | escape }}</td>
+          <td class="num" data-rotulo="Nota">
             {%- assign nota_txt = item.nota | append: "" -%}
             {%- if nota_txt contains "(" -%}
             {%- assign nota_partes = nota_txt | split: "(" -%}
