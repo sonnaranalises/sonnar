@@ -27,6 +27,6 @@ Os relatórios mostram fatos; não mandam comprar nem deixar de comprar. Começa
 
 Os links dos produtos são de afiliado. Se você comprar por eles, a Sonnar recebe uma comissão da loja, sem custo a mais para você. A comissão não escolhe os produtos e não muda o que escrevemos, inclusive as críticas.
 
-O aviso completo fica no fim de cada relatório, antes das Fontes, e a indicação de link de afiliado aparece na seção Transparência e no rodapé e ao botão do resumo. O link leva para fora deste site: a compra, a entrega e o atendimento ficam com a loja e com o vendedor. A Sonnar não é loja nem representante de nenhuma delas.
+O aviso completo fica no fim de cada relatório, antes das Fontes, e a indicação de link de afiliado aparece na seção Transparência e no rodapé. O link leva para fora deste site: a compra, a entrega e o atendimento ficam com a loja e com o vendedor. A Sonnar não é loja nem representante de nenhuma delas.
 
 **Sonnar Análises — Te ajudando a detectar boas escolhas**
