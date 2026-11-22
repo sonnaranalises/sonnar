@@ -10,6 +10,9 @@ baseurl: /sonnar
 lang: pt-BR
 timezone: America/Sao_Paulo
 
+# false esconde "Link de afiliado" e "Links de afiliado". true traz as legendas de volta.
+legendas_afiliado: false
+
 markdown: kramdown
 kramdown:
   input: GFM

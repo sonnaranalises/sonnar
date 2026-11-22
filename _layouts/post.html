@@ -7,9 +7,9 @@ layout: default
   {% assign destaque_url = destaque.url | default: "" | strip %}
   {% assign destaque_prefixo = destaque_url | slice: 0, 16 %}
   {% if radar %}
-  <aside class="col-dir col-direita" aria-label="Produtos no radar do dia">
+  <aside class="col-dir col-direita" aria-label="Produtos deste radar">
     <section class="radar-products" aria-labelledby="radar-do-dia">
-      <h2 id="radar-do-dia">Produtos no radar do dia</h2>
+      <h2 id="radar-do-dia">Produtos deste radar</h2>
       <ol class="radar-list">
         {% for item in radar %}
         <li class="radar-card{% if item.image %} radar-row-photo{% endif %}">
@@ -27,7 +27,9 @@ layout: default
         </li>
         {% endfor %}
       </ol>
+      {% if site.legendas_afiliado %}
       <p class="affiliate-list-note">Links de afiliado</p>
+      {% endif %}
       {% if page.products_note %}
       <p class="footnote"><span aria-hidden="true">* </span>{{ page.products_note | escape }}</p>
       {% endif %}
@@ -97,6 +99,12 @@ layout: default
       {% capture tabela_comentarios %}{% include comentarios.html %}{% endcapture %}
       {% assign rest_html = rest_html | replace: "<p><!-- tabela-comentarios --></p>", tabela_comentarios %}
       {% assign rest_html = rest_html | replace: "<!-- tabela-comentarios -->", tabela_comentarios %}
+      {% capture tabela_atributos %}{% include atributos.html %}{% endcapture %}
+      {% assign rest_html = rest_html | replace: "<p><!-- tabela-atributos --></p>", tabela_atributos %}
+      {% assign rest_html = rest_html | replace: "<!-- tabela-atributos -->", tabela_atributos %}
+      {% capture tabela_precos %}{% include precos.html %}{% endcapture %}
+      {% assign rest_html = rest_html | replace: "<p><!-- tabela-precos --></p>", tabela_precos %}
+      {% assign rest_html = rest_html | replace: "<!-- tabela-precos -->", tabela_precos %}
       {% capture regua_html %}{% include regua-preco.html %}{% endcapture %}
       {% assign rest_html = rest_html | replace: "<p><!-- regua-preco --></p>", regua_html %}
       {% assign rest_html = rest_html | replace: "<!-- regua-preco -->", regua_html %}

@@ -14,9 +14,26 @@ e acrescente `--v3` ao passo "Conferir o HTML gerado" do workflow.
 import json
 import re
 import sys
+from decimal import Decimal, ROUND_HALF_UP
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
+
+# |diferença| em relação à média dos equivalentes (o analisado fica de fora).
+# Até este limite, a direção é "na media".
+LIMITE_NA_MEDIA = 3
+FREQUENCIAS = {
+    "muitos citam",
+    "alguns citam",
+    "caso isolado",
+    "citado em avaliações negativas",
+    "segundo o resumo do Mercado Livre",
+}
+# Estes dois só valem se o post trouxer atributos_nota.
+FREQUENCIAS_COM_NOTA = {
+    "citado em avaliações negativas",
+    "segundo o resumo do Mercado Livre",
+}
 
 DISCLOSURE = (
     "Transparência: os links desta página são de afiliado. "
@@ -478,11 +495,16 @@ def checagens_limites(root: Path, errors: list) -> None:
                 errors.append(f"{rel}: tabela completa marcada como coluna única")
         limites = limites_regua(fm)
         tem_regua = 'class="regua"' in html
+        tem_precos = parse_precos(fm) is not None
         sem_faixa = limites is None or abs(limites[0] - limites[1]) < 1e-9
-        if sem_faixa and tem_regua:
-            errors.append(f"{rel}: régua desenhada sem faixa de preço")
-        if not sem_faixa and not tem_regua:
-            errors.append(f"{rel}: régua ausente apesar da faixa de preço")
+        if tem_precos:
+            if tem_regua:
+                errors.append(f"{rel}: régua desenhada junto com a tabela de preços")
+        else:
+            if sem_faixa and tem_regua:
+                errors.append(f"{rel}: régua desenhada sem faixa de preço")
+            if not sem_faixa and not tem_regua:
+                errors.append(f"{rel}: régua ausente apesar da faixa de preço")
         fontes = bloco_mapa(fm, "fontes")
         if fontes is not None:
             frase = "Para o preço, comparamos com"
@@ -493,12 +515,325 @@ def checagens_limites(root: Path, errors: list) -> None:
                 errors.append(f"{rel}: Fontes cita equivalentes vazios")
 
 
+def legendas_ligadas() -> bool:
+    repo = Path(__file__).resolve().parent.parent
+    texto = (repo / "_config.yml").read_text(encoding="utf-8")
+    miolo = re.search(r"(?m)^legendas_afiliado:\s*(\S+)", texto)
+    if not miolo:
+        return False
+    return miolo.group(1).strip().lower() in {"true", "yes", "sim"}
+
+
+def desaspa(valor: str) -> str:
+    valor = valor.strip()
+    if len(valor) >= 2 and valor[0] == valor[-1] and valor[0] in "\"'":
+        valor = valor[1:-1]
+    return valor.strip()
+
+
+def bloco_linhas(fm: str, chave: str) -> list[str] | None:
+    linhas = fm.splitlines()
+    inicio = None
+    for i, linha in enumerate(linhas):
+        if re.match(rf"^{re.escape(chave)}:\s*$", linha):
+            inicio = i
+            break
+    if inicio is None:
+        return None
+    bloco = []
+    for linha in linhas[inicio + 1 :]:
+        if re.match(r"^[A-Za-z0-9_]+:\s*", linha):
+            break
+        bloco.append(linha)
+    return bloco
+
+
+def reais(texto: str) -> float | None:
+    bruto = desaspa(texto)
+    bruto = re.sub(r"(?i)^r\$\s*", "", bruto).replace("\xa0", "").replace(" ", "")
+    if not bruto:
+        return None
+    if "," in bruto:
+        bruto = bruto.replace(".", "").replace(",", ".")
+    try:
+        return float(bruto)
+    except ValueError:
+        return None
+
+
+def arredondar(valor: float) -> int:
+    return int(Decimal(str(valor)).quantize(Decimal("1"), rounding=ROUND_HALF_UP))
+
+
+def mapa_inline(texto: str) -> dict[str, str]:
+    miolo = texto.strip()
+    if miolo.startswith("{") and miolo.endswith("}"):
+        miolo = miolo[1:-1]
+    campos = {}
+    for parte in miolo.split(","):
+        if ":" not in parte:
+            continue
+        chave, valor = parte.split(":", 1)
+        campos[chave.strip()] = desaspa(valor)
+    return campos
+
+
+def parse_atributos(fm: str) -> list[dict[str, str]] | None:
+    linhas = bloco_linhas(fm, "atributos")
+    if linhas is None:
+        return None
+    itens: list[dict[str, str]] = []
+    atual: dict[str, str] | None = None
+    for linha in linhas:
+        if not linha.strip() or linha.strip().startswith("#"):
+            continue
+        novo = re.match(r"^  - (.*)$", linha)
+        if novo:
+            if atual:
+                itens.append(atual)
+            atual = {}
+            resto = novo.group(1).strip()
+            if resto and ":" in resto:
+                chave, valor = resto.split(":", 1)
+                atual[chave.strip()] = desaspa(valor)
+            continue
+        if atual is not None and linha.startswith("    ") and ":" in linha:
+            chave, valor = linha.strip().split(":", 1)
+            atual[chave.strip()] = desaspa(valor)
+    if atual:
+        itens.append(atual)
+    return itens
+
+
+def parse_precos(fm: str) -> dict | None:
+    linhas = bloco_linhas(fm, "precos")
+    if linhas is None:
+        return None
+    dados: dict = {
+        "data_coleta": "",
+        "unidade": "",
+        "itens": [],
+        "kpis": {},
+    }
+    secao = ""
+    item: dict | None = None
+    vs: dict[str, str] | None = None
+
+    def guarda_item() -> None:
+        nonlocal item
+        if item:
+            dados["itens"].append(item)
+        item = None
+
+    for linha in linhas:
+        if not linha.strip() or linha.strip().startswith("#"):
+            continue
+        if re.match(r"^  data_coleta:\s*", linha):
+            dados["data_coleta"] = desaspa(linha.split(":", 1)[1])
+            continue
+        if re.match(r"^  unidade:\s*", linha):
+            dados["unidade"] = desaspa(linha.split(":", 1)[1])
+            continue
+        if re.match(r"^  itens:\s*$", linha):
+            guarda_item()
+            secao = "itens"
+            vs = None
+            continue
+        if re.match(r"^  kpis:\s*$", linha):
+            guarda_item()
+            secao = "kpis"
+            continue
+        if secao == "itens" and re.match(r"^    - ", linha):
+            guarda_item()
+            item = {"analisado": False, "diferenca": ""}
+            resto = linha.split("-", 1)[1].strip()
+            if resto and ":" in resto:
+                chave, valor = resto.split(":", 1)
+                item[chave.strip()] = desaspa(valor)
+            continue
+        if secao == "itens" and item is not None and linha.startswith("      ") and ":" in linha:
+            chave, valor = linha.strip().split(":", 1)
+            if chave.strip() == "analisado":
+                item["analisado"] = valor.strip().lower() in {"true", "yes", "sim"}
+            else:
+                item[chave.strip()] = desaspa(valor)
+            continue
+        if secao == "kpis" and re.match(r"^    vs_media:\s*", linha):
+            resto = linha.split(":", 1)[1].strip()
+            if resto:
+                dados["kpis"]["vs_media"] = mapa_inline(resto)
+                vs = None
+            else:
+                vs = {}
+                dados["kpis"]["vs_media"] = vs
+            continue
+        if secao == "kpis" and vs is not None and linha.startswith("      ") and ":" in linha:
+            chave, valor = linha.strip().split(":", 1)
+            vs[chave.strip()] = desaspa(valor)
+            continue
+        if secao == "kpis" and re.match(r"^    [A-Za-z0-9_]+:\s*", linha):
+            vs = None
+            chave, valor = linha.strip().split(":", 1)
+            dados["kpis"][chave.strip()] = desaspa(valor)
+    guarda_item()
+    return dados
+
+
+def posicao_mais_caro(valores: list[float], indice: int) -> str:
+    """1 + quantos itens têm por_unidade estritamente maior.
+
+    Empate no mesmo preço divide a posição: dois itens a R$ 94,02,
+    com só um mais caro, ficam ambos em "2º mais caro de N".
+    """
+    analisado = valores[indice]
+    maiores = sum(1 for valor in valores if valor > analisado + 1e-9)
+    return f"{maiores + 1}º mais caro de {len(valores)}"
+
+
+def campo_simples(fm: str, chave: str) -> str:
+    miolo = re.search(rf"(?m)^{re.escape(chave)}:\s*(.+?)\s*$", fm)
+    if not miolo:
+        return ""
+    return desaspa(miolo.group(1))
+
+
+def palavras_corpo(texto: str) -> int:
+    """Conta as palavras do markdown depois do front matter."""
+    corpo = texto
+    if texto.startswith("---"):
+        fim = texto.find("\n---", 3)
+        if fim >= 0:
+            corpo = texto[fim + 4 :]
+    return len(re.findall(r"\S+", corpo))
+
+
+def checagens_precos(root: Path, errors: list, avisos: list) -> None:
+    """Atributos, tabela de preços e KPIs no formato v3.1."""
+    for post in sorted((Path(__file__).resolve().parent.parent / "_posts").glob("*.md")):
+        texto = post.read_text(encoding="utf-8")
+        fm = front_matter(texto)
+        rel = post.relative_to(Path(__file__).resolve().parent.parent).as_posix()
+        html_path = html_do_post(root, post)
+        if html_path is None or not html_path.exists():
+            continue
+        html = html_path.read_text(encoding="utf-8")
+        atributos = parse_atributos(fm)
+        if atributos is not None:
+            if not 4 <= len(atributos) <= 6:
+                errors.append(f"{rel}: {len(atributos)} atributos (esperado 4–6)")
+            nota = campo_simples(fm, "atributos_nota")
+            pede_nota = False
+            for item in atributos:
+                freq = item.get("frequencia", "").strip()
+                if freq not in FREQUENCIAS:
+                    errors.append(f"{rel}: frequência inválida ({freq!r})")
+                if freq in FREQUENCIAS_COM_NOTA:
+                    pede_nota = True
+            if pede_nota and not nota:
+                errors.append(
+                    f"{rel}: atributos_nota ausente com frequência que exige a nota"
+                )
+            if "tabela-atributos" not in html:
+                errors.append(f"{rel}: HTML sem a tabela de atributos")
+            if nota and nota not in html:
+                errors.append(f"{rel}: HTML sem atributos_nota")
+            if not nota and "atributos_nota" in html:
+                errors.append(f"{rel}: HTML mostra atributos_nota vazio")
+        precos = parse_precos(fm)
+        if precos is None:
+            if 'class="tabela-precos"' in html:
+                errors.append(f"{rel}: tabela de preços sem o campo precos")
+            continue
+        if re.search(r"https?://", "\n".join(bloco_linhas(fm, "precos") or [])):
+            errors.append(f"{rel}: precos contém link")
+        n_corpo = palavras_corpo(texto)
+        if n_corpo < 250:
+            avisos.append(f"{rel}: corpo com {n_corpo} palavras (abaixo de 250)")
+        itens = precos["itens"]
+        if not itens:
+            errors.append(f"{rel}: precos sem itens")
+            continue
+        valores = []
+        for item in itens:
+            numero = reais(item.get("por_unidade", ""))
+            if numero is None:
+                errors.append(f"{rel}: por_unidade ilegível ({item.get('por_unidade', '')!r})")
+                numero = 0.0
+            valores.append(numero)
+        for anterior, seguinte in zip(valores, valores[1:]):
+            if seguinte > anterior + 1e-9:
+                errors.append(f"{rel}: precos.itens fora da ordem do maior para o menor")
+                break
+        analisados = [i for i, item in enumerate(itens) if item.get("analisado")]
+        if len(analisados) != 1:
+            errors.append(f"{rel}: {len(analisados)} itens analisados (esperado 1)")
+            continue
+        indice = analisados[0]
+        analisado = valores[indice]
+        equivalentes = [valor for i, valor in enumerate(valores) if i != indice]
+        kpis = precos["kpis"]
+        preco_kpi = reais(str(kpis.get("preco_unidade", "")))
+        if preco_kpi is None or abs(preco_kpi - analisado) > 0.001:
+            errors.append(f"{rel}: kpis.preco_unidade não é o por_unidade do analisado")
+        if len(equivalentes) < 3:
+            if kpis.get("vs_media") or str(kpis.get("posicao", "")).strip():
+                errors.append(f"{rel}: vs_media ou posicao com menos de 3 equivalentes")
+            if "kpis-um" not in html:
+                errors.append(f"{rel}: faixa de KPIs sem a classe kpis-um")
+        else:
+            media = sum(equivalentes) / len(equivalentes)
+            if media == 0:
+                errors.append(f"{rel}: média dos equivalentes é zero")
+            else:
+                diferenca = (analisado - media) / media * 100
+                if abs(diferenca) <= LIMITE_NA_MEDIA:
+                    direcao = "na media"
+                    percentual = None
+                elif diferenca > 0:
+                    direcao = "acima"
+                    percentual = arredondar(abs(diferenca))
+                else:
+                    direcao = "abaixo"
+                    percentual = arredondar(abs(diferenca))
+                vs = kpis.get("vs_media") or {}
+                if not isinstance(vs, dict):
+                    errors.append(f"{rel}: vs_media ausente")
+                else:
+                    lida = str(vs.get("direcao", "")).strip().lower().replace("é", "e")
+                    if lida != direcao:
+                        errors.append(
+                            f"{rel}: vs_media.direcao {lida!r} (esperado {direcao!r})"
+                        )
+                    if percentual is not None:
+                        try:
+                            lido = int(float(str(vs.get("percentual", "")).replace(",", ".")))
+                        except ValueError:
+                            lido = None
+                        if lido != percentual:
+                            errors.append(
+                                f"{rel}: vs_media.percentual {vs.get('percentual')!r} (esperado {percentual})"
+                            )
+            esperada = posicao_mais_caro(valores, indice)
+            if str(kpis.get("posicao", "")).strip() != esperada:
+                errors.append(
+                    f"{rel}: posicao {kpis.get('posicao')!r} (esperado {esperada!r})"
+                )
+            if "kpis-um" in html:
+                errors.append(f"{rel}: kpis-um com 3 ou mais equivalentes")
+        tabela = re.search(r'<figure class="tabela-precos">.*?</figure>', html, re.S)
+        if not tabela:
+            errors.append(f"{rel}: HTML sem a tabela de preços")
+        elif "<a " in tabela.group(0) or "<a>" in tabela.group(0):
+            errors.append(f"{rel}: link dentro da tabela de preços")
+
+
 def main(root: Path, v3: bool = False) -> int:
     files = sorted(root.rglob("*.html"))
     if not files:
         print("nenhum HTML em", root)
         return 1
     errors = []
+    legendas = legendas_ligadas()
     for path in files:
         text = path.read_text(encoding="utf-8")
         rel = path.relative_to(root).as_posix()
@@ -563,16 +898,22 @@ def main(root: Path, v3: bool = False) -> int:
             errors.append(f"{rel}: ainda usa #publi")
         n_listas = len(re.findall(r'class="radar-list"', text))
         n_notas = text.count("Links de afiliado")
-        if n_listas != n_notas:
-            errors.append(
-                f"{rel}: {n_listas} listas de produtos e {n_notas} notas 'Links de afiliado'"
-            )
+        if legendas:
+            if n_listas != n_notas:
+                errors.append(
+                    f"{rel}: {n_listas} listas de produtos e {n_notas} notas 'Links de afiliado'"
+                )
+        elif n_notas:
+            errors.append(f"{rel}: nota 'Links de afiliado' com legendas desligadas")
         for block in parser.affiliate_blocks:
             legenda = block["text"]
             if "Ver no Mercado Livre" not in legenda:
                 errors.append(f"{rel}: botão sem 'Ver no Mercado Livre'")
-            if not block["in_list"] and "Link de afiliado" not in legenda:
+            tem_legenda = "Link de afiliado" in legenda and "indisponível" not in legenda
+            if legendas and not block["in_list"] and not tem_legenda:
                 errors.append(f"{rel}: botão sem a legenda 'Link de afiliado'")
+            if not legendas and tem_legenda:
+                errors.append(f"{rel}: legenda 'Link de afiliado' com legendas desligadas")
         if "/radar/" in "/" + rel or rel.startswith("radar/"):
             if DISCLOSURE not in text:
                 errors.append(f"{rel}: post sem o aviso de transparência")
@@ -612,8 +953,12 @@ def main(root: Path, v3: bool = False) -> int:
     checagens_v2(root, errors)
     checagens_18(root, errors)
     checagens_limites(root, errors)
+    avisos: list[str] = []
+    checagens_precos(root, errors, avisos)
     if v3:
         checagens_v3(root, errors)
+    if avisos:
+        print("\n".join(f"aviso: {item}" for item in avisos))
     if errors:
         print("\n".join(errors))
         return 1

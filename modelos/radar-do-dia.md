@@ -22,8 +22,13 @@ resumo:
   ponto_forte: "O elogio que mais se repete."
   ponto_atencao: "A crítica que mais se repete."
   preco: "Preço de agora e onde ele fica na faixa dos equivalentes."
-  util_para: "quem busca o uso principal do produto."
-  atencao_de: "precisa do ponto que os dados não sustentam."
+  para_quem: "Um parágrafo, em duas ou três frases, no lugar de util_para e atencao_de."
+# frequencia: "muitos citam" | "alguns citam" | "caso isolado" | "citado em avaliações negativas" | "segundo o resumo do Mercado Livre"
+# Os dois últimos exigem atributos_nota.
+# atributos_nota: "Frase curta, opcional, abaixo da tabela."
+  # Posts v3 sem para_quem ainda usam as duas linhas abaixo.
+  # util_para: "quem busca o uso principal do produto."
+  # atencao_de: "precisa do ponto que os dados não sustentam."
 products:
   - name: "Produto em destaque, com categoria e marca"
     price: "R$ 0,00"

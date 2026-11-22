@@ -14,8 +14,8 @@ Cada Radar do dia é um arquivo em `_posts`.
 
 1. Copie `modelos/radar-do-dia.md` para `_posts/AAAA-MM-DD-nome-curto.md`.
 2. Preencha o cabeçalho, inclusive `resumo:` (os quatro tópicos ficam entre 50 e 80 palavras) e `fontes:`. O texto depois do segundo `---` é a apresentação do produto. O Resumo não entra nesse texto: ele sai só do front matter.
-3. Preencha `products`: a lista **Produtos no radar do dia**, na lateral (no topo, no celular), só com nome, preço e link. Sem análise neles. O primeiro item também vira o link do título e o botão do Resumo.
-4. Cada link da lista vira o botão "Ver no Mercado Livre". A lista traz a nota "Links de afiliado". O botão do Resumo traz a legenda "Link de afiliado". O aviso de transparência fica antes das Fontes. O endereço pode ser o link de afiliado do Mercado Livre, inclusive `https://meli.la/...`.
+3. Preencha `products`: a lista **Produtos deste radar**, na lateral (no topo, no celular), só com nome, preço e link. Sem análise neles. O primeiro item também vira o link do título e o botão do Resumo.
+4. Cada link da lista vira o botão "Ver no Mercado Livre". Com `legendas_afiliado: true`, a lista traz a nota "Links de afiliado" e o botão do Resumo traz a legenda "Link de afiliado". O aviso de transparência fica antes das Fontes, e o rodapé repete uma linha curta. O endereço pode ser o link de afiliado do Mercado Livre, inclusive `https://meli.la/...`.
 5. A data da coleta vai em `fontes.coleta` (por exemplo, `16/11/2026, até 12h00`). Os equivalentes do preço vão em `fontes.equivalentes`; se o campo estiver vazio, a frase do preço some. Os campos antigos `rating_source`, `rating_checked`, `price_checked` e `price_history` continuam valendo para relatórios que ainda não usam `fontes:`.
 6. Deixe `example: true` enquanto for teste. Passe para `example: false` só quando preço, nota e comentários forem reais. Com `example: true` a página avisa que os dados são fictícios e não entra no sitemap.
 
@@ -32,7 +32,7 @@ jekyll build --destination _site
 python3 script/verificar.py _site
 ```
 
-O passo de CI já roda `python3 script/verificar.py _site --v3`. Ele exige, em todo relatório, os seis campos do Resumo, os quatro rótulos na ordem, 50 a 80 palavras somadas nos quatro tópicos, e o bloco `fontes:`. A checagem de frases no Resumo e na Conclusão vale em toda página que renderiza o Resumo.
+O passo de CI já roda `python3 script/verificar.py _site --v3`. Ele exige, em todo relatório, os seis campos do Resumo, os quatro rótulos na ordem, 50 a 80 palavras somadas nos quatro tópicos, e o bloco `fontes:`. A checagem de frases no Resumo e na Conclusão vale em toda página que renderiza o Resumo. `legendas_afiliado: false` esconde as legendas dos botões; `true` as traz de volta. Relatório com `precos` mostra a tabela e os KPIs e não desenha a régua.
 
 ## Ver no computador
 
