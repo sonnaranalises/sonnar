@@ -46,9 +46,8 @@ resumo:
   avaliacoes: "4,8 de 5 em 359.233 avaliações, a maior base entre os liquidificadores comparados: indica satisfação repetida."
   ponto_forte: "potência para triturar gelo e legumes, com limpeza fácil."
   ponto_atencao: "cheiro de queimado, fumaça ou queima do motor nos primeiros usos, a queixa mais repetida; há quem relate o contrário."
-  preco: "R$ 94,02, no fim da faixa dos liquidificadores equivalentes de cerca de 550 W."
-  util_para: "quer um liquidificador simples de 2,2 L, com filtro e picador de gelo."
-  atencao_de: "precisa de motor sem cheiro de queimado desde o primeiro uso."
+  preco: "R$ 94,02, cerca de 8% acima da média dos três equivalentes coletados; divide o 2º maior preço de 4 com um deles."
+  para_quem: "Os elogios vêm de quem faz sucos, bate gelo e tritura legumes num aparelho simples de 2,2 L. Pede atenção de quem não quer conviver com cheiro de motor nos primeiros usos ou precisa de um copo que não pingue na base."
 elogios:
   - "Tritura coisa pra caramba de uma vez, incluindo beterraba e cenoura."
   - "usei a primeira vez para bater abacaxi com cubos de gelo e um pouco de água na velocidade 3 pra ver se era bom mesmo, triturou os 20 cubos de gelo numa boa, nossa rodou perfeitamente! não subiu cheiro de queimado"
@@ -57,15 +56,52 @@ criticas:
   - "O liquidificador desde o primeiro uso fica com cheiro de queimado"
   - "às hélices são de plástico e quebram muito rápido"
   - "Na hora que eu liguei o liquidificador queimou na mesma hora"
-regua_preco:
-  produto: 94.02
-  minimo: 68.99
-  maximo: 97.0
-  produto_txt: "R$ 94,02"
-  minimo_txt: "R$ 68,99"
-  maximo_txt: "R$ 97,00"
+atributos:
+  - atributo: "Potência"
+    o_que_dizem: "Dizem que tritura gelo, legumes e sucos com facilidade."
+    frequencia: "muitos citam"
+  - atributo: "Cheiro do motor"
+    o_que_dizem: "Nas notas baixas, relatam cheiro de queimado, fumaça ou queima nos primeiros usos; entre os elogios, há quem diga não ter sentido ou que o cheiro diminui."
+    frequencia: "muitos citam"
+  - atributo: "Limpeza"
+    o_que_dizem: "Dizem que é fácil de limpar."
+    frequencia: "alguns citam"
+  - atributo: "Vedação do copo"
+    o_que_dizem: "Relatam que o copo vaza um pouco por baixo ou na borda do motor."
+    frequencia: "alguns citam"
+  - atributo: "Aparência"
+    o_que_dizem: "Elogiam o visual e o brilho."
+    frequencia: "alguns citam"
+  - atributo: "Hélices"
+    o_que_dizem: "Um relato diz que as hélices de plástico quebram rápido."
+    frequencia: "caso isolado"
+precos:
+  data_coleta: "09/11/2026"
   unidade: "por aparelho"
-  posicao: "no fim da faixa"
+  itens:
+    - produto: "Liquidificador Walita Daily RI2110 550 W"
+      preco_total: "R$ 97,00"
+      por_unidade: "R$ 97,00"
+      nota: "4,8 (30.294)"
+      diferenca: "copo de 2 L"
+    - produto: "Liquidificador Mondial Turbo Power L-99 FB 550 W"
+      preco_total: "R$ 94,02"
+      por_unidade: "R$ 94,02"
+      nota: "4,8 (359.233)"
+      analisado: true
+    - produto: "Liquidificador Mondial Pratic Turbo L-98-B 550 W"
+      preco_total: "R$ 94,02"
+      por_unidade: "R$ 94,02"
+      nota: "4,8 (28.911)"
+    - produto: "Liquidificador Mondial Easy Power L-550-B 550 W"
+      preco_total: "R$ 68,99"
+      por_unidade: "R$ 68,99"
+      nota: "4,8 (57.525)"
+      diferenca: "copo de 1,9 L"
+  kpis:
+    preco_unidade: "R$ 94,02"
+    vs_media: {direcao: "acima", percentual: 8}
+    posicao: "2º mais caro de 4"
 fontes:
   coleta: "09/11/2026, até 12h17"
   equivalentes: "liquidificadores de cerca de 550 W vendidos no Mercado Livre, com capacidade parecida e nota 4,8, pelo preço do aparelho"
@@ -81,20 +117,18 @@ O liquidificador Turbo Power L-99 FB, da Mondial, tem motor de 550 W, copo de 2,
 
 ## Notas e avaliações
 
-A nota é **4,8 de 5**, vinda de **359.233 avaliações**, a maior base entre os comparados. O aparelho é o 1º em Liquidificadores, com mais de 250 mil vendidos.
-
-O resumo das opiniões do Mercado Livre cita desempenho, potência, silêncio e resistência. Nos comentários, aparecem gelo e legumes triturados e limpeza fácil. A queixa que mais se repete entre as notas de 1 estrela é o motor: cheiro de queimado, fumaça ou queima nos primeiros usos. O mesmo cheiro aparece do outro lado, já que alguns compradores dizem não ter sentido e um conta que diminui com o uso. Vêm depois o copo que vaza e as hélices de plástico que quebram. Cada relato descreve uma unidade.
+A nota é **4,8 de 5**, vinda de **359.233 avaliações**, a maior base entre os comparados. O aparelho é o 1º em Liquidificadores, com mais de 250 mil vendidos, o que dá peso à nota alta.
 
 <!-- tabela-comentarios -->
 
+<!-- tabela-atributos -->
+
 ## Preço
 
-O liquidificador custa **R$ 94,02**. Liquidificadores de cerca de 550 W, com capacidade parecida e nota 4,8, vão de **R$ 68,99 a R$ 97,00**; o L-99 FB fica **no fim da faixa**. O de menor preço do grupo tem copo menor, de 1,9 L contra 2,2 L.
+O liquidificador custa **R$ 94,02**. A tabela traz três modelos de 550 W, com capacidade parecida e nota 4,8.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Para sucos, gelo e legumes, com motor de 550 W e copo grande, os relatos descrevem um aparelho que dá conta. Para quem vai ligar o aparelho com frequência, o ponto de maior peso está nas queixas de motor: cheiro de queimado, fumaça e queima nos primeiros usos, com relatos em sentido contrário. No fim da faixa, o equivalente de menor preço tem copo menor, e os de 2 L ou 2,2 L ficam na parte alta.
-
-Na primeira vez que ligar, vale observar o motor e a vedação do copo, pois cheiro de queimado e vazamento aparecem nos relatos desde o início.
+Os compradores elogiam a força para triturar e a limpeza fácil, e a crítica mais repetida é o cheiro de queimado ou a queima do motor nos primeiros usos. O preço fica perto de 8% acima da média dos equivalentes, igual ao de um modelo de mesma capacidade. Faz sentido considerar se você prioriza copo de 2,2 L com filtro e aceita observar o motor nas primeiras vezes; se um motor sem cheiro desde o início for essencial, os relatos indicam que esse não é o ponto forte dele.

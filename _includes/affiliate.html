@@ -4,9 +4,11 @@
   <div class="affiliate-line{% if include.lista %} affiliate-in-list{% endif %}">
     <a class="affiliate-link" href="{{ url | escape }}" target="_blank" rel="sponsored nofollow noopener"
        data-posicao="{{ include.posicao }}" data-produto="{{ include.produto | escape }}" data-local="{{ include.local | default: 'lista' }}">Ver no Mercado Livre<span class="sr-only"> (abre em uma nova aba)</span></a>
+    {%- if site.legendas_afiliado -%}
     {%- unless include.lista -%}
     <span class="affiliate-caption">Link de afiliado</span>
     {%- endunless -%}
+    {%- endif -%}
   </div>
 {%- else -%}
   <p class="missing-link">Link de afiliado indisponível. Use um endereço https completo, sem encurtador.</p>

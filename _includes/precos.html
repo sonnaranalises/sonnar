@@ -1,0 +1,77 @@
+{%- if page.precos.itens -%}
+{%- assign kpis = page.precos.kpis -%}
+{%- assign direcao = kpis.vs_media.direcao | append: "" | downcase | strip -%}
+{%- assign posicao = kpis.posicao | append: "" | strip -%}
+{%- assign tem_comparacao = false -%}
+{%- if direcao != "" or posicao != "" -%}
+{%- assign tem_comparacao = true -%}
+{%- endif -%}
+<div class="kpis{% unless tem_comparacao %} kpis-um{% endunless %}" role="group" aria-label="Preço em números">
+  <div class="kpi">
+    <p class="kpi-rotulo">Preço por unidade</p>
+    <p class="kpi-valor">{{ kpis.preco_unidade | escape }}</p>
+    {%- if page.precos.unidade != blank -%}
+    <p class="kpi-nota">{{ page.precos.unidade | escape }}</p>
+    {%- endif -%}
+  </div>
+  {%- if direcao != "" -%}
+  <div class="kpi">
+    <p class="kpi-rotulo">Comparado à média</p>
+    <p class="kpi-valor">
+      {%- if direcao == "acima" -%}
+      <span class="kpi-seta" aria-hidden="true">▲</span> {{ kpis.vs_media.percentual }}% acima
+      {%- elsif direcao == "abaixo" -%}
+      <span class="kpi-seta" aria-hidden="true">▼</span> {{ kpis.vs_media.percentual }}% abaixo
+      {%- else -%}
+      <span class="kpi-seta" aria-hidden="true">≈</span> na média
+      {%- endif -%}
+    </p>
+    <p class="kpi-nota">em relação à média dos equivalentes</p>
+  </div>
+  {%- endif -%}
+  {%- if posicao != "" -%}
+  <div class="kpi">
+    <p class="kpi-rotulo">Posição</p>
+    <p class="kpi-valor">{{ posicao | escape }}</p>
+    <p class="kpi-nota">pelo preço por unidade</p>
+  </div>
+  {%- endif -%}
+</div>
+<figure class="tabela-precos">
+  <div class="tabela-rolagem">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th scope="col">Produto</th>
+          <th scope="col" class="num">Preço total</th>
+          <th scope="col" class="num">Por unidade</th>
+          <th scope="col" class="num">Nota</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for item in page.precos.itens -%}
+        <tr{% if item.analisado %} class="analisado"{% endif %}>
+          {%- assign diferenca = item.diferenca | append: "" | strip -%}
+          <th scope="row">{{ item.produto | escape }}
+            {%- if diferenca != "" -%}<span class="dif">{{ diferenca | escape }}</span>{%- endif -%}
+            {%- if item.analisado -%}<span class="tag-analisado">Este relatório</span>{%- endif -%}
+          </th>
+          <td class="num" data-rotulo="Preço total">{{ item.preco_total | escape }}</td>
+          <td class="num" data-rotulo="Por unidade">{{ item.por_unidade | escape }}</td>
+          <td class="num" data-rotulo="Nota">
+            {%- assign nota_txt = item.nota | append: "" -%}
+            {%- if nota_txt contains "(" -%}
+            {%- assign nota_partes = nota_txt | split: "(" -%}
+            {{ nota_partes | first | strip | escape }}<span class="dif">{{ nota_partes | last | remove: ")" | strip | escape }}</span>
+            {%- else -%}
+            {{ nota_txt | escape }}
+            {%- endif -%}
+          </td>
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+  <figcaption class="tabela-nota">Preços coletados no Mercado Livre{% if page.precos.data_coleta != blank %} em {{ page.precos.data_coleta | escape }}{% endif %}, sem Pix, cupom ou frete.</figcaption>
+</figure>
+{%- endif -%}

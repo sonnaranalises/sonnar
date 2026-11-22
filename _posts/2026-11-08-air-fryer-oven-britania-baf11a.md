@@ -16,6 +16,8 @@ products:
     price: "R$ 349,00"
     url: "https://meli.la/2wZJU1H"
     source_url: "https://www.mercadolivre.com.br/air-fryer-oven-britania-11l-8-funcoes-1800w-painel-digital-baf11a/p/MLB62230579"
+    image: "/assets/img/radar/2026-11-08-airfryer-britania-baf11a.jpg"
+    image_alt: "Fritadeira elétrica Air Fryer Oven Britânia BAF11A 11 L"
   - name: "Jogo de facas Tramontina 4 peças"
     price: "R$ 37,40"
     url: "https://meli.la/2ZChjdJ"
@@ -36,9 +38,8 @@ resumo:
   avaliacoes: "4,9 de 5 em 17.072 avaliações, com a barra de 5 estrelas quase cheia: base grande e satisfação repetida."
   ponto_forte: "espaço interno para três bandejas e cozimento potente e rápido; a limpeza fácil também é citada."
   ponto_atencao: "unidade que chega arranhada ou com aparência de usada, a queixa mais repetida; parte dos relatos cita transporte ou devolução."
-  preco: "R$ 349,00 pelo aparelho de 11 L, abaixo da faixa dos modelos equivalentes."
-  util_para: "quer espaço para assar em bandejas, com painel digital e janela."
-  atencao_de: "quer receber o aparelho sem marcas ou evita lidar com bandejas."
+  preco: "R$ 349,00, menos que os dois modelos de 11 L coletados no dia."
+  para_quem: "Os elogios vêm de quem assa em mais de uma bandeja e usa o painel digital no dia a dia. Pede atenção de quem prefere fritar em cesto: o aparelho trabalha com bandejas, e há compradores que estranham a falta de cesto."
 elogios:
   - "Ótimo produto, já fiz bolo, assei carne, frango muito bom."
   - "Assa super rápido, uniforme."
@@ -47,15 +48,46 @@ criticas:
   - "Design: veio muito arranhada."
   - "Produto com dois meses de uso e já apresenta sinais de oxidação (ferrugem)."
   - "o produto parou de funcionar com pouco uso agora não sei o que fazer."
-regua_preco:
-  produto: 349.0
-  minimo: 389.0
-  maximo: 399.0
-  produto_txt: "R$ 349,00"
-  minimo_txt: "R$ 389,00"
-  maximo_txt: "R$ 399,00"
+atributos:
+  - atributo: "Capacidade"
+    o_que_dizem: "Dizem que cabe bastante comida, como frango inteiro ou forma de bolo, nas três bandejas."
+    frequencia: "muitos citam"
+  - atributo: "Rapidez do preparo"
+    o_que_dizem: "Relatam que aquece e assa rápido."
+    frequencia: "muitos citam"
+  - atributo: "Limpeza"
+    o_que_dizem: "Dizem que é fácil de limpar."
+    frequencia: "muitos citam"
+  - atributo: "Design e painel"
+    o_que_dizem: "Elogiam o visual e o painel digital."
+    frequencia: "muitos citam"
+  - atributo: "Estado ao chegar"
+    o_que_dizem: "Relatam unidades arranhadas ou com aparência de usada, parte delas após transporte ou devolução."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Durabilidade"
+    o_que_dizem: "Relatam ferrugem, erro ou parada de funcionamento com pouco uso."
+    frequencia: "citado em avaliações negativas"
+atributos_nota: "Os atributos marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção."
+precos:
+  data_coleta: "08/11/2026"
   unidade: "por aparelho"
-  posicao: "abaixo da faixa"
+  itens:
+    - produto: "Air fryer oven Wap WAOD4 11 L"
+      preco_total: "R$ 399,00"
+      por_unidade: "R$ 399,00"
+      nota: "4,8 (303)"
+      diferenca: "potência de 1,35 kW"
+    - produto: "Air fryer oven Philco PAF11B 11 L"
+      preco_total: "R$ 389,00"
+      por_unidade: "R$ 389,00"
+      nota: "4,9 (8.152)"
+    - produto: "Fritadeira elétrica Air Fryer Oven Britânia BAF11A 11 L"
+      preco_total: "R$ 349,00"
+      por_unidade: "R$ 349,00"
+      nota: "4,9 (17.072)"
+      analisado: true
+  kpis:
+    preco_unidade: "R$ 349,00"
 fontes:
   coleta: "08/11/2026, até 15h18"
   equivalentes: "fritadeiras tipo forno de 11 L vendidas no Mercado Livre, com nota de 4,8 a 4,9, pelo preço do aparelho"
@@ -73,18 +105,16 @@ A fritadeira elétrica Air Fryer Oven BAF11A, da Britânia, tem formato de forno
 
 Há **17.072 avaliações** por trás da nota **4,9 de 5**, e a barra de 5 estrelas está quase cheia. É um volume grande de notas altas, com mais de 10 mil unidades vendidas.
 
-Pelas opiniões e pelo resumo do Mercado Livre, o que mais agrada é o espaço interno com três bandejas, o cozimento rápido, a programação simples e a limpeza. Entre as críticas, que são poucas diante desse volume, o tema mais repetido é a unidade que chega arranhada ou com cara de usada; alguns compradores ligam isso ao transporte ou à devolução. Vêm depois ferrugem, manuseio das bandejas e da gordura, cozimento desigual e parada com pouco uso. Os casos descritos são de unidades específicas.
-
 <!-- tabela-comentarios -->
+
+<!-- tabela-atributos -->
 
 ## Preço
 
-A fritadeira custa **R$ 349,00**. Fritadeiras tipo forno de 11 L, com nota de 4,8 a 4,9, vão de **R$ 389,00 a R$ 399,00** por aparelho; a Britânia BAF11A fica **abaixo da faixa**.
+O aparelho custa **R$ 349,00**. Os dois modelos de 11 L e nota 4,8 a 4,9 da tabela custam mais.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Quem procura assar em mais de um andar e programar o preparo no painel encontra, nos relatos, o que a fritadeira entrega. Pede atenção de quem espera acabamento sem marcas e de quem não quer lidar com duas bandejas e o coletor de gordura. Abaixo da faixa, os dados do dia não mostram troca de capacidade ou potência frente ao equivalente de 11 L e 1,8 kW; o que as críticas apontam é o estado em que o aparelho chega.
-
-Painel e laterais merecem uma olhada atrás de arranhões, e a voltagem escolhida, 127 V ou 220 V, precisa ser a da tomada de casa.
+Os compradores elogiam o espaço das três bandejas, o preparo rápido e a limpeza, e a crítica mais repetida é o aparelho que chega riscado ou com aspecto de usado. O preço fica abaixo dos dois modelos de 11 L coletados, sem perda de capacidade nos dados. Faz sentido considerar se você prioriza assar em bandejas e aceita conferir o aparelho ao receber; se um cesto único for essencial, os relatos indicam que esse não é o ponto forte dele.

@@ -46,26 +46,65 @@ resumo:
   avaliacoes: "4,9 de 5 em 28.420 opiniões, com a barra de 5 estrelas muito à frente das demais: base grande e satisfação repetida."
   ponto_forte: "som, isolamento e conforto, citados no resumo das opiniões, além do microfone removível."
   ponto_atencao: "durabilidade: microfone que falha ou som que some de um lado depois de semanas ou poucos meses de uso."
-  preco: "R$ 164,00, acima da faixa dos headsets gamer com fio equivalentes."
-  util_para: "joga em PC ou console e quer microfone removível no próprio fone."
-  atencao_de: "usa o headset por horas todo dia e depende do microfone."
+  preco: "R$ 164,00, cerca de 20% acima da média dos quatro equivalentes coletados e o maior preço entre os cinco."
+  para_quem: "Os elogios vêm de quem joga em PC ou console e quer ouvir passos e tiros com clareza, com o microfone no próprio fone. Pede atenção de quem depende do fone todos os dias, já que as falhas relatadas aparecem com semanas ou meses de uso."
 elogios:
   - "As espumas das conchas e do arco são bem confortáveis, permitindo um uso prolongado sem incômodo."
   - "Dá pra ouvir os \"passos\" de uma maneira agradável em jogos como call of duty, warzone, cs, etc. Tem um microfone muito bom também e removível"
   - "Ele tem os médios e agudos muito bons e o grave razoável. Isso facilita as gameplays, principalmente de fps, onde é necessário escutar a direção dos tiros, e passos dos inimigos, e isso esse fone faz com maestria."
 criticas:
-  - "Ele descasca toda a almofada com menos de 3 meses de uso."
+  - "Conforto: confortável mas doi a cabeça após um tempo."
   - "O fone é ótimo mas em 2 meses o microfone está com mal contato"
   - "Deu problema num lado ficou sem som com poucos meses"
-regua_preco:
-  produto: 164.0
-  minimo: 108.9
-  maximo: 159.0
-  produto_txt: "R$ 164,00"
-  minimo_txt: "R$ 108,90"
-  maximo_txt: "R$ 159,00"
+atributos:
+  - atributo: "Som"
+    o_que_dizem: "Dizem que ajuda a ouvir passos e tiros em jogos; poucos relatam que o fone altera o som para pior."
+    frequencia: "muitos citam"
+  - atributo: "Microfone"
+    o_que_dizem: "Uns elogiam a qualidade e o fato de ser removível; outros relatam que parou de funcionar ou ficou com mau contato."
+    frequencia: "muitos citam"
+  - atributo: "Durabilidade"
+    o_que_dizem: "Nas avaliações negativas, compradores relatam aparelho que para de funcionar ou perde o som de um lado em poucos meses; o resumo das opiniões do Mercado Livre, ao contrário, cita a durabilidade entre os elogios."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Conforto e arco"
+    o_que_dizem: "Uns acham as espumas confortáveis e o arco firme; outros dizem que aperta a cabeça."
+    frequencia: "alguns citam"
+  - atributo: "Grave"
+    o_que_dizem: "Uns falam em graves potentes; outros dizem que quase não tem grave."
+    frequencia: "alguns citam"
+  - atributo: "Volume"
+    o_que_dizem: "Compradores dizem que o volume é baixo."
+    frequencia: "citado em avaliações negativas"
+atributos_nota: "Os atributos marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção; o contraste em Durabilidade vem do resumo de opiniões do Mercado Livre."
+precos:
+  data_coleta: "12/11/2026"
   unidade: "por aparelho"
-  posicao: "acima da faixa"
+  itens:
+    - produto: "Headset gamer Havit H2002d com fio e microfone"
+      preco_total: "R$ 164,00"
+      por_unidade: "R$ 164,00"
+      nota: "4,9 (28.420)"
+      analisado: true
+    - produto: "Headset gamer JBL Quantum 100M2"
+      preco_total: "R$ 159,00"
+      por_unidade: "R$ 159,00"
+      nota: "4,8 (26.716)"
+    - produto: "Headset gamer Redragon Zeus Lite"
+      preco_total: "R$ 144,90"
+      por_unidade: "R$ 144,90"
+      nota: "4,9 (9.614)"
+    - produto: "Headset gamer Redragon Mento RGB H270"
+      preco_total: "R$ 132,90"
+      por_unidade: "R$ 132,90"
+      nota: "4,8 (1.962)"
+    - produto: "Headset gamer Havit H2230D 7.1"
+      preco_total: "R$ 108,90"
+      por_unidade: "R$ 108,90"
+      nota: "4,7 (12.136)"
+  kpis:
+    preco_unidade: "R$ 164,00"
+    vs_media: {direcao: "acima", percentual: 20}
+    posicao: "1º mais caro de 5"
 fontes:
   coleta: "12/11/2026, até 21h40"
   equivalentes: "headsets gamer com fio e conector P3, para PC e consoles, vendidos no Mercado Livre, com nota de 4,7 a 4,9, pelo preço do aparelho"
@@ -81,20 +120,18 @@ O headset gamer H2002d, da Havit, é um fone over-ear com fio e microfone, pensa
 
 ## Notas e avaliações
 
-Na nota **4,9 de 5**, o headset reúne **28.420 opiniões**, e a barra de 5 estrelas é de longe a maior. É o 2º em Headsets, com mais de 100 mil vendidos.
-
-O resumo das opiniões do Mercado Livre cita som, isolamento, conforto e durabilidade; nos comentários, somam-se o microfone removível e o cabo trançado. Entre as notas baixas, o tema dominante é a durabilidade: aparelho que para de funcionar, microfone que falha ou som que some de um lado em poucas semanas ou meses. Aparecem também volume baixo, arco que aperta a cabeça e almofada que descasca. O grave e o arco firme dividem opiniões. Os relatos descrevem exemplares específicos.
+Na nota **4,9 de 5**, o headset reúne **28.420 opiniões**, e a barra de 5 estrelas é de longe a maior. É o 2º em Headsets, com mais de 100 mil vendidos, e a nota alta se repete numa base grande.
 
 <!-- tabela-comentarios -->
 
+<!-- tabela-atributos -->
+
 ## Preço
 
-O headset custa **R$ 164,00**. Headsets gamer com fio e conector P3, para PC e consoles, com nota de 4,7 a 4,9, vão de **R$ 108,90 a R$ 159,00**; o Havit fica **acima da faixa**.
+O headset custa **R$ 164,00**. A tabela traz quatro headsets gamer com fio e conector P3, para PC e consoles, com nota de 4,7 a 4,9.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Quem joga tiro e quer ouvir de onde vem cada passo, ou quer o microfone no próprio fone, encontra no H2002d o que os relatos elogiam. Para uso frequente, o cuidado está nas falhas de microfone e de um dos lados, que surgem nas primeiras semanas ou meses. Acima da faixa dos equivalentes, os dados do dia não mostram oferta maior em recursos; a queixa mais repetida entre as notas baixas é a durabilidade.
-
-Testar o microfone numa chamada e conferir se os dois lados soam iguais logo nas primeiras semanas ajuda, já que é quando as falhas aparecem nos relatos.
+Os compradores elogiam o som para jogos e o microfone removível, e a crítica mais repetida é a durabilidade, com falhas de microfone ou de um dos lados. O preço fica perto de 20% acima da média dos equivalentes, sem recurso a mais que apareça nos dados. Faz sentido considerar se você prioriza ouvir a direção do som nos jogos e aceita testar o fone logo nas primeiras semanas; se durabilidade longa for essencial, os relatos indicam que esse não é o ponto forte dele.

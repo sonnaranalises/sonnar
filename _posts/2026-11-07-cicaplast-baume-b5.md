@@ -15,6 +15,8 @@ products:
   - name: "Bálsamo reparador Cicaplast Baume B5+ La Roche-Posay 40 ml"
     price: "R$ 71,52"
     url: "https://meli.la/2xNE62Z"
+    image: "/assets/img/radar/2026-11-07-cicaplast-baume-b5.jpg"
+    image_alt: "Bálsamo reparador Cicaplast Baume B5+ La Roche-Posay 40 ml"
   - name: "Protetor solar facial com cor ISDIN Fusion Water Magic Color FPS 50 Clara 50 ml"
     price: "R$ 82,19"
     url: "https://meli.la/2Audubm"
@@ -29,11 +31,10 @@ products:
     url: "https://meli.la/32Ns6GC"
 resumo:
   avaliacoes: "4,9 de 5 em 122.968 opiniões, com cerca de 95% de notas 5 estrelas: uma base grande, que indica satisfação repetida."
-  ponto_forte: "hidratação e maciez, com textura leve que absorve rápido; também citado o alívio em pele sensível ou machucada."
-  ponto_atencao: "sensação oleosa, a queixa mais repetida sobre o produto; há também relatos de alergia e acne, em número menor."
-  preco: "R$ 71,52 pelo frasco de 40 ml, no meio da faixa dos cremes reparadores equivalentes."
-  util_para: "quer hidratar e acalmar pele sensível com textura leve."
-  atencao_de: "tem pele que brilha com facilidade ou já reagiu a cremes."
+  ponto_forte: "hidratação, textura leve e reparação da pele, segundo o resumo das opiniões; há relatos de alívio em pele sensível."
+  ponto_atencao: "as notas de 1 a 3 estrelas somam cerca de 2%; nelas aparecem oleosidade, alergia, acne e caixa sem lacre."
+  preco: "R$ 71,52 o frasco de 40 ml: custa mais que um dos dois equivalentes coletados e menos que o outro."
+  para_quem: "Os elogios lidos vêm de quem usa o creme para hidratar e acalmar pele sensível ou machucada. Pede atenção de quem procura um creme que não deixe sensação oleosa, a queixa de textura que aparece nas avaliações negativas."
 elogios:
   - "a pele absorve rápido não fica oleosa a pele fica super macia."
   - "Textura: leve e de fácil absorção na pele."
@@ -42,15 +43,45 @@ criticas:
   - "Deixa a pele com aspecto de oleosidade, muito."
   - "Tive alergia e achei muito oleoso."
   - "Textura: consistência mais rala e oleosa."
-regua_preco:
-  produto: 71.52
-  minimo: 59.16
-  maximo: 87.24
-  produto_txt: "R$ 71,52"
-  minimo_txt: "R$ 59,16"
-  maximo_txt: "R$ 87,24"
+atributos:
+  - atributo: "Hidratação"
+    o_que_dizem: "O resumo das opiniões destaca hidratação e pele mais macia."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Reparação da pele"
+    o_que_dizem: "O resumo das opiniões destaca a eficácia em reparar a pele."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Textura"
+    o_que_dizem: "O resumo das opiniões descreve textura leve e humectante."
+    frequencia: "segundo o resumo do Mercado Livre"
+  - atributo: "Sensação oleosa"
+    o_que_dizem: "Compradores relatam que o creme deixa a pele oleosa."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Reação na pele"
+    o_que_dizem: "Compradores relatam alergia, irritação ou espinhas depois do uso."
+    frequencia: "citado em avaliações negativas"
+  - atributo: "Lacre e embalagem"
+    o_que_dizem: "Compradores relatam caixa sem lacre, amassada ou vazando no recebimento; o tema aparece também em algumas notas 4 e 5."
+    frequencia: "citado em avaliações negativas"
+atributos_nota: "Parte dos atributos vem do resumo de opiniões do Mercado Livre; os marcados como citados em avaliações negativas vêm de opiniões de nota baixa lidas na coleta e não indicam proporção."
+precos:
+  data_coleta: "07/11/2026"
   unidade: "por frasco de 40 ml"
-  posicao: "no meio da faixa"
+  itens:
+    - produto: "Creme reparador Bioderma Cicabio Creme+ 40 ml"
+      preco_total: "R$ 87,24"
+      por_unidade: "R$ 87,24"
+      nota: "4,9 (3.096)"
+    - produto: "Bálsamo reparador Cicaplast Baume B5+ 40 ml"
+      preco_total: "R$ 71,52"
+      por_unidade: "R$ 71,52"
+      nota: "4,9 (122.968)"
+      analisado: true
+    - produto: "Creme reparador Avène Cicalfate+ 40 ml"
+      preco_total: "R$ 59,16"
+      por_unidade: "R$ 59,16"
+      nota: "4,9 (2.209)"
+  kpis:
+    preco_unidade: "R$ 71,52"
 fontes:
   coleta: "07/11/2026, até 01h57"
   equivalentes: "cremes reparadores de 40 ml vendidos no Mercado Livre, com nota 4,9, pelo preço exibido do frasco"
@@ -64,20 +95,18 @@ O bálsamo reparador Cicaplast Baume B5+, da La Roche-Posay, é um creme multirr
 
 ## Notas e avaliações
 
-O anúncio soma **122.968 opiniões** e nota **4,9 de 5**, com cerca de 95% de 5 estrelas. Numa base desse tamanho, a satisfação deixa de ser exceção e vira padrão.
-
-Os elogios se concentram em hidratação, maciez e textura que espalha e absorve com facilidade, além do alívio para pele sensível ou machucada. Entre as notas de 1 a 3 estrelas, que são poucas, o tema mais frequente sobre o creme é a sensação oleosa. Aparecem ainda falta de resultado e relatos de alergia ou acne. Há também comentários sobre caixa sem lacre, amassada ou vazando, que tratam do envio e da desconfiança de quem recebeu, e não do conteúdo.
+O produto soma **122.968 opiniões** e nota **4,9 de 5**, com cerca de 95% de 5 estrelas. Numa base desse tamanho, a nota alta indica satisfação repetida. As notas de 1 a 3 estrelas somam cerca de 2%.
 
 <!-- tabela-comentarios -->
 
+<!-- tabela-atributos -->
+
 ## Preço
 
-O frasco de 40 ml custa **R$ 71,52**. Cremes reparadores de 40 ml com nota 4,9 vão de **R$ 59,16 a R$ 87,24**; o Cicaplast fica **no meio da faixa**.
+O frasco de 40 ml custa **R$ 71,52**. A tabela mostra os dois cremes reparadores de 40 ml e nota 4,9 coletados no mesmo dia.
 
-<!-- regua-preco -->
+<!-- tabela-precos -->
 
 ## Conclusão
 
-Nos relatos, o Cicaplast se encaixa em quem procura hidratar a pele sensível com um creme leve e sem perfume. Quem se incomoda com brilho na pele encontra aí o ponto que separa os elogios das críticas, e algumas pessoas relatam alergia ou acne.
-
-Ao receber o frasco, vale conferir o lacre e a caixa: os relatos de problema nesse ponto aparecem no recebimento e, se acontecerem, são assunto para tratar com o vendedor.
+O resumo das opiniões destaca hidratação e reparação, e entre as avaliações negativas lidas aparecem a sensação oleosa e relatos de alergia. O preço fica entre os dois equivalentes de 40 ml, acima de um e abaixo do outro. Faz sentido considerar se você prioriza um creme reparador para pele sensível e aceita uma textura que pode deixar brilho; se pele sem oleosidade for essencial, os relatos indicam que esse não é o ponto forte dele.

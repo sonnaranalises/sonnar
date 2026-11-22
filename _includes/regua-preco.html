@@ -1,3 +1,4 @@
+{% unless page.precos %}
 {% if page.regua_preco %}
 {% assign r = page.regua_preco %}
 {% assign minimo = r.minimo | times: 1.0 %}
@@ -36,3 +37,4 @@
 {% endif %}
 {% endif %}
 {% endif %}
+{% endunless %}

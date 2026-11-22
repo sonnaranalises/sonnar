@@ -1,5 +1,6 @@
 {%- if page.resumo -%}
 {%- assign destaque = page.products | first -%}
+{%- assign para_quem = page.resumo.para_quem | append: "" | strip -%}
 <section class="resumo" aria-labelledby="resumo-titulo">
   <h2 id="resumo-titulo">Resumo</h2>
   <ul>
@@ -8,8 +9,18 @@
     <li><strong>Ponto de atenção:</strong> {{ page.resumo.ponto_atencao | escape }}</li>
     <li><strong>Preço:</strong> {{ page.resumo.preco | escape }}</li>
   </ul>
+  {%- if para_quem != "" -%}
+  <p>{{ page.resumo.para_quem | escape }}</p>
+  {%- else -%}
+  {%- assign util = page.resumo.util_para | append: "" | strip -%}
+  {%- assign atencao = page.resumo.atencao_de | append: "" | strip -%}
+  {%- if util != "" -%}
   <p>{% include resumo-linha.html rotulo="Útil para quem" texto=page.resumo.util_para %}</p>
+  {%- endif -%}
+  {%- if atencao != "" -%}
   <p>{% include resumo-linha.html rotulo="Pede atenção de quem" texto=page.resumo.atencao_de %}</p>
+  {%- endif -%}
+  {%- endif -%}
   {% include affiliate.html url=destaque.url posicao=1 produto=destaque.name local="resumo" %}
 </section>
 {%- endif -%}

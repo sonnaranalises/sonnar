@@ -1,0 +1,32 @@
+{%- assign n_atr = page.atributos | size -%}
+{%- if n_atr > 0 -%}
+{%- assign data_base = page.precos.data_coleta | default: page.fontes.coleta | append: "" | strip -%}
+<section class="atributos" aria-labelledby="atributos-titulo">
+  <h4 id="atributos-titulo">O que dizem sobre cada atributo</h4>
+  <div class="tabela-rolagem">
+    <table class="tabela tabela-atributos">
+      <thead>
+        <tr>
+          <th scope="col">Atributo</th>
+          <th scope="col">O que dizem</th>
+          <th scope="col">Frequência</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for item in page.atributos -%}
+        <tr>
+          <th scope="row">{{ item.atributo | escape }}</th>
+          <td>{{ item.o_que_dizem | escape }}</td>
+          <td class="freq">{{ item.frequencia | escape }}</td>
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+  <p class="tabela-nota">Base: comentários coletados{% if data_base != "" %} em {{ data_base | escape }}{% endif %}. É a percepção dos compradores, não um teste.</p>
+  {%- assign nota_atr = page.atributos_nota | append: "" | strip -%}
+  {%- if nota_atr != "" -%}
+  <p class="tabela-nota">{{ page.atributos_nota | escape }}</p>
+  {%- endif -%}
+</section>
+{%- endif -%}
